@@ -1,0 +1,402 @@
+import { useState, useMemo } from "react";
+import { useNavigate } from "react-router-dom";
+import { cn } from "../../../lib/utils";
+import { TopBar } from "../../../components/Header";
+
+const StaffRow = ({
+  staff,
+  onClick,
+}: {
+  staff: any;
+  onClick: (staff: any) => void;
+}) => {
+  const { name, id, role, department, performance, auraScore, status, img } =
+    staff;
+
+  const getStatusStyles = (status: string) => {
+    switch (status.toLowerCase()) {
+      case "active":
+        return "bg-pale-lime text-dark-blue-grey";
+      case "on leave":
+        return "bg-dark-blue-grey/20 text-dark-blue-grey/60";
+      case "remote":
+        return "bg-dark-blue-grey text-pale-lime";
+      default:
+        return "bg-dark-blue-grey/5 text-dark-blue-grey/50";
+    }
+  };
+
+  const getProgressColor = (percent: number) => {
+    if (percent > 85) return "bg-pale-lime";
+    if (percent > 70) return "bg-dark-blue-grey";
+    return "bg-dark-blue-grey/40";
+  };
+
+  return (
+    <tr
+      onClick={() => onClick(staff)}
+      className="hover:bg-dark-blue-grey/[0.02] transition-colors group cursor-pointer"
+    >
+      <td className="px-6 py-4">
+        <div className="flex items-center gap-3">
+          <div
+            className="size-8 rounded-full bg-cover bg-center border border-dark-blue-grey/10"
+            style={{ backgroundImage: `url("${img}")` }}
+          ></div>
+          <span className="text-sm font-bold text-dark-blue-grey group-hover:underline decoration-pale-lime underline-offset-4">
+            {name}
+          </span>
+        </div>
+      </td>
+      <td className="px-6 py-4 text-sm text-dark-blue-grey/50">{id}</td>
+      <td className="px-6 py-4 text-sm text-dark-blue-grey font-medium">
+        {role}
+      </td>
+      <td className="px-6 py-4 text-sm text-dark-blue-grey/60">{department}</td>
+      <td className="px-6 py-4">
+        <div className="flex items-center gap-2">
+          <div className="w-24 h-1.5 bg-dark-blue-grey/5 rounded-full overflow-hidden">
+            <div
+              className={cn(
+                "h-full transition-all",
+                getProgressColor(performance),
+              )}
+              style={{ width: `${performance}%` }}
+            ></div>
+          </div>
+          <span className="text-xs font-semibold text-dark-blue-grey/70">
+            {performance}%
+          </span>
+        </div>
+      </td>
+      <td className="px-6 py-4">
+        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-pale-lime/20 text-dark-blue-grey border border-pale-lime/30">
+          {auraScore}
+        </span>
+      </td>
+      <td className="px-6 py-4">
+        <span
+          className={cn(
+            "inline-flex items-center px-2 py-1 rounded-md text-[10px] font-black uppercase tracking-widest",
+            getStatusStyles(status),
+          )}
+        >
+          {status}
+        </span>
+      </td>
+      <td className="px-6 py-4 text-right">
+        <button className="text-dark-blue-grey/40 hover:text-dark-blue-grey transition-colors">
+          <span className="material-symbols-outlined text-xl">more_vert</span>
+        </button>
+      </td>
+    </tr>
+  );
+};
+
+export const StaffPage = ({
+  isHubChild,
+  externalStaff,
+  onAddStaff,
+}: {
+  isHubChild?: boolean;
+  externalStaff?: any[];
+  onAddStaff?: () => void;
+}) => {
+  const navigate = useNavigate();
+  const [searchTerm, setSearchTerm] = useState("");
+  const [deptFilter, setDeptFilter] = useState("Department (All)");
+  const [statusFilter, setStatusFilter] = useState("Status (All)");
+
+  const [internalStaff, setInternalStaff] = useState([
+    {
+      name: "Dr. Ananya Iyer",
+      id: "#ST-1024-001",
+      role: "Lead Teacher",
+      department: "Mathematics",
+      performance: 96,
+      auraScore: 98.4,
+      status: "Active",
+      img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
+      uid: "ananya-iyer",
+    },
+    {
+      name: "Rishi Deshmukh",
+      id: "#ST-1024-042",
+      role: "Senior Counselor",
+      department: "Student Affairs",
+      performance: 88,
+      auraScore: 91.2,
+      status: "Remote",
+      img: "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?w=400&h=400&fit=crop",
+      uid: "rishi-deshmukh",
+    },
+    {
+      name: "Pooja Trivedi",
+      id: "#ST-1024-118",
+      role: "Science Head",
+      department: "Natural Sciences",
+      performance: 92,
+      auraScore: 94.5,
+      status: "Active",
+      img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop",
+      uid: "pooja-trivedi",
+    },
+    {
+      name: "Arvind Swamy",
+      id: "#ST-1024-085",
+      role: "Department Lead",
+      department: "History",
+      performance: 79,
+      auraScore: 82.2,
+      status: "On Leave",
+      img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop",
+      uid: "arvind-swamy",
+    },
+  ]);
+
+  const staffMembers = externalStaff || internalStaff;
+
+  const handleAddStaff = () => {
+    if (onAddStaff) {
+      onAddStaff();
+      return;
+    }
+    const newStaff = {
+      name: "New Faculty Member",
+      id: `#ST-1024-${Math.floor(Math.random() * 900) + 100}`,
+      role: "Assistant Professor",
+      department: "General Education",
+      performance: 90,
+      auraScore: 85.0,
+      status: "Active",
+      img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop",
+      uid: `new-staff-${Date.now()}`,
+    };
+    setInternalStaff((prev) => [newStaff, ...prev]);
+  };
+
+  const filteredStaff = useMemo(() => {
+    return staffMembers.filter((staff) => {
+      const matchesSearch =
+        staff.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        staff.id.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        staff.role.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        staff.department.toLowerCase().includes(searchTerm.toLowerCase());
+
+      const matchesDept =
+        deptFilter === "Department (All)" ||
+        staff.department.includes(deptFilter) ||
+        (deptFilter === "Science" && staff.department === "Natural Sciences");
+
+      const matchesStatus =
+        statusFilter === "Status (All)" || staff.status === statusFilter;
+
+      return matchesSearch && matchesDept && matchesStatus;
+    });
+  }, [searchTerm, deptFilter, statusFilter]);
+
+  return (
+    <div
+      className={cn(
+        "flex-1 flex flex-col overflow-hidden",
+        !isHubChild && "h-screen",
+      )}
+    >
+      {!isHubChild && (
+        <TopBar
+          title="Institutional Staff Directory"
+          subtitle="Manage faculty profiles, performance metrics, and departmental organization."
+          actions={
+            <>
+              <button className="bg-white border border-dark-blue-grey/10 text-dark-blue-grey px-4 py-2 rounded-lg text-sm font-bold flex items-center gap-2 hover:bg-dark-blue-grey/5 shadow-sm transition-all">
+                <span className="material-symbols-outlined text-sm">
+                  upload_file
+                </span>
+                Bulk CSV Import
+              </button>
+              <button
+                onClick={handleAddStaff}
+                className="bg-pale-lime text-dark-blue-grey px-4 py-2 rounded-lg text-sm font-bold flex items-center gap-2 hover:opacity-90 shadow-sm transition-all active:scale-95"
+              >
+                <span className="material-symbols-outlined text-sm">
+                  person_add
+                </span>
+                Onboard Staff
+              </button>
+            </>
+          }
+        />
+      )}
+
+      <div className="flex-1 overflow-y-auto p-8 space-y-6 bg-dark-blue-grey/[0.01]">
+        {/* Quick Stats */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {[
+            {
+              label: "Total Staff",
+              value: "148",
+              color: "text-dark-blue-grey",
+            },
+            {
+              label: "Departments",
+              value: "12",
+              color: "text-dark-blue-grey",
+            },
+            {
+              label: "Instructional Quality",
+              value: "94%",
+              color: "text-pale-lime",
+            },
+            { label: "On Leave", value: "05", color: "text-red-500" },
+          ].map((stat, i) => (
+            <div
+              key={i}
+              className="bg-white p-5 rounded-xl border border-dark-blue-grey/10 shadow-sm"
+            >
+              <p className="text-dark-blue-grey/40 text-xs font-bold uppercase tracking-wider mb-1">
+                {stat.label}
+              </p>
+              <p className={cn("text-2xl font-black", stat.color)}>
+                {stat.value}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        {/* Search and Filters */}
+        <div className="bg-white p-4 rounded-xl border border-dark-blue-grey/10 shadow-sm flex flex-wrap gap-4 items-center">
+          <div className="flex-1 min-w-[300px]">
+            <div className="relative group">
+              <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-dark-blue-grey/30 group-focus-within:text-dark-blue-grey transition-colors">
+                search
+              </span>
+              <input
+                className="w-full bg-dark-blue-grey/[0.03] border-none rounded-lg pl-10 pr-4 py-2.5 text-sm focus:ring-2 focus:ring-pale-lime text-dark-blue-grey placeholder-dark-blue-grey/30"
+                placeholder="Search staff by name, role, or ID..."
+                type="text"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
+            </div>
+          </div>
+          <div className="flex items-center gap-3">
+            <select
+              value={deptFilter}
+              onChange={(e) => setDeptFilter(e.target.value)}
+              className="bg-white border border-dark-blue-grey/10 rounded-lg text-sm px-3 py-2 text-dark-blue-grey focus:ring-pale-lime outline-none"
+            >
+              <option>Department (All)</option>
+              <option>Mathematics</option>
+              <option>Science</option>
+              <option>Languages</option>
+              <option>Administration</option>
+              <option>Student Affairs</option>
+            </select>
+            <select
+              value={statusFilter}
+              onChange={(e) => setStatusFilter(e.target.value)}
+              className="bg-white border border-dark-blue-grey/10 rounded-lg text-sm px-3 py-2 text-dark-blue-grey focus:ring-pale-lime outline-none"
+            >
+              <option>Status (All)</option>
+              <option>Active</option>
+              <option>On Leave</option>
+              <option>Remote</option>
+            </select>
+            <button className="p-2 border border-dark-blue-grey/10 rounded-lg hover:bg-dark-blue-grey/5 transition-colors">
+              <span className="material-symbols-outlined text-dark-blue-grey/40 text-lg">
+                filter_list
+              </span>
+            </button>
+          </div>
+        </div>
+
+        {/* Data Table */}
+        <div className="bg-white rounded-xl border border-dark-blue-grey/10 shadow-sm overflow-hidden">
+          <div className="overflow-x-auto">
+            <table className="w-full text-left border-collapse">
+              <thead className="bg-dark-blue-grey/[0.02] border-b border-dark-blue-grey/10">
+                <tr>
+                  <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-dark-blue-grey/40">
+                    Staff Member
+                  </th>
+                  <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-dark-blue-grey/40">
+                    ID
+                  </th>
+                  <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-dark-blue-grey/40">
+                    Role
+                  </th>
+                  <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-dark-blue-grey/40">
+                    Department
+                  </th>
+                  <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-dark-blue-grey/40">
+                    Instructional Quality
+                  </th>
+                  <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-dark-blue-grey/40">
+                    Aura Score
+                  </th>
+                  <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-dark-blue-grey/40">
+                    Status
+                  </th>
+                  <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-dark-blue-grey/40 text-right">
+                    Actions
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-dark-blue-grey/5">
+                {filteredStaff.map((staff) => (
+                  <StaffRow
+                    key={staff.id}
+                    staff={staff}
+                    onClick={(s) => navigate(`/staff/${s.id.replace("#", "")}`)}
+                  />
+                ))}
+                {filteredStaff.length === 0 && (
+                  <tr>
+                    <td
+                      colSpan={8}
+                      className="px-6 py-12 text-center text-dark-blue-grey/30 text-sm font-medium"
+                    >
+                      No staff members match your current filters.
+                    </td>
+                  </tr>
+                )}
+              </tbody>
+            </table>
+          </div>
+
+          {/* Pagination Footer */}
+          <div className="bg-dark-blue-grey/[0.02] px-6 py-4 flex items-center justify-between border-t border-dark-blue-grey/10">
+            <p className="text-xs text-dark-blue-grey/40 font-medium">
+              Showing {filteredStaff.length} of {staffMembers.length} staff
+              members
+            </p>
+            <div className="flex items-center gap-2">
+              <button
+                className="size-8 flex items-center justify-center rounded border border-dark-blue-grey/10 bg-white text-dark-blue-grey/40 disabled:opacity-50"
+                disabled
+              >
+                <span className="material-symbols-outlined text-sm">
+                  chevron_left
+                </span>
+              </button>
+              <button className="size-8 flex items-center justify-center rounded border border-pale-lime bg-pale-lime text-dark-blue-grey text-xs font-bold shadow-sm">
+                1
+              </button>
+              <button className="size-8 flex items-center justify-center rounded border border-dark-blue-grey/10 bg-white text-xs font-bold hover:bg-dark-blue-grey/5 transition-colors">
+                2
+              </button>
+              <button className="size-8 flex items-center justify-center rounded border border-dark-blue-grey/10 bg-white text-xs font-bold hover:bg-dark-blue-grey/5 transition-colors">
+                3
+              </button>
+              <button className="size-8 flex items-center justify-center rounded border border-dark-blue-grey/10 bg-white text-dark-blue-grey/40 hover:bg-dark-blue-grey/5 transition-colors">
+                <span className="material-symbols-outlined text-sm">
+                  chevron_right
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
