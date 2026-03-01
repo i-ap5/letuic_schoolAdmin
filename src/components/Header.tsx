@@ -11,47 +11,50 @@ export const TopBar = ({
     actions?: ReactNode;
     onBack?: () => void;
 }) => {
-    const today = new Date().toLocaleDateString("en-US", {
-        month: "short",
-        day: "2-digit",
+    const now = new Date();
+    const greeting =
+        now.getHours() < 12 ? "Good Morning" : now.getHours() < 17 ? "Good Afternoon" : "Good Evening";
+    const dateStr = now.toLocaleDateString("en-IN", {
+        weekday: "long",
+        day: "numeric",
+        month: "long",
         year: "numeric",
     });
 
     return (
-        <header className="h-[80px] border-b border-slate-200 bg-white/80 backdrop-blur-md flex items-center justify-between px-6 lg:px-10 shrink-0 sticky top-0 z-50">
+        <header className="border-b border-slate-100 bg-white flex items-center justify-between px-8 py-5 shrink-0 sticky top-0 z-40">
             <div className="flex items-center gap-4">
                 {onBack && (
                     <button
                         onClick={onBack}
-                        className="p-2.5 hover:bg-slate-100 rounded-xl transition-colors group border border-transparent hover:border-slate-200"
+                        className="p-2 hover:bg-slate-100 rounded-xl transition-colors"
                     >
-                        <span className="material-symbols-outlined text-slate-400 group-hover:text-secondary transition-colors">
+                        <span className="material-symbols-outlined text-slate-400 hover:text-secondary">
                             arrow_back
                         </span>
                     </button>
                 )}
-                <div className="flex flex-col">
-                    <h2 className="text-[24px] font-bold tracking-tight text-secondary leading-none">
+                <div className="flex flex-col gap-0.5">
+                    <p className="text-slate-400 text-[13px] font-medium">{greeting}, Dr. Priya</p>
+                    <h2 className="text-xl font-semibold tracking-tight text-secondary leading-tight">
                         {title}
                     </h2>
-                    {subtitle && (
-                        <p className="text-slate-400 text-[13px] font-medium mt-1.5 flex items-center gap-2">
-                            <span className="w-1 h-1 rounded-full bg-primary animate-pulse" />
-                            {subtitle}
-                        </p>
-                    )}
                 </div>
             </div>
-            <div className="flex items-center gap-6">
+            <div className="flex items-center gap-3">
                 {actions}
-                <div className="hidden sm:flex items-center gap-3 px-4 py-2.5 bg-slate-50 border border-slate-100 rounded-2xl text-slate-600 hover:bg-white hover:shadow-md transition-all cursor-default">
-                    <span className="material-symbols-outlined text-[18px] text-primary">
+                <div className="h-10 px-4 bg-slate-50 border border-slate-100 rounded-xl flex items-center gap-2 text-slate-500">
+                    <span className="material-symbols-outlined text-[16px]">
                         calendar_today
                     </span>
-                    <span className="text-[13px] font-bold text-secondary">
-                        {today}
+                    <span className="text-[13px] font-medium">
+                        {dateStr}
                     </span>
                 </div>
+                <button className="relative h-10 w-10 bg-slate-50 border border-slate-100 rounded-xl flex items-center justify-center text-slate-500 hover:bg-slate-100 transition-colors">
+                    <span className="material-symbols-outlined text-[20px]">notifications</span>
+                    <span className="absolute -top-1 -right-1 w-4 h-4 bg-rose-500 rounded-full text-[9px] text-white font-bold flex items-center justify-center">3</span>
+                </button>
             </div>
         </header>
     );
@@ -67,16 +70,16 @@ export const Header = ({
     actions?: ReactNode;
 }) => {
     return (
-        <div className="flex flex-wrap justify-between items-end gap-6 mb-12">
-            <div className="flex flex-col gap-2">
-                <h1 className="text-secondary text-4xl font-bold tracking-tighter">
+        <div className="flex flex-wrap justify-between items-end gap-4 mb-8">
+            <div className="flex flex-col gap-1">
+                <h1 className="text-secondary text-2xl font-semibold tracking-tight">
                     {title}
                 </h1>
-                <p className="text-slate-400 text-lg font-medium max-w-2xl">
+                <p className="text-slate-400 text-sm font-medium">
                     {subtitle}
                 </p>
             </div>
-            {actions && <div className="flex items-center gap-4">{actions}</div>}
+            {actions && <div className="flex items-center gap-3">{actions}</div>}
         </div>
     );
 };

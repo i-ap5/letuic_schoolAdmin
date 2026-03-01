@@ -1,65 +1,55 @@
 export const ParticipationOverview = () => {
+    const attendanceData = [
+        { label: "Present", count: 1068, percentage: 86, color: "bg-emerald-400" },
+        { label: "Absent", count: 124, percentage: 10, color: "bg-rose-400" },
+        { label: "Late", count: 48, percentage: 4, color: "bg-amber-400" },
+    ];
+
     return (
-        <section className="bg-white rounded-[24px] border border-slate-200 p-6 h-full flex flex-col shadow-sm shadow-slate-100/50">
-            <div className="flex flex-wrap justify-between items-start mb-8 gap-4">
-                <div className="flex flex-col gap-1">
-                    <h2 className="text-secondary text-xl font-semibold tracking-tight flex items-center gap-2">
-                        <span className="material-symbols-outlined text-primary text-[24px]">
-                            monitoring
-                        </span>
-                        Participation Insights
-                    </h2>
-                    <p className="text-slate-400 text-xs font-medium pl-8">School-wide engagement tracking</p>
+        <div className="bg-white rounded-2xl border border-slate-100 p-6 h-full flex flex-col">
+            <div className="flex items-center justify-between mb-6">
+                <div>
+                    <h3 className="text-secondary text-[15px] font-semibold">Today's Attendance</h3>
+                    <p className="text-slate-400 text-xs font-medium mt-0.5">1,240 total students</p>
                 </div>
-                <div className="flex items-center gap-2 bg-slate-50 p-1.5 rounded-xl border border-slate-100">
-                    <span className="text-[11px] font-bold text-slate-400 uppercase tracking-widest pl-2">
-                        Target: <span className="text-secondary">90%</span>
-                    </span>
-                    <span className="text-[11px] font-bold text-emerald-600 px-2 py-1 rounded-lg bg-emerald-50 border border-emerald-100/50">
-                        Current: 84%
-                    </span>
+                <span className="text-[11px] font-medium text-emerald-600 bg-emerald-50 border border-emerald-100 px-2.5 py-1 rounded-lg">
+                    86% Present
+                </span>
+            </div>
+
+            {/* Donut visual */}
+            <div className="flex items-center justify-center py-4 flex-1">
+                <div className="relative">
+                    <svg width="140" height="140" viewBox="0 0 140 140" className="transform -rotate-90">
+                        <circle cx="70" cy="70" r="56" fill="none" stroke="#f1f5f9" strokeWidth="14" />
+                        <circle cx="70" cy="70" r="56" fill="none" stroke="#34d399" strokeWidth="14"
+                            strokeDasharray={`${86 * 3.52} ${(100 - 86) * 3.52}`} strokeLinecap="round" />
+                        <circle cx="70" cy="70" r="56" fill="none" stroke="#fb7185" strokeWidth="14"
+                            strokeDasharray={`${10 * 3.52} ${(100 - 10) * 3.52}`}
+                            strokeDashoffset={`${-(86) * 3.52}`} strokeLinecap="round" />
+                        <circle cx="70" cy="70" r="56" fill="none" stroke="#fbbf24" strokeWidth="14"
+                            strokeDasharray={`${4 * 3.52} ${(100 - 4) * 3.52}`}
+                            strokeDashoffset={`${-(86 + 10) * 3.52}`} strokeLinecap="round" />
+                    </svg>
+                    <div className="absolute inset-0 flex flex-col items-center justify-center">
+                        <span className="text-2xl font-semibold text-secondary">86%</span>
+                        <span className="text-[10px] text-slate-400 font-medium uppercase tracking-wider">Present</span>
+                    </div>
                 </div>
             </div>
 
-            <div className="flex flex-col gap-8 flex-1">
-                <div className="space-y-4">
-                    <div className="flex justify-between items-end">
-                        <div className="flex flex-col gap-1">
-                            <span className="text-xs font-bold text-slate-400 uppercase tracking-widest transition-colors group-hover:text-secondary">Engagement distribution</span>
-                            <span className="text-2xl font-bold text-secondary tracking-tight">84% Reach</span>
-                        </div>
-                        <div className="text-right">
-                            <span className="text-[10px] font-black text-emerald-500 uppercase tracking-widest bg-emerald-50 px-2 py-1 rounded-md border border-emerald-100/50">+5.4%</span>
+            {/* Breakdown */}
+            <div className="flex items-center gap-6 pt-4 border-t border-slate-50">
+                {attendanceData.map((item) => (
+                    <div key={item.label} className="flex items-center gap-2">
+                        <span className={`w-2.5 h-2.5 rounded-full ${item.color}`}></span>
+                        <div className="flex flex-col">
+                            <span className="text-[11px] text-slate-400 font-medium">{item.label}</span>
+                            <span className="text-[13px] text-secondary font-semibold">{item.count}</span>
                         </div>
                     </div>
-                    <div className="h-4 w-full bg-slate-100 rounded-full overflow-hidden p-1 border border-slate-200/50">
-                        <div className="h-full bg-primary rounded-full shadow-sm" style={{ width: "84%" }}></div>
-                    </div>
-                </div>
-
-                <div className="grid grid-cols-3 gap-3 mt-auto">
-                    {[
-                        { label: 'Events', value: '92%', tag: 'High', color: 'emerald' },
-                        { label: 'Internal', value: '76%', tag: 'Stable', color: 'blue' },
-                        { label: 'Volunteer', value: '64%', tag: 'Low', color: 'amber' }
-                    ].map((item) => (
-                        <div key={item.label} className="bg-slate-50/50 border border-slate-100 rounded-2xl p-4 flex flex-col gap-1 hover:bg-white hover:shadow-md transition-all cursor-default">
-                            <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
-                                {item.label}
-                            </p>
-                            <p className="text-xl font-bold text-secondary">
-                                {item.value}
-                            </p>
-                            <span className={`text-[9px] w-fit font-bold px-1.5 py-0.5 rounded-md border mt-1 uppercase tracking-tighter
-                ${item.color === 'emerald' ? 'bg-emerald-50 text-emerald-600 border-emerald-100' :
-                                    item.color === 'blue' ? 'bg-blue-50 text-blue-600 border-blue-100' :
-                                        'bg-amber-50 text-amber-600 border-amber-100'}`}>
-                                {item.tag}
-                            </span>
-                        </div>
-                    ))}
-                </div>
+                ))}
             </div>
-        </section>
+        </div>
     );
 };

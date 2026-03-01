@@ -1,110 +1,43 @@
-import { cn } from "../../../lib/utils";
-
 export const ProgramsTable = () => {
-    const programs = [
-        {
-            name: "Regional Science Fair",
-            phase: "Competition Phase",
-            teacher: "Dr. C.V. Raman",
-            status: "Active",
-            progress: 75,
-        },
-        {
-            name: "District Athletics League",
-            phase: "Qualifying Round",
-            teacher: "Coach Rathore",
-            status: "Warning",
-            progress: 42,
-        },
-        {
-            name: "Inter-High Arts Expo",
-            phase: "Setup & Registration",
-            teacher: "Ms. Amrita Sher-Gil",
-            status: "Planning",
-            progress: 15,
-        },
+    const events = [
+        { name: "Regional Science Fair", date: "Mar 05", type: "Competition", teacher: "Dr. C.V. Raman", daysLeft: 4 },
+        { name: "PTA General Meeting", date: "Mar 08", type: "Meeting", teacher: "Admin Office", daysLeft: 7 },
+        { name: "Term 2 Examinations", date: "Mar 15", type: "Exam", teacher: "All Teachers", daysLeft: 14 },
+        { name: "Inter-High Arts Expo", date: "Mar 22", type: "Event", teacher: "Ms. Amrita", daysLeft: 21 },
     ];
 
+    const typeColors: Record<string, string> = {
+        Competition: "bg-blue-50 text-blue-600 border-blue-100",
+        Meeting: "bg-violet-50 text-violet-600 border-violet-100",
+        Exam: "bg-rose-50 text-rose-600 border-rose-100",
+        Event: "bg-amber-50 text-amber-600 border-amber-100",
+    };
+
     return (
-        <div className="bg-white rounded-[24px] border border-slate-200 overflow-hidden shadow-sm">
-            <div className="overflow-x-auto">
-                <table className="w-full text-left border-collapse min-w-[600px]">
-                    <thead>
-                        <tr className="bg-slate-50/50 border-b border-slate-100">
-                            <th className="px-6 py-4 text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em]">
-                                Program Name
-                            </th>
-                            <th className="px-6 py-4 text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em]">
-                                Lead Teacher
-                            </th>
-                            <th className="px-6 py-4 text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em]">
-                                Status
-                            </th>
-                            <th className="px-6 py-4 text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em] text-right">
-                                Progress
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody className="divide-y divide-slate-50">
-                        {programs.map((program, idx) => (
-                            <tr
-                                key={idx}
-                                className="hover:bg-slate-50/30 transition-colors group cursor-pointer"
-                            >
-                                <td className="px-6 py-5">
-                                    <div className="flex flex-col gap-0.5">
-                                        <span className="text-[15px] font-bold text-secondary group-hover:text-primary transition-colors">
-                                            {program.name}
-                                        </span>
-                                        <span className="text-[12px] font-medium text-slate-400">
-                                            {program.phase}
-                                        </span>
-                                    </div>
-                                </td>
-                                <td className="px-6 py-5">
-                                    <span className="text-[14px] font-semibold text-slate-600">
-                                        {program.teacher}
-                                    </span>
-                                </td>
-                                <td className="px-6 py-5">
-                                    <span
-                                        className={cn(
-                                            "inline-flex items-center px-3 py-1.5 rounded-xl text-[10px] font-bold uppercase tracking-widest border transition-all",
-                                            program.status === "Active"
-                                                ? "bg-emerald-50 text-emerald-600 border-emerald-100/50"
-                                                : program.status === "Warning"
-                                                    ? "bg-amber-50 text-amber-600 border-amber-100/50"
-                                                    : "bg-slate-50 text-slate-500 border-slate-200/50"
-                                        )}
-                                    >
-                                        {program.status}
-                                    </span>
-                                </td>
-                                <td className="px-6 py-5">
-                                    <div className="flex items-center justify-end gap-4">
-                                        <div className="w-24 h-2 bg-slate-100 rounded-full overflow-hidden p-0.5 border border-slate-200/30">
-                                            <div
-                                                className={cn(
-                                                    "h-full rounded-full transition-all duration-1000 ease-out",
-                                                    program.progress >= 70
-                                                        ? "bg-emerald-400"
-                                                        : program.progress >= 40
-                                                            ? "bg-amber-400"
-                                                            : "bg-slate-300"
-                                                )}
-                                                style={{ width: `${program.progress}%` }}
-                                            ></div>
-                                        </div>
-                                        <span className="text-[13px] font-bold text-secondary w-8 text-right">
-                                            {program.progress}%
-                                        </span>
-                                    </div>
-                                </td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
-            </div>
+        <div className="flex flex-col gap-3">
+            {events.map((event, idx) => (
+                <div key={idx} className="flex items-center gap-4 py-3 px-1 border-b border-slate-50 last:border-0 hover:bg-slate-50/30 rounded-lg transition-colors cursor-pointer -mx-1">
+                    <div className="flex flex-col items-center justify-center w-12 shrink-0">
+                        <span className="text-[11px] text-slate-400 font-medium uppercase">{event.date.split(" ")[0]}</span>
+                        <span className="text-lg font-semibold text-secondary leading-tight">{event.date.split(" ")[1]}</span>
+                    </div>
+
+                    <div className="h-8 w-px bg-slate-100 shrink-0" />
+
+                    <div className="flex-1 min-w-0">
+                        <p className="text-[13px] font-medium text-secondary truncate">{event.name}</p>
+                        <p className="text-[11px] text-slate-400 mt-0.5">{event.teacher}</p>
+                    </div>
+
+                    <span className={`text-[10px] font-medium px-2 py-1 rounded-lg border shrink-0 ${typeColors[event.type] || "bg-slate-50 text-slate-500 border-slate-200"}`}>
+                        {event.type}
+                    </span>
+
+                    <span className="text-[11px] text-slate-300 font-medium w-12 text-right shrink-0">
+                        {event.daysLeft}d left
+                    </span>
+                </div>
+            ))}
         </div>
     );
 };

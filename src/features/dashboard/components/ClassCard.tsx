@@ -27,61 +27,52 @@ export const ClassCard = ({
     <div
       onClick={onClick}
       className={cn(
-        "bg-white border border-slate-200 rounded-[24px] p-6 hover:border-primary/50 hover:shadow-xl hover:shadow-slate-200/40 transition-all duration-300 cursor-pointer group flex flex-col justify-between min-h-[220px]",
-        !onClick && "cursor-default group-hover:border-slate-200"
+        "flex items-center gap-4 bg-white border border-slate-100 rounded-2xl px-5 py-4 transition-all cursor-pointer hover:shadow-sm hover:border-slate-200",
+        !onClick && "cursor-default"
       )}
     >
-      <div className="flex justify-between items-start mb-6 w-full">
-        <div className="flex flex-col gap-1">
-          <span className="text-[12px] font-bold text-slate-300 uppercase tracking-[0.2em] leading-none">
-            {grade}
-          </span>
-          <span className="text-[20px] font-bold text-secondary tracking-tight group-hover:text-primary transition-colors">
-            Section {section}
-          </span>
-        </div>
-        <span
-          className={cn(
-            "inline-flex items-center px-3 py-1.5 rounded-xl text-[10px] font-bold uppercase tracking-widest border transition-colors",
-            statusType === "normal" && "bg-emerald-50 text-emerald-600 border-emerald-100",
-            statusType === "attention" && "bg-amber-50 text-amber-600 border-amber-100",
-            statusType === "risk" && "bg-rose-50 text-rose-600 border-rose-100",
-          )}
-        >
-          {status}
-        </span>
+      <div className={cn(
+        "w-10 h-10 rounded-xl flex items-center justify-center text-[13px] font-semibold shrink-0",
+        statusType === "risk" && "bg-rose-50 text-rose-600",
+        statusType === "attention" && "bg-amber-50 text-amber-600",
+        statusType === "normal" && "bg-emerald-50 text-emerald-600",
+      )}>
+        {section}
       </div>
 
-      <div className="space-y-4">
-        <div className="flex items-center justify-between pb-4 border-b border-slate-50 gap-4">
-          <div className="flex flex-col gap-0.5">
-            <p className="text-[10px] font-bold text-slate-300 uppercase tracking-widest">Teacher</p>
-            <p className="text-[14px] font-semibold text-secondary truncate max-w-[120px]">{teacher}</p>
-          </div>
-          <div className="flex flex-col gap-0.5 text-right">
-            <p className="text-[10px] font-bold text-slate-300 uppercase tracking-widest">Students</p>
-            <p className="text-[14px] font-semibold text-secondary">{students}</p>
-          </div>
+      <div className="flex-1 min-w-0">
+        <div className="flex items-center gap-2">
+          <p className="text-[14px] font-medium text-secondary truncate">
+            {grade} – {section}
+          </p>
+          <span className={cn(
+            "text-[10px] font-medium px-2 py-0.5 rounded-md border uppercase tracking-wider shrink-0",
+            statusType === "risk" && "bg-rose-50 text-rose-500 border-rose-100",
+            statusType === "attention" && "bg-amber-50 text-amber-500 border-amber-100",
+            statusType === "normal" && "bg-emerald-50 text-emerald-500 border-emerald-100",
+          )}>
+            {status}
+          </span>
         </div>
+        <p className="text-[12px] text-slate-400 mt-0.5">{teacher} · {students} students · {room}</p>
+      </div>
 
-        <div className="flex flex-col gap-2">
-          <div className="flex justify-between items-end">
-            <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Participation</span>
-            <span className={cn(
-              "text-[14px] font-bold transition-colors",
-              participation < 70 ? "text-rose-500" : "text-emerald-500"
-            )}>{participation}%</span>
-          </div>
-          <div className="h-2 w-full bg-slate-50 rounded-full overflow-hidden p-0.5 border border-slate-100">
-            <div
-              className={cn(
-                "h-full rounded-full transition-all duration-1000 ease-out",
-                participation < 70 ? "bg-rose-400" : "bg-primary",
-              )}
-              style={{ width: `${participation}%` }}
-            ></div>
-          </div>
+      <div className="flex items-center gap-2 shrink-0">
+        <div className="w-16 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+          <div
+            className={cn(
+              "h-full rounded-full",
+              participation < 70 ? "bg-rose-400" : "bg-primary"
+            )}
+            style={{ width: `${participation}%` }}
+          />
         </div>
+        <span className={cn(
+          "text-[12px] font-medium w-8 text-right",
+          participation < 70 ? "text-rose-500" : "text-emerald-600"
+        )}>
+          {participation}%
+        </span>
       </div>
     </div>
   );
