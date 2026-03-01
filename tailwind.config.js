@@ -63,7 +63,7 @@ export default {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       fontFamily: {
-        sans: ["Poppins", "Public Sans", "sans-serif"],
+        sans: ["DM Sans", "Public Sans", "sans-serif"],
       },
     },
   },

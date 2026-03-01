@@ -18,7 +18,7 @@ import { DriverProfilePage } from "./features/transportation/pages/DriverProfile
 
 function App() {
   return (
-    <div className="bg-white text-dark-blue-grey font-sans h-screen flex overflow-hidden">
+    <div className="bg-slate-50 text-slate-800 font-sans h-screen flex overflow-hidden">
       <Sidebar />
       <main className="flex-1 flex overflow-hidden">
         <Routes>

@@ -11,100 +11,61 @@ export const AlertItem = ({
   time: string;
   action?: string;
 }) => {
-  if (type === "urgent") {
-    return (
-      <div className="p-4 bg-dark-blue-grey border border-dark-blue-grey rounded-xl shadow-sm">
-        <div className="flex items-start gap-3">
-          <div className="bg-pale-lime p-1.5 rounded-lg text-dark-blue-grey">
-            <span className="material-symbols-outlined text-sm">
-              priority_high
-            </span>
-          </div>
-          <div className="flex flex-col flex-1">
-            <div className="flex justify-between items-center">
-              <span className="text-xs font-bold text-pale-lime uppercase tracking-wider">
-                Urgent Alert
-              </span>
-              <span className="text-[10px] text-white/50">{time}</span>
-            </div>
-            <p className="text-sm font-bold text-white mt-1">{title}</p>
-            <p className="text-xs text-white/70 mt-0.5 leading-relaxed">
-              {message}
-            </p>
-            {action && (
-              <button className="mt-2 text-xs font-bold text-pale-lime flex items-center gap-1 hover:underline">
-                {action}{" "}
-                <span className="material-symbols-outlined text-[12px]">
-                  chevron_right
-                </span>
-              </button>
-            )}
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  if (type === "notice") {
-    return (
-      <div className="p-4 bg-pale-lime border border-pale-lime rounded-xl shadow-sm">
-        <div className="flex items-start gap-3">
-          <div className="bg-dark-blue-grey p-1.5 rounded-lg text-white">
-            <span className="material-symbols-outlined text-sm">
-              notifications
-            </span>
-          </div>
-          <div className="flex flex-col flex-1">
-            <div className="flex justify-between items-center">
-              <span className="text-xs font-bold text-dark-blue-grey uppercase tracking-wider">
-                Notice
-              </span>
-              <span className="text-[10px] text-dark-blue-grey/60">{time}</span>
-            </div>
-            <p className="text-sm font-bold text-dark-blue-grey mt-1">
-              {title}
-            </p>
-            <p className="text-xs text-dark-blue-grey/80 mt-0.5 leading-relaxed">
-              {message}
-            </p>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
   return (
-    <div className="p-4 bg-white border border-dark-blue-grey/10 rounded-xl shadow-sm">
-      <div className="flex items-start gap-3">
-        <div className="bg-pale-lime p-1.5 rounded-lg text-dark-blue-grey">
-          <span className="material-symbols-outlined text-sm">info</span>
-        </div>
-        <div className="flex flex-col flex-1">
-          <div className="flex justify-between items-center">
-            <span className="text-xs font-bold text-dark-blue-grey/60 uppercase tracking-wider">
-              System Info
+    <div className="flex flex-col gap-1 py-4 border-b border-slate-100 last:border-0 hover:bg-slate-50/50 transition-colors px-1">
+      <div className="flex justify-between items-start mb-0.5">
+        <div className="flex items-center gap-2">
+          {type === "urgent" && (
+            <span className="bg-rose-50 text-rose-600 border border-rose-100 px-2 py-0.5 rounded-md text-[10px] font-semibold uppercase tracking-widest shrink-0">
+              Important
             </span>
-            <span className="text-[10px] text-dark-blue-grey/40">{time}</span>
-          </div>
-          <p className="text-sm font-bold text-dark-blue-grey mt-1">{title}</p>
-          <p className="text-xs text-dark-blue-grey/70 mt-0.5 leading-relaxed">
-            {message}
-          </p>
+          )}
+          {type === "notice" && (
+            <span className="bg-amber-50 text-amber-600 border border-amber-100 px-2 py-0.5 rounded-md text-[10px] font-semibold uppercase tracking-widest shrink-0">
+              Warning
+            </span>
+          )}
+          {type === "info" && (
+            <span className="bg-slate-50 text-slate-500 border border-slate-200 px-2 py-0.5 rounded-md text-[10px] font-semibold uppercase tracking-widest shrink-0">
+              Info
+            </span>
+          )}
+          <span className="text-[11px] font-medium text-slate-400 shrink-0">{time}</span>
         </div>
       </div>
+      <p className="text-[14px] font-semibold text-secondary leading-tight mt-0.5">
+        {title}
+      </p>
+      <p className="text-[13px] text-slate-500 leading-relaxed max-w-[95%]">
+        {message}
+      </p>
+      {action && (
+        <button className="text-[12px] font-semibold text-primary hover:text-primary/80 transition-colors w-fit mt-1.5 flex items-center gap-1 group">
+          {action}
+          <span className="material-symbols-outlined text-[14px] group-hover:translate-x-0.5 transition-transform">east</span>
+        </button>
+      )}
     </div>
   );
 };
 
 export const AlertsSection = () => {
   return (
-    <div className="flex flex-col gap-4">
-      <div className="flex items-center justify-between px-2">
-        <h2 className="text-dark-blue-grey text-xl font-bold tracking-tight">
-          Alerts & Flagged Activity
-        </h2>
+    <div className="bg-white border border-slate-200 rounded-[20px] p-5 flex flex-col">
+      <div className="flex items-center justify-between mb-4">
+        <div className="flex items-center gap-2">
+          <span className="material-symbols-outlined text-primary text-[22px]">
+            inbox
+          </span>
+          <h2 className="text-secondary text-lg font-semibold tracking-tight">
+            Inbox Activity
+          </h2>
+        </div>
+        <button className="text-primary text-[13px] font-semibold hover:text-primary/80 transition-colors">
+          View All Inbox
+        </button>
       </div>
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col">
         <AlertItem
           type="urgent"
           title="Unusual Attendance Drop"
@@ -123,6 +84,12 @@ export const AlertsSection = () => {
           title="Resource Sync Complete"
           message="District library database synchronized with Academy archives."
           time="5h ago"
+        />
+        <AlertItem
+          type="notice"
+          title="Missing Teacher Schedules"
+          message="3 upcoming substitute classes lack registered supervisors."
+          time="1d ago"
         />
       </div>
     </div>
