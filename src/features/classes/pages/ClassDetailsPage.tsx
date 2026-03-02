@@ -1,6 +1,7 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { cn } from "../../../lib/utils";
 import { TopBar } from "../../../components/Header";
+import { StatCard } from "../../../components/StatCard";
 
 export const ClassDetailsPage = () => {
   const navigate = useNavigate();
@@ -101,75 +102,28 @@ export const ClassDetailsPage = () => {
               value: `${classData.avgParticipation}%`,
               icon: "equalizer",
               trend: "+1.2% this week",
-              positive: true,
+              trendType: "up" as const,
             },
             {
               label: "Attendance Rate",
               value: `${classData.attendanceRate}%`,
               icon: "calendar_check",
-              sub: "Above school average",
             },
             {
               label: "Active Programs",
               value: String(classData.activePrograms).padStart(2, "0"),
               icon: "assignment",
-              sub: "2 school-wide, 2 internal",
             },
             {
               label: "Behavior Flags",
               value: String(classData.behaviorFlags).padStart(2, "0"),
               icon: "flag",
               trend: "Action required for 1",
-              warning: true,
+              trendType: "down" as const,
+              iconBg: "bg-red-50 text-red-500",
             },
           ].map((stat, i) => (
-            <div
-              key={i}
-              className="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm shadow-slate-100/30 flex flex-col gap-2"
-            >
-              <div className="flex justify-between items-start">
-                <p className="text-slate-400 text-[10px] font-black uppercase tracking-widest">
-                  {stat.label}
-                </p>
-                <span
-                  className={cn(
-                    "material-symbols-outlined",
-                    stat.warning ? "text-red-500" : "text-primary",
-                  )}
-                >
-                  {stat.icon}
-                </span>
-              </div>
-              <p className="text-secondary text-3xl font-black tracking-tighter">
-                {stat.value}
-              </p>
-              {stat.trend && (
-                <div className="flex items-center gap-1 mt-1">
-                  {stat.positive && (
-                    <span className="material-symbols-outlined text-emerald-500 text-sm">
-                      arrow_upward
-                    </span>
-                  )}
-                  <p
-                    className={cn(
-                      "text-[10px] font-bold uppercase tracking-wider",
-                      stat.positive
-                        ? "text-emerald-600"
-                        : stat.warning
-                          ? "text-red-600"
-                          : "text-slate-300",
-                    )}
-                  >
-                    {stat.trend}
-                  </p>
-                </div>
-              )}
-              {stat.sub && (
-                <p className="text-slate-300 text-[10px] font-bold uppercase tracking-widest mt-1">
-                  {stat.sub}
-                </p>
-              )}
-            </div>
+            <StatCard key={i} {...stat} />
           ))}
         </div>
 

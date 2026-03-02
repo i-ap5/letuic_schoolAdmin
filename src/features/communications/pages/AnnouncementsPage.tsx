@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { TopBar } from "../../../components/Header";
 import { cn } from "../../../lib/utils";
+import { StatCard } from "../../../components/StatCard";
 
 export const AnnouncementsPage = ({ isHubChild }: { isHubChild?: boolean }) => {
   const [activeFilter, setActiveFilter] = useState("all");
@@ -71,48 +72,25 @@ export const AnnouncementsPage = ({ isHubChild }: { isHubChild?: boolean }) => {
               label: "Total Reach",
               value: "4,280",
               icon: "groups",
-              color: "text-secondary",
             },
             {
               label: "Avg. Engagement",
               value: "72%",
               icon: "visibility",
-              color: "text-primary",
             },
             {
               label: "Delivery Success",
               value: "99.9%",
               icon: "check_circle",
-              color: "text-emerald-500",
+              iconBg: "bg-emerald-50 text-emerald-500",
             },
             {
               label: "Drafts",
               value: "04",
               icon: "edit_note",
-              color: "text-slate-400",
             },
           ].map((stat, i) => (
-            <div
-              key={i}
-              className="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm shadow-slate-100/30"
-            >
-              <div className="flex justify-between items-center mb-2">
-                <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">
-                  {stat.label}
-                </p>
-                <span
-                  className={cn(
-                    "material-symbols-outlined text-sm",
-                    stat.color,
-                  )}
-                >
-                  {stat.icon}
-                </span>
-              </div>
-              <p className="text-2xl font-black text-secondary">
-                {stat.value}
-              </p>
-            </div>
+            <StatCard key={i} {...stat} />
           ))}
         </div>
 

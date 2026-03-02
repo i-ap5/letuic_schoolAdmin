@@ -2,6 +2,7 @@ import { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { cn } from "../../../lib/utils";
 import { TopBar } from "../../../components/Header";
+import { StatCard } from "../../../components/StatCard";
 
 const StaffRow = ({
   staff,
@@ -235,31 +236,21 @@ export const StaffPage = ({
             {
               label: "Total Staff",
               value: "148",
-              color: "text-secondary",
+              icon: "group",
             },
             {
               label: "Departments",
               value: "12",
-              color: "text-secondary",
+              icon: "account_tree",
             },
             {
               label: "Instructional Quality",
               value: "94%",
-              color: "text-primary",
+              icon: "school",
             },
-            { label: "On Leave", value: "05", color: "text-red-500" },
+            { label: "On Leave", value: "05", icon: "event_busy", iconBg: "bg-red-50 text-red-500" },
           ].map((stat, i) => (
-            <div
-              key={i}
-              className="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm shadow-slate-100/30"
-            >
-              <p className="text-slate-400 text-[11px] font-semibold uppercase tracking-wider mb-1">
-                {stat.label}
-              </p>
-              <p className={cn("text-2xl font-black", stat.color)}>
-                {stat.value}
-              </p>
-            </div>
+            <StatCard key={i} {...stat} />
           ))}
         </div>
 

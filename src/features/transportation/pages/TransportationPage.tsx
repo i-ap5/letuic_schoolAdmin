@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { TopBar } from "../../../components/Header";
 import { cn } from "../../../lib/utils";
+import { StatCard } from "../../../components/StatCard";
 
 export const TransportationPage = ({
   isHubChild,
@@ -95,50 +96,29 @@ export const TransportationPage = ({
               label: "Active Buses",
               value: "12",
               icon: "directions_bus",
-              color: "text-secondary",
             },
             {
               label: "On Schedule",
               value: "92%",
               icon: "schedule",
-              color: "text-emerald-500",
             },
             {
               label: "Fuel Efficiency",
               value: "14.2",
               icon: "ev_station",
-              sub: "km/L avg",
-              color: "text-primary",
+              trend: "km/L avg",
+              trendType: "stable" as const,
             },
             {
               label: "Maintenance",
               value: "02",
               icon: "build",
-              sub: "Required",
-              color: "text-red-500",
+              trend: "Required",
+              trendType: "down" as const,
+              iconBg: "bg-red-50 text-red-500",
             },
           ].map((stat, i) => (
-            <div
-              key={i}
-              className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm shadow-slate-100/30 flex flex-col gap-2"
-            >
-              <div className="flex justify-between items-center">
-                <p className="text-[10px] font-black uppercase tracking-widest text-slate-400">
-                  {stat.label}
-                </p>
-                <span className={cn("material-symbols-outlined", stat.color)}>
-                  {stat.icon}
-                </span>
-              </div>
-              <p className="text-3xl font-black text-secondary tracking-tight">
-                {stat.value}
-              </p>
-              {stat.sub && (
-                <p className="text-[10px] font-bold text-slate-300 uppercase tracking-wider">
-                  {stat.sub}
-                </p>
-              )}
-            </div>
+            <StatCard key={i} {...stat} />
           ))}
         </div>
 

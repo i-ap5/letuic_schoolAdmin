@@ -2,6 +2,7 @@ import { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { cn } from "../../../lib/utils";
 import { TopBar } from "../../../components/Header";
+import { StatCard } from "../../../components/StatCard";
 
 const StudentRow = ({
   student,
@@ -296,27 +297,17 @@ export const StudentsPage = ({
             {
               label: "Total Students",
               value: "1,240",
-              color: "text-secondary",
+              icon: "group",
             },
             {
               label: "Active Programs",
               value: "18",
-              color: "text-secondary",
+              icon: "local_activity",
             },
-            { label: "Avg Aura Score", value: "82%", color: "text-primary" },
-            { label: "At Risk", value: "24", color: "text-red-500" },
+            { label: "Avg Aura Score", value: "82%", icon: "star" },
+            { label: "At Risk", value: "24", icon: "warning", iconBg: "bg-red-50 text-red-500" },
           ].map((stat, i) => (
-            <div
-              key={i}
-              className="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm shadow-slate-100/30"
-            >
-              <p className="text-slate-400 text-[11px] font-semibold uppercase tracking-wider mb-1">
-                {stat.label}
-              </p>
-              <p className={cn("text-2xl font-black", stat.color)}>
-                {stat.value}
-              </p>
-            </div>
+            <StatCard key={i} {...stat} />
           ))}
         </div>
 

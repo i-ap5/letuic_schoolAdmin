@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { cn } from "../../../lib/utils";
 import { TopBar } from "../../../components/Header";
+import { StatCard } from "../../../components/StatCard";
 
 export const ExaminationsPage = ({ isHubChild }: { isHubChild?: boolean }) => {
   const navigate = useNavigate();
@@ -117,48 +118,25 @@ export const ExaminationsPage = ({ isHubChild }: { isHubChild?: boolean }) => {
               label: "Overall Academic Progress",
               value: "84.2%",
               trend: "+2.4% from last term",
-              positive: true,
+              trendType: "up" as const,
               icon: "trending_up",
             },
             {
               label: "Ongoing Assessments",
               value: "03",
               trend: "Next: Science Mock Test",
+              trendType: "stable" as const,
               icon: "pending_actions",
             },
             {
               label: "Average Attendance (Exams)",
               value: "98.8%",
               trend: "Target: 95%+",
-              positive: true,
+              trendType: "up" as const,
               icon: "event_available",
             },
           ].map((stat, i) => (
-            <div
-              key={i}
-              className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm shadow-slate-100/30 relative overflow-hidden group"
-            >
-              <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-full -mr-12 -mt-12 transition-transform group-hover:scale-110" />
-              <div className="flex justify-between items-start mb-4">
-                <p className="text-slate-400 text-[10px] font-black uppercase tracking-widest relative z-10">
-                  {stat.label}
-                </p>
-                <span className="material-symbols-outlined text-primary relative z-10">
-                  {stat.icon}
-                </span>
-              </div>
-              <p className="text-3xl font-black text-secondary mb-1 relative z-10">
-                {stat.value}
-              </p>
-              <p
-                className={cn(
-                  "text-[10px] font-bold uppercase tracking-wider relative z-10",
-                  stat.positive ? "text-emerald-600" : "text-slate-400",
-                )}
-              >
-                {stat.trend}
-              </p>
-            </div>
+            <StatCard key={i} {...stat} />
           ))}
         </div>
 

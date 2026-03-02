@@ -1,6 +1,7 @@
 import { TopBar } from "../../../components/Header";
 import { ProgramCard } from "../components/ProgramCard";
 import { cn } from "../../../lib/utils";
+import { StatCard } from "../../../components/StatCard";
 
 export const ProgramsPage = ({ isHubChild }: { isHubChild?: boolean }) => {
   const programs = [
@@ -100,30 +101,26 @@ export const ProgramsPage = ({ isHubChild }: { isHubChild?: boolean }) => {
         {/* Filters and Stats Summary */}
         <div className="flex flex-col gap-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div className="bg-secondary text-white p-4 rounded-2xl flex flex-col gap-1">
-              <span className="text-[10px] font-black uppercase tracking-widest text-white/40">
-                Total Programs
-              </span>
-              <span className="text-2xl font-black">12</span>
-            </div>
-            <div className="bg-primary text-secondary p-4 rounded-2xl flex flex-col gap-1">
-              <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">
-                Active Now
-              </span>
-              <span className="text-2xl font-black">8</span>
-            </div>
-            <div className="bg-white border border-slate-100 p-4 rounded-2xl flex flex-col gap-1 shadow-sm shadow-slate-100/30">
-              <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">
-                Total Participants
-              </span>
-              <span className="text-2xl font-black">540</span>
-            </div>
-            <div className="bg-white border border-slate-100 p-4 rounded-2xl flex flex-col gap-1 shadow-sm shadow-slate-100/30">
-              <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">
-                Avg. Completion
-              </span>
-              <span className="text-2xl font-black">64%</span>
-            </div>
+            <StatCard
+              label="Total Programs"
+              value="12"
+              icon="folder"
+            />
+            <StatCard
+              label="Active Now"
+              value="8"
+              icon="bolt"
+            />
+            <StatCard
+              label="Total Participants"
+              value="540"
+              icon="group"
+            />
+            <StatCard
+              label="Avg. Completion"
+              value="64%"
+              icon="donut_large"
+            />
           </div>
 
           <div className="bg-white p-4 rounded-2xl border border-slate-100 shadow-sm shadow-slate-100/30 flex flex-wrap gap-4 items-center">
@@ -160,7 +157,7 @@ export const ProgramsPage = ({ isHubChild }: { isHubChild?: boolean }) => {
         {/* Programs Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-8">
           {programs.map((program, i) => (
-            <ProgramCard key={i} {...program} onClick={() => {}} />
+            <ProgramCard key={i} {...program} onClick={() => { }} />
           ))}
         </div>
       </div>

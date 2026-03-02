@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { StatCard } from "../components/StatCard";
+import { StatCard } from "../../../components/StatCard";
 import { ParticipationOverview } from "../components/ParticipationOverview";
 import { ClassCard } from "../components/ClassCard";
 import { ProgramsTable } from "../components/ProgramsTable";
@@ -26,7 +26,6 @@ export const DashboardPage = () => {
                             trend="+2.1%"
                             trendType="up"
                             icon="group"
-                            iconBg="bg-blue-50"
                         />
                         <StatCard
                             label="Teachers"
@@ -34,7 +33,6 @@ export const DashboardPage = () => {
                             trend="Full Staff"
                             trendType="stable"
                             icon="person"
-                            iconBg="bg-violet-50"
                         />
                         <StatCard
                             label="Attendance Today"
@@ -42,7 +40,6 @@ export const DashboardPage = () => {
                             trend="+1.2%"
                             trendType="up"
                             icon="fact_check"
-                            iconBg="bg-emerald-50"
                         />
                         <StatCard
                             label="Pending Actions"
@@ -50,7 +47,6 @@ export const DashboardPage = () => {
                             trend="3 urgent"
                             trendType="down"
                             icon="pending_actions"
-                            iconBg="bg-rose-50"
                         />
                     </div>
 
