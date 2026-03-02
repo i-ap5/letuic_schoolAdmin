@@ -96,17 +96,17 @@ export const AnnouncementsPage = ({ isHubChild }: { isHubChild?: boolean }) => {
 
         {/* Announcements List */}
         <div className="bg-white rounded-2xl border border-slate-100 shadow-sm shadow-slate-100/30 overflow-hidden">
-          <div className="p-6 border-b border-slate-100 flex justify-between items-center">
-            <div className="flex gap-4">
+          <div className="p-5 border-b border-slate-100 flex justify-between items-center">
+            <div className="flex bg-slate-50 p-1.5 rounded-full border border-slate-100">
               {["all", "published", "drafts", "scheduled"].map((filter) => (
                 <button
                   key={filter}
                   onClick={() => setActiveFilter(filter)}
                   className={cn(
-                    "text-xs font-medium capitalize px-3 py-1.5 rounded-xl transition-all",
+                    "px-5 py-1.5 text-[12px] font-bold uppercase tracking-widest transition-all rounded-full",
                     activeFilter === filter
-                      ? "bg-secondary text-white"
-                      : "text-slate-400 hover:bg-slate-50",
+                      ? "bg-white text-secondary shadow-sm shadow-slate-200/50 border border-slate-100/50"
+                      : "text-slate-400 hover:text-secondary hover:bg-slate-100/50",
                   )}
                 >
                   {filter}
@@ -153,11 +153,11 @@ export const AnnouncementsPage = ({ isHubChild }: { isHubChild?: boolean }) => {
                       </p>
                     </td>
                     <td className="px-6 py-4">
-                      <div className="flex flex-wrap gap-1">
+                      <div className="flex flex-wrap gap-1.5">
                         {ann.visibility.split(", ").map((v, i) => (
                           <span
                             key={i}
-                            className="text-xs font-medium px-2 py-0.5 rounded bg-primary/10 text-secondary border border-primary/20 capitalize"
+                            className="text-[10px] font-bold px-3 py-1.5 rounded-full bg-slate-50 text-slate-500 border border-slate-200 uppercase tracking-widest"
                           >
                             {v}
                           </span>

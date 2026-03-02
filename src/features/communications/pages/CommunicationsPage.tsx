@@ -22,7 +22,7 @@ const MessageItem = ({
     className={cn(
       "p-4 rounded-2xl border transition-all cursor-pointer group",
       unread
-        ? "bg-white border-slate-200 shadow-md"
+        ? "bg-white border-slate-200"
         : "bg-slate-50/50 border-slate-50 hover:border-slate-200",
     )}
   >
@@ -30,8 +30,8 @@ const MessageItem = ({
       <div className="flex items-center gap-3">
         <div
           className={cn(
-            "size-2 rounded-full",
-            unread ? "bg-primary" : "bg-transparent",
+            "size-2.5 rounded-full shadow-sm",
+            unread ? "bg-emerald-500" : "bg-transparent",
           )}
         ></div>
         <div
@@ -64,15 +64,15 @@ const MessageItem = ({
       {subject}
     </h4>
     <p className="text-xs text-slate-400 line-clamp-1">{preview}</p>
-    <div className="flex gap-2 mt-3">
+    <div className="flex gap-2 mt-3 text-slate-400 font-medium">
       <span
         className={cn(
-          "text-xs font-medium px-3 py-1 rounded-full capitalize border",
+          "text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest border",
           priority === "urgent"
-            ? "bg-red-500 text-white border-red-600"
+            ? "bg-red-500/10 text-red-700 border-red-500"
             : priority === "important"
-              ? "bg-secondary/10 text-secondary border border-secondary"
-              : "bg-primary/10 text-secondary border border-primary",
+              ? "bg-amber-500/10 text-amber-700 border-amber-500"
+              : "bg-slate-50 text-slate-500 border-slate-200",
         )}
       >
         {priority}
