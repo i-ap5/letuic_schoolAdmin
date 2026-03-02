@@ -200,7 +200,7 @@ export const ClassDetailsPage = () => {
                         <td className="px-6 py-4">
                           <span
                             className={cn(
-                              "inline-flex items-center px-2 py-0.5 rounded text-xs font-medium capitalize border",
+                              "inline-flex items-center px-3 py-1 rounded-full text-xs font-medium capitalize border",
                               student.statusType === "normal"
                                 ? "bg-primary text-secondary border-slate-100"
                                 : "bg-secondary/10 text-secondary border border-secondary",

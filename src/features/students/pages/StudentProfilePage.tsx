@@ -142,7 +142,7 @@ export const StudentProfilePage = () => {
           ></div>
           <div className="flex flex-col">
             <div className="flex items-center gap-3">
-              <span className="px-2 py-0.5 bg-primary text-secondary text-xs font-medium rounded capitalize border border-slate-100">
+              <span className="px-3 py-1 bg-emerald-500/10 text-emerald-700 text-xs font-medium rounded-full border border-emerald-500 capitalize">
                 {student.status}
               </span>
               <p className="text-slate-500 text-[13px] font-medium">
@@ -317,7 +317,7 @@ export const StudentProfilePage = () => {
                       <td className="px-6 py-4 text-right">
                         <span
                           className={cn(
-                            "px-2 py-0.5 rounded text-xs font-medium capitalize border",
+                            "px-3 py-1 rounded-full text-xs font-medium capitalize border",
                             p.status === "ONGOING"
                               ? "bg-emerald-500/10 text-emerald-700 border border-emerald-500"
                               : "bg-slate-500/10 text-slate-700 border border-slate-500",

@@ -144,7 +144,7 @@ export const ExamDetailsPage = () => {
                     </div>
                     <span
                       className={cn(
-                        "text-xs font-medium capitalize px-2 py-0.5 rounded border",
+                        "text-xs font-medium capitalize px-3 py-1 rounded-full border",
                         subject.status === "Published"
                           ? "bg-emerald-500/10 text-emerald-700 border border-emerald-500"
                           : "bg-amber-500/10 text-amber-700 border border-amber-500",

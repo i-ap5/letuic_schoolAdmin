@@ -194,8 +194,8 @@ export const TransportationPage = ({
                         <td className="px-6 py-4">
                           <span
                             className={cn(
-                              "inline-flex items-center px-2 py-0.5 rounded text-xs font-medium capitalize border",
-                              bus.status === "On Route"
+                              "inline-flex items-center px-3 py-1 rounded-full text-xs font-medium capitalize border",
+                              (bus.status === "On Route" || bus.status === "Completed")
                                 ? "bg-emerald-500/10 text-emerald-700 border border-emerald-500"
                                 : bus.status === "Delayed"
                                   ? "bg-red-500/10 text-red-700 border border-red-500"
@@ -206,7 +206,7 @@ export const TransportationPage = ({
                           </span>
                         </td>
                         <td className="px-6 py-4 text-right">
-                          <code className="text-xs font-black bg-secondary/10 text-secondary border border-secondary px-2 py-1 rounded border border-white/10 shadow-sm shadow-slate-100/30">
+                          <code className="text-xs font-black bg-emerald-500/10 text-emerald-700 border border-emerald-500 px-3 py-1 rounded-full border border-white/10 shadow-sm shadow-slate-100/30">
                             {bus.loginId}
                           </code>
                         </td>

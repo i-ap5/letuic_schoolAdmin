@@ -223,7 +223,7 @@ export const ExaminationsPage = ({ isHubChild }: { isHubChild?: boolean }) => {
                         {exam.classes.slice(0, 2).map((c, i) => (
                           <span
                             key={i}
-                            className="text-xs font-medium px-2 py-0.5 rounded bg-slate-500/10 text-slate-700 border border-slate-500 border border-slate-50"
+                            className="text-xs font-medium px-2 py-0.5 rounded bg-slate-500/10 text-slate-700 border border-slate-500"
                           >
                             {c}
                           </span>
@@ -238,7 +238,7 @@ export const ExaminationsPage = ({ isHubChild }: { isHubChild?: boolean }) => {
                     <td className="px-6 py-4">
                       <span
                         className={cn(
-                          "inline-flex items-center px-2 py-0.5 rounded text-xs font-medium capitalize border",
+                          "inline-flex items-center px-3 py-1 rounded-full text-xs font-medium capitalize border",
                           getStatusColor(exam.status),
                         )}
                       >

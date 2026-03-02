@@ -67,7 +67,7 @@ const MessageItem = ({
     <div className="flex gap-2 mt-3">
       <span
         className={cn(
-          "text-xs font-medium px-1.5 py-0.5 rounded capitalize border",
+          "text-xs font-medium px-3 py-1 rounded-full capitalize border",
           priority === "urgent"
             ? "bg-red-500 text-white border-red-600"
             : priority === "important"

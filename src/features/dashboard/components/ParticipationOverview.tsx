@@ -12,7 +12,7 @@ export const ParticipationOverview = () => {
                     <h3 className="text-secondary text-[15px] font-semibold">Today's Attendance</h3>
                     <p className="text-slate-400 text-[11px] font-medium mt-0.5">1,240 total students</p>
                 </div>
-                <span className="text-[11px] font-medium text-emerald-600 bg-emerald-50 border border-emerald-100 px-2.5 py-1 rounded-xl">
+                <span className="text-xs font-medium text-emerald-700 bg-emerald-500/10 border border-emerald-500 px-3 py-1 rounded-full capitalize">
                     86% Present
                 </span>
             </div>

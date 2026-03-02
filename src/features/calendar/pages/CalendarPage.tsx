@@ -271,7 +271,7 @@ export const CalendarPage = () => {
                       <div className="flex justify-between items-start mb-2">
                         <span
                           className={cn(
-                            "px-2 py-0.5 rounded text-xs font-medium text-white capitalize",
+                            "px-3 py-1 rounded-full text-xs font-medium text-white capitalize",
                             event.color,
                           )}
                         >
