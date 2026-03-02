@@ -24,10 +24,10 @@ export const ProgramCard = ({
   onClick,
 }: ProgramCardProps) => {
   const statusStyles = {
-    Active: "bg-primary text-secondary",
-    Warning: "bg-red-500 text-white",
-    Planning: "bg-blue-500 text-white",
-    Completed: "bg-secondary/10 text-secondary border border-secondary",
+    Active: "bg-emerald-500/10 text-emerald-700 border border-emerald-500",
+    Warning: "bg-red-500/10 text-red-700 border border-red-500",
+    Planning: "bg-amber-500/10 text-amber-700 border border-amber-500",
+    Completed: "bg-emerald-500/10 text-emerald-700 border border-emerald-500",
   };
 
   return (

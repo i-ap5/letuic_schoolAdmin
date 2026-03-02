@@ -319,8 +319,8 @@ export const StudentProfilePage = () => {
                           className={cn(
                             "px-2 py-0.5 rounded text-xs font-medium capitalize border",
                             p.status === "ONGOING"
-                              ? "bg-primary text-secondary border-slate-50"
-                              : "bg-slate-50 text-slate-300 border-slate-50",
+                              ? "bg-emerald-500/10 text-emerald-700 border border-emerald-500"
+                              : "bg-slate-500/10 text-slate-700 border border-slate-500",
                           )}
                         >
                           {p.status}
@@ -388,7 +388,7 @@ export const StudentProfilePage = () => {
                 <h3 className="text-lg font-black tracking-tighter capitalize italic">
                   Moderation Flags
                 </h3>
-                <span className="bg-white text-red-500 text-xs font-medium px-3 py-1 rounded-full">
+                <span className="bg-red-500/10 text-red-700 border border-red-500 text-xs font-medium px-3 py-1 rounded-full">
                   2 ACTIVE
                 </span>
               </div>

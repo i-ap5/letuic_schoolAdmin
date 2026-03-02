@@ -199,7 +199,7 @@ export const TransportationPage = ({
                                 ? "bg-emerald-500/10 text-emerald-700 border border-emerald-500"
                                 : bus.status === "Delayed"
                                   ? "bg-red-500/10 text-red-700 border border-red-500"
-                                  : "bg-slate-500/10 text-slate-700 border border-slate-500",
+                                  : "bg-amber-500/10 text-amber-700 border border-amber-500",
                             )}
                           >
                             {bus.status}

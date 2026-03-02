@@ -147,7 +147,7 @@ export const ExamDetailsPage = () => {
                         "text-xs font-medium capitalize px-2 py-0.5 rounded border",
                         subject.status === "Published"
                           ? "bg-emerald-500/10 text-emerald-700 border border-emerald-500"
-                          : "bg-primary/10 text-secondary border border-primary/20",
+                          : "bg-amber-500/10 text-amber-700 border border-amber-500",
                       )}
                     >
                       {subject.status}

@@ -37,8 +37,8 @@ const DriverRow = ({
           className={cn(
             "inline-flex items-center px-2 py-1 rounded text-xs font-medium capitalize border",
             driver.status === "Active"
-              ? "bg-primary text-secondary border-slate-100"
-              : "bg-secondary/10 text-secondary border border-secondary",
+              ? "bg-emerald-500/10 text-emerald-700 border border-emerald-500"
+              : "bg-red-500/10 text-red-700 border border-red-500",
           )}
         >
           {driver.status}

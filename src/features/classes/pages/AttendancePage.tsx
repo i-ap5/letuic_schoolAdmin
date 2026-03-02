@@ -206,7 +206,7 @@ export const AttendancePage = ({ isHubChild }: { isHubChild?: boolean }) => {
                 Student Roster - {selectedClass}
               </h3>
               <div className="flex gap-2">
-                <button className="px-3 py-1.5 rounded-xl bg-emerald-50 text-emerald-700 text-xs font-medium capitalize border border-emerald-100">
+                <button className="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-700 text-xs font-medium capitalize border border-emerald-500">
                   Mark all Present
                 </button>
               </div>
@@ -256,13 +256,13 @@ export const AttendancePage = ({ isHubChild }: { isHubChild?: boolean }) => {
                                   "px-3 py-1 rounded-full text-xs font-medium capitalize border transition-all",
                                   student.status === status
                                     ? status === "Present"
-                                      ? "bg-emerald-500 text-white border-emerald-500 shadow-md scale-105"
+                                      ? "bg-emerald-500/10 text-emerald-700 border-emerald-500 shadow-sm"
                                       : status === "Absent"
-                                        ? "bg-red-500 text-white border-red-500 shadow-md scale-105"
+                                        ? "bg-red-500/10 text-red-700 border-red-500 shadow-sm"
                                         : status === "Late"
-                                          ? "bg-amber-500 text-white border-amber-500 shadow-md scale-105"
-                                          : "bg-blue-500 text-white border-blue-500 shadow-md scale-105"
-                                    : "bg-white text-slate-400 border-slate-100 hover:border-slate-200/30",
+                                          ? "bg-amber-500/10 text-amber-700 border-amber-500 shadow-sm"
+                                          : "bg-slate-500/10 text-slate-700 border-slate-500 shadow-sm"
+                                    : "bg-slate-50 text-slate-400 border-slate-200/50 hover:border-slate-300",
                                 )}
                               >
                                 {status === "Present"

@@ -17,11 +17,11 @@ const StaffRow = ({
   const getStatusStyles = (status: string) => {
     switch (status.toLowerCase()) {
       case "active":
-        return "bg-primary/10 text-secondary border border-primary";
+        return "bg-emerald-500/10 text-emerald-700 border border-emerald-500";
       case "on leave":
-        return "bg-slate-200 text-slate-500";
+        return "bg-red-500/10 text-red-700 border border-red-500";
       case "remote":
-        return "bg-secondary/10 text-secondary border border-secondary";
+        return "bg-amber-500/10 text-amber-700 border border-amber-500";
       default:
         return "bg-slate-500/10 text-slate-700 border border-slate-500";
     }

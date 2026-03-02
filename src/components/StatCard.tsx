@@ -15,7 +15,7 @@ export const StatCard = ({
     trend,
     trendType,
     icon,
-    iconBg = "bg-primary/20",
+    iconBg = "bg-accent",
 }: StatCardProps) => {
     return (
         <div className="flex items-center gap-4 rounded-2xl px-5 py-4 bg-white border border-slate-100 hover:shadow-sm shadow-slate-100/30 transition-shadow">

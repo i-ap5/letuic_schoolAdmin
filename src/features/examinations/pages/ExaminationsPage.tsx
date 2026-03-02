@@ -67,11 +67,11 @@ export const ExaminationsPage = ({ isHubChild }: { isHubChild?: boolean }) => {
   const getStatusColor = (status: string) => {
     switch (status.toLowerCase()) {
       case "completed":
-        return "bg-emerald-500 text-white";
+        return "bg-emerald-500/10 text-emerald-700 border border-emerald-500";
       case "in progress":
-        return "bg-primary/10 text-secondary border border-primary";
+        return "bg-amber-500/10 text-amber-700 border border-amber-500";
       case "upcoming":
-        return "bg-secondary text-white";
+        return "bg-amber-500/10 text-amber-700 border border-amber-500";
       default:
         return "bg-slate-500/10 text-slate-700 border border-slate-500";
     }

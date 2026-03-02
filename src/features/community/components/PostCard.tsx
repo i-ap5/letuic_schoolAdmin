@@ -42,10 +42,10 @@ export const PostCard = ({
         <div className="flex flex-col gap-1">
           <span
             className={cn(
-              "inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold capitalize border w-fit",
+              "inline-flex items-center px-3 py-1 rounded-full text-xs font-medium capitalize border w-fit",
               isSpecial
-                ? "bg-primary/10 text-secondary border border-primary"
-                : "bg-slate-500/10 text-slate-700 border border-slate-500 border-slate-100",
+                ? "bg-emerald-500/10 text-emerald-700 border-emerald-500"
+                : "bg-slate-500/10 text-slate-700 border-slate-500",
             )}
           >
             {type}
@@ -55,17 +55,17 @@ export const PostCard = ({
           </h2>
         </div>
         {isNew && (
-          <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary text-secondary capitalize">
+          <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-700 border border-emerald-500 capitalize">
             New
           </span>
         )}
         {status === "Alert" && (
-          <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-secondary/10 text-secondary border border-secondary capitalize">
+          <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-red-500/10 text-red-700 border border-red-500 capitalize">
             Alert
           </span>
         )}
         {status === "Ongoing" && (
-          <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-slate-500/10 text-slate-700 border border-slate-500 capitalize">
+          <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-700 border border-emerald-500 capitalize">
             Ongoing
           </span>
         )}
