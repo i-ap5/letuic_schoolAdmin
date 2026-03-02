@@ -2,7 +2,6 @@ import type { ReactNode } from "react";
 
 export const TopBar = ({
     title,
-    subtitle,
     actions,
     onBack,
 }: {
