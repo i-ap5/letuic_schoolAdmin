@@ -20,7 +20,7 @@ export const StatCard = ({
     return (
         <div className="flex items-center gap-4 rounded-2xl px-5 py-4 bg-white border border-slate-100 hover:shadow-sm shadow-slate-100/30 transition-shadow">
             <div className={cn("size-11 rounded-2xl flex items-center justify-center shrink-0 text-primary", iconBg)}>
-                <span className="material-symbols-outlined text-[22px]">
+                <span className="material-symbols-outlined text-[22px] text-secondary/70">
                     {icon}
                 </span>
             </div>

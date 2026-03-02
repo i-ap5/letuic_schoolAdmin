@@ -85,7 +85,7 @@ export const DriverProfilePage = () => {
             </div>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
               <div>
-                <p className="text-[10px] font-black text-slate-300 uppercase tracking-widest mb-1">
+                <p className="text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-1">
                   License Number
                 </p>
                 <p className="text-[13px] font-semibold text-secondary">
@@ -93,7 +93,7 @@ export const DriverProfilePage = () => {
                 </p>
               </div>
               <div>
-                <p className="text-[10px] font-black text-slate-300 uppercase tracking-widest mb-1">
+                <p className="text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-1">
                   Experience
                 </p>
                 <p className="text-[13px] font-semibold text-secondary">
@@ -101,7 +101,7 @@ export const DriverProfilePage = () => {
                 </p>
               </div>
               <div>
-                <p className="text-[10px] font-black text-slate-300 uppercase tracking-widest mb-1">
+                <p className="text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-1">
                   Phone
                 </p>
                 <p className="text-[13px] font-semibold text-secondary">

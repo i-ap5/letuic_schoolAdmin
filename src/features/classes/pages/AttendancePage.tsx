@@ -131,7 +131,7 @@ export const AttendancePage = ({ isHubChild }: { isHubChild?: boolean }) => {
           {/* Header Controls */}
           <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm shadow-slate-100/30 flex flex-wrap gap-6 items-end">
             <div className="space-y-1.5 flex-1 min-w-[200px]">
-              <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest pl-1">
+              <label className="text-[11px] font-bold text-slate-500 uppercase tracking-wider pl-1">
                 Select Class
               </label>
               <select
@@ -145,7 +145,7 @@ export const AttendancePage = ({ isHubChild }: { isHubChild?: boolean }) => {
               </select>
             </div>
             <div className="space-y-1.5 flex-1 min-w-[200px]">
-              <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest pl-1">
+              <label className="text-[11px] font-bold text-slate-500 uppercase tracking-wider pl-1">
                 Attendance Date
               </label>
               <input
@@ -215,13 +215,13 @@ export const AttendancePage = ({ isHubChild }: { isHubChild?: boolean }) => {
               <table className="w-full text-left">
                 <thead>
                   <tr className="bg-slate-50/50 border-b border-slate-100">
-                    <th className="px-6 py-4 text-[10px] font-black text-slate-300 uppercase tracking-widest">
+                    <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
                       Student Name
                     </th>
-                    <th className="px-6 py-4 text-[10px] font-black text-slate-300 uppercase tracking-widest text-center">
+                    <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider text-center">
                       Status
                     </th>
-                    <th className="px-6 py-4 text-[10px] font-black text-slate-300 uppercase tracking-widest text-right">
+                    <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider text-right">
                       Notes
                     </th>
                   </tr>

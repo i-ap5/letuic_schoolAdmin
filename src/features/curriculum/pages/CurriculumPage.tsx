@@ -149,19 +149,19 @@ export const CurriculumPage = ({ isHubChild }: { isHubChild?: boolean }) => {
                     <table className="w-full text-left">
                       <thead>
                         <tr className="bg-slate-50/50 border-b border-slate-100">
-                          <th className="px-6 py-4 text-[10px] font-black text-slate-300 uppercase tracking-widest">
+                          <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
                             Class
                           </th>
-                          <th className="px-6 py-4 text-[10px] font-black text-slate-300 uppercase tracking-widest">
+                          <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
                             Subject
                           </th>
-                          <th className="px-6 py-4 text-[10px] font-black text-slate-300 uppercase tracking-widest">
+                          <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
                             Teacher
                           </th>
-                          <th className="px-6 py-4 text-[10px] font-black text-slate-300 uppercase tracking-widest">
+                          <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
                             Students
                           </th>
-                          <th className="px-6 py-4 text-[10px] font-black text-slate-300 uppercase tracking-widest text-right">
+                          <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider text-right">
                             Actions
                           </th>
                         </tr>
@@ -264,8 +264,8 @@ export const CurriculumPage = ({ isHubChild }: { isHubChild?: boolean }) => {
                     className={cn(
                       "text-[8px] font-black uppercase tracking-widest px-2 py-0.5 rounded border",
                       sub.intensity === "High"
-                        ? "bg-red-50 text-red-700 border-red-100"
-                        : "bg-emerald-50 text-emerald-700 border-emerald-100",
+                        ? "bg-red-500/15 text-red-700 border border-red-500/20"
+                        : "bg-emerald-500/15 text-emerald-700 border border-emerald-500/20",
                     )}
                   >
                     {sub.intensity} Load
@@ -277,7 +277,7 @@ export const CurriculumPage = ({ isHubChild }: { isHubChild?: boolean }) => {
                 <p className="text-xs text-slate-400 font-medium mb-4">
                   Lead: {sub.head}
                 </p>
-                <div className="flex justify-between pt-4 border-t border-slate-50 text-[10px] font-black text-slate-300 uppercase tracking-widest">
+                <div className="flex justify-between pt-4 border-t border-slate-50 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
                   <span>{sub.teachers} Teachers</span>
                   <span>{sub.classes} Units</span>
                 </div>

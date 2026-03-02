@@ -21,9 +21,9 @@ const StaffRow = ({
       case "on leave":
         return "bg-slate-200 text-slate-500";
       case "remote":
-        return "bg-secondary text-primary";
+        return "bg-secondary/5 text-secondary border border-secondary/20";
       default:
-        return "bg-slate-50 text-slate-500";
+        return "bg-slate-500/10 text-slate-600 border border-slate-500/20";
     }
   };
 
@@ -78,7 +78,7 @@ const StaffRow = ({
       <td className="px-6 py-4">
         <span
           className={cn(
-            "inline-flex items-center px-2 py-1 rounded-md text-[10px] font-black uppercase tracking-widest",
+            "inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-widest",
             getStatusStyles(status),
           )}
         >
@@ -248,7 +248,7 @@ export const StaffPage = ({
               value: "94%",
               icon: "school",
             },
-            { label: "On Leave", value: "05", icon: "event_busy", iconBg: "bg-red-50 text-red-500" },
+            { label: "On Leave", value: "05", icon: "event_busy", iconBg: "bg-red-500/15 text-red-700 border border-red-500/20" },
           ].map((stat, i) => (
             <StatCard key={i} {...stat} />
           ))}
@@ -305,30 +305,30 @@ export const StaffPage = ({
         <div className="bg-white rounded-2xl border border-slate-100 shadow-sm shadow-slate-100/30 overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse">
-              <thead className="bg-slate-50/50 border-b border-slate-100">
+              <thead className="bg-white border-b border-slate-100">
                 <tr>
-                  <th className="px-6 py-4 text-[11px] font-semibold uppercase tracking-wider text-slate-400">
+                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
                     Staff Member
                   </th>
-                  <th className="px-6 py-4 text-[11px] font-semibold uppercase tracking-wider text-slate-400">
+                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
                     ID
                   </th>
-                  <th className="px-6 py-4 text-[11px] font-semibold uppercase tracking-wider text-slate-400">
+                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
                     Role
                   </th>
-                  <th className="px-6 py-4 text-[11px] font-semibold uppercase tracking-wider text-slate-400">
+                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
                     Department
                   </th>
-                  <th className="px-6 py-4 text-[11px] font-semibold uppercase tracking-wider text-slate-400">
+                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
                     Instructional Quality
                   </th>
-                  <th className="px-6 py-4 text-[11px] font-semibold uppercase tracking-wider text-slate-400">
+                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
                     Aura Score
                   </th>
-                  <th className="px-6 py-4 text-[11px] font-semibold uppercase tracking-wider text-slate-400">
+                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
                     Status
                   </th>
-                  <th className="px-6 py-4 text-[11px] font-semibold uppercase tracking-wider text-slate-400 text-right">
+                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider text-right">
                     Actions
                   </th>
                 </tr>

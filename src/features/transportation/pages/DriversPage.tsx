@@ -38,7 +38,7 @@ const DriverRow = ({
             "inline-flex items-center px-2 py-1 rounded text-[10px] font-black uppercase tracking-widest border",
             driver.status === "Active"
               ? "bg-primary text-secondary border-slate-100"
-              : "bg-secondary text-primary border-white/10",
+              : "bg-secondary/5 text-secondary border border-secondary/20",
           )}
         >
           {driver.status}
@@ -126,22 +126,22 @@ export const DriversPage = ({ isHubChild }: { isHubChild?: boolean }) => {
             <table className="w-full text-left">
               <thead>
                 <tr className="bg-slate-50/50 border-b border-slate-100">
-                  <th className="px-6 py-4 text-[11px] font-semibold uppercase tracking-wider text-slate-400">
+                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
                     Driver Name
                   </th>
-                  <th className="px-6 py-4 text-[11px] font-semibold uppercase tracking-wider text-slate-400">
+                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
                     ID
                   </th>
-                  <th className="px-6 py-4 text-[11px] font-semibold uppercase tracking-wider text-slate-400">
+                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
                     Bus Assignment
                   </th>
-                  <th className="px-6 py-4 text-[11px] font-semibold uppercase tracking-wider text-slate-400">
+                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
                     License No
                   </th>
-                  <th className="px-6 py-4 text-[11px] font-semibold uppercase tracking-wider text-slate-400">
+                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
                     Status
                   </th>
-                  <th className="px-6 py-4 text-[11px] font-semibold uppercase tracking-wider text-slate-400 text-right">
+                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider text-right">
                     Actions
                   </th>
                 </tr>

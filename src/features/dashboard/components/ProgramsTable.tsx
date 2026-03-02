@@ -29,7 +29,7 @@ export const ProgramsTable = () => {
                         <p className="text-[11px] text-slate-400 mt-0.5">{event.teacher}</p>
                     </div>
 
-                    <span className={`text-[10px] font-medium px-2 py-1 rounded-xl border shrink-0 ${typeColors[event.type] || "bg-slate-50 text-slate-500 border-slate-200"}`}>
+                    <span className={`text-[10px] font-medium px-2 py-1 rounded-xl border shrink-0 ${typeColors[event.type] || "bg-slate-500/10 text-slate-600 border border-slate-500/20 border-slate-200"}`}>
                         {event.type}
                     </span>
 

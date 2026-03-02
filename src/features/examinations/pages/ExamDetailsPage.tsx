@@ -146,8 +146,8 @@ export const ExamDetailsPage = () => {
                       className={cn(
                         "text-[9px] font-black uppercase tracking-widest px-2 py-0.5 rounded border",
                         subject.status === "Published"
-                          ? "bg-emerald-50 text-emerald-700 border-emerald-100"
-                          : "bg-primary/20 text-slate-500 border-primary/30",
+                          ? "bg-emerald-500/15 text-emerald-700 border border-emerald-500/20"
+                          : "bg-primary/10 text-secondary border border-primary/20",
                       )}
                     >
                       {subject.status}
@@ -186,19 +186,19 @@ export const ExamDetailsPage = () => {
                 <table className="w-full text-left">
                   <thead>
                     <tr className="bg-slate-50/50 border-b border-slate-100">
-                      <th className="px-6 py-4 text-[10px] font-black text-slate-300 uppercase tracking-widest">
+                      <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
                         Student
                       </th>
-                      <th className="px-6 py-4 text-[10px] font-black text-slate-300 uppercase tracking-widest text-center">
+                      <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider text-center">
                         Math
                       </th>
-                      <th className="px-6 py-4 text-[10px] font-black text-slate-300 uppercase tracking-widest text-center">
+                      <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider text-center">
                         Science
                       </th>
-                      <th className="px-6 py-4 text-[10px] font-black text-slate-300 uppercase tracking-widest text-center">
+                      <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider text-center">
                         History
                       </th>
-                      <th className="px-6 py-4 text-[10px] font-black text-slate-300 uppercase tracking-widest text-right">
+                      <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider text-right">
                         GPA
                       </th>
                     </tr>

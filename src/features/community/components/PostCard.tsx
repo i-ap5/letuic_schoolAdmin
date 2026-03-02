@@ -45,7 +45,7 @@ export const PostCard = ({
               "inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider border w-fit",
               isSpecial
                 ? "bg-primary/20 text-secondary border-primary/30"
-                : "bg-slate-50 text-slate-500 border-slate-100",
+                : "bg-slate-500/10 text-slate-600 border border-slate-500/20 border-slate-100",
             )}
           >
             {type}
@@ -55,17 +55,17 @@ export const PostCard = ({
           </h2>
         </div>
         {isNew && (
-          <span className="inline-flex items-center px-2 py-1 rounded-full text-[10px] font-bold bg-primary text-secondary uppercase">
+          <span className="inline-flex items-center px-2.5 py-1 rounded-full text-[11px] font-bold bg-primary text-secondary uppercase">
             New
           </span>
         )}
         {status === "Alert" && (
-          <span className="inline-flex items-center px-2 py-1 rounded-full text-[10px] font-bold bg-secondary text-primary uppercase">
+          <span className="inline-flex items-center px-2.5 py-1 rounded-full text-[11px] font-bold bg-secondary/5 text-secondary border border-secondary/20 uppercase">
             Alert
           </span>
         )}
         {status === "Ongoing" && (
-          <span className="inline-flex items-center px-2 py-1 rounded-full text-[10px] font-bold bg-slate-50 text-slate-500 uppercase">
+          <span className="inline-flex items-center px-2.5 py-1 rounded-full text-[11px] font-bold bg-slate-500/10 text-slate-600 border border-slate-500/20 uppercase">
             Ongoing
           </span>
         )}
@@ -85,7 +85,7 @@ export const PostCard = ({
           <p className="text-[13px] font-semibold text-secondary leading-tight">
             {author.name}
           </p>
-          <p className="text-[10px] font-black text-slate-300 uppercase tracking-widest leading-none mt-1">
+          <p className="text-[11px] font-bold text-slate-500 uppercase tracking-wider leading-none mt-1">
             {author.role}
           </p>
         </div>

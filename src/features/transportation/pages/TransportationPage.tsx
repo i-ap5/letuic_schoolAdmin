@@ -115,7 +115,7 @@ export const TransportationPage = ({
               icon: "build",
               trend: "Required",
               trendType: "down" as const,
-              iconBg: "bg-red-50 text-red-500",
+              iconBg: "bg-red-500/15 text-red-700 border border-red-500/20",
             },
           ].map((stat, i) => (
             <StatCard key={i} {...stat} />
@@ -141,16 +141,16 @@ export const TransportationPage = ({
                 <table className="w-full text-left">
                   <thead>
                     <tr className="bg-slate-50/50 border-b border-slate-100">
-                      <th className="px-6 py-4 text-[10px] font-black text-slate-300 uppercase tracking-widest">
+                      <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
                         Bus / Driver
                       </th>
-                      <th className="px-6 py-4 text-[10px] font-black text-slate-300 uppercase tracking-widest">
+                      <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
                         Route & Location
                       </th>
-                      <th className="px-6 py-4 text-[10px] font-black text-slate-300 uppercase tracking-widest">
+                      <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
                         Status
                       </th>
-                      <th className="px-6 py-4 text-[10px] font-black text-slate-300 uppercase tracking-widest text-right">
+                      <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider text-right">
                         Access ID
                       </th>
                     </tr>
@@ -196,17 +196,17 @@ export const TransportationPage = ({
                             className={cn(
                               "inline-flex items-center px-2 py-0.5 rounded text-[10px] font-black uppercase tracking-widest border",
                               bus.status === "On Route"
-                                ? "bg-emerald-50 text-emerald-700 border-emerald-100"
+                                ? "bg-emerald-500/15 text-emerald-700 border border-emerald-500/20"
                                 : bus.status === "Delayed"
-                                  ? "bg-red-50 text-red-700 border-red-100"
-                                  : "bg-slate-50 text-slate-400 border-slate-100",
+                                  ? "bg-red-500/15 text-red-700 border border-red-500/20"
+                                  : "bg-slate-500/10 text-slate-600 border border-slate-500/20",
                             )}
                           >
                             {bus.status}
                           </span>
                         </td>
                         <td className="px-6 py-4 text-right">
-                          <code className="text-xs font-black bg-secondary text-primary px-2 py-1 rounded border border-white/10 shadow-sm shadow-slate-100/30">
+                          <code className="text-xs font-black bg-secondary/5 text-secondary border border-secondary/20 px-2 py-1 rounded border border-white/10 shadow-sm shadow-slate-100/30">
                             {bus.loginId}
                           </code>
                         </td>

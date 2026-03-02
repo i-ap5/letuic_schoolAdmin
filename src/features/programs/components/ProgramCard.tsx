@@ -27,7 +27,7 @@ export const ProgramCard = ({
     Active: "bg-primary text-secondary",
     Warning: "bg-red-500 text-white",
     Planning: "bg-blue-500 text-white",
-    Completed: "bg-secondary text-primary",
+    Completed: "bg-secondary/5 text-secondary border border-secondary/20",
   };
 
   return (

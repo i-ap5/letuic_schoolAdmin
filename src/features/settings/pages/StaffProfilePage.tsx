@@ -91,7 +91,7 @@ export const StaffProfilePage = () => {
           ></div>
           <div className="flex-1 flex flex-col">
             <div className="flex items-center gap-3 mb-2">
-              <span className="px-2 py-0.5 bg-secondary text-primary text-[10px] font-black rounded uppercase tracking-widest border border-white/10">
+              <span className="px-2 py-0.5 bg-secondary/5 text-secondary border border-secondary/20 text-[10px] font-black rounded uppercase tracking-widest border border-white/10">
                 {staff.status}
               </span>
               <p className="text-slate-500 text-[13px] font-medium">
@@ -100,7 +100,7 @@ export const StaffProfilePage = () => {
             </div>
             <div className="flex gap-6 mt-4">
               <div>
-                <p className="text-[10px] font-black text-slate-300 uppercase tracking-widest mb-1">
+                <p className="text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-1">
                   Email Address
                 </p>
                 <p className="text-[13px] font-semibold text-secondary">
@@ -108,7 +108,7 @@ export const StaffProfilePage = () => {
                 </p>
               </div>
               <div>
-                <p className="text-[10px] font-black text-slate-300 uppercase tracking-widest mb-1">
+                <p className="text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-1">
                   Phone
                 </p>
                 <p className="text-[13px] font-semibold text-secondary">
@@ -181,7 +181,7 @@ export const StaffProfilePage = () => {
           <div className="grid grid-cols-5 gap-4">
             {["Mon", "Tue", "Wed", "Thu", "Fri"].map((day) => (
               <div key={day} className="space-y-3">
-                <p className="text-[10px] font-black text-slate-300 uppercase tracking-widest text-center">
+                <p className="text-[11px] font-bold text-slate-500 uppercase tracking-wider text-center">
                   {day}
                 </p>
                 <div className="p-3 rounded-xl bg-slate-50/50 space-y-2">

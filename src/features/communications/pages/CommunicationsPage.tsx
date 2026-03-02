@@ -71,7 +71,7 @@ const MessageItem = ({
           priority === "urgent"
             ? "bg-red-500 text-white border-red-600"
             : priority === "important"
-              ? "bg-secondary text-primary border-slate-100"
+              ? "bg-secondary/5 text-secondary border border-secondary/20"
               : "bg-primary/20 text-secondary border-primary/30",
         )}
       >

@@ -120,7 +120,7 @@ export const ClassDetailsPage = () => {
               icon: "flag",
               trend: "Action required for 1",
               trendType: "down" as const,
-              iconBg: "bg-red-50 text-red-500",
+              iconBg: "bg-red-500/15 text-red-700 border border-red-500/20",
             },
           ].map((stat, i) => (
             <StatCard key={i} {...stat} />
@@ -148,7 +148,7 @@ export const ClassDetailsPage = () => {
               <div className="overflow-x-auto">
                 <table className="w-full text-left">
                   <thead>
-                    <tr className="bg-slate-50/50 border-b border-slate-50 text-[10px] font-black text-slate-300 uppercase tracking-widest">
+                    <tr className="bg-slate-50/50 border-b border-slate-50 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
                       <th className="px-6 py-4">Student Name</th>
                       <th className="px-6 py-4">Participation</th>
                       <th className="px-6 py-4 text-center">Aura Score</th>
@@ -203,7 +203,7 @@ export const ClassDetailsPage = () => {
                               "inline-flex items-center px-2 py-0.5 rounded text-[10px] font-black uppercase tracking-widest border",
                               student.statusType === "normal"
                                 ? "bg-primary text-secondary border-slate-100"
-                                : "bg-secondary text-primary border-white/10 shadow-lg",
+                                : "bg-secondary/5 text-secondary border border-secondary/20",
                             )}
                           >
                             {student.status}

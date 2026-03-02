@@ -47,9 +47,9 @@ export const ClassCard = ({
           </p>
           <span className={cn(
             "text-[10px] font-medium px-2 py-0.5 rounded-md border uppercase tracking-wider shrink-0",
-            statusType === "risk" && "bg-rose-50 text-rose-500 border-rose-100",
-            statusType === "attention" && "bg-amber-50 text-amber-500 border-amber-100",
-            statusType === "normal" && "bg-emerald-50 text-emerald-500 border-emerald-100",
+            statusType === "risk" && "bg-rose-500/15 text-rose-700 border border-rose-500/20",
+            statusType === "attention" && "bg-amber-500/15 text-amber-700 border border-amber-500/20",
+            statusType === "normal" && "bg-emerald-500/15 text-emerald-700 border border-emerald-500/20",
           )}>
             {status}
           </span>

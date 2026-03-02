@@ -18,9 +18,9 @@ const StudentRow = ({
       case "active":
         return "bg-primary text-secondary";
       case "at risk":
-        return "bg-secondary text-primary";
+        return "bg-secondary/5 text-secondary border border-secondary/20";
       default:
-        return "bg-slate-50 text-slate-500";
+        return "bg-slate-500/10 text-slate-600 border border-slate-500/20";
     }
   };
 
@@ -72,7 +72,7 @@ const StudentRow = ({
       <td className="px-6 py-4">
         <span
           className={cn(
-            "inline-flex items-center px-2 py-1 rounded-md text-[10px] font-black uppercase tracking-widest",
+            "inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-widest",
             getStatusStyles(status),
           )}
         >
@@ -305,7 +305,7 @@ export const StudentsPage = ({
               icon: "local_activity",
             },
             { label: "Avg Aura Score", value: "82%", icon: "star" },
-            { label: "At Risk", value: "24", icon: "warning", iconBg: "bg-red-50 text-red-500" },
+            { label: "At Risk", value: "24", icon: "warning", iconBg: "bg-red-500/15 text-red-700 border border-red-500/20" },
           ].map((stat, i) => (
             <StatCard key={i} {...stat} />
           ))}
@@ -361,27 +361,27 @@ export const StudentsPage = ({
         <div className="bg-white rounded-2xl border border-slate-100 shadow-sm shadow-slate-100/30 overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse">
-              <thead className="bg-slate-50/50 border-b border-slate-100">
+              <thead className="bg-white border-b border-slate-100">
                 <tr>
-                  <th className="px-6 py-4 text-[11px] font-semibold uppercase tracking-wider text-slate-400">
+                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
                     Student Name
                   </th>
-                  <th className="px-6 py-4 text-[11px] font-semibold uppercase tracking-wider text-slate-400">
+                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
                     ID
                   </th>
-                  <th className="px-6 py-4 text-[11px] font-semibold uppercase tracking-wider text-slate-400">
+                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
                     Grade
                   </th>
-                  <th className="px-6 py-4 text-[11px] font-semibold uppercase tracking-wider text-slate-400">
+                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
                     Participation
                   </th>
-                  <th className="px-6 py-4 text-[11px] font-semibold uppercase tracking-wider text-slate-400">
+                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
                     Aura Score
                   </th>
-                  <th className="px-6 py-4 text-[11px] font-semibold uppercase tracking-wider text-slate-400">
+                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
                     Status
                   </th>
-                  <th className="px-6 py-4 text-[11px] font-semibold uppercase tracking-wider text-slate-400 text-right">
+                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider text-right">
                     Actions
                   </th>
                 </tr>

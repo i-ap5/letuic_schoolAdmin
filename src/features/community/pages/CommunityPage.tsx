@@ -99,7 +99,7 @@ export const CommunityPage = () => {
               className={cn(
                 "px-4 py-2 rounded-xl text-[13px] font-semibold flex items-center gap-2 transition-all border",
                 isModerator
-                  ? "bg-secondary text-primary border-slate-200 shadow-lg"
+                  ? "bg-secondary/5 text-secondary border border-secondary/20"
                   : "bg-white text-slate-400 border-slate-100 hover:bg-slate-50",
               )}
             >

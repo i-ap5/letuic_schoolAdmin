@@ -73,7 +73,7 @@ export const ExaminationsPage = ({ isHubChild }: { isHubChild?: boolean }) => {
       case "upcoming":
         return "bg-secondary text-white";
       default:
-        return "bg-slate-100 text-slate-400";
+        return "bg-slate-500/10 text-slate-600 border border-slate-500/20";
     }
   };
 
@@ -162,22 +162,22 @@ export const ExaminationsPage = ({ isHubChild }: { isHubChild?: boolean }) => {
             <table className="w-full text-left">
               <thead>
                 <tr className="bg-slate-50/50 border-b border-slate-100">
-                  <th className="px-6 py-4 text-[10px] font-black text-slate-300 uppercase tracking-widest">
+                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
                     Title & Type
                   </th>
-                  <th className="px-6 py-4 text-[10px] font-black text-slate-300 uppercase tracking-widest">
+                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
                     Schedule
                   </th>
-                  <th className="px-6 py-4 text-[10px] font-black text-slate-300 uppercase tracking-widest">
+                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
                     Classes
                   </th>
-                  <th className="px-6 py-4 text-[10px] font-black text-slate-300 uppercase tracking-widest">
+                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
                     Status
                   </th>
-                  <th className="px-6 py-4 text-[10px] font-black text-slate-300 uppercase tracking-widest text-center">
+                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider text-center">
                     Avg. Mark
                   </th>
-                  <th className="px-6 py-4 text-[10px] font-black text-slate-300 uppercase tracking-widest text-right">
+                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider text-right">
                     Actions
                   </th>
                 </tr>
@@ -223,7 +223,7 @@ export const ExaminationsPage = ({ isHubChild }: { isHubChild?: boolean }) => {
                         {exam.classes.slice(0, 2).map((c, i) => (
                           <span
                             key={i}
-                            className="text-[9px] font-bold px-2 py-0.5 rounded bg-slate-50 text-slate-500 border border-slate-50"
+                            className="text-[9px] font-bold px-2 py-0.5 rounded bg-slate-500/10 text-slate-600 border border-slate-500/20 border border-slate-50"
                           >
                             {c}
                           </span>

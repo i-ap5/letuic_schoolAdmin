@@ -118,19 +118,19 @@ export const AnnouncementsPage = ({ isHubChild }: { isHubChild?: boolean }) => {
             <table className="w-full text-left">
               <thead>
                 <tr className="bg-slate-50/50 border-b border-slate-100">
-                  <th className="px-6 py-4 text-[10px] font-black text-slate-300 uppercase tracking-widest">
+                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
                     Title & Content
                   </th>
-                  <th className="px-6 py-4 text-[10px] font-black text-slate-300 uppercase tracking-widest">
+                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
                     Visibility
                   </th>
-                  <th className="px-6 py-4 text-[10px] font-black text-slate-300 uppercase tracking-widest">
+                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
                     Target
                   </th>
-                  <th className="px-6 py-4 text-[10px] font-black text-slate-300 uppercase tracking-widest">
+                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
                     Engagement
                   </th>
-                  <th className="px-6 py-4 text-[10px] font-black text-slate-300 uppercase tracking-widest text-right">
+                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider text-right">
                     Actions
                   </th>
                 </tr>

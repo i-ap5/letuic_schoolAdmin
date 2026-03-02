@@ -254,23 +254,23 @@ export const StudentProfilePage = () => {
                 <h3 className="text-secondary text-[16px] font-semibold tracking-tight">
                   Participation History
                 </h3>
-                <span className="text-[10px] font-black text-slate-300 uppercase tracking-widest">
+                <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">
                   Last 12 Months
                 </span>
               </div>
               <table className="w-full text-left">
-                <thead className="bg-slate-50/50 border-b border-slate-50">
+                <thead className="bg-white border-b border-slate-100">
                   <tr>
-                    <th className="px-6 py-3 text-[10px] font-black text-slate-300 uppercase tracking-widest">
+                    <th className="px-6 py-3 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
                       Program
                     </th>
-                    <th className="px-6 py-3 text-[10px] font-black text-slate-300 uppercase tracking-widest">
+                    <th className="px-6 py-3 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
                       Role
                     </th>
-                    <th className="px-6 py-3 text-[10px] font-black text-slate-300 uppercase tracking-widest">
+                    <th className="px-6 py-3 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
                       Intensity
                     </th>
-                    <th className="px-6 py-3 text-[10px] font-black text-slate-300 uppercase tracking-widest text-right">
+                    <th className="px-6 py-3 text-[11px] font-bold text-slate-500 uppercase tracking-wider text-right">
                       Status
                     </th>
                   </tr>
@@ -388,7 +388,7 @@ export const StudentProfilePage = () => {
                 <h3 className="text-lg font-black tracking-tighter uppercase italic">
                   Moderation Flags
                 </h3>
-                <span className="bg-white text-red-500 text-[10px] font-black px-2 py-0.5 rounded">
+                <span className="bg-white text-red-500 text-[10px] font-black px-2.5 py-0.5 rounded-full">
                   2 ACTIVE
                 </span>
               </div>
