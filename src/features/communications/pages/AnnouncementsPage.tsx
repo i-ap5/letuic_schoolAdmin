@@ -103,7 +103,7 @@ export const AnnouncementsPage = ({ isHubChild }: { isHubChild?: boolean }) => {
                   key={filter}
                   onClick={() => setActiveFilter(filter)}
                   className={cn(
-                    "text-[11px] font-semibold uppercase tracking-widest px-3 py-1.5 rounded-xl transition-all",
+                    "text-xs font-medium capitalize px-3 py-1.5 rounded-xl transition-all",
                     activeFilter === filter
                       ? "bg-secondary text-white"
                       : "text-slate-400 hover:bg-slate-50",
@@ -157,14 +157,14 @@ export const AnnouncementsPage = ({ isHubChild }: { isHubChild?: boolean }) => {
                         {ann.visibility.split(", ").map((v, i) => (
                           <span
                             key={i}
-                            className="text-[9px] font-black px-2 py-0.5 rounded bg-primary/10 text-secondary border border-primary/20 uppercase tracking-widest"
+                            className="text-xs font-medium px-2 py-0.5 rounded bg-primary/10 text-secondary border border-primary/20 capitalize"
                           >
                             {v}
                           </span>
                         ))}
                       </div>
                     </td>
-                    <td className="px-6 py-4 text-[11px] font-semibold text-slate-500">
+                    <td className="px-6 py-4 text-xs font-medium text-slate-500">
                       {ann.target}
                     </td>
                     <td className="px-6 py-4">
@@ -178,7 +178,7 @@ export const AnnouncementsPage = ({ isHubChild }: { isHubChild?: boolean }) => {
                             }}
                           ></div>
                         </div>
-                        <span className="text-[10px] font-black text-slate-600">
+                        <span className="text-xs font-medium text-slate-600">
                           {ann.engagement}
                         </span>
                       </div>

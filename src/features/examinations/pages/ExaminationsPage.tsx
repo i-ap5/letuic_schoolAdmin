@@ -69,11 +69,11 @@ export const ExaminationsPage = ({ isHubChild }: { isHubChild?: boolean }) => {
       case "completed":
         return "bg-emerald-500 text-white";
       case "in progress":
-        return "bg-primary text-secondary border-slate-100";
+        return "bg-primary/10 text-secondary border border-primary";
       case "upcoming":
         return "bg-secondary text-white";
       default:
-        return "bg-slate-500/10 text-slate-600 border border-slate-500/20";
+        return "bg-slate-500/10 text-slate-700 border border-slate-500";
     }
   };
 
@@ -147,13 +147,13 @@ export const ExaminationsPage = ({ isHubChild }: { isHubChild?: boolean }) => {
               Academic History & Schedule
             </h3>
             <div className="flex gap-2">
-              <button className="px-3 py-1.5 rounded-xl bg-secondary text-white text-[10px] font-black uppercase tracking-widest">
+              <button className="px-3 py-1.5 rounded-xl bg-secondary text-white text-xs font-medium capitalize">
                 All
               </button>
-              <button className="px-3 py-1.5 rounded-xl hover:bg-slate-50 text-slate-400 text-[10px] font-black uppercase tracking-widest">
+              <button className="px-3 py-1.5 rounded-xl hover:bg-slate-50 text-slate-400 text-xs font-medium capitalize">
                 Major Exams
               </button>
-              <button className="px-3 py-1.5 rounded-xl hover:bg-slate-50 text-slate-400 text-[10px] font-black uppercase tracking-widest">
+              <button className="px-3 py-1.5 rounded-xl hover:bg-slate-50 text-slate-400 text-xs font-medium capitalize">
                 Mock Tests
               </button>
             </div>
@@ -204,7 +204,7 @@ export const ExaminationsPage = ({ isHubChild }: { isHubChild?: boolean }) => {
                           <p className="text-[13px] font-semibold text-secondary group-hover:underline decoration-primary underline-offset-4">
                             {exam.title}
                           </p>
-                          <p className="text-[10px] font-black uppercase tracking-[0.1em] text-slate-400">
+                          <p className="text-xs font-medium capitalize text-slate-400">
                             {exam.type}
                           </p>
                         </div>
@@ -223,13 +223,13 @@ export const ExaminationsPage = ({ isHubChild }: { isHubChild?: boolean }) => {
                         {exam.classes.slice(0, 2).map((c, i) => (
                           <span
                             key={i}
-                            className="text-[9px] font-bold px-2 py-0.5 rounded bg-slate-500/10 text-slate-600 border border-slate-500/20 border border-slate-50"
+                            className="text-xs font-medium px-2 py-0.5 rounded bg-slate-500/10 text-slate-700 border border-slate-500 border border-slate-50"
                           >
                             {c}
                           </span>
                         ))}
                         {exam.classes.length > 2 && (
-                          <span className="text-[9px] font-bold px-2 py-0.5 rounded bg-slate-50 text-slate-400">
+                          <span className="text-xs font-medium px-2 py-0.5 rounded bg-slate-50 text-slate-400">
                             +{exam.classes.length - 2}
                           </span>
                         )}
@@ -238,7 +238,7 @@ export const ExaminationsPage = ({ isHubChild }: { isHubChild?: boolean }) => {
                     <td className="px-6 py-4">
                       <span
                         className={cn(
-                          "inline-flex items-center px-2 py-0.5 rounded text-[10px] font-black uppercase tracking-widest border",
+                          "inline-flex items-center px-2 py-0.5 rounded text-xs font-medium capitalize border",
                           getStatusColor(exam.status),
                         )}
                       >
@@ -251,7 +251,7 @@ export const ExaminationsPage = ({ isHubChild }: { isHubChild?: boolean }) => {
                           {exam.avgScore}%
                         </span>
                       ) : (
-                        <span className="text-[10px] font-black text-secondary/20 uppercase tracking-widest">
+                        <span className="text-xs font-medium text-secondary/20 capitalize">
                           N/A
                         </span>
                       )}

@@ -49,7 +49,7 @@ const MessageItem = ({
           {sender}
         </span>
       </div>
-      <span className="text-[10px] font-bold text-slate-300 uppercase tracking-widest">
+      <span className="text-[10px] font-bold text-slate-300 capitalize">
         {time}
       </span>
     </div>
@@ -67,12 +67,12 @@ const MessageItem = ({
     <div className="flex gap-2 mt-3">
       <span
         className={cn(
-          "text-[9px] font-black px-1.5 py-0.5 rounded uppercase tracking-widest border",
+          "text-xs font-medium px-1.5 py-0.5 rounded capitalize border",
           priority === "urgent"
             ? "bg-red-500 text-white border-red-600"
             : priority === "important"
-              ? "bg-secondary/5 text-secondary border border-secondary/20"
-              : "bg-primary/20 text-secondary border-primary/30",
+              ? "bg-secondary/10 text-secondary border border-secondary"
+              : "bg-primary/10 text-secondary border border-primary",
         )}
       >
         {priority}

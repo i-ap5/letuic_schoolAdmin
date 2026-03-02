@@ -35,10 +35,10 @@ const DriverRow = ({
       <td className="px-6 py-4">
         <span
           className={cn(
-            "inline-flex items-center px-2 py-1 rounded text-[10px] font-black uppercase tracking-widest border",
+            "inline-flex items-center px-2 py-1 rounded text-xs font-medium capitalize border",
             driver.status === "Active"
               ? "bg-primary text-secondary border-slate-100"
-              : "bg-secondary/5 text-secondary border border-secondary/20",
+              : "bg-secondary/10 text-secondary border border-secondary",
           )}
         >
           {driver.status}

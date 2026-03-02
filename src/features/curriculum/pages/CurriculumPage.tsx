@@ -176,13 +176,13 @@ export const CurriculumPage = ({ isHubChild }: { isHubChild?: boolean }) => {
                               {m.class}
                             </td>
                             <td className="px-6 py-4">
-                              <span className="px-2 py-1 rounded bg-slate-50 text-secondary text-[10px] font-black border border-slate-50 tracking-widest">
+                              <span className="px-2 py-1 rounded bg-slate-50 text-secondary text-xs font-medium border border-slate-50 tracking-widest">
                                 {m.subject}
                               </span>
                             </td>
                             <td className="px-6 py-4">
                               <div className="flex items-center gap-2">
-                                <div className="size-6 rounded-full bg-primary/20 flex items-center justify-center text-[10px] font-black text-secondary">
+                                <div className="size-6 rounded-full bg-primary/20 flex items-center justify-center text-xs font-medium text-secondary">
                                   {m.teacher.split(" ").pop()?.charAt(0)}
                                 </div>
                                 <span className="text-[13px] font-medium text-slate-600">
@@ -210,13 +210,13 @@ export const CurriculumPage = ({ isHubChild }: { isHubChild?: boolean }) => {
 
               <aside className="space-y-6">
                 <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm shadow-slate-100/30">
-                  <h3 className="text-secondary text-sm font-black uppercase tracking-widest mb-4">
+                  <h3 className="text-secondary text-sm font-black capitalize mb-4">
                     Subject Distribution
                   </h3>
                   <div className="space-y-4">
                     {subjects.map((sub, i) => (
                       <div key={i} className="space-y-2">
-                        <div className="flex justify-between text-[10px] font-black uppercase tracking-tighter text-slate-500">
+                        <div className="flex justify-between text-xs font-medium capitalize tracking-tighter text-slate-500">
                           <span>{sub.name}</span>
                           <span>{sub.classes} Classes</span>
                         </div>
@@ -238,7 +238,7 @@ export const CurriculumPage = ({ isHubChild }: { isHubChild?: boolean }) => {
                   <p className="text-xs text-white/50 mb-4">
                     Ensure no teacher is double-booked across sections.
                   </p>
-                  <button className="w-full bg-white/10 border border-white/20 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest hover:bg-white/20 transition-colors">
+                  <button className="w-full bg-white/10 border border-white/20 py-2 rounded-xl text-xs font-medium capitalize hover:bg-white/20 transition-colors">
                     Run Audit
                   </button>
                 </div>
@@ -262,10 +262,10 @@ export const CurriculumPage = ({ isHubChild }: { isHubChild?: boolean }) => {
                   </div>
                   <span
                     className={cn(
-                      "text-[8px] font-black uppercase tracking-widest px-2 py-0.5 rounded border",
+                      "text-[8px] font-black capitalize px-2 py-0.5 rounded border",
                       sub.intensity === "High"
-                        ? "bg-red-500/15 text-red-700 border border-red-500/20"
-                        : "bg-emerald-500/15 text-emerald-700 border border-emerald-500/20",
+                        ? "bg-red-500/10 text-red-700 border border-red-500"
+                        : "bg-emerald-500/10 text-emerald-700 border border-emerald-500",
                     )}
                   >
                     {sub.intensity} Load

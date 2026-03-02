@@ -115,7 +115,7 @@ export const TransportationPage = ({
               icon: "build",
               trend: "Required",
               trendType: "down" as const,
-              iconBg: "bg-red-500/15 text-red-700 border border-red-500/20",
+              iconBg: "bg-red-500/10 text-red-700 border border-red-500",
             },
           ].map((stat, i) => (
             <StatCard key={i} {...stat} />
@@ -132,7 +132,7 @@ export const TransportationPage = ({
                 </h3>
                 <div className="flex items-center gap-2">
                   <span className="size-2 bg-emerald-500 rounded-full animate-pulse"></span>
-                  <span className="text-[10px] font-black text-emerald-600 uppercase tracking-widest">
+                  <span className="text-xs font-medium text-emerald-600 capitalize">
                     Live System
                   </span>
                 </div>
@@ -180,7 +180,7 @@ export const TransportationPage = ({
                         </td>
                         <td className="px-6 py-4">
                           <div className="flex flex-col">
-                            <p className="text-[11px] font-semibold text-secondary">
+                            <p className="text-xs font-medium text-secondary">
                               {bus.route}
                             </p>
                             <div className="flex items-center gap-1 mt-1 text-[10px] text-slate-400 font-medium">
@@ -194,19 +194,19 @@ export const TransportationPage = ({
                         <td className="px-6 py-4">
                           <span
                             className={cn(
-                              "inline-flex items-center px-2 py-0.5 rounded text-[10px] font-black uppercase tracking-widest border",
+                              "inline-flex items-center px-2 py-0.5 rounded text-xs font-medium capitalize border",
                               bus.status === "On Route"
-                                ? "bg-emerald-500/15 text-emerald-700 border border-emerald-500/20"
+                                ? "bg-emerald-500/10 text-emerald-700 border border-emerald-500"
                                 : bus.status === "Delayed"
-                                  ? "bg-red-500/15 text-red-700 border border-red-500/20"
-                                  : "bg-slate-500/10 text-slate-600 border border-slate-500/20",
+                                  ? "bg-red-500/10 text-red-700 border border-red-500"
+                                  : "bg-slate-500/10 text-slate-700 border border-slate-500",
                             )}
                           >
                             {bus.status}
                           </span>
                         </td>
                         <td className="px-6 py-4 text-right">
-                          <code className="text-xs font-black bg-secondary/5 text-secondary border border-secondary/20 px-2 py-1 rounded border border-white/10 shadow-sm shadow-slate-100/30">
+                          <code className="text-xs font-black bg-secondary/10 text-secondary border border-secondary px-2 py-1 rounded border border-white/10 shadow-sm shadow-slate-100/30">
                             {bus.loginId}
                           </code>
                         </td>
@@ -231,7 +231,7 @@ export const TransportationPage = ({
                 </p>
                 <div className="space-y-4">
                   <div className="space-y-1.5">
-                    <label className="text-[10px] font-black text-primary uppercase tracking-widest pl-1">
+                    <label className="text-xs font-medium text-primary capitalize pl-1">
                       Bus Assignment
                     </label>
                     <select className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-primary">
@@ -273,7 +273,7 @@ export const TransportationPage = ({
                     className="flex justify-between items-center border-b border-slate-50 pb-3 last:border-0 last:pb-0"
                   >
                     <div>
-                      <p className="text-[11px] font-semibold text-secondary">
+                      <p className="text-xs font-medium text-secondary">
                         {log.event}
                       </p>
                       <p className="text-[10px] text-slate-400 font-black tracking-widest">

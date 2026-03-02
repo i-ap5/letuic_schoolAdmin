@@ -76,7 +76,7 @@ export const DriverProfilePage = () => {
           ></div>
           <div className="flex-1">
             <div className="flex items-center gap-3 mb-4">
-              <span className="px-2 py-0.5 bg-primary text-secondary text-[10px] font-black rounded uppercase tracking-widest border border-slate-100">
+              <span className="px-2 py-0.5 bg-primary text-secondary text-xs font-medium rounded capitalize border border-slate-100">
                 {driver.status}
               </span>
               <p className="text-slate-500 text-[13px] font-medium">

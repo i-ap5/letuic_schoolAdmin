@@ -91,7 +91,7 @@ export const StaffProfilePage = () => {
           ></div>
           <div className="flex-1 flex flex-col">
             <div className="flex items-center gap-3 mb-2">
-              <span className="px-2 py-0.5 bg-secondary/5 text-secondary border border-secondary/20 text-[10px] font-black rounded uppercase tracking-widest border border-white/10">
+              <span className="px-2 py-0.5 bg-secondary/10 text-secondary border border-secondary text-xs font-medium rounded capitalize border border-white/10">
                 {staff.status}
               </span>
               <p className="text-slate-500 text-[13px] font-medium">
@@ -123,7 +123,7 @@ export const StaffProfilePage = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="bg-primary/10 border border-primary/30 rounded-2xl p-6 shadow-sm shadow-slate-100/30">
             <div className="flex justify-between items-start mb-4">
-              <p className="text-slate-500 text-[11px] font-semibold uppercase tracking-widest">
+              <p className="text-slate-500 text-xs font-medium capitalize">
                 Performance
               </p>
               <span className="material-symbols-outlined text-slate-300">
@@ -134,7 +134,7 @@ export const StaffProfilePage = () => {
               <p className="text-4xl font-black text-secondary tracking-tighter">
                 {staff.performance}%
               </p>
-              <p className="text-[10px] font-black bg-primary text-secondary px-2 py-0.5 rounded-full border border-slate-50 uppercase tracking-wider">
+              <p className="text-xs font-medium bg-primary text-secondary px-3 py-1 rounded-full border border-slate-50 capitalize">
                 Top 5%
               </p>
             </div>
@@ -142,7 +142,7 @@ export const StaffProfilePage = () => {
 
           <div className="bg-slate-50 border border-slate-100 rounded-2xl p-6 shadow-sm shadow-slate-100/30">
             <div className="flex justify-between items-start mb-4">
-              <p className="text-slate-500 text-[11px] font-semibold uppercase tracking-widest">
+              <p className="text-slate-500 text-xs font-medium capitalize">
                 Student Aura Impact
               </p>
               <span className="material-symbols-outlined text-slate-300">
@@ -158,7 +158,7 @@ export const StaffProfilePage = () => {
 
           <div className="bg-slate-50 border border-slate-100 rounded-2xl p-6 shadow-sm shadow-slate-100/30">
             <div className="flex justify-between items-start mb-4">
-              <p className="text-slate-500 text-[11px] font-semibold uppercase tracking-widest">
+              <p className="text-slate-500 text-xs font-medium capitalize">
                 Classes Handled
               </p>
               <span className="material-symbols-outlined text-slate-300">

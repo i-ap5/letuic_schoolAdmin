@@ -8,7 +8,7 @@ const FilterGroup = ({
   children: React.ReactNode;
 }) => (
   <div>
-    <h3 className="text-[11px] font-semibold text-slate-400 uppercase tracking-widest mb-4">
+    <h3 className="text-xs font-medium text-slate-400 capitalize mb-4">
       {title}
     </h3>
     <div className="flex flex-col gap-3">{children}</div>
@@ -68,14 +68,14 @@ export const CommunityFilters = () => {
         </FilterGroup>
 
         <div>
-          <h3 className="text-[11px] font-semibold text-slate-400 uppercase tracking-widest mb-4">
+          <h3 className="text-xs font-medium text-slate-400 capitalize mb-4">
             Academic Level
           </h3>
           <div className="flex flex-wrap gap-2">
             <button className="px-3 py-1.5 rounded-xl bg-slate-50 text-[11px] font-medium text-slate-600 hover:bg-primary/20 transition-colors">
               Junior High
             </button>
-            <button className="px-3 py-1.5 rounded-xl bg-primary text-[11px] font-semibold text-secondary border border-slate-100">
+            <button className="px-3 py-1.5 rounded-xl bg-primary text-xs font-medium text-secondary border border-slate-100">
               Senior High
             </button>
             <button className="px-3 py-1.5 rounded-xl bg-slate-50 text-[11px] font-medium text-slate-600 hover:bg-primary/20 transition-colors">
@@ -90,7 +90,7 @@ export const CommunityFilters = () => {
         </FilterGroup>
 
         <div className="pt-6 border-t border-slate-100">
-          <button className="w-full py-2 text-[11px] font-semibold text-slate-400 hover:text-secondary uppercase tracking-wider text-center transition-colors">
+          <button className="w-full py-2 text-xs font-medium text-slate-400 hover:text-secondary capitalize text-center transition-colors">
             Reset Filters
           </button>
         </div>

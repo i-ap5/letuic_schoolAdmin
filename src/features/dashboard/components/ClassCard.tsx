@@ -46,10 +46,10 @@ export const ClassCard = ({
             {grade} – {section}
           </p>
           <span className={cn(
-            "text-[10px] font-medium px-2 py-0.5 rounded-md border uppercase tracking-wider shrink-0",
-            statusType === "risk" && "bg-rose-500/15 text-rose-700 border border-rose-500/20",
-            statusType === "attention" && "bg-amber-500/15 text-amber-700 border border-amber-500/20",
-            statusType === "normal" && "bg-emerald-500/15 text-emerald-700 border border-emerald-500/20",
+            "text-[10px] font-medium px-2 py-0.5 rounded-md border capitalize shrink-0",
+            statusType === "risk" && "bg-rose-500/10 text-rose-700 border border-rose-500",
+            statusType === "attention" && "bg-amber-500/10 text-amber-700 border border-amber-500",
+            statusType === "normal" && "bg-emerald-500/10 text-emerald-700 border border-emerald-500",
           )}>
             {status}
           </span>

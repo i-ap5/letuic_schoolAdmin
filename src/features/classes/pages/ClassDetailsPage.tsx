@@ -75,7 +75,7 @@ export const ClassDetailsPage = () => {
       <div className="px-8 pt-6 pb-4 shrink-0 border-b border-slate-100">
         <div className="flex flex-wrap justify-between items-start gap-4">
           <div className="flex flex-col gap-1">
-            <nav className="flex items-center gap-2 text-[10px] font-black text-slate-300 uppercase tracking-[0.2em]">
+            <nav className="flex items-center gap-2 text-xs font-medium text-slate-300 capitalize tracking-[0.2em]">
               <button
                 onClick={() => navigate("/classes")}
                 className="hover:text-primary transition-colors"
@@ -120,7 +120,7 @@ export const ClassDetailsPage = () => {
               icon: "flag",
               trend: "Action required for 1",
               trendType: "down" as const,
-              iconBg: "bg-red-500/15 text-red-700 border border-red-500/20",
+              iconBg: "bg-red-500/10 text-red-700 border border-red-500",
             },
           ].map((stat, i) => (
             <StatCard key={i} {...stat} />
@@ -193,17 +193,17 @@ export const ClassDetailsPage = () => {
                           </div>
                         </td>
                         <td className="px-6 py-4 text-center">
-                          <span className="px-2 py-1 rounded bg-primary/20 text-secondary text-[10px] font-black border border-primary/30 tracking-widest shadow-sm shadow-slate-100/30">
+                          <span className="px-2 py-1 rounded bg-primary/20 text-secondary text-xs font-medium border border-primary/30 tracking-widest shadow-sm shadow-slate-100/30">
                             {student.auraScore}
                           </span>
                         </td>
                         <td className="px-6 py-4">
                           <span
                             className={cn(
-                              "inline-flex items-center px-2 py-0.5 rounded text-[10px] font-black uppercase tracking-widest border",
+                              "inline-flex items-center px-2 py-0.5 rounded text-xs font-medium capitalize border",
                               student.statusType === "normal"
                                 ? "bg-primary text-secondary border-slate-100"
-                                : "bg-secondary/5 text-secondary border border-secondary/20",
+                                : "bg-secondary/10 text-secondary border border-secondary",
                             )}
                           >
                             {student.status}
@@ -222,7 +222,7 @@ export const ClassDetailsPage = () => {
                 </table>
               </div>
               <div className="p-4 bg-slate-50/50 border-t border-slate-50 flex justify-center">
-                <button className="text-[10px] font-black text-slate-400 hover:text-secondary uppercase tracking-[0.2em] transition-colors">
+                <button className="text-xs font-medium text-slate-400 hover:text-secondary capitalize tracking-[0.2em] transition-colors">
                   Load More Students
                 </button>
               </div>
@@ -230,7 +230,7 @@ export const ClassDetailsPage = () => {
           </div>
 
           <aside className="space-y-6">
-            <h2 className="text-secondary text-base font-black uppercase tracking-[0.2em] leading-none mb-2 pl-2">
+            <h2 className="text-secondary text-base font-black capitalize tracking-[0.2em] leading-none mb-2 pl-2">
               Class Activity
             </h2>
             <div className="flex flex-col gap-4">
@@ -298,7 +298,7 @@ export const ClassDetailsPage = () => {
                       <div className="flex justify-between items-center mb-1">
                         <span
                           className={cn(
-                            "text-[9px] font-black uppercase tracking-widest",
+                            "text-xs font-medium capitalize",
                             activity.dark
                               ? "text-primary/60"
                               : "text-slate-400",
@@ -308,7 +308,7 @@ export const ClassDetailsPage = () => {
                         </span>
                         <span
                           className={cn(
-                            "text-[9px] font-bold",
+                            "text-xs font-medium",
                             activity.dark
                               ? "text-white/30"
                               : "text-secondary/20",
@@ -336,7 +336,7 @@ export const ClassDetailsPage = () => {
                         {activity.msg}
                       </p>
                       {activity.action && (
-                        <button className="text-[10px] font-black text-primary uppercase tracking-widest hover:underline text-left">
+                        <button className="text-xs font-medium text-primary capitalize hover:underline text-left">
                           {activity.action}
                         </button>
                       )}

@@ -27,7 +27,7 @@ export const ProgramCard = ({
     Active: "bg-primary text-secondary",
     Warning: "bg-red-500 text-white",
     Planning: "bg-blue-500 text-white",
-    Completed: "bg-secondary/5 text-secondary border border-secondary/20",
+    Completed: "bg-secondary/10 text-secondary border border-secondary",
   };
 
   return (
@@ -37,7 +37,7 @@ export const ProgramCard = ({
     >
       <div className="flex justify-between items-start mb-4">
         <div className="flex flex-col gap-1">
-          <span className="text-[10px] uppercase tracking-widest font-black text-slate-400">
+          <span className="text-[10px] capitalize font-black text-slate-400">
             {category}
           </span>
           <h3 className="text-[16px] font-semibold text-secondary group-hover:text-black transition-colors">
@@ -46,7 +46,7 @@ export const ProgramCard = ({
         </div>
         <span
           className={cn(
-            "px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-wider",
+            "px-3 py-1 rounded-full text-xs font-medium capitalize",
             statusStyles[status],
           )}
         >
@@ -72,7 +72,7 @@ export const ProgramCard = ({
             +{participants - 3}
           </div>
         </div>
-        <span className="text-[11px] font-semibold text-slate-400">
+        <span className="text-xs font-medium text-slate-400">
           Enrolled
         </span>
       </div>
@@ -99,7 +99,7 @@ export const ProgramCard = ({
 
         <div className="pt-2">
           <div className="flex justify-between items-end mb-1.5">
-            <span className="text-[10px] font-black uppercase tracking-wider text-slate-400">
+            <span className="text-xs font-medium capitalize text-slate-400">
               Program Progress
             </span>
             <span className="text-xs font-black text-secondary">

@@ -10,7 +10,7 @@ export const ProgramsTable = () => {
         Competition: "bg-blue-50 text-blue-600 border-blue-100",
         Meeting: "bg-violet-50 text-violet-600 border-violet-100",
         Exam: "bg-rose-50 text-rose-600 border-rose-100",
-        Event: "bg-amber-50 text-amber-600 border-amber-100",
+        Event: "bg-amber-500/10 text-amber-700 border border-amber-500",
     };
 
     return (
@@ -18,7 +18,7 @@ export const ProgramsTable = () => {
             {events.map((event, idx) => (
                 <div key={idx} className="flex items-center gap-4 py-3 px-1 border-b border-slate-50 last:border-0 hover:bg-slate-50/30 rounded-xl transition-colors cursor-pointer -mx-1">
                     <div className="flex flex-col items-center justify-center w-12 shrink-0">
-                        <span className="text-[11px] text-slate-400 font-medium uppercase">{event.date.split(" ")[0]}</span>
+                        <span className="text-[11px] text-slate-400 font-medium capitalize">{event.date.split(" ")[0]}</span>
                         <span className="text-lg font-semibold text-secondary leading-tight">{event.date.split(" ")[1]}</span>
                     </div>
 
@@ -29,7 +29,7 @@ export const ProgramsTable = () => {
                         <p className="text-[11px] text-slate-400 mt-0.5">{event.teacher}</p>
                     </div>
 
-                    <span className={`text-[10px] font-medium px-2 py-1 rounded-xl border shrink-0 ${typeColors[event.type] || "bg-slate-500/10 text-slate-600 border border-slate-500/20 border-slate-200"}`}>
+                    <span className={`text-[10px] font-medium px-2 py-1 rounded-xl border shrink-0 ${typeColors[event.type] || "bg-slate-500/10 text-slate-700 border border-slate-500 border-slate-200"}`}>
                         {event.type}
                     </span>
 

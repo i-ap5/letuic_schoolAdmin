@@ -17,13 +17,13 @@ const StaffRow = ({
   const getStatusStyles = (status: string) => {
     switch (status.toLowerCase()) {
       case "active":
-        return "bg-primary text-secondary";
+        return "bg-primary/10 text-secondary border border-primary";
       case "on leave":
         return "bg-slate-200 text-slate-500";
       case "remote":
-        return "bg-secondary/5 text-secondary border border-secondary/20";
+        return "bg-secondary/10 text-secondary border border-secondary";
       default:
-        return "bg-slate-500/10 text-slate-600 border border-slate-500/20";
+        return "bg-slate-500/10 text-slate-700 border border-slate-500";
     }
   };
 
@@ -71,14 +71,14 @@ const StaffRow = ({
         </div>
       </td>
       <td className="px-6 py-4">
-        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-primary/20 text-secondary border border-primary/30">
+        <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-secondary border border-primary">
           {auraScore}
         </span>
       </td>
       <td className="px-6 py-4">
         <span
           className={cn(
-            "inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-widest",
+            "inline-flex items-center px-3 py-1 rounded-full text-xs font-medium capitalize",
             getStatusStyles(status),
           )}
         >
@@ -248,7 +248,7 @@ export const StaffPage = ({
               value: "94%",
               icon: "school",
             },
-            { label: "On Leave", value: "05", icon: "event_busy", iconBg: "bg-red-500/15 text-red-700 border border-red-500/20" },
+            { label: "On Leave", value: "05", icon: "event_busy", iconBg: "bg-red-500/10 text-red-700 border border-red-500" },
           ].map((stat, i) => (
             <StatCard key={i} {...stat} />
           ))}
@@ -370,13 +370,13 @@ export const StaffPage = ({
                   chevron_left
                 </span>
               </button>
-              <button className="size-8 flex items-center justify-center rounded border border-primary bg-primary text-secondary text-[11px] font-semibold shadow-sm shadow-slate-100/30">
+              <button className="size-8 flex items-center justify-center rounded border border-primary bg-primary text-secondary text-xs font-medium shadow-sm shadow-slate-100/30">
                 1
               </button>
-              <button className="size-8 flex items-center justify-center rounded border border-slate-100 bg-white text-[11px] font-semibold hover:bg-slate-50 transition-colors">
+              <button className="size-8 flex items-center justify-center rounded border border-slate-100 bg-white text-xs font-medium hover:bg-slate-50 transition-colors">
                 2
               </button>
-              <button className="size-8 flex items-center justify-center rounded border border-slate-100 bg-white text-[11px] font-semibold hover:bg-slate-50 transition-colors">
+              <button className="size-8 flex items-center justify-center rounded border border-slate-100 bg-white text-xs font-medium hover:bg-slate-50 transition-colors">
                 3
               </button>
               <button className="size-8 flex items-center justify-center rounded border border-slate-100 bg-white text-slate-400 hover:bg-slate-50 transition-colors">

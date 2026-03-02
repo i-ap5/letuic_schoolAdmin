@@ -99,7 +99,7 @@ export const CommunityPage = () => {
               className={cn(
                 "px-4 py-2 rounded-xl text-[13px] font-semibold flex items-center gap-2 transition-all border",
                 isModerator
-                  ? "bg-secondary/5 text-secondary border border-secondary/20"
+                  ? "bg-secondary/10 text-secondary border border-secondary"
                   : "bg-white text-slate-400 border-slate-100 hover:bg-slate-50",
               )}
             >
@@ -128,7 +128,7 @@ export const CommunityPage = () => {
         {isModerator && (
           <div className="flex items-center gap-2 text-red-500 animate-pulse pb-4">
             <span className="material-symbols-outlined text-sm">warning</span>
-            <span className="text-[10px] font-black uppercase tracking-widest">
+            <span className="text-xs font-medium capitalize">
               Admin Moderation Active
             </span>
           </div>

@@ -159,13 +159,13 @@ export const ClassesPage = () => {
                 chevron_left
               </span>
             </button>
-            <button className="size-8 flex items-center justify-center rounded border border-primary bg-primary text-secondary text-[11px] font-semibold shadow-sm shadow-slate-100/30">
+            <button className="size-8 flex items-center justify-center rounded border border-primary bg-primary text-secondary text-xs font-medium shadow-sm shadow-slate-100/30">
               1
             </button>
-            <button className="size-8 flex items-center justify-center rounded border border-slate-100 bg-white text-[11px] font-semibold hover:bg-slate-50 transition-colors">
+            <button className="size-8 flex items-center justify-center rounded border border-slate-100 bg-white text-xs font-medium hover:bg-slate-50 transition-colors">
               2
             </button>
-            <button className="size-8 flex items-center justify-center rounded border border-slate-100 bg-white text-[11px] font-semibold hover:bg-slate-50 transition-colors">
+            <button className="size-8 flex items-center justify-center rounded border border-slate-100 bg-white text-xs font-medium hover:bg-slate-50 transition-colors">
               3
             </button>
             <button className="size-8 flex items-center justify-center rounded border border-slate-100 bg-white text-slate-400 hover:bg-slate-50 transition-colors">

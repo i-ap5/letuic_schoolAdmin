@@ -142,7 +142,7 @@ export const StudentProfilePage = () => {
           ></div>
           <div className="flex flex-col">
             <div className="flex items-center gap-3">
-              <span className="px-2 py-0.5 bg-primary text-secondary text-[10px] font-black rounded uppercase tracking-widest border border-slate-100">
+              <span className="px-2 py-0.5 bg-primary text-secondary text-xs font-medium rounded capitalize border border-slate-100">
                 {student.status}
               </span>
               <p className="text-slate-500 text-[13px] font-medium">
@@ -180,7 +180,7 @@ export const StudentProfilePage = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="bg-primary/10 border border-primary/30 rounded-2xl p-6 shadow-sm shadow-slate-100/30">
             <div className="flex justify-between items-start mb-4">
-              <p className="text-slate-500 text-[11px] font-semibold uppercase tracking-widest">
+              <p className="text-slate-500 text-xs font-medium capitalize">
                 Aura Score
               </p>
               <span className="material-symbols-outlined text-slate-300">
@@ -192,18 +192,18 @@ export const StudentProfilePage = () => {
                 {student.auraScore}
                 <span className="text-lg opacity-30">/100</span>
               </p>
-              <p className="text-[10px] font-black bg-primary text-secondary px-2 py-0.5 rounded-full border border-slate-50 uppercase tracking-wider">
+              <p className="text-xs font-medium bg-primary text-secondary px-3 py-1 rounded-full border border-slate-50 capitalize">
                 +5.2%
               </p>
             </div>
-            <p className="text-[10px] text-slate-400 font-bold uppercase mt-4 tracking-widest">
+            <p className="text-[10px] text-slate-400 font-bold capitalize mt-4 tracking-widest">
               Weighted Engagement Metric
             </p>
           </div>
 
           <div className="bg-slate-50 border border-slate-100 rounded-2xl p-6 shadow-sm shadow-slate-100/30">
             <div className="flex justify-between items-start mb-4">
-              <p className="text-slate-500 text-[11px] font-semibold uppercase tracking-widest">
+              <p className="text-slate-500 text-xs font-medium capitalize">
                 Attendance
               </p>
               <span className="material-symbols-outlined text-slate-300">
@@ -214,18 +214,18 @@ export const StudentProfilePage = () => {
               <p className="text-4xl font-black text-secondary tracking-tighter">
                 {student.attendanceRate}%
               </p>
-              <p className="text-[10px] font-black bg-secondary text-white px-2 py-0.5 rounded-full border border-slate-50 uppercase tracking-wider">
+              <p className="text-xs font-medium bg-secondary text-white px-3 py-1 rounded-full border border-slate-50 capitalize">
                 Stable
               </p>
             </div>
-            <p className="text-[10px] text-slate-400 font-bold uppercase mt-4 tracking-widest">
+            <p className="text-[10px] text-slate-400 font-bold capitalize mt-4 tracking-widest">
               126/132 days attended
             </p>
           </div>
 
           <div className="bg-slate-50 border border-slate-100 rounded-2xl p-6 shadow-sm shadow-slate-100/30">
             <div className="flex justify-between items-start mb-4">
-              <p className="text-slate-500 text-[11px] font-semibold uppercase tracking-widest">
+              <p className="text-slate-500 text-xs font-medium capitalize">
                 GPA (Weighted)
               </p>
               <span className="material-symbols-outlined text-slate-300">
@@ -236,11 +236,11 @@ export const StudentProfilePage = () => {
               <p className="text-4xl font-black text-secondary tracking-tighter">
                 {student.gpa}
               </p>
-              <p className="text-[10px] font-black bg-red-500 text-white px-2 py-0.5 rounded-full border border-slate-50 uppercase tracking-wider">
+              <p className="text-xs font-medium bg-red-500 text-white px-3 py-1 rounded-full border border-slate-50 capitalize">
                 -0.1
               </p>
             </div>
-            <p className="text-[10px] text-slate-400 font-bold uppercase mt-4 tracking-widest">
+            <p className="text-[10px] text-slate-400 font-bold capitalize mt-4 tracking-widest">
               Class Rank: 14 / 285
             </p>
           </div>
@@ -317,7 +317,7 @@ export const StudentProfilePage = () => {
                       <td className="px-6 py-4 text-right">
                         <span
                           className={cn(
-                            "px-2 py-0.5 rounded text-[10px] font-black uppercase tracking-widest border",
+                            "px-2 py-0.5 rounded text-xs font-medium capitalize border",
                             p.status === "ONGOING"
                               ? "bg-primary text-secondary border-slate-50"
                               : "bg-slate-50 text-slate-300 border-slate-50",
@@ -372,7 +372,7 @@ export const StudentProfilePage = () => {
                       <p className="text-[13px] font-semibold text-secondary">
                         {a.title}
                       </p>
-                      <p className="text-xs text-slate-400 font-medium uppercase tracking-wider">
+                      <p className="text-xs text-slate-400 font-medium capitalize">
                         {a.sub}
                       </p>
                     </div>
@@ -385,10 +385,10 @@ export const StudentProfilePage = () => {
           <div className="space-y-6">
             <div className="bg-white rounded-2xl border border-red-500/10 shadow-sm shadow-slate-100/30 overflow-hidden">
               <div className="px-6 py-4 bg-red-500 text-white flex justify-between items-center shadow-lg shadow-red-500/20">
-                <h3 className="text-lg font-black tracking-tighter uppercase italic">
+                <h3 className="text-lg font-black tracking-tighter capitalize italic">
                   Moderation Flags
                 </h3>
-                <span className="bg-white text-red-500 text-[10px] font-black px-2.5 py-0.5 rounded-full">
+                <span className="bg-white text-red-500 text-xs font-medium px-3 py-1 rounded-full">
                   2 ACTIVE
                 </span>
               </div>
@@ -405,10 +405,10 @@ export const StudentProfilePage = () => {
                     Oct 14. Counselor referral pending.
                   </p>
                   <div className="flex justify-between items-center">
-                    <span className="text-[10px] font-black text-red-700 uppercase tracking-widest">
+                    <span className="text-xs font-medium text-red-700 capitalize">
                       Severity: High
                     </span>
-                    <button className="text-[10px] font-black text-secondary underline uppercase tracking-widest">
+                    <button className="text-xs font-medium text-secondary underline capitalize">
                       View Report
                     </button>
                   </div>
@@ -428,7 +428,7 @@ export const StudentProfilePage = () => {
               <div className="space-y-6 relative before:absolute before:left-0 before:top-2 before:bottom-2 before:w-[2px] before:bg-white/10 pl-6">
                 <div className="relative">
                   <div className="absolute -left-[27px] top-1 size-2 rounded-full bg-primary"></div>
-                  <p className="text-[10px] font-bold text-primary uppercase tracking-[0.2em] mb-1">
+                  <p className="text-[10px] font-bold text-primary capitalize tracking-[0.2em] mb-1">
                     Oct 12 • Principal Priya Sharma
                   </p>
                   <p className="text-xs text-white/60 font-medium leading-relaxed italic">
@@ -438,7 +438,7 @@ export const StudentProfilePage = () => {
                 </div>
                 <div className="relative">
                   <div className="absolute -left-[27px] top-1 size-2 rounded-full bg-white/20"></div>
-                  <p className="text-[10px] font-bold text-white/30 uppercase tracking-[0.2em] mb-1">
+                  <p className="text-[10px] font-bold text-white/30 capitalize tracking-[0.2em] mb-1">
                     Sept 19 • Admin Smith
                   </p>
                   <p className="text-xs text-white/40 font-medium leading-relaxed">
@@ -446,7 +446,7 @@ export const StudentProfilePage = () => {
                   </p>
                 </div>
               </div>
-              <button className="w-full mt-8 py-3 bg-white/5 border border-white/10 rounded-2xl text-[10px] font-black text-white/40 uppercase tracking-[0.2em] hover:bg-white/10 transition-colors border-dashed">
+              <button className="w-full mt-8 py-3 bg-white/5 border border-white/10 rounded-2xl text-xs font-medium text-white/40 capitalize tracking-[0.2em] hover:bg-white/10 transition-colors border-dashed">
                 + Add Administrative Note
               </button>
             </div>

@@ -125,7 +125,7 @@ export const ReportsPage = () => {
                 <span>More Filters</span>
               </button>
             </div>
-            <div className="text-slate-400 text-[10px] font-bold uppercase tracking-widest italic pr-2">
+            <div className="text-slate-400 text-[10px] font-bold capitalize italic pr-2">
               Data refreshed 4 minutes ago
             </div>
           </div>
@@ -134,7 +134,7 @@ export const ReportsPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="flex flex-col gap-2 rounded-2xl p-6 bg-white border border-slate-100 shadow-sm shadow-slate-100/30 relative overflow-hidden group">
               <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-full -mr-12 -mt-12 transition-transform group-hover:scale-110" />
-              <p className="text-slate-400 text-[10px] font-black uppercase tracking-widest">
+              <p className="text-slate-400 text-xs font-medium capitalize">
                 Total Participation
               </p>
               <div className="flex items-baseline justify-between relative z-10">
@@ -153,7 +153,7 @@ export const ReportsPage = () => {
 
             <div className="flex flex-col gap-2 rounded-2xl p-6 bg-white border border-slate-100 shadow-sm shadow-slate-100/30 relative overflow-hidden group">
               <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-full -mr-12 -mt-12 transition-transform group-hover:scale-110" />
-              <p className="text-slate-400 text-[10px] font-black uppercase tracking-widest">
+              <p className="text-slate-400 text-xs font-medium capitalize">
                 Engagement Score
               </p>
               <div className="flex items-baseline justify-between relative z-10">
@@ -177,7 +177,7 @@ export const ReportsPage = () => {
 
             <div className="flex flex-col gap-2 rounded-2xl p-6 bg-white border border-slate-100 shadow-sm shadow-slate-100/30 relative overflow-hidden group">
               <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-full -mr-12 -mt-12 transition-transform group-hover:scale-110" />
-              <p className="text-slate-400 text-[10px] font-black uppercase tracking-widest">
+              <p className="text-slate-400 text-xs font-medium capitalize">
                 Target Completion
               </p>
               <div className="flex items-baseline justify-between relative z-10">
@@ -199,7 +199,7 @@ export const ReportsPage = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <div className="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm shadow-slate-100/30">
               <div className="flex justify-between items-center mb-8">
-                <h3 className="text-secondary text-sm font-black uppercase tracking-widest">
+                <h3 className="text-secondary text-sm font-black capitalize">
                   Participation by Tag
                 </h3>
                 <span
@@ -212,7 +212,7 @@ export const ReportsPage = () => {
               <div className="space-y-6">
                 {engagementTags.map((tag, idx) => (
                   <div key={idx} className="space-y-2">
-                    <div className="flex justify-between text-[11px] font-black uppercase tracking-tighter text-slate-500">
+                    <div className="flex justify-between text-[11px] font-black capitalize tracking-tighter text-slate-500">
                       <span>{tag.label}</span>
                       <span>{tag.students} Students</span>
                     </div>
@@ -229,10 +229,10 @@ export const ReportsPage = () => {
 
             <div className="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm shadow-slate-100/30 flex flex-col">
               <div className="flex justify-between items-center mb-8">
-                <h3 className="text-secondary text-sm font-black uppercase tracking-widest">
+                <h3 className="text-secondary text-sm font-black capitalize">
                   Recent Program Outcomes
                 </h3>
-                <button className="text-secondary text-[11px] font-semibold hover:underline">
+                <button className="text-secondary text-xs font-medium hover:underline">
                   View All
                 </button>
               </div>
@@ -262,7 +262,7 @@ export const ReportsPage = () => {
                         {item.attendance} Attendance
                       </p>
                       <p
-                        className={`text-[10px] font-black uppercase tracking-wider ${item.statusColor}`}
+                        className={`text-xs font-medium capitalize ${item.statusColor}`}
                       >
                         {item.status}
                       </p>
@@ -287,7 +287,7 @@ export const ReportsPage = () => {
                 </span>
               </div>
               <div>
-                <h4 className="text-sm font-black uppercase tracking-widest text-primary mb-2">
+                <h4 className="text-sm font-black capitalize text-primary mb-2">
                   Principal's Insight Summary
                 </h4>
                 <p className="text-sm text-white/80 leading-relaxed font-medium">

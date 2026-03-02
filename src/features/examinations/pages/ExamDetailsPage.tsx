@@ -106,7 +106,7 @@ export const ExamDetailsPage = () => {
       />
 
       <div className="px-8 pt-6 pb-4 shrink-0 border-b border-slate-100">
-        <nav className="flex items-center gap-2 text-[10px] font-black text-slate-300 uppercase tracking-[0.2em]">
+        <nav className="flex items-center gap-2 text-xs font-medium text-slate-300 capitalize tracking-[0.2em]">
           <button
             onClick={() => navigate("/examinations")}
             className="hover:text-primary transition-colors"
@@ -124,7 +124,7 @@ export const ExamDetailsPage = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Subject-wise Marks Status */}
           <div className="lg:col-span-2 space-y-6">
-            <h2 className="text-secondary text-base font-black uppercase tracking-[0.15em] leading-none mb-4 pl-2">
+            <h2 className="text-secondary text-base font-black capitalize tracking-[0.15em] leading-none mb-4 pl-2">
               Subject Summary
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -144,9 +144,9 @@ export const ExamDetailsPage = () => {
                     </div>
                     <span
                       className={cn(
-                        "text-[9px] font-black uppercase tracking-widest px-2 py-0.5 rounded border",
+                        "text-xs font-medium capitalize px-2 py-0.5 rounded border",
                         subject.status === "Published"
-                          ? "bg-emerald-500/15 text-emerald-700 border border-emerald-500/20"
+                          ? "bg-emerald-500/10 text-emerald-700 border border-emerald-500"
                           : "bg-primary/10 text-secondary border border-primary/20",
                       )}
                     >
@@ -155,7 +155,7 @@ export const ExamDetailsPage = () => {
                   </div>
                   <div className="flex justify-between items-end mt-2">
                     <div className="space-y-1">
-                      <p className="text-[9px] font-black text-slate-300 uppercase tracking-widest">
+                      <p className="text-xs font-medium text-slate-300 capitalize">
                         Avg. Score
                       </p>
                       <p className="text-2xl font-black text-secondary tracking-tighter">
@@ -163,10 +163,10 @@ export const ExamDetailsPage = () => {
                       </p>
                     </div>
                     <div className="text-right">
-                      <p className="text-[9px] font-black text-slate-300 uppercase tracking-widest leading-none mb-1">
+                      <p className="text-xs font-medium text-slate-300 capitalize leading-none mb-1">
                         Submissions
                       </p>
-                      <p className="text-[11px] font-semibold text-secondary">
+                      <p className="text-xs font-medium text-secondary">
                         {subject.submissions}
                       </p>
                     </div>
@@ -230,7 +230,7 @@ export const ExamDetailsPage = () => {
                         <td className="px-6 py-4 text-center">
                           <span
                             className={cn(
-                              "text-[11px] font-semibold",
+                              "text-xs font-medium",
                               student.math < 50
                                 ? "text-red-500"
                                 : "text-secondary",
@@ -239,14 +239,14 @@ export const ExamDetailsPage = () => {
                             {student.math}
                           </span>
                         </td>
-                        <td className="px-6 py-4 text-center text-[11px] font-semibold text-secondary">
+                        <td className="px-6 py-4 text-center text-xs font-medium text-secondary">
                           {student.science}
                         </td>
-                        <td className="px-6 py-4 text-center text-[11px] font-semibold text-secondary">
+                        <td className="px-6 py-4 text-center text-xs font-medium text-secondary">
                           {student.history}
                         </td>
                         <td className="px-6 py-4 text-right">
-                          <span className="px-2 py-1 rounded bg-primary text-secondary text-[10px] font-black border border-slate-100 shadow-sm shadow-slate-100/30">
+                          <span className="px-2 py-1 rounded bg-primary text-secondary text-xs font-medium border border-slate-100 shadow-sm shadow-slate-100/30">
                             {student.gpa.toFixed(1)}
                           </span>
                         </td>
@@ -271,7 +271,7 @@ export const ExamDetailsPage = () => {
               <div className="space-y-6">
                 <div>
                   <div className="flex justify-between items-center mb-2">
-                    <p className="text-[10px] font-black text-white/40 uppercase tracking-widest">
+                    <p className="text-xs font-medium text-white/40 capitalize">
                       Class Average
                     </p>
                     <p className="text-lg font-black text-primary">78.4%</p>
@@ -282,7 +282,7 @@ export const ExamDetailsPage = () => {
                 </div>
                 <div>
                   <div className="flex justify-between items-center mb-2">
-                    <p className="text-[10px] font-black text-white/40 uppercase tracking-widest">
+                    <p className="text-xs font-medium text-white/40 capitalize">
                       Passing Rate
                     </p>
                     <p className="text-lg font-black text-emerald-400">92.1%</p>
@@ -292,7 +292,7 @@ export const ExamDetailsPage = () => {
                   </div>
                 </div>
                 <div className="pt-4 border-t border-white/5 space-y-3">
-                  <p className="text-[10px] font-black text-primary uppercase tracking-widest underline underline-offset-4 mb-2">
+                  <p className="text-xs font-medium text-primary capitalize underline underline-offset-4 mb-2">
                     Internal Flags
                   </p>
                   <div className="flex items-center gap-3 text-xs text-white/70">
@@ -308,7 +308,7 @@ export const ExamDetailsPage = () => {
                     All marks submitted for Grade 10
                   </div>
                 </div>
-                <button className="w-full mt-4 bg-white/5 border border-white/10 py-3 rounded-2xl text-[10px] font-black uppercase tracking-[0.2em] hover:bg-white/10 transition-colors">
+                <button className="w-full mt-4 bg-white/5 border border-white/10 py-3 rounded-2xl text-xs font-medium capitalize tracking-[0.2em] hover:bg-white/10 transition-colors">
                   Generate Grade Distributions
                 </button>
               </div>
@@ -321,7 +321,7 @@ export const ExamDetailsPage = () => {
               <p className="text-[11px] font-medium mb-4 opacity-70">
                 Download the standard template for bulk mark uploads.
               </p>
-              <button className="w-full bg-secondary text-white py-3 rounded-2xl text-[11px] font-semibold flex items-center justify-center gap-2 shadow-xl hover:opacity-90 transition-all">
+              <button className="w-full bg-secondary text-white py-3 rounded-2xl text-xs font-medium flex items-center justify-center gap-2 shadow-xl hover:opacity-90 transition-all">
                 <span className="material-symbols-outlined text-lg">
                   download
                 </span>

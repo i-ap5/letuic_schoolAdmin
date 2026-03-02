@@ -143,13 +143,13 @@ export const CalendarPage = () => {
                   </div>
                 </div>
                 <div className="flex bg-slate-50 p-1 rounded-xl">
-                  <button className="px-3 py-1 text-[11px] font-semibold bg-white text-secondary rounded-md shadow-sm shadow-slate-100/30">
+                  <button className="px-3 py-1 text-xs font-medium bg-white text-secondary rounded-md shadow-sm shadow-slate-100/30">
                     Month
                   </button>
-                  <button className="px-3 py-1 text-[11px] font-semibold text-slate-400">
+                  <button className="px-3 py-1 text-xs font-medium text-slate-400">
                     Week
                   </button>
-                  <button className="px-3 py-1 text-[11px] font-semibold text-slate-400">
+                  <button className="px-3 py-1 text-xs font-medium text-slate-400">
                     Day
                   </button>
                 </div>
@@ -159,7 +159,7 @@ export const CalendarPage = () => {
                 {days.map((day) => (
                   <div
                     key={day}
-                    className="py-3 text-center text-[10px] font-black uppercase tracking-widest text-slate-300"
+                    className="py-3 text-center text-xs font-medium capitalize text-slate-300"
                   >
                     {day}
                   </div>
@@ -184,7 +184,7 @@ export const CalendarPage = () => {
                     <div className="flex justify-between items-center mb-2">
                       <span
                         className={cn(
-                          "size-6 flex items-center justify-center text-[11px] font-semibold rounded-full",
+                          "size-6 flex items-center justify-center text-xs font-medium rounded-full",
                           day === 24
                             ? "bg-primary text-secondary"
                             : "text-slate-500",
@@ -235,7 +235,7 @@ export const CalendarPage = () => {
                         )}
                       </div>
                       <div className="pb-4">
-                        <p className="text-[10px] font-black text-primary uppercase tracking-widest leading-none mb-1">
+                        <p className="text-xs font-medium text-primary capitalize leading-none mb-1">
                           {item.time}
                         </p>
                         <p className="text-[13px] font-semibold group-hover:text-primary transition-colors">
@@ -248,7 +248,7 @@ export const CalendarPage = () => {
                     </div>
                   ))}
                 </div>
-                <button className="w-full mt-4 bg-white/5 border border-white/10 py-3 rounded-2xl text-[10px] font-black uppercase tracking-[0.2em] hover:bg-white/10 transition-colors">
+                <button className="w-full mt-4 bg-white/5 border border-white/10 py-3 rounded-2xl text-xs font-medium capitalize tracking-[0.2em] hover:bg-white/10 transition-colors">
                   Adjust Weekly Slots
                 </button>
               </div>
@@ -256,7 +256,7 @@ export const CalendarPage = () => {
 
             {activeView === "parent" && (
               <div className="bg-white rounded-2xl border border-slate-100 p-6 shadow-sm shadow-slate-100/30">
-                <h3 className="text-secondary text-lg font-black uppercase tracking-[0.1em] mb-6 flex items-center gap-2">
+                <h3 className="text-secondary text-lg font-black capitalize mb-6 flex items-center gap-2">
                   <span className="material-symbols-outlined text-red-500">
                     campaign
                   </span>
@@ -271,7 +271,7 @@ export const CalendarPage = () => {
                       <div className="flex justify-between items-start mb-2">
                         <span
                           className={cn(
-                            "px-2 py-0.5 rounded text-[9px] font-black text-white uppercase tracking-widest",
+                            "px-2 py-0.5 rounded text-xs font-medium text-white capitalize",
                             event.color,
                           )}
                         >
@@ -298,13 +298,13 @@ export const CalendarPage = () => {
                 Instantly swap a substitute or cancel a class slot.
               </p>
               <div className="space-y-3">
-                <button className="w-full bg-secondary text-white py-2.5 rounded-xl text-[11px] font-semibold flex items-center justify-center gap-2 shadow-lg">
+                <button className="w-full bg-secondary text-white py-2.5 rounded-xl text-xs font-medium flex items-center justify-center gap-2 shadow-lg">
                   <span className="material-symbols-outlined text-sm">
                     swap_horiz
                   </span>
                   Assign Substitute
                 </button>
-                <button className="w-full bg-white text-secondary py-2.5 rounded-xl text-[11px] font-semibold flex items-center justify-center gap-2 shadow-sm shadow-slate-100/30 border border-slate-100">
+                <button className="w-full bg-white text-secondary py-2.5 rounded-xl text-xs font-medium flex items-center justify-center gap-2 shadow-sm shadow-slate-100/30 border border-slate-100">
                   <span className="material-symbols-outlined text-sm">
                     event_busy
                   </span>

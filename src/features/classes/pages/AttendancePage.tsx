@@ -160,7 +160,7 @@ export const AttendancePage = ({ isHubChild }: { isHubChild?: boolean }) => {
                 person_search
               </span>
               <div className="flex flex-col flex-1">
-                <p className="text-[9px] font-black text-slate-400 uppercase tracking-widest leading-none mb-1">
+                <p className="text-xs font-medium text-slate-400 capitalize leading-none mb-1">
                   Search Student
                 </p>
                 <input
@@ -168,7 +168,7 @@ export const AttendancePage = ({ isHubChild }: { isHubChild?: boolean }) => {
                   placeholder="Filter by name..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="bg-transparent border-none p-0 text-[11px] font-semibold text-secondary outline-none placeholder-slate-300 w-full"
+                  className="bg-transparent border-none p-0 text-xs font-medium text-secondary outline-none placeholder-slate-300 w-full"
                 />
               </div>
             </div>
@@ -193,7 +193,7 @@ export const AttendancePage = ({ isHubChild }: { isHubChild?: boolean }) => {
                   </p>
                 </div>
               </div>
-              <button className="text-[10px] font-black uppercase tracking-widest border border-white/20 px-4 py-2 rounded-xl hover:bg-white/10 transition-all">
+              <button className="text-xs font-medium capitalize border border-white/20 px-4 py-2 rounded-xl hover:bg-white/10 transition-all">
                 View Coverage Log
               </button>
             </div>
@@ -206,7 +206,7 @@ export const AttendancePage = ({ isHubChild }: { isHubChild?: boolean }) => {
                 Student Roster - {selectedClass}
               </h3>
               <div className="flex gap-2">
-                <button className="px-3 py-1.5 rounded-xl bg-emerald-50 text-emerald-700 text-[10px] font-black uppercase tracking-widest border border-emerald-100">
+                <button className="px-3 py-1.5 rounded-xl bg-emerald-50 text-emerald-700 text-xs font-medium capitalize border border-emerald-100">
                   Mark all Present
                 </button>
               </div>
@@ -253,7 +253,7 @@ export const AttendancePage = ({ isHubChild }: { isHubChild?: boolean }) => {
                               <button
                                 key={status}
                                 className={cn(
-                                  "px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest border transition-all",
+                                  "px-3 py-1 rounded-full text-xs font-medium capitalize border transition-all",
                                   student.status === status
                                     ? status === "Present"
                                       ? "bg-emerald-500 text-white border-emerald-500 shadow-md scale-105"
