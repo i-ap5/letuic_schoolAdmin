@@ -71,7 +71,7 @@ export const ExaminationsPage = ({ isHubChild }: { isHubChild?: boolean }) => {
       case "in progress":
         return "bg-amber-500/10 text-amber-700 border border-amber-500";
       case "upcoming":
-        return "bg-amber-500/10 text-amber-700 border border-amber-500";
+        return "bg-violet-500/10 text-violet-700 border border-violet-500";
       default:
         return "bg-slate-500/10 text-slate-700 border border-slate-500";
     }
