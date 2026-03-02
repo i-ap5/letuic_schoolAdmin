@@ -18,7 +18,7 @@ export const AcademicHubPage = () => {
           subtitle="Unified control for examinations, assessments, curriculum mapping, and enrichment programs."
           actions={
             <div className="flex gap-3">
-              <button className="bg-pale-lime text-dark-blue-grey px-4 py-2 rounded-lg text-sm font-bold flex items-center gap-2 hover:opacity-90 transition-all shadow-sm">
+              <button className="bg-primary text-secondary px-4 py-2 rounded-xl text-[13px] font-semibold flex items-center gap-2 hover:opacity-90 transition-all shadow-sm shadow-slate-100/30">
                 <span className="material-symbols-outlined text-sm">
                   add_circle
                 </span>
@@ -28,7 +28,7 @@ export const AcademicHubPage = () => {
           }
         />
 
-        <div className="px-8 border-b border-dark-blue-grey/10 bg-white">
+        <div className="px-8 border-b border-slate-100 bg-white">
           <div className="flex gap-8">
             {[
               { id: "exams", label: "Examinations", icon: "description" },
@@ -47,10 +47,10 @@ export const AcademicHubPage = () => {
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id as any)}
                 className={cn(
-                  "flex items-center gap-2 pb-4 text-sm font-bold tracking-tight transition-all relative mt-4",
+                  "flex items-center gap-2 pb-4 text-[13px] font-semibold tracking-tight transition-all relative mt-4",
                   activeTab === tab.id
-                    ? "text-dark-blue-grey"
-                    : "text-dark-blue-grey/40 hover:text-dark-blue-grey",
+                    ? "text-secondary"
+                    : "text-slate-400 hover:text-secondary",
                 )}
               >
                 <span className="material-symbols-outlined text-lg">
@@ -58,7 +58,7 @@ export const AcademicHubPage = () => {
                 </span>
                 {tab.label}
                 {activeTab === tab.id && (
-                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-pale-lime rounded-t-full" />
+                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-primary rounded-t-full" />
                 )}
               </button>
             ))}

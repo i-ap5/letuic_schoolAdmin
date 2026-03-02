@@ -117,13 +117,13 @@ export const StudentProfilePage = () => {
         onBack={() => navigate(-1)}
         actions={
           <div className="flex items-center gap-3">
-            <button className="bg-pale-lime text-dark-blue-grey px-4 py-2 rounded-lg text-sm font-bold flex items-center gap-2 hover:opacity-90 transition-all shadow-sm">
+            <button className="bg-primary text-secondary px-4 py-2 rounded-xl text-[13px] font-semibold flex items-center gap-2 hover:opacity-90 transition-all shadow-sm shadow-slate-100/30">
               <span className="material-symbols-outlined text-sm">
                 edit_note
               </span>
               Add Note
             </button>
-            <button className="bg-dark-blue-grey text-white px-4 py-2 rounded-lg text-sm font-bold flex items-center gap-2 hover:opacity-90 transition-all shadow-sm">
+            <button className="bg-secondary text-white px-4 py-2 rounded-xl text-[13px] font-semibold flex items-center gap-2 hover:opacity-90 transition-all shadow-sm shadow-slate-100/30">
               <span className="material-symbols-outlined text-sm">
                 picture_as_pdf
               </span>
@@ -133,19 +133,19 @@ export const StudentProfilePage = () => {
         }
       />
 
-      <div className="flex-1 overflow-y-auto p-8 space-y-8">
+      <div className="flex-1 overflow-y-auto mx-auto px-6 lg:px-10 py-6 max-w-[1400px] space-y-8">
         {/* Profile Card */}
-        <div className="flex flex-col md:flex-row gap-8 items-center border-b border-dark-blue-grey/10 pb-8">
+        <div className="flex flex-col md:flex-row gap-8 items-center border-b border-slate-100 pb-8">
           <div
-            className="size-24 rounded-xl bg-cover bg-center border border-dark-blue-grey/10 shrink-0 shadow-sm"
+            className="size-24 rounded-2xl bg-cover bg-center border border-slate-100 shrink-0 shadow-sm shadow-slate-100/30"
             style={{ backgroundImage: `url("${student.img}")` }}
           ></div>
           <div className="flex flex-col">
             <div className="flex items-center gap-3">
-              <span className="px-2 py-0.5 bg-pale-lime text-dark-blue-grey text-[10px] font-black rounded uppercase tracking-widest border border-dark-blue-grey/10">
+              <span className="px-2 py-0.5 bg-primary text-secondary text-[10px] font-black rounded uppercase tracking-widest border border-slate-100">
                 {student.status}
               </span>
-              <p className="text-dark-blue-grey/60 text-sm font-medium">
+              <p className="text-slate-500 text-[13px] font-medium">
                 Enrolled: {student.enrollmentDate}
               </p>
             </div>
@@ -153,7 +153,7 @@ export const StudentProfilePage = () => {
         </div>
 
         {/* Tabs Placeholder */}
-        <div className="border-b border-dark-blue-grey/10">
+        <div className="border-b border-slate-100">
           <div className="flex gap-8">
             {[
               "Overview",
@@ -164,10 +164,10 @@ export const StudentProfilePage = () => {
               <button
                 key={tab}
                 className={cn(
-                  "pb-4 text-sm font-bold tracking-tight transition-all",
+                  "pb-4 text-[13px] font-semibold tracking-tight transition-all",
                   i === 0
-                    ? "border-b-2 border-pale-lime text-dark-blue-grey"
-                    : "text-dark-blue-grey/40 hover:text-dark-blue-grey",
+                    ? "border-b-2 border-primary text-secondary"
+                    : "text-slate-400 hover:text-secondary",
                 )}
               >
                 {tab}
@@ -178,69 +178,69 @@ export const StudentProfilePage = () => {
 
         {/* Stats Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="bg-pale-lime/10 border border-pale-lime/30 rounded-2xl p-6 shadow-sm">
+          <div className="bg-primary/10 border border-primary/30 rounded-2xl p-6 shadow-sm shadow-slate-100/30">
             <div className="flex justify-between items-start mb-4">
-              <p className="text-dark-blue-grey/50 text-xs font-bold uppercase tracking-widest">
+              <p className="text-slate-500 text-[11px] font-semibold uppercase tracking-widest">
                 Aura Score
               </p>
-              <span className="material-symbols-outlined text-dark-blue-grey/30">
+              <span className="material-symbols-outlined text-slate-300">
                 analytics
               </span>
             </div>
             <div className="flex items-baseline gap-2">
-              <p className="text-4xl font-black text-dark-blue-grey tracking-tighter">
+              <p className="text-4xl font-black text-secondary tracking-tighter">
                 {student.auraScore}
                 <span className="text-lg opacity-30">/100</span>
               </p>
-              <p className="text-[10px] font-black bg-pale-lime text-dark-blue-grey px-2 py-0.5 rounded-full border border-dark-blue-grey/5 uppercase tracking-wider">
+              <p className="text-[10px] font-black bg-primary text-secondary px-2 py-0.5 rounded-full border border-slate-50 uppercase tracking-wider">
                 +5.2%
               </p>
             </div>
-            <p className="text-[10px] text-dark-blue-grey/40 font-bold uppercase mt-4 tracking-widest">
+            <p className="text-[10px] text-slate-400 font-bold uppercase mt-4 tracking-widest">
               Weighted Engagement Metric
             </p>
           </div>
 
-          <div className="bg-dark-blue-grey/5 border border-dark-blue-grey/10 rounded-2xl p-6 shadow-sm">
+          <div className="bg-slate-50 border border-slate-100 rounded-2xl p-6 shadow-sm shadow-slate-100/30">
             <div className="flex justify-between items-start mb-4">
-              <p className="text-dark-blue-grey/50 text-xs font-bold uppercase tracking-widest">
+              <p className="text-slate-500 text-[11px] font-semibold uppercase tracking-widest">
                 Attendance
               </p>
-              <span className="material-symbols-outlined text-dark-blue-grey/30">
+              <span className="material-symbols-outlined text-slate-300">
                 calendar_today
               </span>
             </div>
             <div className="flex items-baseline gap-2">
-              <p className="text-4xl font-black text-dark-blue-grey tracking-tighter">
+              <p className="text-4xl font-black text-secondary tracking-tighter">
                 {student.attendanceRate}%
               </p>
-              <p className="text-[10px] font-black bg-dark-blue-grey text-white px-2 py-0.5 rounded-full border border-dark-blue-grey/5 uppercase tracking-wider">
+              <p className="text-[10px] font-black bg-secondary text-white px-2 py-0.5 rounded-full border border-slate-50 uppercase tracking-wider">
                 Stable
               </p>
             </div>
-            <p className="text-[10px] text-dark-blue-grey/40 font-bold uppercase mt-4 tracking-widest">
+            <p className="text-[10px] text-slate-400 font-bold uppercase mt-4 tracking-widest">
               126/132 days attended
             </p>
           </div>
 
-          <div className="bg-dark-blue-grey/5 border border-dark-blue-grey/10 rounded-2xl p-6 shadow-sm">
+          <div className="bg-slate-50 border border-slate-100 rounded-2xl p-6 shadow-sm shadow-slate-100/30">
             <div className="flex justify-between items-start mb-4">
-              <p className="text-dark-blue-grey/50 text-xs font-bold uppercase tracking-widest">
+              <p className="text-slate-500 text-[11px] font-semibold uppercase tracking-widest">
                 GPA (Weighted)
               </p>
-              <span className="material-symbols-outlined text-dark-blue-grey/30">
+              <span className="material-symbols-outlined text-slate-300">
                 school
               </span>
             </div>
             <div className="flex items-baseline gap-2">
-              <p className="text-4xl font-black text-dark-blue-grey tracking-tighter">
+              <p className="text-4xl font-black text-secondary tracking-tighter">
                 {student.gpa}
               </p>
-              <p className="text-[10px] font-black bg-red-500 text-white px-2 py-0.5 rounded-full border border-dark-blue-grey/5 uppercase tracking-wider">
+              <p className="text-[10px] font-black bg-red-500 text-white px-2 py-0.5 rounded-full border border-slate-50 uppercase tracking-wider">
                 -0.1
               </p>
             </div>
-            <p className="text-[10px] text-dark-blue-grey/40 font-bold uppercase mt-4 tracking-widest">
+            <p className="text-[10px] text-slate-400 font-bold uppercase mt-4 tracking-widest">
               Class Rank: 14 / 285
             </p>
           </div>
@@ -249,33 +249,33 @@ export const StudentProfilePage = () => {
         {/* Tables Section */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 pb-8">
           <div className="lg:col-span-2 space-y-6">
-            <div className="bg-white rounded-2xl border border-dark-blue-grey/10 shadow-sm overflow-hidden">
-              <div className="px-6 py-4 border-b border-dark-blue-grey/10 bg-dark-blue-grey/[0.02] flex justify-between items-center">
-                <h3 className="text-dark-blue-grey text-lg font-bold tracking-tight">
+            <div className="bg-white rounded-2xl border border-slate-100 shadow-sm shadow-slate-100/30 overflow-hidden">
+              <div className="px-6 py-4 border-b border-slate-100 bg-slate-50/50 flex justify-between items-center">
+                <h3 className="text-secondary text-[16px] font-semibold tracking-tight">
                   Participation History
                 </h3>
-                <span className="text-[10px] font-black text-dark-blue-grey/30 uppercase tracking-widest">
+                <span className="text-[10px] font-black text-slate-300 uppercase tracking-widest">
                   Last 12 Months
                 </span>
               </div>
               <table className="w-full text-left">
-                <thead className="bg-dark-blue-grey/[0.01] border-b border-dark-blue-grey/5">
+                <thead className="bg-slate-50/50 border-b border-slate-50">
                   <tr>
-                    <th className="px-6 py-3 text-[10px] font-black text-dark-blue-grey/30 uppercase tracking-widest">
+                    <th className="px-6 py-3 text-[10px] font-black text-slate-300 uppercase tracking-widest">
                       Program
                     </th>
-                    <th className="px-6 py-3 text-[10px] font-black text-dark-blue-grey/30 uppercase tracking-widest">
+                    <th className="px-6 py-3 text-[10px] font-black text-slate-300 uppercase tracking-widest">
                       Role
                     </th>
-                    <th className="px-6 py-3 text-[10px] font-black text-dark-blue-grey/30 uppercase tracking-widest">
+                    <th className="px-6 py-3 text-[10px] font-black text-slate-300 uppercase tracking-widest">
                       Intensity
                     </th>
-                    <th className="px-6 py-3 text-[10px] font-black text-dark-blue-grey/30 uppercase tracking-widest text-right">
+                    <th className="px-6 py-3 text-[10px] font-black text-slate-300 uppercase tracking-widest text-right">
                       Status
                     </th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-dark-blue-grey/5">
+                <tbody className="divide-y divide-slate-50">
                   {[
                     {
                       name: "Varsity Soccer",
@@ -298,18 +298,18 @@ export const StudentProfilePage = () => {
                   ].map((p, i) => (
                     <tr
                       key={i}
-                      className="hover:bg-dark-blue-grey/[0.01] transition-colors"
+                      className="hover:bg-slate-50/50 transition-colors"
                     >
-                      <td className="px-6 py-4 text-sm font-bold text-dark-blue-grey">
+                      <td className="px-6 py-4 text-[13px] font-semibold text-secondary">
                         {p.name}
                       </td>
-                      <td className="px-6 py-4 text-sm text-dark-blue-grey/60 font-medium">
+                      <td className="px-6 py-4 text-sm text-slate-500 font-medium">
                         {p.role}
                       </td>
                       <td className="px-6 py-4">
-                        <div className="w-24 h-1.5 bg-dark-blue-grey/[0.05] rounded-full overflow-hidden">
+                        <div className="w-24 h-1.5 bg-slate-50/50 rounded-full overflow-hidden">
                           <div
-                            className="bg-pale-lime h-full"
+                            className="bg-primary h-full"
                             style={{ width: p.width }}
                           ></div>
                         </div>
@@ -319,8 +319,8 @@ export const StudentProfilePage = () => {
                           className={cn(
                             "px-2 py-0.5 rounded text-[10px] font-black uppercase tracking-widest border",
                             p.status === "ONGOING"
-                              ? "bg-pale-lime text-dark-blue-grey border-dark-blue-grey/5"
-                              : "bg-dark-blue-grey/5 text-dark-blue-grey/30 border-dark-blue-grey/5",
+                              ? "bg-primary text-secondary border-slate-50"
+                              : "bg-slate-50 text-slate-300 border-slate-50",
                           )}
                         >
                           {p.status}
@@ -332,8 +332,8 @@ export const StudentProfilePage = () => {
               </table>
             </div>
 
-            <div className="bg-white rounded-2xl border border-dark-blue-grey/10 shadow-sm overflow-hidden p-6">
-              <h3 className="text-dark-blue-grey text-lg font-bold tracking-tight mb-6">
+            <div className="bg-white rounded-2xl border border-slate-100 shadow-sm shadow-slate-100/30 overflow-hidden p-6">
+              <h3 className="text-secondary text-[16px] font-semibold tracking-tight mb-6">
                 Honors & Achievements
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -361,18 +361,18 @@ export const StudentProfilePage = () => {
                 ].map((a, i) => (
                   <div
                     key={i}
-                    className="flex items-center gap-4 p-4 rounded-xl border border-dark-blue-grey/10 hover:border-pale-lime transition-all"
+                    className="flex items-center gap-4 p-4 rounded-2xl border border-slate-100 hover:border-primary transition-all"
                   >
-                    <div className="size-10 rounded-full bg-pale-lime flex items-center justify-center text-dark-blue-grey">
+                    <div className="size-10 rounded-full bg-primary flex items-center justify-center text-secondary">
                       <span className="material-symbols-outlined text-xl">
                         {a.icon}
                       </span>
                     </div>
                     <div>
-                      <p className="text-sm font-bold text-dark-blue-grey">
+                      <p className="text-[13px] font-semibold text-secondary">
                         {a.title}
                       </p>
-                      <p className="text-xs text-dark-blue-grey/40 font-medium uppercase tracking-wider">
+                      <p className="text-xs text-slate-400 font-medium uppercase tracking-wider">
                         {a.sub}
                       </p>
                     </div>
@@ -383,7 +383,7 @@ export const StudentProfilePage = () => {
           </div>
 
           <div className="space-y-6">
-            <div className="bg-white rounded-2xl border border-red-500/10 shadow-sm overflow-hidden">
+            <div className="bg-white rounded-2xl border border-red-500/10 shadow-sm shadow-slate-100/30 overflow-hidden">
               <div className="px-6 py-4 bg-red-500 text-white flex justify-between items-center shadow-lg shadow-red-500/20">
                 <h3 className="text-lg font-black tracking-tighter uppercase italic">
                   Moderation Flags
@@ -393,7 +393,7 @@ export const StudentProfilePage = () => {
                 </span>
               </div>
               <div className="p-6 space-y-4">
-                <div className="p-4 rounded-xl bg-red-50 border border-red-100">
+                <div className="p-4 rounded-2xl bg-red-50 border border-red-100">
                   <div className="flex items-center gap-2 mb-2 font-bold text-red-700 text-sm">
                     <span className="material-symbols-outlined text-lg">
                       report_problem
@@ -408,7 +408,7 @@ export const StudentProfilePage = () => {
                     <span className="text-[10px] font-black text-red-700 uppercase tracking-widest">
                       Severity: High
                     </span>
-                    <button className="text-[10px] font-black text-dark-blue-grey underline uppercase tracking-widest">
+                    <button className="text-[10px] font-black text-secondary underline uppercase tracking-widest">
                       View Report
                     </button>
                   </div>
@@ -416,19 +416,19 @@ export const StudentProfilePage = () => {
               </div>
             </div>
 
-            <div className="bg-dark-blue-grey rounded-2xl border border-white/10 shadow-2xl p-6">
+            <div className="bg-secondary rounded-2xl border border-white/10 shadow-2xl p-6">
               <div className="flex justify-between items-center mb-6">
                 <h3 className="text-white text-base font-bold tracking-tight">
                   Principal's Private Log
                 </h3>
-                <span className="material-symbols-outlined text-pale-lime text-xl">
+                <span className="material-symbols-outlined text-primary text-xl">
                   lock
                 </span>
               </div>
               <div className="space-y-6 relative before:absolute before:left-0 before:top-2 before:bottom-2 before:w-[2px] before:bg-white/10 pl-6">
                 <div className="relative">
-                  <div className="absolute -left-[27px] top-1 size-2 rounded-full bg-pale-lime"></div>
-                  <p className="text-[10px] font-bold text-pale-lime uppercase tracking-[0.2em] mb-1">
+                  <div className="absolute -left-[27px] top-1 size-2 rounded-full bg-primary"></div>
+                  <p className="text-[10px] font-bold text-primary uppercase tracking-[0.2em] mb-1">
                     Oct 12 • Principal Priya Sharma
                   </p>
                   <p className="text-xs text-white/60 font-medium leading-relaxed italic">
@@ -446,7 +446,7 @@ export const StudentProfilePage = () => {
                   </p>
                 </div>
               </div>
-              <button className="w-full mt-8 py-3 bg-white/5 border border-white/10 rounded-xl text-[10px] font-black text-white/40 uppercase tracking-[0.2em] hover:bg-white/10 transition-colors border-dashed">
+              <button className="w-full mt-8 py-3 bg-white/5 border border-white/10 rounded-2xl text-[10px] font-black text-white/40 uppercase tracking-[0.2em] hover:bg-white/10 transition-colors border-dashed">
                 + Add Administrative Note
               </button>
             </div>

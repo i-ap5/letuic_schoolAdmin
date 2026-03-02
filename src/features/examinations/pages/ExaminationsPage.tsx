@@ -68,11 +68,11 @@ export const ExaminationsPage = ({ isHubChild }: { isHubChild?: boolean }) => {
       case "completed":
         return "bg-emerald-500 text-white";
       case "in progress":
-        return "bg-pale-lime text-dark-blue-grey border-dark-blue-grey/10";
+        return "bg-primary text-secondary border-slate-100";
       case "upcoming":
-        return "bg-dark-blue-grey text-white";
+        return "bg-secondary text-white";
       default:
-        return "bg-dark-blue-grey/10 text-dark-blue-grey/40";
+        return "bg-slate-100 text-slate-400";
     }
   };
 
@@ -89,7 +89,7 @@ export const ExaminationsPage = ({ isHubChild }: { isHubChild?: boolean }) => {
           subtitle="Define, manage, and track school-level examinations, quizzes, and competitions."
           actions={
             <div className="flex items-center gap-3">
-              <button className="bg-white border border-dark-blue-grey/10 text-dark-blue-grey px-4 py-2 rounded-lg text-sm font-bold flex items-center gap-2 hover:bg-dark-blue-grey/5 transition-all">
+              <button className="bg-white border border-slate-100 text-secondary px-4 py-2 rounded-xl text-[13px] font-semibold flex items-center gap-2 hover:bg-slate-50 transition-all">
                 <span className="material-symbols-outlined text-lg">
                   upload_file
                 </span>
@@ -97,7 +97,7 @@ export const ExaminationsPage = ({ isHubChild }: { isHubChild?: boolean }) => {
               </button>
               <button
                 onClick={handleAddExam}
-                className="bg-pale-lime text-dark-blue-grey px-4 py-2 rounded-lg text-sm font-bold flex items-center gap-2 hover:opacity-90 transition-all shadow-sm active:scale-95"
+                className="bg-primary text-secondary px-4 py-2 rounded-xl text-[13px] font-semibold flex items-center gap-2 hover:opacity-90 transition-all shadow-sm shadow-slate-100/30 active:scale-95"
               >
                 <span className="material-symbols-outlined text-sm">
                   add_circle
@@ -109,7 +109,7 @@ export const ExaminationsPage = ({ isHubChild }: { isHubChild?: boolean }) => {
         />
       )}
 
-      <div className="flex-1 overflow-y-auto p-8 space-y-8 bg-dark-blue-grey/[0.01]">
+      <div className="flex-1 overflow-y-auto mx-auto px-6 lg:px-10 py-6 max-w-[1400px] space-y-8">
         {/* Performance Overview */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {[
@@ -136,24 +136,24 @@ export const ExaminationsPage = ({ isHubChild }: { isHubChild?: boolean }) => {
           ].map((stat, i) => (
             <div
               key={i}
-              className="bg-white p-6 rounded-2xl border border-dark-blue-grey/10 shadow-sm relative overflow-hidden group"
+              className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm shadow-slate-100/30 relative overflow-hidden group"
             >
-              <div className="absolute top-0 right-0 w-24 h-24 bg-pale-lime/5 rounded-full -mr-12 -mt-12 transition-transform group-hover:scale-110" />
+              <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-full -mr-12 -mt-12 transition-transform group-hover:scale-110" />
               <div className="flex justify-between items-start mb-4">
-                <p className="text-dark-blue-grey/40 text-[10px] font-black uppercase tracking-widest relative z-10">
+                <p className="text-slate-400 text-[10px] font-black uppercase tracking-widest relative z-10">
                   {stat.label}
                 </p>
-                <span className="material-symbols-outlined text-pale-lime relative z-10">
+                <span className="material-symbols-outlined text-primary relative z-10">
                   {stat.icon}
                 </span>
               </div>
-              <p className="text-3xl font-black text-dark-blue-grey mb-1 relative z-10">
+              <p className="text-3xl font-black text-secondary mb-1 relative z-10">
                 {stat.value}
               </p>
               <p
                 className={cn(
                   "text-[10px] font-bold uppercase tracking-wider relative z-10",
-                  stat.positive ? "text-emerald-600" : "text-dark-blue-grey/40",
+                  stat.positive ? "text-emerald-600" : "text-slate-400",
                 )}
               >
                 {stat.trend}
@@ -163,19 +163,19 @@ export const ExaminationsPage = ({ isHubChild }: { isHubChild?: boolean }) => {
         </div>
 
         {/* Examinations List */}
-        <div className="bg-white rounded-2xl border border-dark-blue-grey/10 shadow-sm overflow-hidden">
-          <div className="p-6 border-b border-dark-blue-grey/10 flex justify-between items-center">
-            <h3 className="text-dark-blue-grey text-lg font-bold tracking-tight">
+        <div className="bg-white rounded-2xl border border-slate-100 shadow-sm shadow-slate-100/30 overflow-hidden">
+          <div className="p-6 border-b border-slate-100 flex justify-between items-center">
+            <h3 className="text-secondary text-[16px] font-semibold tracking-tight">
               Academic History & Schedule
             </h3>
             <div className="flex gap-2">
-              <button className="px-3 py-1.5 rounded-lg bg-dark-blue-grey text-white text-[10px] font-black uppercase tracking-widest">
+              <button className="px-3 py-1.5 rounded-xl bg-secondary text-white text-[10px] font-black uppercase tracking-widest">
                 All
               </button>
-              <button className="px-3 py-1.5 rounded-lg hover:bg-dark-blue-grey/5 text-dark-blue-grey/40 text-[10px] font-black uppercase tracking-widest">
+              <button className="px-3 py-1.5 rounded-xl hover:bg-slate-50 text-slate-400 text-[10px] font-black uppercase tracking-widest">
                 Major Exams
               </button>
-              <button className="px-3 py-1.5 rounded-lg hover:bg-dark-blue-grey/5 text-dark-blue-grey/40 text-[10px] font-black uppercase tracking-widest">
+              <button className="px-3 py-1.5 rounded-xl hover:bg-slate-50 text-slate-400 text-[10px] font-black uppercase tracking-widest">
                 Mock Tests
               </button>
             </div>
@@ -183,37 +183,37 @@ export const ExaminationsPage = ({ isHubChild }: { isHubChild?: boolean }) => {
           <div className="overflow-x-auto">
             <table className="w-full text-left">
               <thead>
-                <tr className="bg-dark-blue-grey/[0.01] border-b border-dark-blue-grey/10">
-                  <th className="px-6 py-4 text-[10px] font-black text-dark-blue-grey/30 uppercase tracking-widest">
+                <tr className="bg-slate-50/50 border-b border-slate-100">
+                  <th className="px-6 py-4 text-[10px] font-black text-slate-300 uppercase tracking-widest">
                     Title & Type
                   </th>
-                  <th className="px-6 py-4 text-[10px] font-black text-dark-blue-grey/30 uppercase tracking-widest">
+                  <th className="px-6 py-4 text-[10px] font-black text-slate-300 uppercase tracking-widest">
                     Schedule
                   </th>
-                  <th className="px-6 py-4 text-[10px] font-black text-dark-blue-grey/30 uppercase tracking-widest">
+                  <th className="px-6 py-4 text-[10px] font-black text-slate-300 uppercase tracking-widest">
                     Classes
                   </th>
-                  <th className="px-6 py-4 text-[10px] font-black text-dark-blue-grey/30 uppercase tracking-widest">
+                  <th className="px-6 py-4 text-[10px] font-black text-slate-300 uppercase tracking-widest">
                     Status
                   </th>
-                  <th className="px-6 py-4 text-[10px] font-black text-dark-blue-grey/30 uppercase tracking-widest text-center">
+                  <th className="px-6 py-4 text-[10px] font-black text-slate-300 uppercase tracking-widest text-center">
                     Avg. Mark
                   </th>
-                  <th className="px-6 py-4 text-[10px] font-black text-dark-blue-grey/30 uppercase tracking-widest text-right">
+                  <th className="px-6 py-4 text-[10px] font-black text-slate-300 uppercase tracking-widest text-right">
                     Actions
                   </th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-dark-blue-grey/5">
+              <tbody className="divide-y divide-slate-50">
                 {exams.map((exam) => (
                   <tr
                     key={exam.id}
-                    className="hover:bg-dark-blue-grey/[0.01] transition-colors group cursor-pointer"
+                    className="hover:bg-slate-50/50 transition-colors group cursor-pointer"
                     onClick={() => navigate(`/examinations/${exam.id}`)}
                   >
                     <td className="px-6 py-4">
                       <div className="flex items-center gap-3">
-                        <div className="size-10 rounded-xl bg-dark-blue-grey/5 flex items-center justify-center text-dark-blue-grey/30 group-hover:bg-pale-lime group-hover:text-dark-blue-grey transition-all">
+                        <div className="size-10 rounded-2xl bg-slate-50 flex items-center justify-center text-slate-300 group-hover:bg-primary group-hover:text-secondary transition-all">
                           <span className="material-symbols-outlined">
                             {exam.type === "Quiz"
                               ? "quiz"
@@ -223,21 +223,21 @@ export const ExaminationsPage = ({ isHubChild }: { isHubChild?: boolean }) => {
                           </span>
                         </div>
                         <div>
-                          <p className="text-sm font-bold text-dark-blue-grey group-hover:underline decoration-pale-lime underline-offset-4">
+                          <p className="text-[13px] font-semibold text-secondary group-hover:underline decoration-primary underline-offset-4">
                             {exam.title}
                           </p>
-                          <p className="text-[10px] font-black uppercase tracking-[0.1em] text-dark-blue-grey/40">
+                          <p className="text-[10px] font-black uppercase tracking-[0.1em] text-slate-400">
                             {exam.type}
                           </p>
                         </div>
                       </div>
                     </td>
                     <td className="px-6 py-4">
-                      <div className="flex items-center gap-2 text-dark-blue-grey/60">
+                      <div className="flex items-center gap-2 text-slate-500">
                         <span className="material-symbols-outlined text-sm">
                           calendar_today
                         </span>
-                        <span className="text-xs font-medium">{exam.date}</span>
+                        <span className="text-[11px] font-medium">{exam.date}</span>
                       </div>
                     </td>
                     <td className="px-6 py-4">
@@ -245,13 +245,13 @@ export const ExaminationsPage = ({ isHubChild }: { isHubChild?: boolean }) => {
                         {exam.classes.slice(0, 2).map((c, i) => (
                           <span
                             key={i}
-                            className="text-[9px] font-bold px-2 py-0.5 rounded bg-dark-blue-grey/5 text-dark-blue-grey/60 border border-dark-blue-grey/5"
+                            className="text-[9px] font-bold px-2 py-0.5 rounded bg-slate-50 text-slate-500 border border-slate-50"
                           >
                             {c}
                           </span>
                         ))}
                         {exam.classes.length > 2 && (
-                          <span className="text-[9px] font-bold px-2 py-0.5 rounded bg-dark-blue-grey/5 text-dark-blue-grey/40">
+                          <span className="text-[9px] font-bold px-2 py-0.5 rounded bg-slate-50 text-slate-400">
                             +{exam.classes.length - 2}
                           </span>
                         )}
@@ -269,17 +269,17 @@ export const ExaminationsPage = ({ isHubChild }: { isHubChild?: boolean }) => {
                     </td>
                     <td className="px-6 py-4 text-center">
                       {exam.avgScore ? (
-                        <span className="text-sm font-black text-dark-blue-grey">
+                        <span className="text-sm font-black text-secondary">
                           {exam.avgScore}%
                         </span>
                       ) : (
-                        <span className="text-[10px] font-black text-dark-blue-grey/20 uppercase tracking-widest">
+                        <span className="text-[10px] font-black text-secondary/20 uppercase tracking-widest">
                           N/A
                         </span>
                       )}
                     </td>
                     <td className="px-6 py-4 text-right">
-                      <button className="text-dark-blue-grey/30 hover:text-dark-blue-grey transition-colors">
+                      <button className="text-slate-300 hover:text-secondary transition-colors">
                         <span className="material-symbols-outlined text-xl">
                           more_vert
                         </span>

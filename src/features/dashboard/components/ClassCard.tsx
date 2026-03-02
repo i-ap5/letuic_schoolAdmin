@@ -27,12 +27,12 @@ export const ClassCard = ({
     <div
       onClick={onClick}
       className={cn(
-        "flex items-center gap-4 bg-white border border-slate-100 rounded-2xl px-5 py-4 transition-all cursor-pointer hover:shadow-sm hover:border-slate-200",
+        "flex items-center gap-4 bg-white border border-slate-100 rounded-2xl px-5 py-4 transition-all cursor-pointer hover:shadow-sm shadow-slate-100/30 hover:border-slate-200",
         !onClick && "cursor-default"
       )}
     >
       <div className={cn(
-        "w-10 h-10 rounded-xl flex items-center justify-center text-[13px] font-semibold shrink-0",
+        "w-10 h-10 rounded-2xl flex items-center justify-center text-[13px] font-semibold shrink-0",
         statusType === "risk" && "bg-rose-50 text-rose-600",
         statusType === "attention" && "bg-amber-50 text-amber-600",
         statusType === "normal" && "bg-emerald-50 text-emerald-600",

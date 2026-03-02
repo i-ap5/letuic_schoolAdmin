@@ -9,7 +9,7 @@ import { TopBar } from "../../../components/Header";
 export const DashboardPage = () => {
     const navigate = useNavigate();
     return (
-        <div className="flex-1 flex flex-col h-screen overflow-hidden bg-white">
+        <div className="flex-1 flex flex-col h-screen overflow-hidden">
             <TopBar
                 title="School Dashboard"
                 subtitle="Northridge Academy — Central Campus"
@@ -68,7 +68,7 @@ export const DashboardPage = () => {
                                 <div className="bg-white rounded-2xl border border-slate-100 p-6 flex flex-col">
                                     <div className="flex items-center justify-between mb-5">
                                         <h3 className="text-secondary text-[15px] font-semibold">Upcoming This Week</h3>
-                                        <button className="text-[12px] text-primary font-medium hover:underline underline-offset-2">
+                                        <button className="text-[11px] font-light hover:underline underline-offset-2">
                                             Full Calendar
                                         </button>
                                     </div>
@@ -85,7 +85,7 @@ export const DashboardPage = () => {
                                     </div>
                                     <button
                                         onClick={() => navigate("/classes")}
-                                        className="text-[12px] text-primary font-medium hover:underline underline-offset-2"
+                                        className="text-[11px] font-medium hover:underline underline-offset-2"
                                     >
                                         All Classes →
                                     </button>
@@ -111,43 +111,36 @@ export const DashboardPage = () => {
                         <div className="lg:col-span-4 space-y-6">
                             <AlertsSection />
 
-                            {/* Quick Actions */}
-                            <div className="bg-white border border-slate-100 rounded-2xl p-5">
-                                <h3 className="text-secondary text-[15px] font-semibold mb-4">Quick Actions</h3>
-                                <div className="grid grid-cols-2 gap-2">
+                            {/* Quick Actions (Modernized) */}
+                            <div className="bg-white border border-slate-100 shadow-sm shadow-slate-100/30 rounded-2xl p-6">
+                                <div className="flex items-center justify-between mb-5">
+                                    <h3 className="text-secondary text-[16px] font-semibold tracking-tight">Quick Actions</h3>
+                                    <button className="text-slate-400 hover:text-primary transition-colors">
+                                        <span className="material-symbols-outlined text-[18px]">more_horiz</span>
+                                    </button>
+                                </div>
+                                <div className="flex flex-col gap-3">
                                     {[
-                                        { icon: "fact_check", label: "Mark Attendance", color: "bg-emerald-50 text-emerald-600" },
-                                        { icon: "person_add", label: "New Admission", color: "bg-blue-50 text-blue-600" },
-                                        { icon: "campaign", label: "Announcement", color: "bg-amber-50 text-amber-600" },
-                                        { icon: "assignment", label: "View Reports", color: "bg-violet-50 text-violet-600" },
-                                    ].map((action) => (
-                                        <button
-                                            key={action.label}
-                                            className="flex flex-col items-center gap-2 py-4 rounded-xl border border-slate-50 hover:border-slate-200 hover:shadow-sm transition-all"
-                                        >
-                                            <span className={`material-symbols-outlined text-[22px] w-10 h-10 rounded-xl flex items-center justify-center ${action.color}`}>
-                                                {action.icon}
-                                            </span>
-                                            <span className="text-[11px] font-medium text-slate-500">{action.label}</span>
+                                        { icon: "how_to_reg", title: "Mark Attendance", subtitle: "Update daily records", color: "text-emerald-600 bg-emerald-50 border-emerald-100" },
+                                        { icon: "person_add", title: "New Admission", subtitle: "Add student profile", color: "text-blue-600 bg-blue-50 border-blue-100" },
+                                        { icon: "campaign", title: "Announcements", subtitle: "Broadcast message", color: "text-amber-600 bg-amber-50 border-amber-100" },
+                                    ].map((action, i) => (
+                                        <button key={i} className="flex items-center gap-4 bg-white border border-slate-100 rounded-xl p-3.5 hover:shadow-md hover:border-slate-200 transition-all text-left group">
+                                            <div className={`size-11 rounded-full flex items-center justify-center border ${action.color} group-hover:scale-105 transition-transform`}>
+                                                <span className="material-symbols-outlined text-[20px]">{action.icon}</span>
+                                            </div>
+                                            <div className="flex flex-col">
+                                                <h4 className="text-[13px] font-semibold text-secondary leading-tight mb-0.5">{action.title}</h4>
+                                                <p className="text-[11px] text-slate-400 font-medium">{action.subtitle}</p>
+                                            </div>
+                                            <div className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity">
+                                                <span className="material-symbols-outlined text-[16px] text-slate-300">chevron_right</span>
+                                            </div>
                                         </button>
                                     ))}
                                 </div>
                             </div>
 
-                            {/* Campus Card */}
-                            <div className="bg-secondary text-white rounded-2xl p-5 relative overflow-hidden">
-                                <div className="absolute top-0 right-0 p-3 opacity-[0.06]">
-                                    <span className="material-symbols-outlined text-6xl">school</span>
-                                </div>
-                                <p className="text-white/50 text-[11px] font-medium uppercase tracking-wider mb-1">Academic Year</p>
-                                <h3 className="text-lg font-semibold mb-3">2025 – 2026</h3>
-                                <p className="text-white/50 text-[12px] leading-relaxed mb-4">
-                                    Northridge Academy, Central Campus. Term 2 in progress.
-                                </p>
-                                <button className="w-full py-2.5 bg-primary text-secondary font-medium rounded-xl text-[13px] active:scale-[0.98] transition-transform">
-                                    Switch Campus
-                                </button>
-                            </div>
                         </div>
                     </div>
                 </div>

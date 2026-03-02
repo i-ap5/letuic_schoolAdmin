@@ -15,41 +15,41 @@ const StudentRow = ({
   const getStatusStyles = (status: string) => {
     switch (status.toLowerCase()) {
       case "active":
-        return "bg-pale-lime text-dark-blue-grey";
+        return "bg-primary text-secondary";
       case "at risk":
-        return "bg-dark-blue-grey text-pale-lime";
+        return "bg-secondary text-primary";
       default:
-        return "bg-dark-blue-grey/5 text-dark-blue-grey/50";
+        return "bg-slate-50 text-slate-500";
     }
   };
 
   const getProgressColor = (percent: number) => {
-    if (percent > 80) return "bg-pale-lime";
-    if (percent > 60) return "bg-dark-blue-grey";
-    return "bg-dark-blue-grey/40";
+    if (percent > 80) return "bg-primary";
+    if (percent > 60) return "bg-secondary";
+    return "bg-secondary/40";
   };
 
   return (
     <tr
       onClick={() => onClick(student)}
-      className="hover:bg-dark-blue-grey/[0.02] transition-colors group cursor-pointer"
+      className="hover:bg-slate-50/50 transition-colors group cursor-pointer"
     >
       <td className="px-6 py-4">
         <div className="flex items-center gap-3">
           <div
-            className="size-8 rounded-full bg-cover bg-center border border-dark-blue-grey/10"
+            className="size-8 rounded-full bg-cover bg-center border border-slate-100"
             style={{ backgroundImage: `url("${img}")` }}
           ></div>
-          <span className="text-sm font-bold text-dark-blue-grey group-hover:underline decoration-pale-lime underline-offset-4">
+          <span className="text-[13px] font-semibold text-secondary group-hover:underline decoration-primary underline-offset-4">
             {name}
           </span>
         </div>
       </td>
-      <td className="px-6 py-4 text-sm text-dark-blue-grey/50">{id}</td>
-      <td className="px-6 py-4 text-sm text-dark-blue-grey">{grade}</td>
+      <td className="px-6 py-4 text-sm text-slate-500">{id}</td>
+      <td className="px-6 py-4 text-sm text-secondary">{grade}</td>
       <td className="px-6 py-4">
         <div className="flex items-center gap-2">
-          <div className="w-24 h-1.5 bg-dark-blue-grey/5 rounded-full overflow-hidden">
+          <div className="w-24 h-1.5 bg-slate-50 rounded-full overflow-hidden">
             <div
               className={cn(
                 "h-full transition-all",
@@ -58,13 +58,13 @@ const StudentRow = ({
               style={{ width: `${participation}%` }}
             ></div>
           </div>
-          <span className="text-xs font-semibold text-dark-blue-grey/70">
+          <span className="text-xs font-semibold text-slate-600">
             {participation}%
           </span>
         </div>
       </td>
       <td className="px-6 py-4">
-        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-pale-lime/20 text-dark-blue-grey border border-pale-lime/30">
+        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-primary/20 text-secondary border border-primary/30">
           {auraScore}
         </span>
       </td>
@@ -79,7 +79,7 @@ const StudentRow = ({
         </span>
       </td>
       <td className="px-6 py-4 text-right">
-        <button className="text-dark-blue-grey/40 hover:text-dark-blue-grey transition-colors">
+        <button className="text-slate-400 hover:text-secondary transition-colors">
           <span className="material-symbols-outlined text-xl">more_vert</span>
         </button>
       </td>
@@ -269,7 +269,7 @@ export const StudentsPage = ({
           subtitle="Manage student profiles, academic performance, and institutional engagement."
           actions={
             <>
-              <button className="bg-white border border-dark-blue-grey/10 text-dark-blue-grey px-4 py-2 rounded-lg text-sm font-bold flex items-center gap-2 hover:bg-dark-blue-grey/5 shadow-sm transition-all">
+              <button className="bg-white border border-slate-100 text-secondary px-4 py-2 rounded-xl text-[13px] font-semibold flex items-center gap-2 hover:bg-slate-50 shadow-sm shadow-slate-100/30 transition-all">
                 <span className="material-symbols-outlined text-sm">
                   upload_file
                 </span>
@@ -277,7 +277,7 @@ export const StudentsPage = ({
               </button>
               <button
                 onClick={handleAddStudent}
-                className="bg-pale-lime text-dark-blue-grey px-4 py-2 rounded-lg text-sm font-bold flex items-center gap-2 hover:opacity-90 shadow-sm transition-all active:scale-95"
+                className="bg-primary text-secondary px-4 py-2 rounded-xl text-[13px] font-semibold flex items-center gap-2 hover:opacity-90 shadow-sm shadow-slate-100/30 transition-all active:scale-95"
               >
                 <span className="material-symbols-outlined text-sm">
                   person_add
@@ -289,28 +289,28 @@ export const StudentsPage = ({
         />
       )}
 
-      <div className="flex-1 overflow-y-auto p-8 space-y-6 bg-dark-blue-grey/[0.01]">
+      <div className="flex-1 overflow-y-auto mx-auto px-6 lg:px-10 py-6 space-y-6">
         {/* Quick Stats */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {[
             {
               label: "Total Students",
               value: "1,240",
-              color: "text-dark-blue-grey",
+              color: "text-secondary",
             },
             {
               label: "Active Programs",
               value: "18",
-              color: "text-dark-blue-grey",
+              color: "text-secondary",
             },
-            { label: "Avg Aura Score", value: "82%", color: "text-pale-lime" },
+            { label: "Avg Aura Score", value: "82%", color: "text-primary" },
             { label: "At Risk", value: "24", color: "text-red-500" },
           ].map((stat, i) => (
             <div
               key={i}
-              className="bg-white p-5 rounded-xl border border-dark-blue-grey/10 shadow-sm"
+              className="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm shadow-slate-100/30"
             >
-              <p className="text-dark-blue-grey/40 text-xs font-bold uppercase tracking-wider mb-1">
+              <p className="text-slate-400 text-[11px] font-semibold uppercase tracking-wider mb-1">
                 {stat.label}
               </p>
               <p className={cn("text-2xl font-black", stat.color)}>
@@ -321,14 +321,14 @@ export const StudentsPage = ({
         </div>
 
         {/* Search and Filters */}
-        <div className="bg-white p-4 rounded-xl border border-dark-blue-grey/10 shadow-sm flex flex-wrap gap-4 items-center">
+        <div className="bg-white p-4 rounded-2xl border border-slate-100 shadow-sm shadow-slate-100/30 flex flex-wrap gap-4 items-center">
           <div className="flex-1 min-w-[300px]">
             <div className="relative group">
-              <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-dark-blue-grey/30 group-focus-within:text-dark-blue-grey transition-colors">
+              <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-300 group-focus-within:text-secondary transition-colors">
                 search
               </span>
               <input
-                className="w-full bg-dark-blue-grey/[0.03] border-none rounded-lg pl-10 pr-4 py-2.5 text-sm focus:ring-2 focus:ring-pale-lime text-dark-blue-grey placeholder-dark-blue-grey/30"
+                className="w-full bg-slate-50/50 border-none rounded-xl pl-10 pr-4 py-2.5 text-sm focus:ring-2 focus:ring-primary text-secondary placeholder-slate-300"
                 placeholder="Search by name, grade, or ID..."
                 type="text"
                 value={searchTerm}
@@ -340,7 +340,7 @@ export const StudentsPage = ({
             <select
               value={gradeFilter}
               onChange={(e) => setGradeFilter(e.target.value)}
-              className="bg-white border border-dark-blue-grey/10 rounded-lg text-sm px-3 py-2 text-dark-blue-grey focus:ring-pale-lime outline-none"
+              className="bg-white border border-slate-100 rounded-xl text-sm px-3 py-2 text-secondary focus:ring-primary outline-none"
             >
               <option>Grade Level (All)</option>
               <option>9th Grade</option>
@@ -351,15 +351,15 @@ export const StudentsPage = ({
             <select
               value={activityFilter}
               onChange={(e) => setActivityFilter(e.target.value)}
-              className="bg-white border border-dark-blue-grey/10 rounded-lg text-sm px-3 py-2 text-dark-blue-grey focus:ring-pale-lime outline-none"
+              className="bg-white border border-slate-100 rounded-xl text-sm px-3 py-2 text-secondary focus:ring-primary outline-none"
             >
               <option>Activity Level (All)</option>
               <option>High</option>
               <option>Moderate</option>
               <option>Low</option>
             </select>
-            <button className="p-2 border border-dark-blue-grey/10 rounded-lg hover:bg-dark-blue-grey/5 transition-colors">
-              <span className="material-symbols-outlined text-dark-blue-grey/40 text-lg">
+            <button className="p-2 border border-slate-100 rounded-xl hover:bg-slate-50 transition-colors">
+              <span className="material-symbols-outlined text-slate-400 text-lg">
                 filter_list
               </span>
             </button>
@@ -367,35 +367,35 @@ export const StudentsPage = ({
         </div>
 
         {/* Data Table */}
-        <div className="bg-white rounded-xl border border-dark-blue-grey/10 shadow-sm overflow-hidden">
+        <div className="bg-white rounded-2xl border border-slate-100 shadow-sm shadow-slate-100/30 overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse">
-              <thead className="bg-dark-blue-grey/[0.02] border-b border-dark-blue-grey/10">
+              <thead className="bg-slate-50/50 border-b border-slate-100">
                 <tr>
-                  <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-dark-blue-grey/40">
+                  <th className="px-6 py-4 text-[11px] font-semibold uppercase tracking-wider text-slate-400">
                     Student Name
                   </th>
-                  <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-dark-blue-grey/40">
+                  <th className="px-6 py-4 text-[11px] font-semibold uppercase tracking-wider text-slate-400">
                     ID
                   </th>
-                  <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-dark-blue-grey/40">
+                  <th className="px-6 py-4 text-[11px] font-semibold uppercase tracking-wider text-slate-400">
                     Grade
                   </th>
-                  <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-dark-blue-grey/40">
+                  <th className="px-6 py-4 text-[11px] font-semibold uppercase tracking-wider text-slate-400">
                     Participation
                   </th>
-                  <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-dark-blue-grey/40">
+                  <th className="px-6 py-4 text-[11px] font-semibold uppercase tracking-wider text-slate-400">
                     Aura Score
                   </th>
-                  <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-dark-blue-grey/40">
+                  <th className="px-6 py-4 text-[11px] font-semibold uppercase tracking-wider text-slate-400">
                     Status
                   </th>
-                  <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-dark-blue-grey/40 text-right">
+                  <th className="px-6 py-4 text-[11px] font-semibold uppercase tracking-wider text-slate-400 text-right">
                     Actions
                   </th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-dark-blue-grey/5">
+              <tbody className="divide-y divide-slate-50">
                 {filteredStudents.map((student) => (
                   <StudentRow
                     key={student.id}
@@ -409,7 +409,7 @@ export const StudentsPage = ({
                   <tr>
                     <td
                       colSpan={7}
-                      className="px-6 py-12 text-center text-dark-blue-grey/30 text-sm font-medium"
+                      className="px-6 py-12 text-center text-slate-300 text-[13px] font-medium"
                     >
                       No students match your current filters.
                     </td>
@@ -420,29 +420,29 @@ export const StudentsPage = ({
           </div>
 
           {/* Pagination Footer */}
-          <div className="bg-dark-blue-grey/[0.02] px-6 py-4 flex items-center justify-between border-t border-dark-blue-grey/10">
-            <p className="text-xs text-dark-blue-grey/40 font-medium">
+          <div className="bg-slate-50/50 px-6 py-4 flex items-center justify-between border-t border-slate-100">
+            <p className="text-xs text-slate-400 font-medium">
               Showing {filteredStudents.length} of {students.length} students
             </p>
             <div className="flex items-center gap-2">
               <button
-                className="size-8 flex items-center justify-center rounded border border-dark-blue-grey/10 bg-white text-dark-blue-grey/40 disabled:opacity-50"
+                className="size-8 flex items-center justify-center rounded border border-slate-100 bg-white text-slate-400 disabled:opacity-50"
                 disabled
               >
                 <span className="material-symbols-outlined text-sm">
                   chevron_left
                 </span>
               </button>
-              <button className="size-8 flex items-center justify-center rounded border border-pale-lime bg-pale-lime text-dark-blue-grey text-xs font-bold shadow-sm">
+              <button className="size-8 flex items-center justify-center rounded border border-primary bg-primary text-secondary text-[11px] font-semibold shadow-sm shadow-slate-100/30">
                 1
               </button>
-              <button className="size-8 flex items-center justify-center rounded border border-dark-blue-grey/10 bg-white text-xs font-bold hover:bg-dark-blue-grey/5 transition-colors">
+              <button className="size-8 flex items-center justify-center rounded border border-slate-100 bg-white text-[11px] font-semibold hover:bg-slate-50 transition-colors">
                 2
               </button>
-              <button className="size-8 flex items-center justify-center rounded border border-dark-blue-grey/10 bg-white text-xs font-bold hover:bg-dark-blue-grey/5 transition-colors">
+              <button className="size-8 flex items-center justify-center rounded border border-slate-100 bg-white text-[11px] font-semibold hover:bg-slate-50 transition-colors">
                 3
               </button>
-              <button className="size-8 flex items-center justify-center rounded border border-dark-blue-grey/10 bg-white text-dark-blue-grey/40 hover:bg-dark-blue-grey/5 transition-colors">
+              <button className="size-8 flex items-center justify-center rounded border border-slate-100 bg-white text-slate-400 hover:bg-slate-50 transition-colors">
                 <span className="material-symbols-outlined text-sm">
                   chevron_right
                 </span>

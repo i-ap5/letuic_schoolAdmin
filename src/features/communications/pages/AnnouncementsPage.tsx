@@ -53,7 +53,7 @@ export const AnnouncementsPage = ({ isHubChild }: { isHubChild?: boolean }) => {
           title="Announcements & Circulars"
           subtitle="Manage official school broadcasts and track engagement across roles."
           actions={
-            <button className="bg-pale-lime text-dark-blue-grey px-4 py-2 rounded-lg text-sm font-bold flex items-center gap-2 hover:opacity-90 transition-all shadow-sm active:scale-95">
+            <button className="bg-primary text-secondary px-4 py-2 rounded-xl text-[13px] font-semibold flex items-center gap-2 hover:opacity-90 transition-all shadow-sm shadow-slate-100/30 active:scale-95">
               <span className="material-symbols-outlined text-sm">
                 campaign
               </span>
@@ -63,7 +63,7 @@ export const AnnouncementsPage = ({ isHubChild }: { isHubChild?: boolean }) => {
         />
       )}
 
-      <div className="flex-1 overflow-y-auto p-8 bg-dark-blue-grey/[0.01] space-y-8">
+      <div className="flex-1 overflow-y-auto mx-auto px-6 lg:px-10 py-6 max-w-[1400px] space-y-8">
         {/* Engagement Analytics Row */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           {[
@@ -71,13 +71,13 @@ export const AnnouncementsPage = ({ isHubChild }: { isHubChild?: boolean }) => {
               label: "Total Reach",
               value: "4,280",
               icon: "groups",
-              color: "text-dark-blue-grey",
+              color: "text-secondary",
             },
             {
               label: "Avg. Engagement",
               value: "72%",
               icon: "visibility",
-              color: "text-pale-lime",
+              color: "text-primary",
             },
             {
               label: "Delivery Success",
@@ -89,15 +89,15 @@ export const AnnouncementsPage = ({ isHubChild }: { isHubChild?: boolean }) => {
               label: "Drafts",
               value: "04",
               icon: "edit_note",
-              color: "text-dark-blue-grey/40",
+              color: "text-slate-400",
             },
           ].map((stat, i) => (
             <div
               key={i}
-              className="bg-white p-5 rounded-xl border border-dark-blue-grey/10 shadow-sm"
+              className="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm shadow-slate-100/30"
             >
               <div className="flex justify-between items-center mb-2">
-                <p className="text-[10px] font-black text-dark-blue-grey/40 uppercase tracking-widest">
+                <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">
                   {stat.label}
                 </p>
                 <span
@@ -109,7 +109,7 @@ export const AnnouncementsPage = ({ isHubChild }: { isHubChild?: boolean }) => {
                   {stat.icon}
                 </span>
               </div>
-              <p className="text-2xl font-black text-dark-blue-grey">
+              <p className="text-2xl font-black text-secondary">
                 {stat.value}
               </p>
             </div>
@@ -117,18 +117,18 @@ export const AnnouncementsPage = ({ isHubChild }: { isHubChild?: boolean }) => {
         </div>
 
         {/* Announcements List */}
-        <div className="bg-white rounded-2xl border border-dark-blue-grey/10 shadow-sm overflow-hidden">
-          <div className="p-6 border-b border-dark-blue-grey/10 flex justify-between items-center">
+        <div className="bg-white rounded-2xl border border-slate-100 shadow-sm shadow-slate-100/30 overflow-hidden">
+          <div className="p-6 border-b border-slate-100 flex justify-between items-center">
             <div className="flex gap-4">
               {["all", "published", "drafts", "scheduled"].map((filter) => (
                 <button
                   key={filter}
                   onClick={() => setActiveFilter(filter)}
                   className={cn(
-                    "text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-lg transition-all",
+                    "text-[11px] font-semibold uppercase tracking-widest px-3 py-1.5 rounded-xl transition-all",
                     activeFilter === filter
-                      ? "bg-dark-blue-grey text-white"
-                      : "text-dark-blue-grey/40 hover:bg-dark-blue-grey/5",
+                      ? "bg-secondary text-white"
+                      : "text-slate-400 hover:bg-slate-50",
                   )}
                 >
                   {filter}
@@ -139,38 +139,38 @@ export const AnnouncementsPage = ({ isHubChild }: { isHubChild?: boolean }) => {
           <div className="overflow-x-auto">
             <table className="w-full text-left">
               <thead>
-                <tr className="bg-dark-blue-grey/[0.01] border-b border-dark-blue-grey/10">
-                  <th className="px-6 py-4 text-[10px] font-black text-dark-blue-grey/30 uppercase tracking-widest">
+                <tr className="bg-slate-50/50 border-b border-slate-100">
+                  <th className="px-6 py-4 text-[10px] font-black text-slate-300 uppercase tracking-widest">
                     Title & Content
                   </th>
-                  <th className="px-6 py-4 text-[10px] font-black text-dark-blue-grey/30 uppercase tracking-widest">
+                  <th className="px-6 py-4 text-[10px] font-black text-slate-300 uppercase tracking-widest">
                     Visibility
                   </th>
-                  <th className="px-6 py-4 text-[10px] font-black text-dark-blue-grey/30 uppercase tracking-widest">
+                  <th className="px-6 py-4 text-[10px] font-black text-slate-300 uppercase tracking-widest">
                     Target
                   </th>
-                  <th className="px-6 py-4 text-[10px] font-black text-dark-blue-grey/30 uppercase tracking-widest">
+                  <th className="px-6 py-4 text-[10px] font-black text-slate-300 uppercase tracking-widest">
                     Engagement
                   </th>
-                  <th className="px-6 py-4 text-[10px] font-black text-dark-blue-grey/30 uppercase tracking-widest text-right">
+                  <th className="px-6 py-4 text-[10px] font-black text-slate-300 uppercase tracking-widest text-right">
                     Actions
                   </th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-dark-blue-grey/5">
+              <tbody className="divide-y divide-slate-50">
                 {announcements.map((ann) => (
                   <tr
                     key={ann.id}
-                    className="hover:bg-dark-blue-grey/[0.01] transition-colors group"
+                    className="hover:bg-slate-50/50 transition-colors group"
                   >
                     <td className="px-6 py-4 max-w-md">
-                      <p className="text-sm font-bold text-dark-blue-grey mb-1">
+                      <p className="text-[13px] font-semibold text-secondary mb-1">
                         {ann.title}
                       </p>
-                      <p className="text-xs text-dark-blue-grey/50 line-clamp-1">
+                      <p className="text-xs text-slate-500 line-clamp-1">
                         {ann.content}
                       </p>
-                      <p className="text-[10px] font-medium text-dark-blue-grey/30 mt-2 italic">
+                      <p className="text-[10px] font-medium text-slate-300 mt-2 italic">
                         {ann.date} • ID: {ann.id}
                       </p>
                     </td>
@@ -179,34 +179,34 @@ export const AnnouncementsPage = ({ isHubChild }: { isHubChild?: boolean }) => {
                         {ann.visibility.split(", ").map((v, i) => (
                           <span
                             key={i}
-                            className="text-[9px] font-black px-2 py-0.5 rounded bg-pale-lime/10 text-dark-blue-grey border border-pale-lime/20 uppercase tracking-widest"
+                            className="text-[9px] font-black px-2 py-0.5 rounded bg-primary/10 text-secondary border border-primary/20 uppercase tracking-widest"
                           >
                             {v}
                           </span>
                         ))}
                       </div>
                     </td>
-                    <td className="px-6 py-4 text-xs font-bold text-dark-blue-grey/60">
+                    <td className="px-6 py-4 text-[11px] font-semibold text-slate-500">
                       {ann.target}
                     </td>
                     <td className="px-6 py-4">
                       <div className="flex items-center gap-2">
-                        <div className="w-16 h-1.5 bg-dark-blue-grey/5 rounded-full overflow-hidden">
+                        <div className="w-16 h-1.5 bg-slate-50 rounded-full overflow-hidden">
                           <div
-                            className="h-full bg-pale-lime"
+                            className="h-full bg-primary"
                             style={{
                               width:
                                 ann.engagement === "-" ? "0%" : ann.engagement,
                             }}
                           ></div>
                         </div>
-                        <span className="text-[10px] font-black text-dark-blue-grey/70">
+                        <span className="text-[10px] font-black text-slate-600">
                           {ann.engagement}
                         </span>
                       </div>
                     </td>
                     <td className="px-6 py-4 text-right">
-                      <button className="text-dark-blue-grey/40 hover:text-dark-blue-grey transition-colors">
+                      <button className="text-slate-400 hover:text-secondary transition-colors">
                         <span className="material-symbols-outlined text-xl">
                           analytics
                         </span>

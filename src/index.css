@@ -7,7 +7,10 @@
 
 @layer base {
     :root {
-        --background: 0 0% 100%;
+        /* --background: 0 0% 100%; */
+        --background: 69 62% 97%;
+        /* very light primary */
+
         --foreground: 196 31% 12%;
 
         --card: 0 0% 100%;
@@ -93,13 +96,4 @@
     word-wrap: normal;
     white-space: nowrap;
     direction: ltr;
-}
-
-.sidebar-active {
-    background-color: #dbe890;
-    color: #152328 !important;
-}
-
-.sidebar-active .material-symbols-outlined {
-    font-variation-settings: "FILL" 1;
 }

@@ -42,6 +42,10 @@ export const TopBar = ({
                 </div>
             </div>
             <div className="flex items-center gap-3">
+                <button className="h-10 px-6 bg-secondary text-white rounded-3xl text-[13px] font-semibold hover:bg-secondary/90 transition-all flex items-center gap-2 shadow-sm hover:shadow-md active:scale-95">
+                    <span className="material-symbols-outlined text-[18px]">add</span>
+                    Add
+                </button>
                 {actions}
                 <div className="h-10 px-4 bg-slate-50 border border-slate-100 rounded-xl flex items-center gap-2 text-slate-500">
                     <span className="material-symbols-outlined text-[16px]">

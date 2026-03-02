@@ -85,7 +85,7 @@ export const CurriculumPage = ({ isHubChild }: { isHubChild?: boolean }) => {
           title="Curriculum & Subject Mapping"
           subtitle="Manage academic structure, subject allocations, and teacher-student mapping."
           actions={
-            <button className="bg-pale-lime text-dark-blue-grey px-4 py-2 rounded-lg text-sm font-bold flex items-center gap-2 hover:opacity-90 transition-all shadow-sm active:scale-95">
+            <button className="bg-primary text-secondary px-4 py-2 rounded-xl text-[13px] font-semibold flex items-center gap-2 hover:opacity-90 transition-all shadow-sm shadow-slate-100/30 active:scale-95">
               <span className="material-symbols-outlined text-sm">
                 assignment_ind
               </span>
@@ -95,7 +95,7 @@ export const CurriculumPage = ({ isHubChild }: { isHubChild?: boolean }) => {
         />
       )}
 
-      <div className="px-8 pt-6 border-b border-dark-blue-grey/10 shrink-0 bg-white">
+      <div className="px-8 pt-6 border-b border-slate-100 shrink-0 bg-white">
         <div className="flex gap-8">
           {[
             { id: "mapping", label: "Subject Mapping", icon: "hub" },
@@ -106,10 +106,10 @@ export const CurriculumPage = ({ isHubChild }: { isHubChild?: boolean }) => {
               key={tab.id}
               onClick={() => setActiveTab(tab.id as any)}
               className={cn(
-                "flex items-center gap-2 pb-4 text-sm font-bold tracking-tight transition-all relative",
+                "flex items-center gap-2 pb-4 text-[13px] font-semibold tracking-tight transition-all relative",
                 activeTab === tab.id
-                  ? "text-dark-blue-grey"
-                  : "text-dark-blue-grey/40 hover:text-dark-blue-grey",
+                  ? "text-secondary"
+                  : "text-slate-400 hover:text-secondary",
               )}
             >
               <span className="material-symbols-outlined text-lg">
@@ -117,29 +117,29 @@ export const CurriculumPage = ({ isHubChild }: { isHubChild?: boolean }) => {
               </span>
               {tab.label}
               {activeTab === tab.id && (
-                <div className="absolute bottom-0 left-0 right-0 h-1 bg-pale-lime rounded-t-full" />
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-primary rounded-t-full" />
               )}
             </button>
           ))}
         </div>
       </div>
 
-      <div className="flex-1 overflow-y-auto p-8 bg-dark-blue-grey/[0.01]">
+      <div className="flex-1 overflow-y-auto mx-auto px-6 lg:px-10 py-6 max-w-[1400px] ">
         {activeTab === "mapping" && (
           <div className="space-y-6">
             <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
               <div className="lg:col-span-3">
-                <div className="bg-white rounded-2xl border border-dark-blue-grey/10 shadow-sm overflow-hidden">
-                  <div className="p-6 border-b border-dark-blue-grey/10 flex justify-between items-center">
-                    <h3 className="text-dark-blue-grey text-lg font-bold">
+                <div className="bg-white rounded-2xl border border-slate-100 shadow-sm shadow-slate-100/30 overflow-hidden">
+                  <div className="p-6 border-b border-slate-100 flex justify-between items-center">
+                    <h3 className="text-secondary text-[16px] font-semibold">
                       Current Assignments
                     </h3>
                     <div className="relative">
-                      <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-dark-blue-grey/30 text-sm">
+                      <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-300 text-sm">
                         search
                       </span>
                       <input
-                        className="pl-9 pr-4 py-2 border border-dark-blue-grey/10 rounded-lg text-xs w-64 outline-none focus:ring-2 focus:ring-pale-lime"
+                        className="pl-9 pr-4 py-2 border border-slate-100 rounded-xl text-xs w-64 outline-none focus:ring-2 focus:ring-primary"
                         placeholder="Search class or subject..."
                         type="text"
                       />
@@ -148,53 +148,53 @@ export const CurriculumPage = ({ isHubChild }: { isHubChild?: boolean }) => {
                   <div className="overflow-x-auto">
                     <table className="w-full text-left">
                       <thead>
-                        <tr className="bg-dark-blue-grey/[0.01] border-b border-dark-blue-grey/10">
-                          <th className="px-6 py-4 text-[10px] font-black text-dark-blue-grey/30 uppercase tracking-widest">
+                        <tr className="bg-slate-50/50 border-b border-slate-100">
+                          <th className="px-6 py-4 text-[10px] font-black text-slate-300 uppercase tracking-widest">
                             Class
                           </th>
-                          <th className="px-6 py-4 text-[10px] font-black text-dark-blue-grey/30 uppercase tracking-widest">
+                          <th className="px-6 py-4 text-[10px] font-black text-slate-300 uppercase tracking-widest">
                             Subject
                           </th>
-                          <th className="px-6 py-4 text-[10px] font-black text-dark-blue-grey/30 uppercase tracking-widest">
+                          <th className="px-6 py-4 text-[10px] font-black text-slate-300 uppercase tracking-widest">
                             Teacher
                           </th>
-                          <th className="px-6 py-4 text-[10px] font-black text-dark-blue-grey/30 uppercase tracking-widest">
+                          <th className="px-6 py-4 text-[10px] font-black text-slate-300 uppercase tracking-widest">
                             Students
                           </th>
-                          <th className="px-6 py-4 text-[10px] font-black text-dark-blue-grey/30 uppercase tracking-widest text-right">
+                          <th className="px-6 py-4 text-[10px] font-black text-slate-300 uppercase tracking-widest text-right">
                             Actions
                           </th>
                         </tr>
                       </thead>
-                      <tbody className="divide-y divide-dark-blue-grey/5">
+                      <tbody className="divide-y divide-slate-50">
                         {mappings.map((m, i) => (
                           <tr
                             key={i}
-                            className="hover:bg-dark-blue-grey/[0.01] transition-colors group"
+                            className="hover:bg-slate-50/50 transition-colors group"
                           >
-                            <td className="px-6 py-4 font-bold text-sm text-dark-blue-grey">
+                            <td className="px-6 py-4 font-bold text-sm text-secondary">
                               {m.class}
                             </td>
                             <td className="px-6 py-4">
-                              <span className="px-2 py-1 rounded bg-dark-blue-grey/5 text-dark-blue-grey text-[10px] font-black border border-dark-blue-grey/5 tracking-widest">
+                              <span className="px-2 py-1 rounded bg-slate-50 text-secondary text-[10px] font-black border border-slate-50 tracking-widest">
                                 {m.subject}
                               </span>
                             </td>
                             <td className="px-6 py-4">
                               <div className="flex items-center gap-2">
-                                <div className="size-6 rounded-full bg-pale-lime/20 flex items-center justify-center text-[10px] font-black text-dark-blue-grey">
+                                <div className="size-6 rounded-full bg-primary/20 flex items-center justify-center text-[10px] font-black text-secondary">
                                   {m.teacher.split(" ").pop()?.charAt(0)}
                                 </div>
-                                <span className="text-sm font-medium text-dark-blue-grey/70">
+                                <span className="text-[13px] font-medium text-slate-600">
                                   {m.teacher}
                                 </span>
                               </div>
                             </td>
-                            <td className="px-6 py-4 text-sm font-bold text-dark-blue-grey/40">
+                            <td className="px-6 py-4 text-[13px] font-semibold text-slate-400">
                               {m.students}
                             </td>
                             <td className="px-6 py-4 text-right">
-                              <button className="text-dark-blue-grey/30 hover:text-dark-blue-grey transition-colors">
+                              <button className="text-slate-300 hover:text-secondary transition-colors">
                                 <span className="material-symbols-outlined text-xl">
                                   edit_note
                                 </span>
@@ -209,20 +209,20 @@ export const CurriculumPage = ({ isHubChild }: { isHubChild?: boolean }) => {
               </div>
 
               <aside className="space-y-6">
-                <div className="bg-white p-6 rounded-2xl border border-dark-blue-grey/10 shadow-sm">
-                  <h3 className="text-dark-blue-grey text-sm font-black uppercase tracking-widest mb-4">
+                <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm shadow-slate-100/30">
+                  <h3 className="text-secondary text-sm font-black uppercase tracking-widest mb-4">
                     Subject Distribution
                   </h3>
                   <div className="space-y-4">
                     {subjects.map((sub, i) => (
                       <div key={i} className="space-y-2">
-                        <div className="flex justify-between text-[10px] font-black uppercase tracking-tighter text-dark-blue-grey/50">
+                        <div className="flex justify-between text-[10px] font-black uppercase tracking-tighter text-slate-500">
                           <span>{sub.name}</span>
                           <span>{sub.classes} Classes</span>
                         </div>
-                        <div className="h-2 bg-dark-blue-grey/5 rounded-full overflow-hidden">
+                        <div className="h-2 bg-slate-50 rounded-full overflow-hidden">
                           <div
-                            className="h-full bg-pale-lime rounded-full transition-all duration-700"
+                            className="h-full bg-primary rounded-full transition-all duration-700"
                             style={{ width: `${(sub.classes / 12) * 100}%` }}
                           />
                         </div>
@@ -231,14 +231,14 @@ export const CurriculumPage = ({ isHubChild }: { isHubChild?: boolean }) => {
                   </div>
                 </div>
 
-                <div className="bg-dark-blue-grey rounded-2xl p-6 text-white shadow-xl relative overflow-hidden">
-                  <h4 className="text-lg font-bold mb-2">
+                <div className="bg-secondary rounded-2xl p-6 text-white shadow-xl relative overflow-hidden">
+                  <h4 className="text-[16px] font-semibold mb-2">
                     Smart Conflict Check
                   </h4>
                   <p className="text-xs text-white/50 mb-4">
                     Ensure no teacher is double-booked across sections.
                   </p>
-                  <button className="w-full bg-white/10 border border-white/20 py-2 rounded-lg text-[10px] font-black uppercase tracking-widest hover:bg-white/20 transition-colors">
+                  <button className="w-full bg-white/10 border border-white/20 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest hover:bg-white/20 transition-colors">
                     Run Audit
                   </button>
                 </div>
@@ -252,10 +252,10 @@ export const CurriculumPage = ({ isHubChild }: { isHubChild?: boolean }) => {
             {subjects.map((sub, i) => (
               <div
                 key={i}
-                className="bg-white p-6 rounded-2xl border border-dark-blue-grey/10 shadow-sm hover:border-pale-lime transition-all cursor-pointer group"
+                className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm shadow-slate-100/30 hover:border-primary transition-all cursor-pointer group"
               >
                 <div className="flex justify-between items-start mb-4">
-                  <div className="size-12 rounded-2xl bg-dark-blue-grey/[0.02] flex items-center justify-center text-dark-blue-grey/20 group-hover:bg-pale-lime group-hover:text-dark-blue-grey transition-all">
+                  <div className="size-12 rounded-2xl bg-slate-50/50 flex items-center justify-center text-secondary/20 group-hover:bg-primary group-hover:text-secondary transition-all">
                     <span className="material-symbols-outlined text-2xl font-light">
                       auto_stories
                     </span>
@@ -271,13 +271,13 @@ export const CurriculumPage = ({ isHubChild }: { isHubChild?: boolean }) => {
                     {sub.intensity} Load
                   </span>
                 </div>
-                <h3 className="text-lg font-black text-dark-blue-grey mb-1">
+                <h3 className="text-lg font-black text-secondary mb-1">
                   {sub.name}
                 </h3>
-                <p className="text-xs text-dark-blue-grey/40 font-medium mb-4">
+                <p className="text-xs text-slate-400 font-medium mb-4">
                   Lead: {sub.head}
                 </p>
-                <div className="flex justify-between pt-4 border-t border-dark-blue-grey/5 text-[10px] font-black text-dark-blue-grey/30 uppercase tracking-widest">
+                <div className="flex justify-between pt-4 border-t border-slate-50 text-[10px] font-black text-slate-300 uppercase tracking-widest">
                   <span>{sub.teachers} Teachers</span>
                   <span>{sub.classes} Units</span>
                 </div>

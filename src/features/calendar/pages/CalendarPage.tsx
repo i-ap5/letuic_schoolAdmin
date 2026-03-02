@@ -51,13 +51,13 @@ export const CalendarPage = () => {
       date: "Oct 31",
       title: "Cultural Annual Day",
       type: "event",
-      color: "bg-pale-lime",
+      color: "bg-primary",
     },
     {
       date: "Nov 05",
       title: "Teacher Training",
       type: "meeting",
-      color: "bg-dark-blue-grey",
+      color: "bg-secondary",
     },
   ];
 
@@ -71,11 +71,11 @@ export const CalendarPage = () => {
         subtitle="Manage academic schedules, institutional events, and class timings."
         actions={
           <div className="flex items-center gap-3">
-            <button className="bg-white border border-dark-blue-grey/10 text-dark-blue-grey px-4 py-2 rounded-lg text-sm font-bold flex items-center gap-2 hover:bg-dark-blue-grey/5 transition-all">
+            <button className="bg-white border border-slate-100 text-secondary px-4 py-2 rounded-xl text-[13px] font-semibold flex items-center gap-2 hover:bg-slate-50 transition-all">
               <span className="material-symbols-outlined text-lg">print</span>
               Export PDF
             </button>
-            <button className="bg-pale-lime text-dark-blue-grey px-4 py-2 rounded-lg text-sm font-bold flex items-center gap-2 hover:opacity-90 transition-all shadow-sm active:scale-95">
+            <button className="bg-primary text-secondary px-4 py-2 rounded-xl text-[13px] font-semibold flex items-center gap-2 hover:opacity-90 transition-all shadow-sm shadow-slate-100/30 active:scale-95">
               <span className="material-symbols-outlined text-sm">
                 add_circle
               </span>
@@ -87,7 +87,7 @@ export const CalendarPage = () => {
 
       <div className="flex-1 overflow-y-auto">
         {/* Perspective Switcher */}
-        <div className="px-8 pt-6 border-b border-dark-blue-grey/10 shrink-0 bg-white">
+        <div className="px-8 pt-6 border-b border-slate-100 shrink-0 bg-white">
           <div className="flex gap-8">
             {[
               { id: "teacher", label: "Teacher Schedules", icon: "school" },
@@ -102,10 +102,10 @@ export const CalendarPage = () => {
                 key={view.id}
                 onClick={() => setActiveView(view.id as CalendarView)}
                 className={cn(
-                  "flex items-center gap-2 pb-4 text-sm font-bold tracking-tight transition-all relative",
+                  "flex items-center gap-2 pb-4 text-[13px] font-semibold tracking-tight transition-all relative",
                   activeView === view.id
-                    ? "text-dark-blue-grey"
-                    : "text-dark-blue-grey/40 hover:text-dark-blue-grey",
+                    ? "text-secondary"
+                    : "text-slate-400 hover:text-secondary",
                 )}
               >
                 <span className="material-symbols-outlined text-lg">
@@ -113,7 +113,7 @@ export const CalendarPage = () => {
                 </span>
                 {view.label}
                 {activeView === view.id && (
-                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-pale-lime rounded-t-full" />
+                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-primary rounded-t-full" />
                 )}
               </button>
             ))}
@@ -123,43 +123,43 @@ export const CalendarPage = () => {
         <div className="p-6 grid grid-cols-1 lg:grid-cols-12 gap-6">
           {/* Main Calendar Area */}
           <div className="lg:col-span-8 space-y-6">
-            <div className="bg-white rounded-2xl border border-dark-blue-grey/10 shadow-sm overflow-hidden">
-              <div className="p-6 border-b border-dark-blue-grey/10 flex justify-between items-center">
+            <div className="bg-white rounded-2xl border border-slate-100 shadow-sm shadow-slate-100/30 overflow-hidden">
+              <div className="p-6 border-b border-slate-100 flex justify-between items-center">
                 <div className="flex items-center gap-4">
-                  <h3 className="text-xl font-black text-dark-blue-grey">
+                  <h3 className="text-xl font-black text-secondary">
                     October 2023
                   </h3>
                   <div className="flex items-center gap-1">
-                    <button className="p-1 hover:bg-dark-blue-grey/5 rounded transition-colors text-dark-blue-grey/40">
+                    <button className="p-1 hover:bg-slate-50 rounded transition-colors text-slate-400">
                       <span className="material-symbols-outlined">
                         chevron_left
                       </span>
                     </button>
-                    <button className="p-1 hover:bg-dark-blue-grey/5 rounded transition-colors text-dark-blue-grey/40">
+                    <button className="p-1 hover:bg-slate-50 rounded transition-colors text-slate-400">
                       <span className="material-symbols-outlined">
                         chevron_right
                       </span>
                     </button>
                   </div>
                 </div>
-                <div className="flex bg-dark-blue-grey/5 p-1 rounded-lg">
-                  <button className="px-3 py-1 text-xs font-bold bg-white text-dark-blue-grey rounded-md shadow-sm">
+                <div className="flex bg-slate-50 p-1 rounded-xl">
+                  <button className="px-3 py-1 text-[11px] font-semibold bg-white text-secondary rounded-md shadow-sm shadow-slate-100/30">
                     Month
                   </button>
-                  <button className="px-3 py-1 text-xs font-bold text-dark-blue-grey/40">
+                  <button className="px-3 py-1 text-[11px] font-semibold text-slate-400">
                     Week
                   </button>
-                  <button className="px-3 py-1 text-xs font-bold text-dark-blue-grey/40">
+                  <button className="px-3 py-1 text-[11px] font-semibold text-slate-400">
                     Day
                   </button>
                 </div>
               </div>
 
-              <div className="grid grid-cols-7 border-b border-dark-blue-grey/5">
+              <div className="grid grid-cols-7 border-b border-slate-50">
                 {days.map((day) => (
                   <div
                     key={day}
-                    className="py-3 text-center text-[10px] font-black uppercase tracking-widest text-dark-blue-grey/30"
+                    className="py-3 text-center text-[10px] font-black uppercase tracking-widest text-slate-300"
                   >
                     {day}
                   </div>
@@ -170,30 +170,30 @@ export const CalendarPage = () => {
                 {Array.from({ length: 4 }).map((_, i) => (
                   <div
                     key={`empty-${i}`}
-                    className="h-20 border-r border-b border-dark-blue-grey/5 bg-dark-blue-grey/[0.01]"
+                    className="h-20 border-r border-b border-slate-50 bg-slate-50/50"
                   />
                 ))}
                 {calendarDays.map((day) => (
                   <div
                     key={day}
                     className={cn(
-                      "h-20 border-r border-b border-dark-blue-grey/5 p-1.5 transition-colors hover:bg-dark-blue-grey/[0.01] overflow-hidden",
-                      day === 24 && "bg-pale-lime/5",
+                      "h-20 border-r border-b border-slate-50 p-1.5 transition-colors hover:bg-slate-50/50 overflow-hidden",
+                      day === 24 && "bg-primary/5",
                     )}
                   >
                     <div className="flex justify-between items-center mb-2">
                       <span
                         className={cn(
-                          "size-6 flex items-center justify-center text-xs font-bold rounded-full",
+                          "size-6 flex items-center justify-center text-[11px] font-semibold rounded-full",
                           day === 24
-                            ? "bg-pale-lime text-dark-blue-grey"
-                            : "text-dark-blue-grey/60",
+                            ? "bg-primary text-secondary"
+                            : "text-slate-500",
                         )}
                       >
                         {day}
                       </span>
                       {day === 31 && (
-                        <span className="size-1.5 bg-pale-lime rounded-full" />
+                        <span className="size-1.5 bg-primary rounded-full" />
                       )}
                       {day === 26 && (
                         <span className="size-1.5 bg-red-500 rounded-full" />
@@ -201,10 +201,10 @@ export const CalendarPage = () => {
                     </div>
                     {day === 24 && (
                       <div className="space-y-1">
-                        <div className="bg-dark-blue-grey text-white text-[8px] font-bold px-1.5 py-1 rounded truncate leading-none">
+                        <div className="bg-secondary text-white text-[8px] font-bold px-1.5 py-1 rounded truncate leading-none">
                           Math Exam P1
                         </div>
-                        <div className="bg-pale-lime text-dark-blue-grey text-[8px] font-bold px-1.5 py-1 rounded truncate leading-none">
+                        <div className="bg-primary text-secondary text-[8px] font-bold px-1.5 py-1 rounded truncate leading-none">
                           Staff Review
                         </div>
                       </div>
@@ -218,9 +218,9 @@ export const CalendarPage = () => {
           {/* Contextual Sidebar */}
           <div className="lg:col-span-4 space-y-6">
             {activeView === "teacher" && (
-              <div className="bg-dark-blue-grey rounded-2xl p-6 text-white shadow-2xl">
-                <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
-                  <span className="material-symbols-outlined text-pale-lime">
+              <div className="bg-secondary rounded-2xl p-6 text-white shadow-2xl">
+                <h3 className="text-[16px] font-semibold mb-4 flex items-center gap-2">
+                  <span className="material-symbols-outlined text-primary">
                     timer
                   </span>
                   Today's Schedule
@@ -229,16 +229,16 @@ export const CalendarPage = () => {
                   {teacherSchedule.map((item, i) => (
                     <div key={i} className="flex gap-4 group">
                       <div className="flex flex-col items-center">
-                        <div className="size-2 bg-pale-lime rounded-full ring-4 ring-pale-lime/20" />
+                        <div className="size-2 bg-primary rounded-full ring-4 ring-primary/20" />
                         {i !== teacherSchedule.length - 1 && (
                           <div className="w-px h-full bg-white/10 my-1" />
                         )}
                       </div>
                       <div className="pb-4">
-                        <p className="text-[10px] font-black text-pale-lime uppercase tracking-widest leading-none mb-1">
+                        <p className="text-[10px] font-black text-primary uppercase tracking-widest leading-none mb-1">
                           {item.time}
                         </p>
-                        <p className="text-sm font-bold group-hover:text-pale-lime transition-colors">
+                        <p className="text-[13px] font-semibold group-hover:text-primary transition-colors">
                           {item.event}
                         </p>
                         <p className="text-[10px] text-white/40 font-medium">
@@ -248,15 +248,15 @@ export const CalendarPage = () => {
                     </div>
                   ))}
                 </div>
-                <button className="w-full mt-4 bg-white/5 border border-white/10 py-3 rounded-xl text-[10px] font-black uppercase tracking-[0.2em] hover:bg-white/10 transition-colors">
+                <button className="w-full mt-4 bg-white/5 border border-white/10 py-3 rounded-2xl text-[10px] font-black uppercase tracking-[0.2em] hover:bg-white/10 transition-colors">
                   Adjust Weekly Slots
                 </button>
               </div>
             )}
 
             {activeView === "parent" && (
-              <div className="bg-white rounded-2xl border border-dark-blue-grey/10 p-6 shadow-sm">
-                <h3 className="text-dark-blue-grey text-lg font-black uppercase tracking-[0.1em] mb-6 flex items-center gap-2">
+              <div className="bg-white rounded-2xl border border-slate-100 p-6 shadow-sm shadow-slate-100/30">
+                <h3 className="text-secondary text-lg font-black uppercase tracking-[0.1em] mb-6 flex items-center gap-2">
                   <span className="material-symbols-outlined text-red-500">
                     campaign
                   </span>
@@ -266,7 +266,7 @@ export const CalendarPage = () => {
                   {administrativeEvents.map((event, i) => (
                     <div
                       key={i}
-                      className="p-4 rounded-xl bg-dark-blue-grey/[0.02] border border-dark-blue-grey/5 hover:border-dark-blue-grey/10 transition-all"
+                      className="p-4 rounded-2xl bg-slate-50/50 border border-slate-50 hover:border-slate-100 transition-all"
                     >
                       <div className="flex justify-between items-start mb-2">
                         <span
@@ -277,11 +277,11 @@ export const CalendarPage = () => {
                         >
                           {event.type}
                         </span>
-                        <span className="text-[10px] font-bold text-dark-blue-grey/30">
+                        <span className="text-[10px] font-bold text-slate-300">
                           {event.date}
                         </span>
                       </div>
-                      <p className="text-sm font-bold text-dark-blue-grey">
+                      <p className="text-[13px] font-semibold text-secondary">
                         {event.title}
                       </p>
                     </div>
@@ -290,21 +290,21 @@ export const CalendarPage = () => {
               </div>
             )}
 
-            <div className="bg-pale-lime rounded-2xl p-6 text-dark-blue-grey shadow-lg">
+            <div className="bg-primary rounded-2xl p-6 text-secondary shadow-lg">
               <h3 className="text-lg font-black italic tracking-tighter mb-2 underline decoration-white/50 underline-offset-4">
                 Quick CRUD
               </h3>
-              <p className="text-xs font-medium mb-4 opacity-70">
+              <p className="text-[11px] font-medium mb-4 opacity-70">
                 Instantly swap a substitute or cancel a class slot.
               </p>
               <div className="space-y-3">
-                <button className="w-full bg-dark-blue-grey text-white py-2.5 rounded-lg text-xs font-bold flex items-center justify-center gap-2 shadow-lg">
+                <button className="w-full bg-secondary text-white py-2.5 rounded-xl text-[11px] font-semibold flex items-center justify-center gap-2 shadow-lg">
                   <span className="material-symbols-outlined text-sm">
                     swap_horiz
                   </span>
                   Assign Substitute
                 </button>
-                <button className="w-full bg-white text-dark-blue-grey py-2.5 rounded-lg text-xs font-bold flex items-center justify-center gap-2 shadow-sm border border-dark-blue-grey/10">
+                <button className="w-full bg-white text-secondary py-2.5 rounded-xl text-[11px] font-semibold flex items-center justify-center gap-2 shadow-sm shadow-slate-100/30 border border-slate-100">
                   <span className="material-symbols-outlined text-sm">
                     event_busy
                   </span>

@@ -10,9 +10,9 @@ export const ParticipationOverview = () => {
             <div className="flex items-center justify-between mb-6">
                 <div>
                     <h3 className="text-secondary text-[15px] font-semibold">Today's Attendance</h3>
-                    <p className="text-slate-400 text-xs font-medium mt-0.5">1,240 total students</p>
+                    <p className="text-slate-400 text-[11px] font-medium mt-0.5">1,240 total students</p>
                 </div>
-                <span className="text-[11px] font-medium text-emerald-600 bg-emerald-50 border border-emerald-100 px-2.5 py-1 rounded-lg">
+                <span className="text-[11px] font-medium text-emerald-600 bg-emerald-50 border border-emerald-100 px-2.5 py-1 rounded-xl">
                     86% Present
                 </span>
             </div>
@@ -33,19 +33,21 @@ export const ParticipationOverview = () => {
                     </svg>
                     <div className="absolute inset-0 flex flex-col items-center justify-center">
                         <span className="text-2xl font-semibold text-secondary">86%</span>
-                        <span className="text-[10px] text-slate-400 font-medium uppercase tracking-wider">Present</span>
+                        <span className="text-[10px] text-slate-400 font-mediu  tracking-wider">Present</span>
                     </div>
                 </div>
             </div>
 
             {/* Breakdown */}
-            <div className="flex items-center gap-6 pt-4 border-t border-slate-50">
+            <div className="flex items-center justify-between w-full pt-5 border-t border-slate-50 mt-auto">
                 {attendanceData.map((item) => (
-                    <div key={item.label} className="flex items-center gap-2">
-                        <span className={`w-2.5 h-2.5 rounded-full ${item.color}`}></span>
-                        <div className="flex flex-col">
-                            <span className="text-[11px] text-slate-400 font-medium">{item.label}</span>
-                            <span className="text-[13px] text-secondary font-semibold">{item.count}</span>
+                    <div key={item.label} className="flex flex-col items-center gap-1 w-full">
+                        <span className="text-[18px] font-semibold text-secondary tracking-tight">{item.count}</span>
+
+                        <div className="flex items-center gap-1.5">
+
+                            <span className={`w-2 h-2 rounded-full ${item.color}`}></span>
+                            <span className="text-[11px] font-medium text-slate-400 tracking-normal">{item.label}</span>
                         </div>
                     </div>
                 ))}

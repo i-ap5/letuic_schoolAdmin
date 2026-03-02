@@ -78,7 +78,7 @@ export const TransportationPage = ({
           actions={
             <button
               onClick={handleAddBus}
-              className="bg-pale-lime text-dark-blue-grey px-4 py-2 rounded-lg text-sm font-bold flex items-center gap-2 hover:opacity-90 transition-all shadow-sm active:scale-95"
+              className="bg-primary text-secondary px-4 py-2 rounded-xl text-[13px] font-semibold flex items-center gap-2 hover:opacity-90 transition-all shadow-sm shadow-slate-100/30 active:scale-95"
             >
               <span className="material-symbols-outlined text-sm">vpn_key</span>
               New Access ID
@@ -87,7 +87,7 @@ export const TransportationPage = ({
         />
       )}
 
-      <div className="flex-1 overflow-y-auto p-8 space-y-8">
+      <div className="flex-1 overflow-y-auto mx-auto px-6 lg:px-10 py-6 max-w-[1400px] space-y-8">
         {/* Fleet Overview Stats */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           {[
@@ -95,7 +95,7 @@ export const TransportationPage = ({
               label: "Active Buses",
               value: "12",
               icon: "directions_bus",
-              color: "text-dark-blue-grey",
+              color: "text-secondary",
             },
             {
               label: "On Schedule",
@@ -108,7 +108,7 @@ export const TransportationPage = ({
               value: "14.2",
               icon: "ev_station",
               sub: "km/L avg",
-              color: "text-pale-lime",
+              color: "text-primary",
             },
             {
               label: "Maintenance",
@@ -120,21 +120,21 @@ export const TransportationPage = ({
           ].map((stat, i) => (
             <div
               key={i}
-              className="bg-white p-6 rounded-2xl border border-dark-blue-grey/10 shadow-sm flex flex-col gap-2"
+              className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm shadow-slate-100/30 flex flex-col gap-2"
             >
               <div className="flex justify-between items-center">
-                <p className="text-[10px] font-black uppercase tracking-widest text-dark-blue-grey/40">
+                <p className="text-[10px] font-black uppercase tracking-widest text-slate-400">
                   {stat.label}
                 </p>
                 <span className={cn("material-symbols-outlined", stat.color)}>
                   {stat.icon}
                 </span>
               </div>
-              <p className="text-3xl font-black text-dark-blue-grey tracking-tight">
+              <p className="text-3xl font-black text-secondary tracking-tight">
                 {stat.value}
               </p>
               {stat.sub && (
-                <p className="text-[10px] font-bold text-dark-blue-grey/30 uppercase tracking-wider">
+                <p className="text-[10px] font-bold text-slate-300 uppercase tracking-wider">
                   {stat.sub}
                 </p>
               )}
@@ -145,9 +145,9 @@ export const TransportationPage = ({
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Real-time Tracking List */}
           <div className="lg:col-span-2 space-y-6">
-            <div className="bg-white rounded-2xl border border-dark-blue-grey/10 shadow-sm overflow-hidden">
-              <div className="p-6 border-b border-dark-blue-grey/10 bg-dark-blue-grey/[0.02] flex justify-between items-center">
-                <h3 className="text-dark-blue-grey text-lg font-bold tracking-tight">
+            <div className="bg-white rounded-2xl border border-slate-100 shadow-sm shadow-slate-100/30 overflow-hidden">
+              <div className="p-6 border-b border-slate-100 bg-slate-50/50 flex justify-between items-center">
+                <h3 className="text-secondary text-[16px] font-semibold tracking-tight">
                   Active Fleet Tracking
                 </h3>
                 <div className="flex items-center gap-2">
@@ -160,39 +160,39 @@ export const TransportationPage = ({
               <div className="overflow-x-auto">
                 <table className="w-full text-left">
                   <thead>
-                    <tr className="bg-dark-blue-grey/[0.01] border-b border-dark-blue-grey/10">
-                      <th className="px-6 py-4 text-[10px] font-black text-dark-blue-grey/30 uppercase tracking-widest">
+                    <tr className="bg-slate-50/50 border-b border-slate-100">
+                      <th className="px-6 py-4 text-[10px] font-black text-slate-300 uppercase tracking-widest">
                         Bus / Driver
                       </th>
-                      <th className="px-6 py-4 text-[10px] font-black text-dark-blue-grey/30 uppercase tracking-widest">
+                      <th className="px-6 py-4 text-[10px] font-black text-slate-300 uppercase tracking-widest">
                         Route & Location
                       </th>
-                      <th className="px-6 py-4 text-[10px] font-black text-dark-blue-grey/30 uppercase tracking-widest">
+                      <th className="px-6 py-4 text-[10px] font-black text-slate-300 uppercase tracking-widest">
                         Status
                       </th>
-                      <th className="px-6 py-4 text-[10px] font-black text-dark-blue-grey/30 uppercase tracking-widest text-right">
+                      <th className="px-6 py-4 text-[10px] font-black text-slate-300 uppercase tracking-widest text-right">
                         Access ID
                       </th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-dark-blue-grey/5">
+                  <tbody className="divide-y divide-slate-50">
                     {buses.map((bus) => (
                       <tr
                         key={bus.id}
-                        className="hover:bg-dark-blue-grey/[0.01] transition-colors group"
+                        className="hover:bg-slate-50/50 transition-colors group"
                       >
                         <td className="px-6 py-4">
                           <div className="flex items-center gap-3">
-                            <div className="size-10 rounded-xl bg-pale-lime/20 flex items-center justify-center text-dark-blue-grey">
+                            <div className="size-10 rounded-2xl bg-primary/20 flex items-center justify-center text-secondary">
                               <span className="material-symbols-outlined">
                                 airport_shuttle
                               </span>
                             </div>
                             <div>
-                              <p className="text-sm font-bold text-dark-blue-grey">
+                              <p className="text-[13px] font-semibold text-secondary">
                                 {bus.id}
                               </p>
-                              <p className="text-xs text-dark-blue-grey/50">
+                              <p className="text-xs text-slate-500">
                                 {bus.driver}
                               </p>
                             </div>
@@ -200,10 +200,10 @@ export const TransportationPage = ({
                         </td>
                         <td className="px-6 py-4">
                           <div className="flex flex-col">
-                            <p className="text-xs font-bold text-dark-blue-grey">
+                            <p className="text-[11px] font-semibold text-secondary">
                               {bus.route}
                             </p>
-                            <div className="flex items-center gap-1 mt-1 text-[10px] text-dark-blue-grey/40 font-medium">
+                            <div className="flex items-center gap-1 mt-1 text-[10px] text-slate-400 font-medium">
                               <span className="material-symbols-outlined text-[10px]">
                                 location_on
                               </span>
@@ -219,14 +219,14 @@ export const TransportationPage = ({
                                 ? "bg-emerald-50 text-emerald-700 border-emerald-100"
                                 : bus.status === "Delayed"
                                   ? "bg-red-50 text-red-700 border-red-100"
-                                  : "bg-dark-blue-grey/5 text-dark-blue-grey/40 border-dark-blue-grey/10",
+                                  : "bg-slate-50 text-slate-400 border-slate-100",
                             )}
                           >
                             {bus.status}
                           </span>
                         </td>
                         <td className="px-6 py-4 text-right">
-                          <code className="text-xs font-black bg-dark-blue-grey text-pale-lime px-2 py-1 rounded border border-white/10 shadow-sm">
+                          <code className="text-xs font-black bg-secondary text-primary px-2 py-1 rounded border border-white/10 shadow-sm shadow-slate-100/30">
                             {bus.loginId}
                           </code>
                         </td>
@@ -240,9 +240,9 @@ export const TransportationPage = ({
 
           {/* Access Management Sidebar */}
           <aside className="space-y-6">
-            <div className="bg-dark-blue-grey rounded-2xl p-6 text-white shadow-2xl relative overflow-hidden">
+            <div className="bg-secondary rounded-2xl p-6 text-white shadow-2xl relative overflow-hidden">
               <div className="relative z-10">
-                <h3 className="text-lg font-bold mb-2">
+                <h3 className="text-[16px] font-semibold mb-2">
                   Generate Driver Access
                 </h3>
                 <p className="text-sm text-white/60 mb-6 leading-relaxed">
@@ -251,31 +251,31 @@ export const TransportationPage = ({
                 </p>
                 <div className="space-y-4">
                   <div className="space-y-1.5">
-                    <label className="text-[10px] font-black text-pale-lime uppercase tracking-widest pl-1">
+                    <label className="text-[10px] font-black text-primary uppercase tracking-widest pl-1">
                       Bus Assignment
                     </label>
-                    <select className="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-pale-lime">
-                      <option className="bg-dark-blue-grey">
+                    <select className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-primary">
+                      <option className="bg-secondary">
                         Select Bus Unit...
                       </option>
-                      <option className="bg-dark-blue-grey">
+                      <option className="bg-secondary">
                         BUS-005 (Reserve)
                       </option>
-                      <option className="bg-dark-blue-grey">
+                      <option className="bg-secondary">
                         BUS-006 (New)
                       </option>
                     </select>
                   </div>
-                  <button className="w-full bg-pale-lime text-dark-blue-grey font-bold py-3 rounded-lg hover:opacity-90 transition-all active:scale-95 text-sm shadow-xl">
+                  <button className="w-full bg-primary text-secondary font-bold py-3 rounded-xl hover:opacity-90 transition-all active:scale-95 text-sm shadow-xl">
                     Generate Unique ID
                   </button>
                 </div>
               </div>
-              <div className="absolute -right-8 -bottom-8 size-40 bg-pale-lime opacity-[0.03] rounded-full"></div>
+              <div className="absolute -right-8 -bottom-8 size-40 bg-primary opacity-[0.03] rounded-full"></div>
             </div>
 
-            <div className="bg-white rounded-2xl border border-dark-blue-grey/10 p-6 shadow-sm">
-              <h3 className="text-dark-blue-grey text-base font-bold mb-4">
+            <div className="bg-white rounded-2xl border border-slate-100 p-6 shadow-sm shadow-slate-100/30">
+              <h3 className="text-secondary text-base font-bold mb-4">
                 Security Logs
               </h3>
               <div className="space-y-4">
@@ -290,17 +290,17 @@ export const TransportationPage = ({
                 ].map((log, i) => (
                   <div
                     key={i}
-                    className="flex justify-between items-center border-b border-dark-blue-grey/5 pb-3 last:border-0 last:pb-0"
+                    className="flex justify-between items-center border-b border-slate-50 pb-3 last:border-0 last:pb-0"
                   >
                     <div>
-                      <p className="text-xs font-bold text-dark-blue-grey">
+                      <p className="text-[11px] font-semibold text-secondary">
                         {log.event}
                       </p>
-                      <p className="text-[10px] text-dark-blue-grey/40 font-black tracking-widest">
+                      <p className="text-[10px] text-slate-400 font-black tracking-widest">
                         {log.id}
                       </p>
                     </div>
-                    <span className="text-[10px] font-medium text-dark-blue-grey/30">
+                    <span className="text-[10px] font-medium text-slate-300">
                       {log.time}
                     </span>
                   </div>

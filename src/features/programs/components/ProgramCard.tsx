@@ -24,23 +24,23 @@ export const ProgramCard = ({
   onClick,
 }: ProgramCardProps) => {
   const statusStyles = {
-    Active: "bg-pale-lime text-dark-blue-grey",
+    Active: "bg-primary text-secondary",
     Warning: "bg-red-500 text-white",
     Planning: "bg-blue-500 text-white",
-    Completed: "bg-dark-blue-grey text-pale-lime",
+    Completed: "bg-secondary text-primary",
   };
 
   return (
     <div
       onClick={onClick}
-      className="bg-white rounded-2xl border border-dark-blue-grey/10 p-5 shadow-sm hover:shadow-md transition-all cursor-pointer group"
+      className="bg-white rounded-2xl border border-slate-100 p-5 shadow-sm shadow-slate-100/30 hover:shadow-md transition-all cursor-pointer group"
     >
       <div className="flex justify-between items-start mb-4">
         <div className="flex flex-col gap-1">
-          <span className="text-[10px] uppercase tracking-widest font-black text-dark-blue-grey/40">
+          <span className="text-[10px] uppercase tracking-widest font-black text-slate-400">
             {category}
           </span>
-          <h3 className="text-lg font-bold text-dark-blue-grey group-hover:text-black transition-colors">
+          <h3 className="text-[16px] font-semibold text-secondary group-hover:text-black transition-colors">
             {name}
           </h3>
         </div>
@@ -59,7 +59,7 @@ export const ProgramCard = ({
           {[1, 2, 3].map((i) => (
             <div
               key={i}
-              className="size-7 rounded-full border-2 border-white bg-dark-blue-grey/5 flex items-center justify-center overflow-hidden"
+              className="size-7 rounded-full border-2 border-white bg-slate-50 flex items-center justify-center overflow-hidden"
             >
               <img
                 src={`https://i.pravatar.cc/150?u=${name}${i}`}
@@ -68,47 +68,47 @@ export const ProgramCard = ({
               />
             </div>
           ))}
-          <div className="size-7 rounded-full border-2 border-white bg-pale-lime flex items-center justify-center text-[10px] font-bold text-dark-blue-grey">
+          <div className="size-7 rounded-full border-2 border-white bg-primary flex items-center justify-center text-[10px] font-bold text-secondary">
             +{participants - 3}
           </div>
         </div>
-        <span className="text-xs font-bold text-dark-blue-grey/40">
+        <span className="text-[11px] font-semibold text-slate-400">
           Enrolled
         </span>
       </div>
 
       <div className="space-y-4">
         <div className="flex items-center gap-2">
-          <span className="material-symbols-outlined text-sm text-dark-blue-grey/30">
+          <span className="material-symbols-outlined text-sm text-slate-300">
             person
           </span>
-          <p className="text-xs font-medium text-dark-blue-grey/60">
+          <p className="text-[11px] font-medium text-slate-500">
             Lead:{" "}
-            <span className="text-dark-blue-grey font-bold">{leadTeacher}</span>
+            <span className="text-secondary font-bold">{leadTeacher}</span>
           </p>
         </div>
 
         <div className="flex items-center gap-2">
-          <span className="material-symbols-outlined text-sm text-dark-blue-grey/30">
+          <span className="material-symbols-outlined text-sm text-slate-300">
             calendar_today
           </span>
-          <p className="text-xs font-medium text-dark-blue-grey/60">
+          <p className="text-[11px] font-medium text-slate-500">
             {startDate} - {endDate}
           </p>
         </div>
 
         <div className="pt-2">
           <div className="flex justify-between items-end mb-1.5">
-            <span className="text-[10px] font-black uppercase tracking-wider text-dark-blue-grey/40">
+            <span className="text-[10px] font-black uppercase tracking-wider text-slate-400">
               Program Progress
             </span>
-            <span className="text-xs font-black text-dark-blue-grey">
+            <span className="text-xs font-black text-secondary">
               {progress}%
             </span>
           </div>
-          <div className="h-2 w-full bg-dark-blue-grey/5 rounded-full overflow-hidden">
+          <div className="h-2 w-full bg-slate-50 rounded-full overflow-hidden">
             <div
-              className="h-full bg-pale-lime transition-all duration-500"
+              className="h-full bg-primary transition-all duration-500"
               style={{ width: `${progress}%` }}
             />
           </div>

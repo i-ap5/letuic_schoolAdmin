@@ -12,7 +12,7 @@ const AlertItem = ({
   time: string;
 }) => {
   return (
-    <div className="flex gap-3 py-3 border-b border-slate-50 last:border-0 group cursor-pointer hover:bg-slate-50/50 -mx-1 px-1 rounded-lg transition-colors">
+    <div className="flex gap-3 py-3 border-b border-slate-50 last:border-0 group cursor-pointer hover:bg-slate-50/50 -mx-1 px-1 rounded-xl transition-colors">
       <div className={cn(
         "w-1.5 rounded-full shrink-0 mt-1",
         type === "urgent" && "bg-rose-400",
@@ -34,14 +34,14 @@ const AlertItem = ({
 
 export const AlertsSection = () => {
   return (
-    <div className="bg-white border border-slate-100 rounded-2xl p-5 flex flex-col">
-      <div className="flex items-center justify-between mb-4">
-        <h3 className="text-secondary text-[15px] font-semibold">Notifications</h3>
-        <button className="text-[12px] text-primary font-medium hover:underline underline-offset-2">
+    <div className="bg-white border border-slate-50 shadow-sm shadow-slate-100 rounded-3xl p-7 flex flex-col">
+      <div className="flex items-center justify-between mb-6">
+        <h3 className="text-secondary text-[17px] font-semibold tracking-tight">Notifications</h3>
+        <button className="text-[12px] text-slate-400 font-bold hover:text-primary transition-colors ">
           View All
         </button>
       </div>
-      <div className="flex flex-col">
+      <div className="flex flex-col overflow-y-auto pr-2 max-h-[290px] space-y-2 relative">
         <AlertItem
           type="urgent"
           title="Attendance Drop — Grade 10B"

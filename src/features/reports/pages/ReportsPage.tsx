@@ -6,31 +6,31 @@ export const ReportsPage = () => {
       label: "#STEM_ACADEMY",
       students: 782,
       progress: 85,
-      color: "bg-pale-lime",
+      color: "bg-primary",
     },
     {
       label: "#ATHLETICS_DEPT",
       students: 540,
       progress: 65,
-      color: "bg-pale-lime/60",
+      color: "bg-primary/60",
     },
     {
       label: "#COUNSELING_WELLNESS",
       students: 412,
       progress: 45,
-      color: "bg-pale-lime/40",
+      color: "bg-primary/40",
     },
     {
       label: "#FINE_ARTS",
       students: 320,
       progress: 38,
-      color: "bg-pale-lime/30",
+      color: "bg-primary/30",
     },
     {
       label: "#COMMUNITY_SERVICE",
       students: 195,
       progress: 22,
-      color: "bg-pale-lime/20",
+      color: "bg-primary/20",
     },
   ];
 
@@ -80,13 +80,13 @@ export const ReportsPage = () => {
         subtitle="Systematic data review of student participation and program efficacy."
         actions={
           <>
-            <button className="flex items-center justify-center rounded-lg h-10 px-5 bg-white border border-dark-blue-grey/10 text-dark-blue-grey text-sm font-bold shadow-sm hover:bg-dark-blue-grey/5 transition-all">
+            <button className="flex items-center justify-center rounded-xl h-10 px-5 bg-white border border-slate-100 text-secondary text-[13px] font-semibold shadow-sm shadow-slate-100/30 hover:bg-slate-50 transition-all">
               <span className="material-symbols-outlined text-lg mr-2">
                 download
               </span>
               <span>Export Data</span>
             </button>
-            <button className="flex items-center justify-center rounded-lg h-10 px-5 bg-pale-lime text-dark-blue-grey text-sm font-bold shadow-sm hover:opacity-90 transition-all">
+            <button className="flex items-center justify-center rounded-xl h-10 px-5 bg-primary text-secondary text-[13px] font-semibold shadow-sm shadow-slate-100/30 hover:opacity-90 transition-all">
               <span className="material-symbols-outlined text-lg mr-2">
                 picture_as_pdf
               </span>
@@ -98,9 +98,9 @@ export const ReportsPage = () => {
       <div className="flex-1 overflow-y-auto px-8 py-8 bg-white">
         <div className="max-w-7xl mx-auto space-y-8">
           {/* Toolbar / Filters */}
-          <div className="bg-white border border-dark-blue-grey/10 rounded-xl p-3 flex justify-between items-center shadow-sm">
+          <div className="bg-white border border-slate-100 rounded-2xl p-3 flex justify-between items-center shadow-sm shadow-slate-100/30">
             <div className="flex gap-4">
-              <button className="flex items-center gap-2 px-3 py-1.5 bg-dark-blue-grey/[0.03] rounded-lg border border-dark-blue-grey/10 text-dark-blue-grey/70 text-sm font-medium hover:bg-dark-blue-grey/5 transition-colors">
+              <button className="flex items-center gap-2 px-3 py-1.5 bg-slate-50/50 rounded-xl border border-slate-100 text-slate-600 text-[13px] font-medium hover:bg-slate-50 transition-colors">
                 <span className="material-symbols-outlined text-lg">
                   calendar_month
                 </span>
@@ -109,7 +109,7 @@ export const ReportsPage = () => {
                   expand_more
                 </span>
               </button>
-              <button className="flex items-center gap-2 px-3 py-1.5 bg-dark-blue-grey/[0.03] rounded-lg border border-dark-blue-grey/10 text-dark-blue-grey/70 text-sm font-medium hover:bg-dark-blue-grey/5 transition-colors">
+              <button className="flex items-center gap-2 px-3 py-1.5 bg-slate-50/50 rounded-xl border border-slate-100 text-slate-600 text-[13px] font-medium hover:bg-slate-50 transition-colors">
                 <span className="material-symbols-outlined text-lg">
                   school
                 </span>
@@ -118,27 +118,27 @@ export const ReportsPage = () => {
                   expand_more
                 </span>
               </button>
-              <button className="flex items-center gap-2 px-3 py-1.5 bg-dark-blue-grey/[0.03] rounded-lg border border-dark-blue-grey/10 text-dark-blue-grey/70 text-sm font-medium hover:bg-dark-blue-grey/5 transition-colors">
+              <button className="flex items-center gap-2 px-3 py-1.5 bg-slate-50/50 rounded-xl border border-slate-100 text-slate-600 text-[13px] font-medium hover:bg-slate-50 transition-colors">
                 <span className="material-symbols-outlined text-lg">
                   filter_list
                 </span>
                 <span>More Filters</span>
               </button>
             </div>
-            <div className="text-dark-blue-grey/40 text-[10px] font-bold uppercase tracking-widest italic pr-2">
+            <div className="text-slate-400 text-[10px] font-bold uppercase tracking-widest italic pr-2">
               Data refreshed 4 minutes ago
             </div>
           </div>
 
           {/* Stats Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="flex flex-col gap-2 rounded-2xl p-6 bg-white border border-dark-blue-grey/10 shadow-sm relative overflow-hidden group">
-              <div className="absolute top-0 right-0 w-24 h-24 bg-pale-lime/5 rounded-full -mr-12 -mt-12 transition-transform group-hover:scale-110" />
-              <p className="text-dark-blue-grey/40 text-[10px] font-black uppercase tracking-widest">
+            <div className="flex flex-col gap-2 rounded-2xl p-6 bg-white border border-slate-100 shadow-sm shadow-slate-100/30 relative overflow-hidden group">
+              <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-full -mr-12 -mt-12 transition-transform group-hover:scale-110" />
+              <p className="text-slate-400 text-[10px] font-black uppercase tracking-widest">
                 Total Participation
               </p>
               <div className="flex items-baseline justify-between relative z-10">
-                <p className="text-dark-blue-grey text-3xl font-black">1,284</p>
+                <p className="text-secondary text-3xl font-black">1,284</p>
                 <span className="text-emerald-500 text-sm font-black flex items-center">
                   <span className="material-symbols-outlined text-sm">
                     arrow_upward
@@ -146,20 +146,20 @@ export const ReportsPage = () => {
                   12%
                 </span>
               </div>
-              <p className="text-dark-blue-grey/40 text-[11px] font-medium">
+              <p className="text-slate-400 text-[11px] font-medium">
                 Students active in at least one program
               </p>
             </div>
 
-            <div className="flex flex-col gap-2 rounded-2xl p-6 bg-white border border-dark-blue-grey/10 shadow-sm relative overflow-hidden group">
-              <div className="absolute top-0 right-0 w-24 h-24 bg-pale-lime/5 rounded-full -mr-12 -mt-12 transition-transform group-hover:scale-110" />
-              <p className="text-dark-blue-grey/40 text-[10px] font-black uppercase tracking-widest">
+            <div className="flex flex-col gap-2 rounded-2xl p-6 bg-white border border-slate-100 shadow-sm shadow-slate-100/30 relative overflow-hidden group">
+              <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-full -mr-12 -mt-12 transition-transform group-hover:scale-110" />
+              <p className="text-slate-400 text-[10px] font-black uppercase tracking-widest">
                 Engagement Score
               </p>
               <div className="flex items-baseline justify-between relative z-10">
-                <p className="text-dark-blue-grey text-3xl font-black">
+                <p className="text-secondary text-3xl font-black">
                   4.2
-                  <span className="text-dark-blue-grey/30 text-lg font-normal">
+                  <span className="text-slate-300 text-lg font-normal">
                     /5
                   </span>
                 </p>
@@ -170,18 +170,18 @@ export const ReportsPage = () => {
                   2%
                 </span>
               </div>
-              <p className="text-dark-blue-grey/40 text-[11px] font-medium">
+              <p className="text-slate-400 text-[11px] font-medium">
                 Average student response rate
               </p>
             </div>
 
-            <div className="flex flex-col gap-2 rounded-2xl p-6 bg-white border border-dark-blue-grey/10 shadow-sm relative overflow-hidden group">
-              <div className="absolute top-0 right-0 w-24 h-24 bg-pale-lime/5 rounded-full -mr-12 -mt-12 transition-transform group-hover:scale-110" />
-              <p className="text-dark-blue-grey/40 text-[10px] font-black uppercase tracking-widest">
+            <div className="flex flex-col gap-2 rounded-2xl p-6 bg-white border border-slate-100 shadow-sm shadow-slate-100/30 relative overflow-hidden group">
+              <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-full -mr-12 -mt-12 transition-transform group-hover:scale-110" />
+              <p className="text-slate-400 text-[10px] font-black uppercase tracking-widest">
                 Target Completion
               </p>
               <div className="flex items-baseline justify-between relative z-10">
-                <p className="text-dark-blue-grey text-3xl font-black">85%</p>
+                <p className="text-secondary text-3xl font-black">85%</p>
                 <span className="text-emerald-500 text-sm font-black flex items-center">
                   <span className="material-symbols-outlined text-sm">
                     arrow_upward
@@ -189,7 +189,7 @@ export const ReportsPage = () => {
                   5%
                 </span>
               </div>
-              <p className="text-dark-blue-grey/40 text-[11px] font-medium">
+              <p className="text-slate-400 text-[11px] font-medium">
                 School-wide administrative goals
               </p>
             </div>
@@ -197,13 +197,13 @@ export const ReportsPage = () => {
 
           {/* Main Charts & Data Section */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <div className="bg-white p-8 rounded-2xl border border-dark-blue-grey/10 shadow-sm">
+            <div className="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm shadow-slate-100/30">
               <div className="flex justify-between items-center mb-8">
-                <h3 className="text-dark-blue-grey text-sm font-black uppercase tracking-widest">
+                <h3 className="text-secondary text-sm font-black uppercase tracking-widest">
                   Participation by Tag
                 </h3>
                 <span
-                  className="material-symbols-outlined text-dark-blue-grey/20 cursor-help"
+                  className="material-symbols-outlined text-secondary/20 cursor-help"
                   title="Hover for details"
                 >
                   info
@@ -212,11 +212,11 @@ export const ReportsPage = () => {
               <div className="space-y-6">
                 {engagementTags.map((tag, idx) => (
                   <div key={idx} className="space-y-2">
-                    <div className="flex justify-between text-[11px] font-black uppercase tracking-tighter text-dark-blue-grey/50">
+                    <div className="flex justify-between text-[11px] font-black uppercase tracking-tighter text-slate-500">
                       <span>{tag.label}</span>
                       <span>{tag.students} Students</span>
                     </div>
-                    <div className="h-3 bg-dark-blue-grey/5 rounded-full overflow-hidden">
+                    <div className="h-3 bg-slate-50 rounded-full overflow-hidden">
                       <div
                         className={`h-full ${tag.color} rounded-full transition-all duration-700`}
                         style={{ width: `${tag.progress}%` }}
@@ -227,12 +227,12 @@ export const ReportsPage = () => {
               </div>
             </div>
 
-            <div className="bg-white p-8 rounded-2xl border border-dark-blue-grey/10 shadow-sm flex flex-col">
+            <div className="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm shadow-slate-100/30 flex flex-col">
               <div className="flex justify-between items-center mb-8">
-                <h3 className="text-dark-blue-grey text-sm font-black uppercase tracking-widest">
+                <h3 className="text-secondary text-sm font-black uppercase tracking-widest">
                   Recent Program Outcomes
                 </h3>
-                <button className="text-dark-blue-grey text-xs font-bold hover:underline">
+                <button className="text-secondary text-[11px] font-semibold hover:underline">
                   View All
                 </button>
               </div>
@@ -240,25 +240,25 @@ export const ReportsPage = () => {
                 {outcomes.map((item, idx) => (
                   <div
                     key={idx}
-                    className="flex items-center justify-between p-4 rounded-xl border border-dark-blue-grey/5 bg-dark-blue-grey/[0.01] hover:bg-dark-blue-grey/[0.03] transition-all group"
+                    className="flex items-center justify-between p-4 rounded-2xl border border-slate-50 bg-slate-50/50 hover:bg-slate-50/50 transition-all group"
                   >
                     <div className="flex items-center gap-4">
-                      <div className="size-10 bg-white border border-dark-blue-grey/10 rounded-lg flex items-center justify-center shadow-sm group-hover:border-pale-lime transition-colors">
-                        <span className="material-symbols-outlined text-dark-blue-grey/40 text-xl group-hover:text-dark-blue-grey transition-colors">
+                      <div className="size-10 bg-white border border-slate-100 rounded-xl flex items-center justify-center shadow-sm shadow-slate-100/30 group-hover:border-primary transition-colors">
+                        <span className="material-symbols-outlined text-slate-400 text-xl group-hover:text-secondary transition-colors">
                           {item.icon}
                         </span>
                       </div>
                       <div>
-                        <p className="text-sm font-bold text-dark-blue-grey">
+                        <p className="text-[13px] font-semibold text-secondary">
                           {item.name}
                         </p>
-                        <p className="text-[10px] font-medium text-dark-blue-grey/40">
+                        <p className="text-[10px] font-medium text-slate-400">
                           {item.date} • ID: {item.id}
                         </p>
                       </div>
                     </div>
                     <div className="text-right">
-                      <p className="text-sm font-black text-dark-blue-grey">
+                      <p className="text-sm font-black text-secondary">
                         {item.attendance} Attendance
                       </p>
                       <p
@@ -274,25 +274,25 @@ export const ReportsPage = () => {
           </div>
 
           {/* Principal's Insight Summary */}
-          <div className="bg-dark-blue-grey text-white rounded-2xl border-l-[6px] border-pale-lime p-8 shadow-xl relative overflow-hidden">
+          <div className="bg-secondary text-white rounded-2xl border-l-[6px] border-primary p-8 shadow-xl relative overflow-hidden">
             <div className="absolute top-0 right-0 p-4 opacity-5">
               <span className="material-symbols-outlined text-8xl">
                 analytics
               </span>
             </div>
             <div className="flex items-start gap-6 relative z-10">
-              <div className="bg-pale-lime text-dark-blue-grey p-3 rounded-xl flex items-center justify-center">
+              <div className="bg-primary text-secondary p-3 rounded-2xl flex items-center justify-center">
                 <span className="material-symbols-outlined font-bold">
                   lightbulb
                 </span>
               </div>
               <div>
-                <h4 className="text-sm font-black uppercase tracking-widest text-pale-lime mb-2">
+                <h4 className="text-sm font-black uppercase tracking-widest text-primary mb-2">
                   Principal's Insight Summary
                 </h4>
                 <p className="text-sm text-white/80 leading-relaxed font-medium">
                   Participation in STEM initiatives has grown by{" "}
-                  <span className="text-pale-lime font-bold">12%</span> since
+                  <span className="text-primary font-bold">12%</span> since
                   the previous reporting cycle. However, engagement in
                   "Counseling Wellness" sessions remains below institutional
                   targets. Recommend cross-referencing attendance records with

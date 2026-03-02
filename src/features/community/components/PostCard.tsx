@@ -34,8 +34,8 @@ export const PostCard = ({
   return (
     <article
       className={cn(
-        "border border-dark-blue-grey/10 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow",
-        isSpecial ? "bg-pale-lime/10" : "bg-white",
+        "border border-slate-100 rounded-2xl p-6 shadow-sm shadow-slate-100/30 hover:shadow-md transition-shadow",
+        isSpecial ? "bg-primary/10" : "bg-white",
       )}
     >
       <div className="flex justify-between items-start mb-4">
@@ -44,28 +44,28 @@ export const PostCard = ({
             className={cn(
               "inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider border w-fit",
               isSpecial
-                ? "bg-pale-lime/20 text-dark-blue-grey border-pale-lime/30"
-                : "bg-dark-blue-grey/5 text-dark-blue-grey/60 border-dark-blue-grey/10",
+                ? "bg-primary/20 text-secondary border-primary/30"
+                : "bg-slate-50 text-slate-500 border-slate-100",
             )}
           >
             {type}
           </span>
-          <h2 className="text-lg font-bold text-dark-blue-grey mt-2 leading-tight">
+          <h2 className="text-[16px] font-semibold text-secondary mt-2 leading-tight">
             {title}
           </h2>
         </div>
         {isNew && (
-          <span className="inline-flex items-center px-2 py-1 rounded-full text-[10px] font-bold bg-pale-lime text-dark-blue-grey uppercase">
+          <span className="inline-flex items-center px-2 py-1 rounded-full text-[10px] font-bold bg-primary text-secondary uppercase">
             New
           </span>
         )}
         {status === "Alert" && (
-          <span className="inline-flex items-center px-2 py-1 rounded-full text-[10px] font-bold bg-dark-blue-grey text-pale-lime uppercase">
+          <span className="inline-flex items-center px-2 py-1 rounded-full text-[10px] font-bold bg-secondary text-primary uppercase">
             Alert
           </span>
         )}
         {status === "Ongoing" && (
-          <span className="inline-flex items-center px-2 py-1 rounded-full text-[10px] font-bold bg-dark-blue-grey/5 text-dark-blue-grey/50 uppercase">
+          <span className="inline-flex items-center px-2 py-1 rounded-full text-[10px] font-bold bg-slate-50 text-slate-500 uppercase">
             Ongoing
           </span>
         )}
@@ -78,43 +78,43 @@ export const PostCard = ({
 
       <div className="flex items-center gap-3 mb-4">
         <div
-          className="size-10 rounded-full bg-cover bg-center border border-dark-blue-grey/10"
+          className="size-10 rounded-full bg-cover bg-center border border-slate-100"
           style={{ backgroundImage: `url("${author.img}")` }}
         ></div>
         <div>
-          <p className="text-sm font-bold text-dark-blue-grey leading-tight">
+          <p className="text-[13px] font-semibold text-secondary leading-tight">
             {author.name}
           </p>
-          <p className="text-[10px] font-black text-dark-blue-grey/30 uppercase tracking-widest leading-none mt-1">
+          <p className="text-[10px] font-black text-slate-300 uppercase tracking-widest leading-none mt-1">
             {author.role}
           </p>
         </div>
       </div>
-      <p className="text-sm text-dark-blue-grey/70 leading-relaxed mb-4">
+      <p className="text-sm text-slate-600 leading-relaxed mb-4">
         {content}
       </p>
       <div
         className={cn(
           "flex flex-wrap items-center gap-x-6 gap-y-2 pt-4 border-t",
-          isSpecial ? "border-pale-lime/20" : "border-dark-blue-grey/5",
+          isSpecial ? "border-primary/20" : "border-slate-50",
         )}
       >
         <div className="flex items-center gap-2">
-          <span className="material-symbols-outlined text-dark-blue-grey/40 text-base">
+          <span className="material-symbols-outlined text-slate-400 text-base">
             {icon}
           </span>
-          <span className="text-xs font-semibold text-dark-blue-grey">
+          <span className="text-xs font-semibold text-secondary">
             {category}
           </span>
         </div>
         <div className="flex items-center gap-2">
-          <span className="material-symbols-outlined text-dark-blue-grey/40 text-base">
+          <span className="material-symbols-outlined text-slate-400 text-base">
             schedule
           </span>
-          <span className="text-xs text-dark-blue-grey/50">{time}</span>
+          <span className="text-xs text-slate-500">{time}</span>
         </div>
         <div className="ml-auto">
-          <button className="text-sm font-bold text-dark-blue-grey hover:text-dark-blue-grey/70 flex items-center gap-1 transition-colors">
+          <button className="text-[13px] font-semibold text-secondary hover:text-slate-600 flex items-center gap-1 transition-colors">
             View Details{" "}
             <span className="material-symbols-outlined text-base">
               arrow_forward

@@ -118,7 +118,7 @@ export const AttendancePage = ({ isHubChild }: { isHubChild?: boolean }) => {
           title="Attendance Tracking"
           subtitle="Mark daily student attendance and track teacher-substitute coverage."
           actions={
-            <button className="bg-pale-lime text-dark-blue-grey px-4 py-2 rounded-lg text-sm font-bold flex items-center gap-2 hover:opacity-90 transition-all shadow-sm active:scale-95">
+            <button className="bg-primary text-secondary px-4 py-2 rounded-xl text-[13px] font-semibold flex items-center gap-2 hover:opacity-90 transition-all shadow-sm shadow-slate-100/30 active:scale-95">
               <span className="material-symbols-outlined text-sm">save</span>
               Submit Attendance
             </button>
@@ -126,18 +126,18 @@ export const AttendancePage = ({ isHubChild }: { isHubChild?: boolean }) => {
         />
       )}
 
-      <div className="flex-1 overflow-y-auto p-8 bg-dark-blue-grey/[0.01]">
+      <div className="flex-1 overflow-y-auto mx-auto px-6 lg:px-10 py-6 max-w-[1400px] ">
         <div className="max-w-5xl mx-auto space-y-8">
           {/* Header Controls */}
-          <div className="bg-white p-6 rounded-2xl border border-dark-blue-grey/10 shadow-sm flex flex-wrap gap-6 items-end">
+          <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm shadow-slate-100/30 flex flex-wrap gap-6 items-end">
             <div className="space-y-1.5 flex-1 min-w-[200px]">
-              <label className="text-[10px] font-black text-dark-blue-grey/40 uppercase tracking-widest pl-1">
+              <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest pl-1">
                 Select Class
               </label>
               <select
                 value={selectedClass}
                 onChange={(e) => setSelectedClass(e.target.value)}
-                className="w-full bg-dark-blue-grey/[0.03] border-none rounded-lg px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-pale-lime"
+                className="w-full bg-slate-50/50 border-none rounded-xl px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-primary"
               >
                 <option>Grade 10-A</option>
                 <option>Grade 10-B</option>
@@ -145,22 +145,22 @@ export const AttendancePage = ({ isHubChild }: { isHubChild?: boolean }) => {
               </select>
             </div>
             <div className="space-y-1.5 flex-1 min-w-[200px]">
-              <label className="text-[10px] font-black text-dark-blue-grey/40 uppercase tracking-widest pl-1">
+              <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest pl-1">
                 Attendance Date
               </label>
               <input
                 type="date"
                 value={attendanceDate}
                 onChange={(e) => setAttendanceDate(e.target.value)}
-                className="w-full bg-dark-blue-grey/[0.03] border-none rounded-lg px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-pale-lime"
+                className="w-full bg-slate-50/50 border-none rounded-xl px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-primary"
               />
             </div>
-            <div className="flex items-center gap-3 bg-pale-lime/10 px-4 py-2.5 rounded-lg border border-pale-lime/20 flex-1 min-w-[200px]">
-              <span className="material-symbols-outlined text-pale-lime">
+            <div className="flex items-center gap-3 bg-primary/10 px-4 py-2.5 rounded-xl border border-primary/20 flex-1 min-w-[200px]">
+              <span className="material-symbols-outlined text-primary">
                 person_search
               </span>
               <div className="flex flex-col flex-1">
-                <p className="text-[9px] font-black text-dark-blue-grey/40 uppercase tracking-widest leading-none mb-1">
+                <p className="text-[9px] font-black text-slate-400 uppercase tracking-widest leading-none mb-1">
                   Search Student
                 </p>
                 <input
@@ -168,7 +168,7 @@ export const AttendancePage = ({ isHubChild }: { isHubChild?: boolean }) => {
                   placeholder="Filter by name..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="bg-transparent border-none p-0 text-xs font-bold text-dark-blue-grey outline-none placeholder-dark-blue-grey/30 w-full"
+                  className="bg-transparent border-none p-0 text-[11px] font-semibold text-secondary outline-none placeholder-slate-300 w-full"
                 />
               </div>
             </div>
@@ -176,15 +176,15 @@ export const AttendancePage = ({ isHubChild }: { isHubChild?: boolean }) => {
 
           {/* Teacher Absence Tracking Alert */}
           {teacherStatus.isSubstitute && (
-            <div className="bg-dark-blue-grey rounded-2xl p-6 text-white shadow-xl flex items-center justify-between border-l-[6px] border-pale-lime">
+            <div className="bg-secondary rounded-2xl p-6 text-white shadow-xl flex items-center justify-between border-l-[6px] border-primary">
               <div className="flex items-center gap-4">
-                <div className="bg-white/10 p-3 rounded-xl">
-                  <span className="material-symbols-outlined text-pale-lime">
+                <div className="bg-white/10 p-3 rounded-2xl">
+                  <span className="material-symbols-outlined text-primary">
                     assignment_return
                   </span>
                 </div>
                 <div>
-                  <h3 className="text-sm font-bold">
+                  <h3 className="text-[13px] font-semibold">
                     Teacher Substitution Active
                   </h3>
                   <p className="text-xs text-white/50">
@@ -193,20 +193,20 @@ export const AttendancePage = ({ isHubChild }: { isHubChild?: boolean }) => {
                   </p>
                 </div>
               </div>
-              <button className="text-[10px] font-black uppercase tracking-widest border border-white/20 px-4 py-2 rounded-lg hover:bg-white/10 transition-all">
+              <button className="text-[10px] font-black uppercase tracking-widest border border-white/20 px-4 py-2 rounded-xl hover:bg-white/10 transition-all">
                 View Coverage Log
               </button>
             </div>
           )}
 
           {/* Student List */}
-          <div className="bg-white rounded-2xl border border-dark-blue-grey/10 shadow-sm overflow-hidden">
-            <div className="p-6 border-b border-dark-blue-grey/10 flex justify-between items-center">
-              <h3 className="text-dark-blue-grey text-lg font-bold">
+          <div className="bg-white rounded-2xl border border-slate-100 shadow-sm shadow-slate-100/30 overflow-hidden">
+            <div className="p-6 border-b border-slate-100 flex justify-between items-center">
+              <h3 className="text-secondary text-[16px] font-semibold">
                 Student Roster - {selectedClass}
               </h3>
               <div className="flex gap-2">
-                <button className="px-3 py-1.5 rounded-lg bg-emerald-50 text-emerald-700 text-[10px] font-black uppercase tracking-widest border border-emerald-100">
+                <button className="px-3 py-1.5 rounded-xl bg-emerald-50 text-emerald-700 text-[10px] font-black uppercase tracking-widest border border-emerald-100">
                   Mark all Present
                 </button>
               </div>
@@ -214,34 +214,34 @@ export const AttendancePage = ({ isHubChild }: { isHubChild?: boolean }) => {
             <div className="overflow-x-auto">
               <table className="w-full text-left">
                 <thead>
-                  <tr className="bg-dark-blue-grey/[0.01] border-b border-dark-blue-grey/10">
-                    <th className="px-6 py-4 text-[10px] font-black text-dark-blue-grey/30 uppercase tracking-widest">
+                  <tr className="bg-slate-50/50 border-b border-slate-100">
+                    <th className="px-6 py-4 text-[10px] font-black text-slate-300 uppercase tracking-widest">
                       Student Name
                     </th>
-                    <th className="px-6 py-4 text-[10px] font-black text-dark-blue-grey/30 uppercase tracking-widest text-center">
+                    <th className="px-6 py-4 text-[10px] font-black text-slate-300 uppercase tracking-widest text-center">
                       Status
                     </th>
-                    <th className="px-6 py-4 text-[10px] font-black text-dark-blue-grey/30 uppercase tracking-widest text-right">
+                    <th className="px-6 py-4 text-[10px] font-black text-slate-300 uppercase tracking-widest text-right">
                       Notes
                     </th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-dark-blue-grey/5">
+                <tbody className="divide-y divide-slate-50">
                   {filteredStudents.map((student) => (
                     <tr
                       key={student.id}
                       onClick={() =>
                         navigate(`/students/${student.id.replace("#", "")}`)
                       }
-                      className="hover:bg-dark-blue-grey/[0.01] transition-colors cursor-pointer"
+                      className="hover:bg-slate-50/50 transition-colors cursor-pointer"
                     >
                       <td className="px-6 py-4">
                         <div className="flex items-center gap-3">
                           <div
-                            className="size-8 rounded-full bg-cover bg-center border border-dark-blue-grey/10"
+                            className="size-8 rounded-full bg-cover bg-center border border-slate-100"
                             style={{ backgroundImage: `url("${student.img}")` }}
                           ></div>
-                          <span className="text-sm font-bold text-dark-blue-grey">
+                          <span className="text-[13px] font-semibold text-secondary">
                             {student.name}
                           </span>
                         </div>
@@ -262,7 +262,7 @@ export const AttendancePage = ({ isHubChild }: { isHubChild?: boolean }) => {
                                         : status === "Late"
                                           ? "bg-amber-500 text-white border-amber-500 shadow-md scale-105"
                                           : "bg-blue-500 text-white border-blue-500 shadow-md scale-105"
-                                    : "bg-white text-dark-blue-grey/40 border-dark-blue-grey/10 hover:border-dark-blue-grey/30",
+                                    : "bg-white text-slate-400 border-slate-100 hover:border-slate-200/30",
                                 )}
                               >
                                 {status === "Present"
@@ -281,7 +281,7 @@ export const AttendancePage = ({ isHubChild }: { isHubChild?: boolean }) => {
                         <input
                           type="text"
                           placeholder="Add comment..."
-                          className="bg-transparent border-none text-right text-[10px] font-medium text-dark-blue-grey/40 outline-none focus:text-dark-blue-grey"
+                          className="bg-transparent border-none text-right text-[10px] font-medium text-slate-400 outline-none focus:text-secondary"
                         />
                       </td>
                     </tr>
@@ -290,7 +290,7 @@ export const AttendancePage = ({ isHubChild }: { isHubChild?: boolean }) => {
                     <tr>
                       <td
                         colSpan={3}
-                        className="px-6 py-12 text-center text-dark-blue-grey/30 text-sm font-medium"
+                        className="px-6 py-12 text-center text-slate-300 text-[13px] font-medium"
                       >
                         No students found matching your current class or search.
                       </td>

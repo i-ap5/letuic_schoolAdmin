@@ -10,8 +10,8 @@ const Tab = ({ label, active }: { label: string; active?: boolean }) => (
     className={cn(
       "pb-4 px-1 text-sm transition-all",
       active
-        ? "border-b-2 border-pale-lime text-dark-blue-grey font-semibold"
-        : "text-dark-blue-grey/50 hover:text-dark-blue-grey",
+        ? "border-b-2 border-primary text-secondary font-semibold"
+        : "text-slate-500 hover:text-secondary",
     )}
   >
     {label}
@@ -97,10 +97,10 @@ export const CommunityPage = () => {
             <button
               onClick={() => setIsModerator(!isModerator)}
               className={cn(
-                "px-4 py-2 rounded-lg text-sm font-bold flex items-center gap-2 transition-all border",
+                "px-4 py-2 rounded-xl text-[13px] font-semibold flex items-center gap-2 transition-all border",
                 isModerator
-                  ? "bg-dark-blue-grey text-pale-lime border-dark-blue-grey shadow-lg"
-                  : "bg-white text-dark-blue-grey/40 border-dark-blue-grey/10 hover:bg-dark-blue-grey/5",
+                  ? "bg-secondary text-primary border-slate-200 shadow-lg"
+                  : "bg-white text-slate-400 border-slate-100 hover:bg-slate-50",
               )}
             >
               <span className="material-symbols-outlined text-sm">
@@ -110,7 +110,7 @@ export const CommunityPage = () => {
             </button>
             <button
               onClick={handleAddPost}
-              className="bg-pale-lime text-dark-blue-grey px-4 py-2 rounded-lg text-sm font-bold flex items-center gap-2 hover:opacity-90 transition-all shadow-sm active:scale-95"
+              className="bg-primary text-secondary px-4 py-2 rounded-xl text-[13px] font-semibold flex items-center gap-2 hover:opacity-90 transition-all shadow-sm shadow-slate-100/30 active:scale-95"
             >
               <span className="material-symbols-outlined text-sm">add_box</span>
               New Update
@@ -118,7 +118,7 @@ export const CommunityPage = () => {
           </div>
         }
       />
-      <header className="bg-white border-b border-dark-blue-grey/10 px-8 pt-6 shrink-0 flex justify-between items-center">
+      <header className="bg-white border-b border-slate-100 px-8 pt-6 shrink-0 flex justify-between items-center">
         <div className="flex gap-8">
           <Tab label="All" active />
           <Tab label="Our School" />
@@ -136,7 +136,7 @@ export const CommunityPage = () => {
       </header>
 
       <div className="flex-1 flex overflow-hidden">
-        <div className="flex-1 overflow-y-auto p-8 space-y-6 bg-dark-blue-grey/[0.02]">
+        <div className="flex-1 overflow-y-auto mx-auto px-6 lg:px-10 py-6 space-y-6">
           {posts.map((post, i) => (
             <PostCard
               key={i}

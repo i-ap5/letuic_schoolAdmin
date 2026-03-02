@@ -80,13 +80,13 @@ export const ClassesPage = () => {
         subtitle="Full directory of all active grade levels and sections for the 2023-2024 cycle."
         actions={
           <>
-            <button className="px-4 py-2 bg-white border border-dark-blue-grey/10 rounded-lg flex items-center gap-2 text-sm font-bold text-dark-blue-grey/60 hover:bg-dark-blue-grey/5 transition-colors">
+            <button className="px-4 py-2 bg-white border border-slate-100 rounded-xl flex items-center gap-2 text-[13px] font-semibold text-slate-500 hover:bg-slate-50 transition-colors">
               <span className="material-symbols-outlined text-lg">
                 file_download
               </span>
               Export Directory
             </button>
-            <button className="bg-pale-lime text-dark-blue-grey px-4 py-2 rounded-lg text-sm font-bold flex items-center gap-2 hover:opacity-90 transition-all shadow-sm">
+            <button className="bg-primary text-secondary px-4 py-2 rounded-xl text-[13px] font-semibold flex items-center gap-2 hover:opacity-90 transition-all shadow-sm shadow-slate-100/30">
               <span className="material-symbols-outlined text-sm">
                 add_circle
               </span>
@@ -96,38 +96,38 @@ export const ClassesPage = () => {
         }
       />
 
-      <div className="flex-1 overflow-y-auto p-8 space-y-6 bg-dark-blue-grey/[0.01]">
+      <div className="flex-1 overflow-y-auto mx-auto px-6 lg:px-10 py-6 space-y-6">
         {/* Search and Filters */}
-        <div className="bg-white p-4 rounded-xl border border-dark-blue-grey/10 shadow-sm flex flex-wrap gap-4 items-center">
+        <div className="bg-white p-4 rounded-2xl border border-slate-100 shadow-sm shadow-slate-100/30 flex flex-wrap gap-4 items-center">
           <div className="flex-1 min-w-[300px]">
             <div className="relative group">
-              <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-dark-blue-grey/30 group-focus-within:text-dark-blue-grey transition-colors">
+              <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-300 group-focus-within:text-secondary transition-colors">
                 search
               </span>
               <input
-                className="w-full bg-dark-blue-grey/[0.03] border-none rounded-lg pl-10 pr-4 py-2.5 text-sm focus:ring-2 focus:ring-pale-lime text-dark-blue-grey placeholder-dark-blue-grey/30"
+                className="w-full bg-slate-50/50 border-none rounded-xl pl-10 pr-4 py-2.5 text-sm focus:ring-2 focus:ring-primary text-secondary placeholder-slate-300"
                 placeholder="Search by class name or teacher..."
                 type="text"
               />
             </div>
           </div>
           <div className="flex items-center gap-3">
-            <select className="bg-white border border-dark-blue-grey/10 rounded-lg text-sm px-3 py-2 text-dark-blue-grey focus:ring-pale-lime outline-none">
+            <select className="bg-white border border-slate-100 rounded-xl text-sm px-3 py-2 text-secondary focus:ring-primary outline-none">
               <option>Grade</option>
               <option>9th Grade</option>
               <option>10th Grade</option>
               <option>11th Grade</option>
               <option>12th Grade</option>
             </select>
-            <select className="bg-white border border-dark-blue-grey/10 rounded-lg text-sm px-3 py-2 text-dark-blue-grey focus:ring-pale-lime outline-none">
+            <select className="bg-white border border-slate-100 rounded-xl text-sm px-3 py-2 text-secondary focus:ring-primary outline-none">
               <option>Section</option>
               <option>A</option>
               <option>B</option>
               <option>C</option>
               <option>D</option>
             </select>
-            <button className="p-2 border border-dark-blue-grey/10 rounded-lg hover:bg-dark-blue-grey/5 transition-colors">
-              <span className="material-symbols-outlined text-dark-blue-grey/40 text-lg">
+            <button className="p-2 border border-slate-100 rounded-xl hover:bg-slate-50 transition-colors">
+              <span className="material-symbols-outlined text-slate-400 text-lg">
                 filter_list
               </span>
             </button>
@@ -146,29 +146,29 @@ export const ClassesPage = () => {
         </div>
 
         {/* Pagination Placeholder */}
-        <div className="flex items-center justify-between pt-8 border-t border-dark-blue-grey/5">
-          <p className="text-xs text-dark-blue-grey/40 font-medium">
+        <div className="flex items-center justify-between pt-8 border-t border-slate-50">
+          <p className="text-xs text-slate-400 font-medium">
             Showing {classes.length} of 42 classes
           </p>
           <div className="flex items-center gap-2">
             <button
-              className="size-8 flex items-center justify-center rounded border border-dark-blue-grey/10 bg-white text-dark-blue-grey/40 disabled:opacity-50"
+              className="size-8 flex items-center justify-center rounded border border-slate-100 bg-white text-slate-400 disabled:opacity-50"
               disabled
             >
               <span className="material-symbols-outlined text-sm">
                 chevron_left
               </span>
             </button>
-            <button className="size-8 flex items-center justify-center rounded border border-pale-lime bg-pale-lime text-dark-blue-grey text-xs font-bold shadow-sm">
+            <button className="size-8 flex items-center justify-center rounded border border-primary bg-primary text-secondary text-[11px] font-semibold shadow-sm shadow-slate-100/30">
               1
             </button>
-            <button className="size-8 flex items-center justify-center rounded border border-dark-blue-grey/10 bg-white text-xs font-bold hover:bg-dark-blue-grey/5 transition-colors">
+            <button className="size-8 flex items-center justify-center rounded border border-slate-100 bg-white text-[11px] font-semibold hover:bg-slate-50 transition-colors">
               2
             </button>
-            <button className="size-8 flex items-center justify-center rounded border border-dark-blue-grey/10 bg-white text-xs font-bold hover:bg-dark-blue-grey/5 transition-colors">
+            <button className="size-8 flex items-center justify-center rounded border border-slate-100 bg-white text-[11px] font-semibold hover:bg-slate-50 transition-colors">
               3
             </button>
-            <button className="size-8 flex items-center justify-center rounded border border-dark-blue-grey/10 bg-white text-dark-blue-grey/40 hover:bg-dark-blue-grey/5 transition-colors">
+            <button className="size-8 flex items-center justify-center rounded border border-slate-100 bg-white text-slate-400 hover:bg-slate-50 transition-colors">
               <span className="material-symbols-outlined text-sm">
                 chevron_right
               </span>

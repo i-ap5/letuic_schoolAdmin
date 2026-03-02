@@ -12,24 +12,24 @@ const DriverRow = ({
   return (
     <tr
       onClick={() => onClick(driver)}
-      className="hover:bg-dark-blue-grey/[0.02] transition-colors group cursor-pointer"
+      className="hover:bg-slate-50/50 transition-colors group cursor-pointer"
     >
       <td className="px-6 py-4">
         <div className="flex items-center gap-3">
           <div
-            className="size-8 rounded-full bg-cover bg-center border border-dark-blue-grey/10"
+            className="size-8 rounded-full bg-cover bg-center border border-slate-100"
             style={{ backgroundImage: `url("${driver.img}")` }}
           ></div>
-          <span className="text-sm font-bold text-dark-blue-grey group-hover:underline decoration-pale-lime underline-offset-4">
+          <span className="text-[13px] font-semibold text-secondary group-hover:underline decoration-primary underline-offset-4">
             {driver.name}
           </span>
         </div>
       </td>
-      <td className="px-6 py-4 text-sm text-dark-blue-grey/50 font-mono">
+      <td className="px-6 py-4 text-sm text-slate-500 font-mono">
         {driver.id}
       </td>
-      <td className="px-6 py-4 text-sm text-dark-blue-grey">{driver.bus}</td>
-      <td className="px-6 py-4 text-sm text-dark-blue-grey/60">
+      <td className="px-6 py-4 text-sm text-secondary">{driver.bus}</td>
+      <td className="px-6 py-4 text-sm text-slate-500">
         {driver.license}
       </td>
       <td className="px-6 py-4">
@@ -37,15 +37,15 @@ const DriverRow = ({
           className={cn(
             "inline-flex items-center px-2 py-1 rounded text-[10px] font-black uppercase tracking-widest border",
             driver.status === "Active"
-              ? "bg-pale-lime text-dark-blue-grey border-dark-blue-grey/10"
-              : "bg-dark-blue-grey text-pale-lime border-white/10",
+              ? "bg-primary text-secondary border-slate-100"
+              : "bg-secondary text-primary border-white/10",
           )}
         >
           {driver.status}
         </span>
       </td>
       <td className="px-6 py-4 text-right">
-        <button className="text-dark-blue-grey/40 hover:text-dark-blue-grey transition-colors">
+        <button className="text-slate-400 hover:text-secondary transition-colors">
           <span className="material-symbols-outlined text-xl">more_vert</span>
         </button>
       </td>
@@ -103,13 +103,13 @@ export const DriversPage = ({ isHubChild }: { isHubChild?: boolean }) => {
           subtitle="Manage driver profiles, licenses, and bus assignments."
           actions={
             <div className="flex items-center gap-3">
-              <button className="bg-white border border-dark-blue-grey/10 text-dark-blue-grey px-4 py-2 rounded-lg text-sm font-bold flex items-center gap-2 hover:bg-dark-blue-grey/5 transition-all shadow-sm">
+              <button className="bg-white border border-slate-100 text-secondary px-4 py-2 rounded-xl text-[13px] font-semibold flex items-center gap-2 hover:bg-slate-50 transition-all shadow-sm shadow-slate-100/30">
                 <span className="material-symbols-outlined text-lg">
                   upload_file
                 </span>
                 Bulk CSV Import
               </button>
-              <button className="bg-pale-lime text-dark-blue-grey px-4 py-2 rounded-lg text-sm font-bold flex items-center gap-2 hover:opacity-90 transition-all shadow-sm active:scale-95">
+              <button className="bg-primary text-secondary px-4 py-2 rounded-xl text-[13px] font-semibold flex items-center gap-2 hover:opacity-90 transition-all shadow-sm shadow-slate-100/30 active:scale-95">
                 <span className="material-symbols-outlined text-sm">
                   person_add
                 </span>
@@ -120,33 +120,33 @@ export const DriversPage = ({ isHubChild }: { isHubChild?: boolean }) => {
         />
       )}
 
-      <div className="flex-1 overflow-y-auto p-8 space-y-6 bg-dark-blue-grey/[0.01]">
-        <div className="bg-white rounded-2xl border border-dark-blue-grey/10 shadow-sm overflow-hidden">
+      <div className="flex-1 overflow-y-auto mx-auto px-6 lg:px-10 py-6 space-y-6">
+        <div className="bg-white rounded-2xl border border-slate-100 shadow-sm shadow-slate-100/30 overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full text-left">
               <thead>
-                <tr className="bg-dark-blue-grey/[0.02] border-b border-dark-blue-grey/10">
-                  <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-dark-blue-grey/40">
+                <tr className="bg-slate-50/50 border-b border-slate-100">
+                  <th className="px-6 py-4 text-[11px] font-semibold uppercase tracking-wider text-slate-400">
                     Driver Name
                   </th>
-                  <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-dark-blue-grey/40">
+                  <th className="px-6 py-4 text-[11px] font-semibold uppercase tracking-wider text-slate-400">
                     ID
                   </th>
-                  <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-dark-blue-grey/40">
+                  <th className="px-6 py-4 text-[11px] font-semibold uppercase tracking-wider text-slate-400">
                     Bus Assignment
                   </th>
-                  <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-dark-blue-grey/40">
+                  <th className="px-6 py-4 text-[11px] font-semibold uppercase tracking-wider text-slate-400">
                     License No
                   </th>
-                  <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-dark-blue-grey/40">
+                  <th className="px-6 py-4 text-[11px] font-semibold uppercase tracking-wider text-slate-400">
                     Status
                   </th>
-                  <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-dark-blue-grey/40 text-right">
+                  <th className="px-6 py-4 text-[11px] font-semibold uppercase tracking-wider text-slate-400 text-right">
                     Actions
                   </th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-dark-blue-grey/5">
+              <tbody className="divide-y divide-slate-50">
                 {drivers.map((driver, i) => (
                   <DriverRow
                     key={i}

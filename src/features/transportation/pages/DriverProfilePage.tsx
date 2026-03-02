@@ -60,7 +60,7 @@ export const DriverProfilePage = () => {
         onBack={() => navigate(-1)}
         actions={
           <div className="flex items-center gap-3">
-            <button className="bg-pale-lime text-dark-blue-grey px-4 py-2 rounded-lg text-sm font-bold flex items-center gap-2 hover:opacity-90 transition-all shadow-sm">
+            <button className="bg-primary text-secondary px-4 py-2 rounded-xl text-[13px] font-semibold flex items-center gap-2 hover:opacity-90 transition-all shadow-sm shadow-slate-100/30">
               <span className="material-symbols-outlined text-sm">call</span>
               Call Driver
             </button>
@@ -68,43 +68,43 @@ export const DriverProfilePage = () => {
         }
       />
 
-      <div className="flex-1 overflow-y-auto p-8 space-y-8">
-        <div className="flex flex-col md:flex-row gap-8 items-center border-b border-dark-blue-grey/10 pb-8">
+      <div className="flex-1 overflow-y-auto mx-auto px-6 lg:px-10 py-6 max-w-[1400px] space-y-8">
+        <div className="flex flex-col md:flex-row gap-8 items-center border-b border-slate-100 pb-8">
           <div
-            className="size-24 rounded-xl bg-cover bg-center border border-dark-blue-grey/10 shrink-0 shadow-sm"
+            className="size-24 rounded-2xl bg-cover bg-center border border-slate-100 shrink-0 shadow-sm shadow-slate-100/30"
             style={{ backgroundImage: `url("${driver.img}")` }}
           ></div>
           <div className="flex-1">
             <div className="flex items-center gap-3 mb-4">
-              <span className="px-2 py-0.5 bg-pale-lime text-dark-blue-grey text-[10px] font-black rounded uppercase tracking-widest border border-dark-blue-grey/10">
+              <span className="px-2 py-0.5 bg-primary text-secondary text-[10px] font-black rounded uppercase tracking-widest border border-slate-100">
                 {driver.status}
               </span>
-              <p className="text-dark-blue-grey/60 text-sm font-medium">
+              <p className="text-slate-500 text-[13px] font-medium">
                 Assigned to: {driver.bus}
               </p>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
               <div>
-                <p className="text-[10px] font-black text-dark-blue-grey/30 uppercase tracking-widest mb-1">
+                <p className="text-[10px] font-black text-slate-300 uppercase tracking-widest mb-1">
                   License Number
                 </p>
-                <p className="text-sm font-bold text-dark-blue-grey">
+                <p className="text-[13px] font-semibold text-secondary">
                   {driver.license}
                 </p>
               </div>
               <div>
-                <p className="text-[10px] font-black text-dark-blue-grey/30 uppercase tracking-widest mb-1">
+                <p className="text-[10px] font-black text-slate-300 uppercase tracking-widest mb-1">
                   Experience
                 </p>
-                <p className="text-sm font-bold text-dark-blue-grey">
+                <p className="text-[13px] font-semibold text-secondary">
                   {driver.experience}
                 </p>
               </div>
               <div>
-                <p className="text-[10px] font-black text-dark-blue-grey/30 uppercase tracking-widest mb-1">
+                <p className="text-[10px] font-black text-slate-300 uppercase tracking-widest mb-1">
                   Phone
                 </p>
-                <p className="text-sm font-bold text-dark-blue-grey">
+                <p className="text-[13px] font-semibold text-secondary">
                   {driver.phone}
                 </p>
               </div>
@@ -112,8 +112,8 @@ export const DriverProfilePage = () => {
           </div>
         </div>
 
-        <div className="bg-dark-blue-grey/[0.02] border border-dark-blue-grey/10 rounded-2xl p-6">
-          <h3 className="text-dark-blue-grey text-base font-bold mb-4 flex items-center gap-2">
+        <div className="bg-slate-50/50 border border-slate-100 rounded-2xl p-6">
+          <h3 className="text-secondary text-base font-bold mb-4 flex items-center gap-2">
             <span className="material-symbols-outlined">route</span>
             Current Route: North Corridor Area A
           </h3>
@@ -124,8 +124,8 @@ export const DriverProfilePage = () => {
               "08:15 AM - School Arrival",
             ].map((stop, i) => (
               <div key={i} className="flex items-center gap-3">
-                <div className="size-2 rounded-full bg-pale-lime"></div>
-                <p className="text-sm text-dark-blue-grey/60 font-medium">
+                <div className="size-2 rounded-full bg-primary"></div>
+                <p className="text-sm text-slate-500 font-medium">
                   {stop}
                 </p>
               </div>

@@ -16,7 +16,7 @@ export const ProgramsTable = () => {
     return (
         <div className="flex flex-col gap-3">
             {events.map((event, idx) => (
-                <div key={idx} className="flex items-center gap-4 py-3 px-1 border-b border-slate-50 last:border-0 hover:bg-slate-50/30 rounded-lg transition-colors cursor-pointer -mx-1">
+                <div key={idx} className="flex items-center gap-4 py-3 px-1 border-b border-slate-50 last:border-0 hover:bg-slate-50/30 rounded-xl transition-colors cursor-pointer -mx-1">
                     <div className="flex flex-col items-center justify-center w-12 shrink-0">
                         <span className="text-[11px] text-slate-400 font-medium uppercase">{event.date.split(" ")[0]}</span>
                         <span className="text-lg font-semibold text-secondary leading-tight">{event.date.split(" ")[1]}</span>
@@ -29,7 +29,7 @@ export const ProgramsTable = () => {
                         <p className="text-[11px] text-slate-400 mt-0.5">{event.teacher}</p>
                     </div>
 
-                    <span className={`text-[10px] font-medium px-2 py-1 rounded-lg border shrink-0 ${typeColors[event.type] || "bg-slate-50 text-slate-500 border-slate-200"}`}>
+                    <span className={`text-[10px] font-medium px-2 py-1 rounded-xl border shrink-0 ${typeColors[event.type] || "bg-slate-50 text-slate-500 border-slate-200"}`}>
                         {event.type}
                     </span>
 
