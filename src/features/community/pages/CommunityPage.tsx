@@ -5,17 +5,16 @@ import { cn } from "../../../lib/utils";
 import { TopBar } from "../../../components/Header";
 
 const Tab = ({ label, active }: { label: string; active?: boolean }) => (
-  <a
-    href="#"
+  <button
     className={cn(
-      "pb-4 px-1 text-sm transition-all",
+      "px-5 py-2 text-[13px] font-semibold transition-all rounded-full",
       active
-        ? "border-b-2 border-primary text-secondary font-semibold"
-        : "text-slate-500 hover:text-secondary",
+        ? "bg-white text-secondary shadow-sm shadow-slate-200/50 border border-slate-100/50"
+        : "text-slate-500 hover:text-secondary hover:bg-slate-100/50",
     )}
   >
     {label}
-  </a>
+  </button>
 );
 
 export const CommunityPage = () => {
@@ -118,18 +117,18 @@ export const CommunityPage = () => {
           </div>
         }
       />
-      <header className="bg-white border-b border-slate-100 px-8 pt-6 shrink-0 flex justify-between items-center">
-        <div className="flex gap-8">
-          <Tab label="All" active />
+      <header className="bg-white border-b border-slate-100 px-8 py-5 shrink-0 flex justify-between items-center z-10 sticky top-0">
+        <div className="flex bg-slate-50 p-1.5 rounded-full border border-slate-100">
+          <Tab label="All Posts" active />
           <Tab label="Our School" />
-          <Tab label="Interschool" />
-          <Tab label="From Us" />
+          <Tab label="Interschool Feed" />
+          <Tab label="From Administration" />
         </div>
         {isModerator && (
-          <div className="flex items-center gap-2 text-red-500 animate-pulse pb-4">
-            <span className="material-symbols-outlined text-sm">warning</span>
-            <span className="text-xs font-medium capitalize">
-              Admin Moderation Active
+          <div className="flex items-center gap-2 text-red-500 animate-pulse bg-red-50 px-4 py-2 rounded-full border border-red-100">
+            <span className="material-symbols-outlined text-[16px]">warning</span>
+            <span className="text-xs font-bold capitalize">
+              Admin Moderation Mode Active
             </span>
           </div>
         )}

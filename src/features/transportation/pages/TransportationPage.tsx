@@ -115,7 +115,7 @@ export const TransportationPage = ({
               icon: "build",
               trend: "Required",
               trendType: "down" as const,
-              iconBg: "bg-red-500/10 text-red-700 border border-red-500",
+              iconBg: "bg-red-500/10 text-red-700 ",
             },
           ].map((stat, i) => (
             <StatCard key={i} {...stat} />
@@ -195,11 +195,13 @@ export const TransportationPage = ({
                           <span
                             className={cn(
                               "inline-flex items-center px-3 py-1 rounded-full text-xs font-medium capitalize border",
-                              (bus.status === "On Route" || bus.status === "Completed")
-                                ? "bg-emerald-500/10 text-emerald-700 border border-emerald-500"
-                                : bus.status === "Delayed"
-                                  ? "bg-red-500/10 text-red-700 border border-red-500"
-                                  : "bg-amber-500/10 text-amber-700 border border-amber-500",
+                              bus.status === "Completed"
+                                ? "bg-emerald-500/10 text-emerald-700 border-emerald-500"
+                                : bus.status === "On Route"
+                                  ? "bg-amber-500/10 text-amber-700 border-amber-500"
+                                  : bus.status === "Delayed"
+                                    ? "bg-red-500/10 text-red-700 border-red-500"
+                                    : "bg-gray-500/10 text-gray-700 border-gray-500"
                             )}
                           >
                             {bus.status}
