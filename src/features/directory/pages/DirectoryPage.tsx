@@ -7,7 +7,7 @@ import { AttendancePage } from "../../classes/pages/AttendancePage";
 
 export const DirectoryPage = () => {
   const [activeTab, setActiveTab] = useState<
-    "staff" | "students" | "attendance"
+    "staff" | "students" | "parents" | "drivers" | "attendance"
   >("staff");
 
   const [staffMembers, setStaffMembers] = useState([
@@ -163,40 +163,41 @@ export const DirectoryPage = () => {
       uid: "rohan-das",
     },
   ]);
-
-  const handleAddMember = () => {
-    if (activeTab === "staff") {
-      const newStaff = {
-        name: "New Faculty Member",
-        id: `#ST-1024-${Math.floor(Math.random() * 900) + 100}`,
-        role: "Assistant Professor",
-        department: "General Education",
-        performance: 90,
-        auraScore: 85.0,
-        status: "Active",
-        img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop",
-        uid: `new-staff-${Date.now()}`,
-      };
-      setStaffMembers((prev) => [newStaff, ...prev]);
-    } else if (activeTab === "students") {
-      const newStudent = {
-        name: "New Student",
-        id: `OA-2024-${Math.floor(Math.random() * 900) + 100}`,
-        grade: "10th Grade",
-        participation: 85,
-        auraScore: 75.0,
-        attendanceRate: 100,
-        gpa: 3.5,
-        enrollmentDate: new Date().toLocaleDateString("en-US", {
-          month: "short",
-          year: "numeric",
-        }),
-        status: "Active",
-        img: "https://images.unsplash.com/photo-1531123897727-8f129e16fd3c?w=400&h=400&fit=crop",
-        uid: `new-student-${Date.now()}`,
-      };
-      setStudents((prev) => [newStudent, ...prev]);
+  const [parents, setParents] = useState([
+    {
+      name: "Suresh Sharma",
+      id: "#PR-2024-001",
+      children: ["Aavya Sharma", "Rahul Sharma"],
+      email: "suresh@example.com",
+      phone: "+91 98765 43210",
+      status: "Verified",
+      img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop",
+      uid: "parent-1",
     }
+  ]);
+  const [drivers, setDrivers] = useState([
+    {
+      name: "Madan Pal",
+      id: "#DR-2024-042",
+      licenseNo: "DL-14-201000456",
+      phone: "+91 88888 77777",
+      status: "On Route",
+      performance: 98,
+      img: "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?w=400&h=400&fit=crop",
+      uid: "driver-1",
+    }
+  ]);
+
+  const [showAddModal, setShowAddModal] = useState(false);
+  const [showBulkModal, setShowBulkModal] = useState(false);
+
+  const handleAddMember = (memberData: any) => {
+    const uid = `${activeTab}-${Date.now()}`;
+    if (activeTab === "staff") setStaffMembers((prev) => [{ ...memberData, uid }, ...prev]);
+    else if (activeTab === "students") setStudents((prev) => [{ ...memberData, uid }, ...prev]);
+    else if (activeTab === "parents") setParents((prev) => [{ ...memberData, uid }, ...prev]);
+    else if (activeTab === "drivers") setDrivers((prev) => [{ ...memberData, uid }, ...prev]);
+    setShowAddModal(false);
   };
 
   return (
@@ -207,41 +208,158 @@ export const DirectoryPage = () => {
           subtitle="Complete management of staff profiles, student rosters, and attendance."
           actions={
             <div className="flex gap-3">
-              <button className="bg-white border border-slate-100 text-secondary px-4 py-2 rounded-xl text-[13px] font-semibold flex items-center gap-2 hover:bg-slate-50 transition-all">
-                <span className="material-symbols-outlined text-sm">
-                  upload_file
-                </span>
+              <button 
+                onClick={() => setShowBulkModal(true)}
+                className="bg-white border border-slate-100 text-secondary px-4 py-2 rounded-xl text-[13px] font-semibold flex items-center gap-2 hover:bg-slate-50 transition-all active:scale-95"
+              >
+                <span className="material-symbols-outlined text-sm">upload_file</span>
                 Bulk Import
               </button>
               <button
-                onClick={handleAddMember}
+                onClick={() => setShowAddModal(true)}
                 className="bg-primary text-secondary px-4 py-2 rounded-xl text-[13px] font-semibold flex items-center gap-2 hover:opacity-90 transition-all shadow-sm shadow-slate-100/30 active:scale-95"
               >
-                <span className="material-symbols-outlined text-sm">
-                  person_add
-                </span>
-                Add Member
+                <span className="material-symbols-outlined text-sm">person_add</span>
+                {activeTab === "staff" ? "Add Staff" : activeTab === "students" ? "Add Student" : activeTab === "parents" ? "Add Parent" : "Add Driver"}
               </button>
             </div>
           }
         />
 
+        {/* Bulk Import Modal */}
+        {showBulkModal && (
+            <div className="fixed inset-0 z-[110] flex items-center justify-center px-4 bg-secondary/40 backdrop-blur-sm animate-in fade-in duration-300">
+                <div className="bg-white w-full max-w-xl rounded-3xl shadow-2xl p-8 space-y-8 animate-in zoom-in-95 duration-300">
+                    <div className="flex justify-between items-start">
+                        <div>
+                            <h3 className="text-secondary text-2xl font-black">Bulk {activeTab.charAt(0).toUpperCase() + activeTab.slice(1)} Import</h3>
+                            <p className="text-sm text-slate-400 font-medium mt-1">Upload CSV or Excel files to enroll multiple {activeTab} at once.</p>
+                        </div>
+                        <button onClick={() => setShowBulkModal(false)} className="size-10 rounded-full hover:bg-slate-50 flex items-center justify-center text-slate-300 transition-all">
+                            <span className="material-symbols-outlined">close</span>
+                        </button>
+                    </div>
+
+                    <div className="border-2 border-dashed border-slate-200 rounded-2xl p-12 flex flex-col items-center justify-center text-center bg-slate-50 group hover:border-primary transition-all cursor-pointer">
+                        <div className="size-16 rounded-3xl bg-white shadow-sm flex items-center justify-center text-slate-300 mb-4 group-hover:bg-primary group-hover:text-secondary transition-all">
+                            <span className="material-symbols-outlined text-3xl">cloud_upload</span>
+                        </div>
+                        <p className="text-[15px] font-black text-secondary">Drop your file here</p>
+                        <p className="text-[12px] text-slate-400 font-medium mt-1">Supports .csv, .xls, .xlsx (Max 10MB)</p>
+                    </div>
+
+                    <div className="bg-slate-50 rounded-2xl p-5 border border-slate-100 flex items-center justify-between">
+                        <div className="flex items-center gap-3">
+                            <span className="material-symbols-outlined text-primary">download</span>
+                            <div className="text-left">
+                                <p className="text-[12px] font-black text-secondary">Download Template</p>
+                                <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Pre-formatted sheet</p>
+                            </div>
+                        </div>
+                        <button className="text-[11px] font-black text-primary hover:underline">Download CSV</button>
+                    </div>
+
+                    <div className="flex gap-3 pt-4 border-t border-slate-50">
+                        <button onClick={() => setShowBulkModal(false)} className="flex-1 py-3.5 rounded-2xl border border-slate-100 text-[13px] font-bold text-slate-400 hover:bg-slate-50 transition-all">Cancel</button>
+                        <button disabled className="flex-1 py-3.5 rounded-2xl bg-secondary text-white text-[13px] font-bold opacity-50 cursor-not-allowed">Start Validation</button>
+                    </div>
+                </div>
+            </div>
+        )}
+
+        {/* Add Individual Modal */}
+        {showAddModal && (
+            <div className="fixed inset-0 z-[110] flex items-center justify-center px-4 bg-secondary/40 backdrop-blur-sm animate-in fade-in duration-300">
+                <div className="bg-white w-full max-w-2xl rounded-3xl shadow-2xl p-8 space-y-6 animate-in zoom-in-95 duration-300 max-h-[90vh] overflow-y-auto no-scrollbar">
+                    <div className="flex justify-between items-start">
+                        <div>
+                            <h3 className="text-secondary text-2xl font-black">Register New {activeTab.charAt(0).toUpperCase() + activeTab.slice(1)}</h3>
+                            <p className="text-sm text-slate-400 font-medium mt-1">Enter profile details to create a new institutional record.</p>
+                        </div>
+                        <button onClick={() => setShowAddModal(false)} className="size-10 rounded-full hover:bg-slate-50 flex items-center justify-center text-slate-300 transition-all">
+                            <span className="material-symbols-outlined">close</span>
+                        </button>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div className="space-y-1.5">
+                            <label className="text-[11px] font-black uppercase tracking-widest text-slate-400">Full Name</label>
+                            <input className="w-full bg-slate-50 border border-slate-100 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-primary/20 text-[13px] font-semibold text-secondary" placeholder="e.g. Rahul Sharma" />
+                        </div>
+                        <div className="space-y-1.5">
+                            <label className="text-[11px] font-black uppercase tracking-widest text-slate-400">ID / Admission Number</label>
+                            <input className="w-full bg-slate-50 border border-slate-100 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-primary/20 text-[13px] font-semibold text-secondary" placeholder="#2024-XXX" />
+                        </div>
+                        
+                        {activeTab === "parents" && (
+                             <div className="space-y-1.5 col-span-2">
+                                <label className="text-[11px] font-black uppercase tracking-widest text-slate-400">Linked Children (Comma separated IDs)</label>
+                                <input className="w-full bg-slate-50 border border-slate-100 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-primary/20 text-[13px] font-semibold text-secondary" placeholder="STU-001, STU-002" />
+                            </div>
+                        )}
+
+                        {activeTab === "drivers" && (
+                             <div className="space-y-1.5">
+                                <label className="text-[11px] font-black uppercase tracking-widest text-slate-400">Bus License Number</label>
+                                <input className="w-full bg-slate-50 border border-slate-100 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-primary/20 text-[13px] font-semibold text-secondary" placeholder="DL-XXX-XXX" />
+                            </div>
+                        )}
+
+                        <div className="space-y-1.5">
+                            <label className="text-[11px] font-black uppercase tracking-widest text-slate-400">
+                                {activeTab === "staff" ? "Designation" : activeTab === "students" ? "Grade" : activeTab === "parents" ? "Secondary Contact" : "Assigned Bus Route"}
+                            </label>
+                            <input className="w-full bg-slate-50 border border-slate-100 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-primary/20 text-[13px] font-semibold text-secondary" placeholder="..." />
+                        </div>
+
+                        <div className="space-y-1.5">
+                            <label className="text-[11px] font-black uppercase tracking-widest text-slate-400">Contact Email</label>
+                            <input className="w-full bg-slate-50 border border-slate-100 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-primary/20 text-[13px] font-semibold text-secondary" placeholder="email@institution.com" />
+                        </div>
+                        <div className="space-y-1.5">
+                            <label className="text-[11px] font-black uppercase tracking-widest text-slate-400">Mobile Number</label>
+                            <input className="w-full bg-slate-50 border border-slate-100 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-primary/20 text-[13px] font-semibold text-secondary" placeholder="+91 XXXX" />
+                        </div>
+                    </div>
+
+                    <div className="bg-slate-50 rounded-2xl p-6 space-y-4 border border-slate-100">
+                        <h4 className="text-[11px] font-black uppercase tracking-widest text-secondary">Institutional Access</h4>
+                        <div className="flex gap-6">
+                             <div className="flex items-center gap-3">
+                                <div className="size-5 rounded bg-primary flex items-center justify-center text-secondary">
+                                    <span className="material-symbols-outlined text-sm font-black">check</span>
+                                </div>
+                                <span className="text-[12px] font-bold text-slate-600">Mobile App Access</span>
+                            </div>
+                            <div className="flex items-center gap-3">
+                                <div className="size-5 rounded border border-slate-300 bg-white" />
+                                <span className="text-[12px] font-bold text-slate-600">SMS Alerts</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="flex gap-3 pt-4">
+                        <button onClick={() => setShowAddModal(false)} className="flex-1 py-3.5 rounded-2xl border border-slate-100 text-[13px] font-bold text-slate-400 hover:bg-slate-50 transition-all">Cancel</button>
+                        <button onClick={() => handleAddMember({ name: "Rahul Sharma", id: "#REF-2024-00X", status: "Active" })} className="flex-1 py-3.5 rounded-2xl bg-secondary text-white text-[13px] font-bold shadow-lg shadow-secondary/20 transition-all hover:-translate-y-0.5 active:scale-95">Complete Registration</button>
+                    </div>
+                </div>
+            </div>
+        )}
+
         <div className="px-8 border-b border-slate-100 bg-white">
-          <div className="flex gap-8">
+          <div className="flex gap-8 overflow-x-auto no-scrollbar">
             {[
-              { id: "staff", label: "Staff Directory", icon: "badge" },
-              { id: "students", label: "Student Roster", icon: "group" },
-              {
-                id: "attendance",
-                label: "Attendance Tracking",
-                icon: "event_available",
-              },
+              { id: "staff", label: "Staff", icon: "badge" },
+              { id: "students", label: "Students", icon: "group" },
+              { id: "parents", label: "Parents", icon: "family_restroom" },
+              { id: "drivers", label: "Drivers", icon: "local_shipping" },
+              { id: "attendance", label: "Attendance", icon: "event_available" },
             ].map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id as any)}
                 className={cn(
-                  "flex items-center gap-2 pb-4 text-[13px] font-semibold tracking-tight transition-all relative mt-4",
+                  "flex items-center gap-2 pb-4 text-[13px] font-semibold tracking-tight transition-all relative mt-4 shrink-0",
                   activeTab === tab.id
                     ? "text-secondary"
                     : "text-slate-400 hover:text-secondary",
@@ -266,10 +384,7 @@ export const DirectoryPage = () => {
             <StaffPage
               isHubChild
               externalStaff={staffMembers}
-              onAddStaff={() => {
-                setActiveTab("staff");
-                handleAddMember();
-              }}
+              onAddStaff={() => setShowAddModal(true)}
             />
           </div>
         )}
@@ -278,11 +393,66 @@ export const DirectoryPage = () => {
             <StudentsPage
               isHubChild
               externalStudents={students}
-              onAddStudent={() => {
-                setActiveTab("students");
-                handleAddMember();
-              }}
+              onAddStudent={() => setShowAddModal(true)}
             />
+          </div>
+        )}
+        {activeTab === "parents" && (
+          <div className="flex-1 overflow-y-auto no-scrollbar p-8">
+             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {parents.map((p) => (
+                    <div key={p.uid} className="bg-white border border-slate-100 rounded-3xl p-6 hover:shadow-xl hover:shadow-slate-100/50 transition-all group">
+                         <div className="flex items-center justify-between mb-6">
+                            <img src={p.img} alt={p.name} className="size-14 rounded-2xl object-cover" />
+                            <div className="px-3 py-1 bg-primary/10 text-primary rounded-full text-[10px] font-black uppercase tracking-widest">
+                                {p.status}
+                            </div>
+                        </div>
+                        <h4 className="text-secondary font-black text-lg">{p.name}</h4>
+                        <p className="text-[12px] text-slate-400 font-medium mb-4">{p.id}</p>
+                        
+                        <div className="space-y-3 pt-4 border-t border-slate-50">
+                            <div className="flex justify-between items-center">
+                                <span className="text-[11px] font-bold text-slate-400 uppercase tracking-widest">Children</span>
+                                <div className="flex gap-1">
+                                    {p.children.map(c => <span key={c} className="text-[11px] font-bold text-secondary bg-slate-50 px-2 py-0.5 rounded-lg">{c}</span>)}
+                                </div>
+                            </div>
+                             <button className="w-full py-3 rounded-xl border border-slate-100 text-[12px] font-bold text-secondary hover:bg-slate-50 transition-all">View Profiles</button>
+                        </div>
+                    </div>
+                ))}
+            </div>
+          </div>
+        )}
+        {activeTab === "drivers" && (
+          <div className="flex-1 overflow-y-auto no-scrollbar p-8">
+             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {drivers.map((d) => (
+                    <div key={d.uid} className="bg-white border border-slate-100 rounded-3xl p-6 hover:shadow-xl hover:shadow-slate-100/50 transition-all group">
+                         <div className="flex items-center justify-between mb-6">
+                            <img src={d.img} alt={d.name} className="size-14 rounded-2xl object-cover" />
+                            <div className="px-3 py-1 bg-green-50 text-green-600 rounded-full text-[10px] font-black uppercase tracking-widest">
+                                {d.status}
+                            </div>
+                        </div>
+                        <h4 className="text-secondary font-black text-lg">{d.name}</h4>
+                        <p className="text-[12px] text-slate-400 font-medium mb-4">{d.id}</p>
+                        
+                        <div className="space-y-3 pt-4 border-t border-slate-50">
+                            <div className="flex justify-between items-center text-[12px]">
+                                <span className="font-bold text-slate-400">License</span>
+                                <span className="font-black text-secondary">{d.licenseNo}</span>
+                            </div>
+                            <div className="flex justify-between items-center text-[12px]">
+                                <span className="font-bold text-slate-400">Performance</span>
+                                <span className="font-black text-primary">{d.performance}%</span>
+                            </div>
+                             <button className="w-full py-3 rounded-xl bg-secondary text-white text-[12px] font-bold hover:shadow-lg hover:shadow-secondary/20 transition-all">Live Tracking</button>
+                        </div>
+                    </div>
+                ))}
+            </div>
           </div>
         )}
         {activeTab === "attendance" && (
