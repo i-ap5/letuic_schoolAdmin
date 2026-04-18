@@ -15,6 +15,7 @@ import { CommunicationsHubPage } from "./features/communications/pages/Communica
 import { TransportationHubPage } from "./features/transportation/pages/TransportationHubPage";
 import { StaffProfilePage } from "./features/settings/pages/StaffProfilePage";
 import { DriverProfilePage } from "./features/transportation/pages/DriverProfilePage";
+import { FeesPage } from "./features/finance/pages/FeesPage";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           <Route path="/directory" element={<DirectoryPage />} />
           <Route path="/communications" element={<CommunicationsHubPage />} />
           <Route path="/transportation" element={<TransportationHubPage />} />
+          <Route path="/finance" element={<FeesPage />} />
           <Route path="/staff/:id" element={<StaffProfilePage />} />
           <Route path="/drivers/:id" element={<DriverProfilePage />} />
           <Route path="/calendar" element={<CalendarPage />} />

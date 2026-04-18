@@ -107,31 +107,94 @@ export const DashboardPage = () => {
                         <div className="lg:col-span-4 space-y-6">
                             <AlertsSection />
 
-                            {/* Quick Actions (Modernized) */}
+                            {/* Quick Actions — Premium Grid */}
                             <div className="bg-white border border-slate-100 shadow-sm shadow-slate-100/30 rounded-2xl p-6">
                                 <div className="flex items-center justify-between mb-5">
-                                    <h3 className="text-secondary text-[16px] font-semibold tracking-tight">Quick Actions</h3>
-                                    <button className="text-slate-400 hover:text-primary transition-colors">
-                                        <span className="material-symbols-outlined text-[18px]">more_horiz</span>
+                                    <div>
+                                        <h3 className="text-secondary text-[16px] font-semibold tracking-tight">Quick Actions</h3>
+                                        <p className="text-[11px] text-slate-400 font-medium mt-0.5">Frequently used shortcuts</p>
+                                    </div>
+                                    <button className="size-8 rounded-lg bg-slate-50 hover:bg-slate-100 flex items-center justify-center transition-colors">
+                                        <span className="material-symbols-outlined text-[16px] text-slate-400">tune</span>
                                     </button>
                                 </div>
-                                <div className="flex flex-col gap-3">
+                                <div className="grid grid-cols-2 gap-2.5">
                                     {[
-                                        { icon: "how_to_reg", title: "Mark Attendance", subtitle: "Update daily records", color: "text-emerald-600 bg-emerald-50 border-emerald-100" },
-                                        { icon: "person_add", title: "New Admission", subtitle: "Add student profile", color: "text-blue-600 bg-blue-50 border-blue-100" },
-                                        { icon: "campaign", title: "Announcements", subtitle: "Broadcast message", color: "text-amber-600 bg-amber-50 border-amber-100" },
+                                        {
+                                            icon: "how_to_reg",
+                                            title: "Attendance",
+                                            gradient: "from-emerald-500 to-teal-600",
+                                            bg: "bg-emerald-50",
+                                            iconColor: "text-emerald-600",
+                                            pulse: true,
+                                        },
+                                        {
+                                            icon: "person_add",
+                                            title: "New Admission",
+                                            gradient: "from-blue-500 to-indigo-600",
+                                            bg: "bg-blue-50",
+                                            iconColor: "text-blue-600",
+                                            pulse: false,
+                                        },
+                                        {
+                                            icon: "campaign",
+                                            title: "Announce",
+                                            gradient: "from-amber-400 to-orange-500",
+                                            bg: "bg-amber-50",
+                                            iconColor: "text-amber-600",
+                                            pulse: false,
+                                        },
+                                        {
+                                            icon: "upload_file",
+                                            title: "Upload Marks",
+                                            gradient: "from-violet-500 to-purple-600",
+                                            bg: "bg-violet-50",
+                                            iconColor: "text-violet-600",
+                                            pulse: false,
+                                        },
+                                        {
+                                            icon: "event_note",
+                                            title: "Schedule Exam",
+                                            gradient: "from-rose-400 to-pink-600",
+                                            bg: "bg-rose-50",
+                                            iconColor: "text-rose-600",
+                                            pulse: false,
+                                        },
+                                        {
+                                            icon: "more_horiz",
+                                            title: "More",
+                                            gradient: "from-slate-400 to-slate-500",
+                                            bg: "bg-slate-50",
+                                            iconColor: "text-slate-500",
+                                            pulse: false,
+                                        },
                                     ].map((action, i) => (
-                                        <button key={i} className="flex items-center gap-4 bg-white border border-slate-100 rounded-xl p-3.5 hover:shadow-md hover:border-slate-200 transition-all text-left group">
-                                            <div className={`size-11 rounded-full flex items-center justify-center border ${action.color} group-hover:scale-105 transition-transform`}>
-                                                <span className="material-symbols-outlined text-[20px]">{action.icon}</span>
+                                        <button
+                                            key={i}
+                                            className="group relative flex flex-col items-center gap-2.5 rounded-xl border border-slate-100 bg-white p-4 text-center hover:border-transparent hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 cursor-pointer overflow-hidden"
+                                        >
+                                            {/* Gradient overlay on hover */}
+                                            <div className={`absolute inset-0 bg-gradient-to-br ${action.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl`} />
+
+                                            {/* Icon container */}
+                                            <div className="relative z-10">
+                                                <div className={`size-11 rounded-xl ${action.bg} group-hover:bg-white/20 flex items-center justify-center transition-all duration-200 group-hover:scale-110`}>
+                                                    <span className={`material-symbols-outlined text-[22px] ${action.iconColor} group-hover:text-white transition-colors duration-200`} style={{ fontVariationSettings: '"FILL" 1' }}>
+                                                        {action.icon}
+                                                    </span>
+                                                </div>
+                                                {action.pulse && (
+                                                    <span className="absolute -top-0.5 -right-0.5 flex size-3">
+                                                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                                                        <span className="relative inline-flex rounded-full size-3 bg-emerald-500 border-2 border-white" />
+                                                    </span>
+                                                )}
                                             </div>
-                                            <div className="flex flex-col">
-                                                <h4 className="text-[13px] font-semibold text-secondary leading-tight mb-0.5">{action.title}</h4>
-                                                <p className="text-[11px] text-slate-400 font-medium">{action.subtitle}</p>
-                                            </div>
-                                            <div className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity">
-                                                <span className="material-symbols-outlined text-[16px] text-slate-300">chevron_right</span>
-                                            </div>
+
+                                            {/* Title */}
+                                            <span className="relative z-10 text-[12px] font-semibold text-secondary group-hover:text-white transition-colors duration-200 leading-tight">
+                                                {action.title}
+                                            </span>
                                         </button>
                                     ))}
                                 </div>

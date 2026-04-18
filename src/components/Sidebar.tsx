@@ -69,6 +69,7 @@ export const Sidebar = () => {
                     <NavItem icon="grid_view" label="Classes" path="/classes" active={isActive("/classes")} />
                     <NavItem icon="school" label="Academic Hub" path="/academics" active={isActive("/academics")} />
                     <NavItem icon="badge" label="Directory" path="/directory" active={isActive("/directory")} />
+                    <NavItem icon="payments" label="Finance" path="/finance" active={isActive("/finance")} />
                     <NavItem icon="mark_chat_unread" label="Communication" path="/communications" active={isActive("/communications")} />
                     <NavItem icon="directions_bus" label="Transportation" path="/transportation" active={isActive("/transportation")} />
                     <NavItem icon="calendar_month" label="Calendar" path="/calendar" active={isActive("/calendar")} />
