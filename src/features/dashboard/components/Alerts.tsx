@@ -32,16 +32,16 @@ const AlertItem = ({
   );
 };
 
-export const AlertsSection = () => {
+export const AlertsSection = ({ className }: { className?: string }) => {
   return (
-    <div className="bg-white border border-slate-50 shadow-sm shadow-slate-100 rounded-3xl p-7 flex flex-col">
+    <div className={cn("bg-white border border-slate-50 shadow-sm shadow-slate-100 rounded-3xl p-7 flex flex-col h-full", className)}>
       <div className="flex items-center justify-between mb-6">
         <h3 className="text-secondary text-[17px] font-semibold tracking-tight">Notifications</h3>
         <button className="text-[12px] text-slate-400 font-bold hover:text-primary transition-colors ">
           View All
         </button>
       </div>
-      <div className="flex flex-col overflow-y-auto pr-2 max-h-[290px] space-y-2 relative">
+      <div className="flex flex-col flex-1 overflow-y-auto pr-2 space-y-2 relative">
         <AlertItem
           type="urgent"
           title="Attendance Drop — Grade 10B"

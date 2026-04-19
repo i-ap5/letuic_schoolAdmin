@@ -33,7 +33,7 @@ export const ParticipationOverview = () => {
                     </svg>
                     <div className="absolute inset-0 flex flex-col items-center justify-center">
                         <span className="text-2xl font-semibold text-secondary">86%</span>
-                        <span className="text-[10px] text-slate-400 font-mediu  tracking-wider">Present</span>
+                        <span className="text-[12px] text-slate-400 font-medium">Present</span>
                     </div>
                 </div>
             </div>

@@ -1,4 +1,5 @@
-import type { ReactNode } from "react";
+import { useState, type ReactNode } from "react";
+import { cn } from "../lib/utils";
 
 export const TopBar = ({
     title,
@@ -10,6 +11,7 @@ export const TopBar = ({
     actions?: ReactNode;
     onBack?: () => void;
 }) => {
+    const [showQuickMenu, setShowQuickMenu] = useState(false);
     const now = new Date();
     const greeting =
         now.getHours() < 12 ? "Good Morning" : now.getHours() < 17 ? "Good Afternoon" : "Good Evening";
@@ -19,6 +21,14 @@ export const TopBar = ({
         month: "long",
         year: "numeric",
     });
+
+    const quickActions = [
+        { label: "Enroll Student", icon: "person_add", color: "text-blue-500", bg: "bg-blue-50" },
+        { label: "Register Faculty", icon: "badge", color: "text-purple-500", bg: "bg-purple-50" },
+        { label: "Post Notice", icon: "campaign", color: "text-orange-500", bg: "bg-orange-50" },
+        { label: "Record Finance", icon: "payments", color: "text-green-500", bg: "bg-green-50" },
+        { label: "Add Schedule", icon: "calendar_add_on", color: "text-rose-500", bg: "bg-rose-50" },
+    ];
 
     return (
         <header className="border-b border-slate-100 bg-white flex items-center justify-between px-8 py-5 shrink-0 sticky top-0 z-40">
@@ -41,12 +51,55 @@ export const TopBar = ({
                 </div>
             </div>
             <div className="flex items-center gap-3">
-                <button className="h-10 px-6 bg-secondary text-white rounded-3xl text-[13px] font-semibold hover:bg-secondary/90 transition-all flex items-center gap-2 shadow-sm hover:shadow-md active:scale-95">
-                    <span className="material-symbols-outlined text-[18px]">add</span>
-                    Add
-                </button>
+                <div 
+                    className="relative group h-full flex items-center"
+                    onMouseEnter={() => setShowQuickMenu(true)}
+                    onMouseLeave={() => setShowQuickMenu(false)}
+                >
+                    <button 
+                        className={cn(
+                            "h-10 px-6 rounded-3xl text-[13px] font-bold transition-all flex items-center gap-2 shadow-sm active:scale-95",
+                            showQuickMenu 
+                                ? "bg-secondary text-white shadow-lg" 
+                                : "bg-primary text-secondary hover:shadow-md"
+                        )}
+                    >
+                        <span className="material-symbols-outlined text-[18px]">add</span>
+                        Quick Create
+                    </button>
+
+                    {showQuickMenu && (
+                        <div className="absolute top-[80%] right-0 pt-3 w-64 z-50 animate-in fade-in zoom-in-95 duration-200">
+                            <div className="bg-white border border-slate-100 rounded-2xl shadow-2xl p-2">
+                                <div className="px-3 py-2 mb-1">
+                                    <p className="text-[11px] font-semibold text-slate-400">Principal Actions</p>
+                                </div>
+                                <div className="space-y-0.5">
+                                    {quickActions.map((action) => (
+                                        <button 
+                                            key={action.label}
+                                            className="w-full flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 transition-all group/item"
+                                        >
+                                            <div className={cn("size-8 rounded-lg flex items-center justify-center transition-colors", action.bg, action.color)}>
+                                                <span className="material-symbols-outlined text-[20px]">{action.icon}</span>
+                                            </div>
+                                            <span className="text-[13px] font-bold text-secondary text-left flex-1">{action.label}</span>
+                                            <span className="material-symbols-outlined text-slate-300 text-[18px] opacity-0 group-hover/item:opacity-100 transition-all -translate-x-2 group-hover/item:translate-x-0">chevron_right</span>
+                                        </button>
+                                    ))}
+                                </div>
+                                <div className="mt-2 pt-2 border-t border-slate-50">
+                                    <button className="w-full p-3 rounded-xl hover:bg-slate-50 transition-all flex items-center gap-3 text-[12px] font-semibold text-slate-400">
+                                        <span className="material-symbols-outlined text-[18px]">settings</span>
+                                        Customize Menu
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+                </div>
                 {actions}
-                <div className="h-10 px-4 bg-slate-50 border border-slate-100 rounded-xl flex items-center gap-2 text-slate-500">
+                <div className="h-10 px-4 bg-slate-50 border border-slate-100 rounded-xl flex items-center gap-2 text-slate-500 lg:flex hidden">
                     <span className="material-symbols-outlined text-[16px]">
                         calendar_today
                     </span>

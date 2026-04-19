@@ -25,7 +25,7 @@ export const StatCard = ({
                 </span>
             </div>
             <div className="flex flex-col flex-1 min-w-0">
-                <p className="text-slate-400 text-[11px] font-medium uppercase tracking-wider truncate">
+                <p className="text-slate-400 text-[12px] font-medium truncate">
                     {label}
                 </p>
                 <div className="flex items-baseline gap-2 mt-0.5">
