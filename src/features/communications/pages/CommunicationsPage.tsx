@@ -42,7 +42,7 @@ const MessageItem = ({
           className={cn(
             "text-sm",
             unread
-              ? "font-black text-secondary"
+              ? "font-bold text-secondary"
               : "font-bold text-slate-500",
           )}
         >
@@ -67,7 +67,7 @@ const MessageItem = ({
     <div className="flex gap-2 mt-3 text-slate-400 font-medium">
       <span
         className={cn(
-          "text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest border",
+          "text-[10px] font-bold px-3 py-1 rounded-full border border-slate-100",
           priority === "urgent"
             ? "bg-red-500/10 text-red-700 border-red-500"
             : priority === "important"
@@ -75,7 +75,7 @@ const MessageItem = ({
               : "bg-slate-50 text-slate-500 border-slate-200",
         )}
       >
-        {priority}
+        <span className="capitalize">{priority}</span>
       </span>
     </div>
   </div>
@@ -95,8 +95,8 @@ export const CommunicationsPage = ({
     >
       {!isHubChild && (
         <TopBar
-          title="Communications Hub"
-          subtitle="Internal messaging system for staff, parents, and administrative coordination."
+          title="Messages"
+          subtitle="Internal school chat and coordination"
           actions={
             <button className="bg-primary text-secondary px-4 py-2 rounded-xl text-[13px] font-semibold flex items-center gap-2 hover:opacity-90 transition-all shadow-sm shadow-slate-100/30 active:scale-95">
               <span className="material-symbols-outlined text-sm">

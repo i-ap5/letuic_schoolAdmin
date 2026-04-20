@@ -76,8 +76,8 @@ export const ProgramsPage = ({ isHubChild }: { isHubChild?: boolean }) => {
     >
       {!isHubChild && (
         <TopBar
-          title="Programs Management"
-          subtitle="Explore and manage student enrichment opportunities across the network."
+          title="Programs"
+          subtitle="Explore student enrichment and school initiatives"
           actions={
             <>
               <button className="px-4 py-2 bg-white border border-slate-100 rounded-xl flex items-center gap-2 text-[13px] font-semibold text-slate-500 hover:bg-slate-50 transition-colors">

@@ -24,8 +24,8 @@ export const CurriculumPage = ({ isHubChild }: { isHubChild?: boolean }) => {
     <div className={cn("flex-1 flex flex-col overflow-hidden bg-white", !isHubChild && "h-screen")}>
       {!isHubChild && (
         <TopBar
-          title="Curriculum & Subject Mapping"
-          subtitle="Manage academic structure, subject allocations, and teacher-student mapping."
+          title="Curriculum"
+          subtitle="Manage subjects and class mapping"
           actions={
             <div className="flex gap-3">
                <button className="bg-white border border-slate-100 text-secondary px-4 py-2 rounded-xl text-[13px] font-semibold flex items-center gap-2 hover:bg-slate-50 transition-all">
@@ -99,8 +99,8 @@ export const CurriculumPage = ({ isHubChild }: { isHubChild?: boolean }) => {
                     </div>
                     <div className="bg-secondary text-white rounded-2xl p-4 flex flex-col justify-between">
                         <div>
-                            <p className="text-[10px] font-black uppercase tracking-widest text-primary">System Audit</p>
-                            <p className="text-[12px] font-medium text-white/70 mt-1">3 unassigned sections found for this term.</p>
+                        <p className="text-[10px] font-bold text-primary">System Audit</p>
+                        <p className="text-[12px] font-medium text-white/70 mt-1">3 unassigned sections found for this term.</p>
                         </div>
                         <button 
                             onClick={() => setShowAssignModal(true)}
@@ -135,18 +135,18 @@ export const CurriculumPage = ({ isHubChild }: { isHubChild?: boolean }) => {
                     <table className="w-full text-left">
                       <thead>
                         <tr className="bg-slate-50/50 border-b border-slate-100">
-                          <th className="px-6 py-4 text-[11px] font-black text-slate-500 uppercase tracking-widest">Class Entity</th>
-                          <th className="px-6 py-4 text-[11px] font-black text-slate-500 uppercase tracking-widest">Subject</th>
-                          <th className="px-6 py-4 text-[11px] font-black text-slate-500 uppercase tracking-widest">Mapped Teacher</th>
-                          <th className="px-6 py-4 text-[11px] font-black text-slate-500 uppercase tracking-widest text-center">Enrolled Students</th>
-                          <th className="px-6 py-4 text-[11px] font-black text-slate-500 uppercase tracking-widest">Status</th>
-                          <th className="px-6 py-4 text-[11px] font-black text-slate-500 uppercase tracking-widest text-right">Action</th>
+                          <th className="px-6 py-4 text-[11px] font-bold text-slate-500">Class Entity</th>
+                          <th className="px-6 py-4 text-[11px] font-bold text-slate-500">Subject</th>
+                          <th className="px-6 py-4 text-[11px] font-bold text-slate-500">Mapped Teacher</th>
+                          <th className="px-6 py-4 text-[11px] font-bold text-slate-500 text-center">Enrolled Students</th>
+                          <th className="px-6 py-4 text-[11px] font-bold text-slate-500">Status</th>
+                          <th className="px-6 py-4 text-[11px] font-bold text-slate-500 text-right">Action</th>
                         </tr>
                       </thead>
                       <tbody className="divide-y divide-slate-50">
                         {mappings.map((m, i) => (
                           <tr key={i} className="hover:bg-slate-50/50 transition-colors group cursor-pointer">
-                            <td className="px-6 py-4 font-black text-[13px] text-secondary">{m.class}</td>
+                            <td className="px-6 py-4 font-bold text-[13px] text-secondary">{m.class}</td>
                             <td className="px-6 py-4 font-bold">
                               <span className="px-2.5 py-1 rounded-lg bg-slate-100 text-secondary text-[11px] border border-slate-200/50 tracking-wider">
                                 {m.subject}
@@ -154,7 +154,7 @@ export const CurriculumPage = ({ isHubChild }: { isHubChild?: boolean }) => {
                             </td>
                             <td className="px-6 py-4">
                               <div className="flex items-center gap-3">
-                                <div className="size-8 rounded-xl bg-primary/20 flex items-center justify-center text-xs font-black text-secondary group-hover:bg-primary transition-all">
+                                <div className="size-8 rounded-xl bg-primary/20 flex items-center justify-center text-xs font-bold text-secondary group-hover:bg-primary transition-all">
                                   {m.teacher.split(" ").pop()?.charAt(0)}
                                 </div>
                                 <span className="text-[13px] font-semibold text-slate-600 group-hover:text-secondary transition-colors">
@@ -163,11 +163,11 @@ export const CurriculumPage = ({ isHubChild }: { isHubChild?: boolean }) => {
                               </div>
                             </td>
                             <td className="px-6 py-4 text-center">
-                                <span className="text-[13px] font-black text-secondary bg-slate-50 px-3 py-1 rounded-lg border border-slate-100">{m.students}</span>
+                                <span className="text-[13px] font-bold text-secondary bg-slate-50 px-3 py-1 rounded-lg border border-slate-100">{m.students}</span>
                             </td>
                             <td className="px-6 py-4">
                                 <span className={cn(
-                                    "px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-wider border",
+                                    "px-2.5 py-1 rounded-full text-[10px] font-bold border",
                                     m.status === "Active" ? "bg-emerald-50 text-emerald-600 border-emerald-100" : "bg-amber-50 text-amber-600 border-amber-100"
                                 )}>
                                     {m.status}
@@ -193,7 +193,7 @@ export const CurriculumPage = ({ isHubChild }: { isHubChild?: boolean }) => {
 
               <aside className="space-y-6">
                 <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm shadow-slate-100/30">
-                  <h3 className="text-secondary text-[12px] font-black uppercase tracking-widest mb-6">Subject Distribution</h3>
+                  <h3 className="text-secondary text-[12px] font-bold mb-6">Subject Distribution</h3>
                   <div className="space-y-5">
                     {subjects.map((sub, i) => (
                       <div key={i} className="space-y-2">
@@ -216,15 +216,15 @@ export const CurriculumPage = ({ isHubChild }: { isHubChild?: boolean }) => {
                 </div>
 
                 <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm shadow-slate-100/30">
-                  <h3 className="text-secondary text-[12px] font-black uppercase tracking-widest mb-4">Mapping Stats</h3>
+                  <h3 className="text-secondary text-[12px] font-bold mb-4">Mapping Stats</h3>
                   <div className="grid grid-cols-2 gap-3">
                       <div className="bg-slate-50 p-3 rounded-2xl border border-slate-100">
-                          <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Assigned</p>
-                          <p className="text-[18px] font-black text-secondary mt-1">92%</p>
+                          <p className="text-[10px] text-slate-400 font-bold">Assigned</p>
+                          <p className="text-[18px] font-bold text-secondary mt-1">92%</p>
                       </div>
                       <div className="bg-slate-50 p-3 rounded-2xl border border-slate-100">
-                          <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Pending</p>
-                          <p className="text-[18px] font-black text-amber-600 mt-1">08%</p>
+                          <p className="text-[10px] text-slate-400 font-bold">Pending</p>
+                          <p className="text-[18px] font-bold text-amber-600 mt-1">08%</p>
                       </div>
                   </div>
                 </div>
@@ -247,22 +247,22 @@ export const CurriculumPage = ({ isHubChild }: { isHubChild?: boolean }) => {
                             <span className="material-symbols-outlined text-2xl font-light">auto_stories</span>
                         </div>
                         <span className={cn(
-                            "text-[9px] font-black uppercase tracking-widest px-2.5 py-1 rounded-lg border",
+                            "text-[9px] font-bold px-2.5 py-1 rounded-lg border",
                             sub.intensity === "High" ? "bg-rose-50 text-rose-600 border-rose-100" : "bg-emerald-50 text-emerald-600 border-emerald-100"
                         )}>
                             {sub.intensity} Load
                         </span>
                     </div>
-                    <h3 className="text-[17px] font-black text-secondary mb-1 group-hover:underline decoration-primary underline-offset-4">{sub.name}</h3>
-                    <p className="text-[11px] text-slate-400 font-bold mt-1 uppercase tracking-widest">HOD: {sub.head}</p>
+                    <h3 className="text-[17px] font-bold text-secondary mb-1 group-hover:underline decoration-primary underline-offset-4">{sub.name}</h3>
+                    <p className="text-[11px] text-slate-400 font-bold mt-1">HOD: {sub.head}</p>
                     <div className="mt-8 grid grid-cols-2 gap-4 pt-4 border-t border-slate-50">
                         <div>
-                            <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Teachers</p>
-                            <p className="text-[15px] font-black text-secondary">{sub.teachers}</p>
+                            <p className="text-[10px] text-slate-400 font-bold">Teachers</p>
+                            <p className="text-[15px] font-bold text-secondary">{sub.teachers}</p>
                         </div>
                         <div>
-                            <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Active Units</p>
-                            <p className="text-[15px] font-black text-secondary">{sub.classes}</p>
+                            <p className="text-[10px] text-slate-400 font-bold">Active Units</p>
+                            <p className="text-[15px] font-bold text-secondary">{sub.classes}</p>
                         </div>
                     </div>
                 </div>
@@ -273,7 +273,7 @@ export const CurriculumPage = ({ isHubChild }: { isHubChild?: boolean }) => {
                     <div className="size-14 rounded-full bg-white border border-slate-100 flex items-center justify-center text-slate-300 group-hover:bg-primary group-hover:text-secondary group-hover:border-primary mb-4 transition-all">
                         <span className="material-symbols-outlined text-3xl">add</span>
                     </div>
-                    <p className="text-[14px] font-black text-secondary">New Subject</p>
+                    <p className="text-[14px] font-bold text-secondary">New Subject</p>
                     <p className="text-[11px] text-slate-400 font-medium mt-1">Add to institutional catalog</p>
                 </div>
             </div>
@@ -299,13 +299,13 @@ export const CurriculumPage = ({ isHubChild }: { isHubChild?: boolean }) => {
         <div className="fixed inset-0 z-[100] flex items-center justify-center px-4 bg-secondary/40 backdrop-blur-sm animate-in fade-in duration-300">
             <div className="bg-white w-full max-w-lg rounded-3xl shadow-2xl p-8 space-y-6 animate-in zoom-in-95 duration-300">
                 <div>
-                    <h3 className="text-secondary text-xl font-black">Assign New Mapping</h3>
+                    <h3 className="text-secondary text-xl font-bold">Assign New Mapping</h3>
                     <p className="text-sm text-slate-400 font-medium">Connect a teacher and students to an academic subject.</p>
                 </div>
                 
                 <div className="space-y-4">
                     <div className="space-y-1.5">
-                        <label className="text-[11px] font-black uppercase tracking-widest text-slate-400">Target Class</label>
+                        <label className="text-[11px] font-bold text-slate-400">Target Class</label>
                         <select className="w-full bg-slate-50 border border-slate-100 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-primary/20 text-[13px] font-semibold text-secondary">
                             <option>Select Grade & Section</option>
                             <option>Grade 10-C</option>
@@ -313,7 +313,7 @@ export const CurriculumPage = ({ isHubChild }: { isHubChild?: boolean }) => {
                         </select>
                     </div>
                     <div className="space-y-1.5">
-                        <label className="text-[11px] font-black uppercase tracking-widest text-slate-400">Subject</label>
+                        <label className="text-[11px] font-bold text-slate-400">Subject</label>
                         <select className="w-full bg-slate-50 border border-slate-100 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-primary/20 text-[13px] font-semibold text-secondary">
                             <option>Select Subject</option>
                             <option>Advanced Mathematics</option>
@@ -321,7 +321,7 @@ export const CurriculumPage = ({ isHubChild }: { isHubChild?: boolean }) => {
                         </select>
                     </div>
                     <div className="space-y-1.5">
-                        <label className="text-[11px] font-black uppercase tracking-widest text-slate-400">Assigned Teacher</label>
+                        <label className="text-[11px] font-bold text-slate-400">Assigned Teacher</label>
                         <select className="w-full bg-slate-50 border border-slate-100 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-primary/20 text-[13px] font-semibold text-secondary">
                             <option>Search Staff</option>
                             <option>Mr. Swamy (Grade Lead)</option>
@@ -331,7 +331,7 @@ export const CurriculumPage = ({ isHubChild }: { isHubChild?: boolean }) => {
 
                     <div className="space-y-3 pt-2">
                         <div className="flex justify-between items-center">
-                            <label className="text-[11px] font-black uppercase tracking-widest text-slate-400">Student Enrollment</label>
+                            <label className="text-[11px] font-bold text-slate-400">Student Enrollment</label>
                             <button className="text-[10px] font-bold text-primary hover:underline">Select All</button>
                         </div>
                         <div className="bg-slate-50 border border-slate-100 rounded-2xl p-4 max-h-40 overflow-y-auto space-y-3">
@@ -347,7 +347,7 @@ export const CurriculumPage = ({ isHubChild }: { isHubChild?: boolean }) => {
                                         <div className="size-2 bg-primary rounded-sm opacity-0 group-hover:opacity-100" />
                                     </div>
                                     <span className="text-[12px] font-medium text-slate-600">{stu.name}</span>
-                                    <span className="text-[10px] text-slate-400 ml-auto font-bold uppercase tracking-widest">{stu.id}</span>
+                                    <span className="text-[10px] text-slate-400 ml-auto font-bold">{stu.id}</span>
                                 </div>
                             ))}
                         </div>

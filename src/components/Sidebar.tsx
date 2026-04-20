@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "../lib/utils";
 
@@ -30,15 +31,46 @@ const NavItem = ({ icon, label, path, active }: NavItemProps) => (
         >
             {icon}
         </span>
-        <p className="text-[14px] tracking-wide">
+        <p className="text-[14px]">
             {label}
         </p>
     </Link>
 );
 
+const FlipDigit = ({ digit }: { digit: string }) => {
+    const isNumber = !isNaN(parseInt(digit));
+    if (!isNumber) {
+        return <span className="inline-flex justify-center opacity-40 px-0.5">{digit}</span>;
+    }
+    return (
+        <div className="relative h-[18px] w-[9.5px] overflow-hidden inline-flex">
+            <div
+                className="transition-transform duration-700 cubic-bezier(0.4, 0, 0.2, 1) flex flex-col absolute top-0"
+                style={{ transform: `translateY(-${parseInt(digit) * 18}px)` }}
+            >
+                {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((n) => (
+                    <span
+                        key={n}
+                        className="h-[18px] w-[9.5px] flex items-center justify-center font-bold text-secondary text-[14px]"
+                    >
+                        {n}
+                    </span>
+                ))}
+            </div>
+        </div>
+    );
+};
+
 export const Sidebar = () => {
     const location = useLocation();
     const currentPath = location.pathname;
+
+    const [now, setNow] = useState(new Date());
+
+    useEffect(() => {
+        const timer = setInterval(() => setNow(new Date()), 1000);
+        return () => clearInterval(timer);
+    }, []);
 
     const isActive = (path: string) => {
         if (path === "/") {
@@ -47,39 +79,85 @@ export const Sidebar = () => {
         return currentPath.startsWith(path);
     };
 
-    return (
-        <aside className="w-64 bg-white border-r border-slate-100 sticky top-0 h-screen flex flex-col justify-between shrink-0 overflow-y-auto z-50 py-8">
-            <div>
-                <div className="flex items-center gap-3 px-6 mb-12">
-                    <div className="bg-secondary size-9 rounded-xl flex items-center justify-center shadow-sm">
-                        <span className="material-symbols-outlined text-primary font-bold text-[20px]">
-                            school
-                        </span>
-                    </div>
-                    <div className="flex flex-col">
-                        <h1 className="text-secondary text-[18px] font-bold tracking-tight leading-none">
-                            Leutic.
-                        </h1>
-                        <p className="text-slate-400 text-[10px] font-bold uppercase tracking-widest mt-1">Principal</p>
-                    </div>
-                </div>
+    const timeParts = now.toLocaleTimeString("en-IN", {
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: true,
+    }).split(" ");
 
+    const timeStr = timeParts[0];
+    const amPm = timeParts[1];
+
+    const dateStr = now.toLocaleDateString("en-IN", {
+        weekday: "long",
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+    });
+
+    return (
+        <aside className="w-64 bg-white border-r border-slate-100 sticky top-0 h-screen flex flex-col shrink-0 z-50">
+            {/* Top Logo - Fixed */}
+            <div className="px-6 py-8">
+                <img
+                    src="/letuic_lg.png"
+                    alt="Letuic Principal Dashboard"
+                    className="w-32 h-auto object-contain -ml-2"
+                />
+            </div>
+
+            {/* Nav Items - Scrollable */}
+            <div className="flex-1 overflow-y-auto no-scrollbar py-2">
                 <nav className="flex flex-col gap-1">
-                    <NavItem icon="space_dashboard" label="Dashboard" path="/" active={isActive("/")} />
+                    <NavItem icon="space_dashboard" label="Home" path="/" active={isActive("/")} />
                     <NavItem icon="grid_view" label="Classes" path="/classes" active={isActive("/classes")} />
-                    <NavItem icon="school" label="Academic Hub" path="/academics" active={isActive("/academics")} />
-                    <NavItem icon="badge" label="Directory" path="/directory" active={isActive("/directory")} />
+                    <NavItem icon="school" label="Academics" path="/academics" active={isActive("/academics")} />
+                    <NavItem icon="badge" label="Student & Staff" path="/directory" active={isActive("/directory")} />
                     <NavItem icon="payments" label="Finance" path="/finance" active={isActive("/finance")} />
-                    <NavItem icon="mark_chat_unread" label="Communication" path="/communications" active={isActive("/communications")} />
-                    <NavItem icon="directions_bus" label="Transportation" path="/transportation" active={isActive("/transportation")} />
-                    <NavItem icon="calendar_month" label="Calendar" path="/calendar" active={isActive("/calendar")} />
+                    <NavItem icon="mark_chat_unread" label="Messages" path="/communications" active={isActive("/communications")} />
+                    <NavItem icon="directions_bus" label="Bus Tracking" path="/transportation" active={isActive("/transportation")} />
+                    <NavItem icon="calendar_today" label="Events" path="/calendar" active={isActive("/calendar")} />
                     <NavItem icon="hub" label="Community" path="/community" active={isActive("/community")} />
                     <NavItem icon="monitoring" label="Reports" path="/reports" active={isActive("/reports")} />
                 </nav>
             </div>
 
-            <div className="mt-8 pt-6 px-6 pb-4">
-                <div className="flex items-center gap-3 p-2 -mx-2 rounded-2xl hover:bg-slate-50 transition-colors cursor-pointer border border-transparent hover:border-slate-100">
+            {/* Bottom Section - Fixed */}
+            <div className="p-6 pt-2 border-t border-slate-50 space-y-4">
+                {/* Premium Date & Time Widget */}
+                <div className="px-1">
+                    <div className="flex items-center gap-4 rounded-[20px] group/time">
+                        <div className="flex flex-col items-center justify-center bg-white size-12 rounded-[14px] shadow-sm shadow-slate-200/50 border border-slate-100 shrink-0 transition-transform group-hover/time:scale-105">
+                            <span className="text-[9px] font-black text-secondary uppercase leading-none tracking-tighter">
+                                {now.toLocaleDateString("en-IN", { month: "short" })}
+                            </span>
+                            <span className="text-[18px] font-black text-secondary leading-none mt-1">
+                                {now.toLocaleDateString("en-IN", { day: "2-digit" })}
+                            </span>
+                        </div>
+                        <div className="flex flex-col justify-center">
+                            <div className="flex items-baseline gap-0.5">
+                                <span className="text-[16px] font-black text-secondary tracking-tight">
+                                    {timeStr.split(":")[0]}
+                                </span>
+                                <span className="text-[16px] font-black text-secondary animate-blink">:</span>
+                                <span className="text-[16px] font-black text-secondary tracking-tight">
+                                    {timeStr.split(":")[1]}
+                                </span>
+                                <span className="text-[10px] font-black text-slate-300 uppercase ml-1">
+                                    {amPm}
+                                </span>
+                            </div>
+                            <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest leading-none mt-1">
+                                {now.toLocaleDateString("en-IN", { weekday: "long" })}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Profile */}
+                <div className="flex items-center gap-3 p-2 -mx-1 rounded-2xl hover:bg-slate-50 transition-colors cursor-pointer border border-transparent hover:border-slate-100 group">
                     <div
                         className="size-10 rounded-full bg-slate-200 bg-cover bg-center ring-2 ring-white shadow-sm"
                         style={{

@@ -6,6 +6,8 @@ type CalendarView = "teacher" | "class" | "parent";
 
 export const CalendarPage = () => {
   const [activeView, setActiveView] = useState<CalendarView>("teacher");
+  const [selectedClass, setSelectedClass] = useState("10B");
+  const [selectedTeacher, setSelectedTeacher] = useState("Dr. C.V. Raman");
 
   const teacherSchedule = [
     {
@@ -88,35 +90,79 @@ export const CalendarPage = () => {
       <div className="flex-1 overflow-y-auto">
         {/* Perspective Switcher */}
         <div className="px-8 pt-6 border-b border-slate-100 shrink-0 bg-white">
-          <div className="flex gap-8">
-            {[
-              { id: "teacher", label: "Teacher Schedules", icon: "school" },
-              { id: "class", label: "Class Timetables", icon: "grid_view" },
-              {
-                id: "parent",
-                label: "Institutional Calendar",
-                icon: "family_restroom",
-              },
-            ].map((view) => (
-              <button
-                key={view.id}
-                onClick={() => setActiveView(view.id as CalendarView)}
-                className={cn(
-                  "flex items-center gap-2 pb-4 text-[13px] font-semibold tracking-tight transition-all relative",
-                  activeView === view.id
-                    ? "text-secondary"
-                    : "text-slate-400 hover:text-secondary",
-                )}
-              >
-                <span className="material-symbols-outlined text-lg">
-                  {view.icon}
+          <div className="flex justify-between items-center">
+            <div className="flex gap-8">
+              {[
+                { id: "teacher", label: "Teacher Schedules", icon: "school" },
+                { id: "class", label: "Class Timetables", icon: "grid_view" },
+                {
+                  id: "parent",
+                  label: "Institutional Calendar",
+                  icon: "family_restroom",
+                },
+              ].map((view) => (
+                <button
+                  key={view.id}
+                  onClick={() => setActiveView(view.id as CalendarView)}
+                  className={cn(
+                    "flex items-center gap-2 pb-4 text-[13px] font-semibold tracking-tight transition-all relative",
+                    activeView === view.id
+                      ? "text-secondary"
+                      : "text-slate-400 hover:text-secondary",
+                  )}
+                >
+                  <span className="material-symbols-outlined text-lg">
+                    {view.icon}
+                  </span>
+                  {view.label}
+                  {activeView === view.id && (
+                    <div className="absolute bottom-0 left-0 right-0 h-1 bg-primary rounded-t-full" />
+                  )}
+                </button>
+              ))}
+            </div>
+
+            {/* Contextual Selector */}
+            {activeView !== "parent" && (
+              <div className="flex items-center gap-3 pb-4">
+                <span className="text-[11px] font-bold text-slate-400 uppercase tracking-widest">
+                  View for:
                 </span>
-                {view.label}
-                {activeView === view.id && (
-                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-primary rounded-t-full" />
-                )}
-              </button>
-            ))}
+                <div className="relative">
+                  <select
+                    value={activeView === "class" ? selectedClass : selectedTeacher}
+                    onChange={(e) =>
+                      activeView === "class"
+                        ? setSelectedClass(e.target.value)
+                        : setSelectedTeacher(e.target.value)
+                    }
+                    className="appearance-none bg-slate-50 border border-slate-100/50 rounded-xl px-4 py-2 pr-10 text-[13px] font-bold text-secondary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all cursor-pointer min-w-[140px]"
+                  >
+                    {activeView === "class" ? (
+                      ["10A", "10B", "11A", "11B", "12A", "12B"].map((c) => (
+                        <option key={c} value={c}>
+                          Grade {c}
+                        </option>
+                      ))
+                    ) : (
+                      [
+                        "Dr. C.V. Raman",
+                        "Dr. Priya Sharma",
+                        "Mr. S. K. Bose",
+                        "Ms. Anita Desai",
+                      ].map((t) => (
+                        <option key={t} value={t}>
+                          {t}
+                        </option>
+                      ))
+                    )}
+                  </select>
+                  <span className="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400 text-lg">
+                    expand_more
+                  </span>
+                </div>
+              </div>
+            )}
           </div>
         </div>
 
@@ -217,13 +263,13 @@ export const CalendarPage = () => {
 
           {/* Contextual Sidebar */}
           <div className="lg:col-span-4 space-y-6">
-            {activeView === "teacher" && (
+            {(activeView === "teacher" || activeView === "class") && (
               <div className="bg-secondary rounded-2xl p-6 text-white shadow-2xl">
                 <h3 className="text-[16px] font-semibold mb-4 flex items-center gap-2">
                   <span className="material-symbols-outlined text-primary">
                     timer
                   </span>
-                  Today's Schedule
+                  Schedule for {activeView === "class" ? selectedClass : selectedTeacher}
                 </h3>
                 <div className="space-y-4">
                   {teacherSchedule.map((item, i) => (

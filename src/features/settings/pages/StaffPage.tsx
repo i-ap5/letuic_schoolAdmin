@@ -205,8 +205,8 @@ export const StaffPage = ({
     >
       {!isHubChild && (
         <TopBar
-          title="Institutional Staff Directory"
-          subtitle="Manage faculty profiles, performance metrics, and departmental organization."
+          title="Staff Directory"
+          subtitle="Manage faculty profiles, performance and school departments"
           actions={
             <>
               <button className="bg-white border border-slate-100 text-secondary px-4 py-2 rounded-xl text-[13px] font-semibold flex items-center gap-2 hover:bg-slate-50 shadow-sm shadow-slate-100/30 transition-all">
@@ -307,28 +307,28 @@ export const StaffPage = ({
             <table className="w-full text-left border-collapse">
               <thead className="bg-white border-b border-slate-100">
                 <tr>
-                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500">
                     Staff Member
                   </th>
-                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500">
                     ID
                   </th>
-                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500">
                     Role
                   </th>
-                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500">
                     Department
                   </th>
-                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500">
                     Instructional Quality
                   </th>
-                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500">
                     Aura Score
                   </th>
-                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500">
                     Status
                   </th>
-                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider text-right">
+                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500 text-right">
                     Actions
                   </th>
                 </tr>

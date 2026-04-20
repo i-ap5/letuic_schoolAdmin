@@ -86,8 +86,8 @@ export const ExaminationsPage = ({ isHubChild }: { isHubChild?: boolean }) => {
     >
       {!isHubChild && (
         <TopBar
-          title="Examination & Assessments"
-          subtitle="Define, manage, and track school-level examinations, quizzes, and competitions."
+          title="Exams & Tests"
+          subtitle="Manage school examinations, quizzes, and competitions."
           actions={
             <div className="flex items-center gap-3">
               <button className="bg-white border border-slate-100 text-secondary px-4 py-2 rounded-xl text-[13px] font-semibold flex items-center gap-2 hover:bg-slate-50 transition-all">
@@ -144,7 +144,7 @@ export const ExaminationsPage = ({ isHubChild }: { isHubChild?: boolean }) => {
         <div className="bg-white rounded-2xl border border-slate-100 shadow-sm shadow-slate-100/30 overflow-hidden">
           <div className="p-6 border-b border-slate-100 flex justify-between items-center">
             <h3 className="text-secondary text-[16px] font-semibold tracking-tight">
-              Academic History & Schedule
+              Exam Schedule
             </h3>
             <div className="flex gap-2">
               <button className="px-3 py-1.5 rounded-xl bg-secondary text-white text-xs font-medium capitalize">
@@ -162,22 +162,22 @@ export const ExaminationsPage = ({ isHubChild }: { isHubChild?: boolean }) => {
             <table className="w-full text-left">
               <thead>
                 <tr className="bg-slate-50/50 border-b border-slate-100">
-                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500">
                     Title & Type
                   </th>
-                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500">
                     Schedule
                   </th>
-                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500">
                     Classes
                   </th>
-                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500">
                     Status
                   </th>
-                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider text-center">
-                    Avg. Mark
+                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500 text-center">
+                    Average Mark
                   </th>
-                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider text-right">
+                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500 text-right">
                     Actions
                   </th>
                 </tr>

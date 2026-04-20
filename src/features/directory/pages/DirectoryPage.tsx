@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { TopBar } from "../../../components/Header";
 import { cn } from "../../../lib/utils";
 import { StaffPage } from "../../settings/pages/StaffPage";
@@ -6,8 +7,9 @@ import { StudentsPage } from "../../students/pages/StudentsPage";
 import { AttendancePage } from "../../classes/pages/AttendancePage";
 
 export const DirectoryPage = () => {
+  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState<
-    "staff" | "students" | "parents" | "drivers" | "attendance"
+    "staff" | "students" | "drivers" | "attendance"
   >("staff");
 
   const [staffMembers, setStaffMembers] = useState([
@@ -163,18 +165,6 @@ export const DirectoryPage = () => {
       uid: "rohan-das",
     },
   ]);
-  const [parents, setParents] = useState([
-    {
-      name: "Suresh Sharma",
-      id: "#PR-2024-001",
-      children: ["Aavya Sharma", "Rahul Sharma"],
-      email: "suresh@example.com",
-      phone: "+91 98765 43210",
-      status: "Verified",
-      img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop",
-      uid: "parent-1",
-    }
-  ]);
   const [drivers, setDrivers] = useState([
     {
       name: "Madan Pal",
@@ -195,17 +185,28 @@ export const DirectoryPage = () => {
     const uid = `${activeTab}-${Date.now()}`;
     if (activeTab === "staff") setStaffMembers((prev) => [{ ...memberData, uid }, ...prev]);
     else if (activeTab === "students") setStudents((prev) => [{ ...memberData, uid }, ...prev]);
-    else if (activeTab === "parents") setParents((prev) => [{ ...memberData, uid }, ...prev]);
     else if (activeTab === "drivers") setDrivers((prev) => [{ ...memberData, uid }, ...prev]);
     setShowAddModal(false);
+  };
+
+  const handleCreateAction = () => {
+    if (activeTab === "students") {
+      navigate("/directory/enroll-student");
+    } else if (activeTab === "staff") {
+      navigate("/directory/add-staff");
+    } else if (activeTab === "drivers") {
+      navigate("/directory/add-driver");
+    } else {
+      setShowAddModal(true);
+    }
   };
 
   return (
     <div className="flex-1 flex flex-col h-screen overflow-hidden bg-white">
       <div className="shrink-0">
         <TopBar
-          title="Campus Directory"
-          subtitle="Complete management of staff profiles, student rosters, and attendance."
+          title="Student & Staff"
+          subtitle="Manage students, teachers and institutional profiles"
           actions={
             <div className="flex gap-3">
               <button 
@@ -213,14 +214,14 @@ export const DirectoryPage = () => {
                 className="bg-white border border-slate-100 text-secondary px-4 py-2 rounded-xl text-[13px] font-semibold flex items-center gap-2 hover:bg-slate-50 transition-all active:scale-95"
               >
                 <span className="material-symbols-outlined text-sm">upload_file</span>
-                Bulk Import
+                Import List
               </button>
               <button
-                onClick={() => setShowAddModal(true)}
+                onClick={handleCreateAction}
                 className="bg-primary text-secondary px-4 py-2 rounded-xl text-[13px] font-semibold flex items-center gap-2 hover:opacity-90 transition-all shadow-sm shadow-slate-100/30 active:scale-95"
               >
                 <span className="material-symbols-outlined text-sm">person_add</span>
-                {activeTab === "staff" ? "Add Staff" : activeTab === "students" ? "Add Student" : activeTab === "parents" ? "Add Parent" : "Add Driver"}
+                {activeTab === "staff" ? "Add Staff" : activeTab === "students" ? "Enroll Student" : "Add Driver"}
               </button>
             </div>
           }
@@ -232,7 +233,7 @@ export const DirectoryPage = () => {
                 <div className="bg-white w-full max-w-xl rounded-3xl shadow-2xl p-8 space-y-8 animate-in zoom-in-95 duration-300">
                     <div className="flex justify-between items-start">
                         <div>
-                            <h3 className="text-secondary text-2xl font-black">Bulk {activeTab.charAt(0).toUpperCase() + activeTab.slice(1)} Import</h3>
+                            <h3 className="text-secondary text-2xl font-bold">Import {activeTab.charAt(0).toUpperCase() + activeTab.slice(1)} List</h3>
                             <p className="text-sm text-slate-400 font-medium mt-1">Upload CSV or Excel files to enroll multiple {activeTab} at once.</p>
                         </div>
                         <button onClick={() => setShowBulkModal(false)} className="size-10 rounded-full hover:bg-slate-50 flex items-center justify-center text-slate-300 transition-all">
@@ -244,7 +245,7 @@ export const DirectoryPage = () => {
                         <div className="size-16 rounded-3xl bg-white shadow-sm flex items-center justify-center text-slate-300 mb-4 group-hover:bg-primary group-hover:text-secondary transition-all">
                             <span className="material-symbols-outlined text-3xl">cloud_upload</span>
                         </div>
-                        <p className="text-[15px] font-black text-secondary">Drop your file here</p>
+                        <p className="text-[15px] font-bold text-secondary">Drop your file here</p>
                         <p className="text-[12px] text-slate-400 font-medium mt-1">Supports .csv, .xls, .xlsx (Max 10MB)</p>
                     </div>
 
@@ -252,11 +253,11 @@ export const DirectoryPage = () => {
                         <div className="flex items-center gap-3">
                             <span className="material-symbols-outlined text-primary">download</span>
                             <div className="text-left">
-                                <p className="text-[12px] font-black text-secondary">Download Template</p>
-                                <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Pre-formatted sheet</p>
+                                <p className="text-[12px] font-bold text-secondary">Download Template</p>
+                                <p className="text-[10px] text-slate-400 font-medium">Pre-formatted sheet</p>
                             </div>
                         </div>
-                        <button className="text-[11px] font-black text-primary hover:underline">Download CSV</button>
+                        <button className="text-[11px] font-bold text-primary hover:underline">Download CSV</button>
                     </div>
 
                     <div className="flex gap-3 pt-4 border-t border-slate-50">
@@ -273,7 +274,7 @@ export const DirectoryPage = () => {
                 <div className="bg-white w-full max-w-2xl rounded-3xl shadow-2xl p-8 space-y-6 animate-in zoom-in-95 duration-300 max-h-[90vh] overflow-y-auto no-scrollbar">
                     <div className="flex justify-between items-start">
                         <div>
-                            <h3 className="text-secondary text-2xl font-black">Register New {activeTab.charAt(0).toUpperCase() + activeTab.slice(1)}</h3>
+                            <h3 className="text-secondary text-2xl font-bold">Add New {activeTab.charAt(0).toUpperCase() + activeTab.slice(1)}</h3>
                             <p className="text-sm text-slate-400 font-medium mt-1">Enter profile details to create a new institutional record.</p>
                         </div>
                         <button onClick={() => setShowAddModal(false)} className="size-10 rounded-full hover:bg-slate-50 flex items-center justify-center text-slate-300 transition-all">
@@ -283,51 +284,44 @@ export const DirectoryPage = () => {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div className="space-y-1.5">
-                            <label className="text-[11px] font-black uppercase tracking-widest text-slate-400">Full Name</label>
+                            <label className="text-[11px] font-semibold text-slate-400">Full Name</label>
                             <input className="w-full bg-slate-50 border border-slate-100 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-primary/20 text-[13px] font-semibold text-secondary" placeholder="e.g. Rahul Sharma" />
                         </div>
                         <div className="space-y-1.5">
-                            <label className="text-[11px] font-black uppercase tracking-widest text-slate-400">ID / Admission Number</label>
+                            <label className="text-[11px] font-semibold text-slate-400">ID / Registration Number</label>
                             <input className="w-full bg-slate-50 border border-slate-100 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-primary/20 text-[13px] font-semibold text-secondary" placeholder="#2024-XXX" />
                         </div>
                         
-                        {activeTab === "parents" && (
-                             <div className="space-y-1.5 col-span-2">
-                                <label className="text-[11px] font-black uppercase tracking-widest text-slate-400">Linked Children (Comma separated IDs)</label>
-                                <input className="w-full bg-slate-50 border border-slate-100 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-primary/20 text-[13px] font-semibold text-secondary" placeholder="STU-001, STU-002" />
-                            </div>
-                        )}
-
                         {activeTab === "drivers" && (
                              <div className="space-y-1.5">
-                                <label className="text-[11px] font-black uppercase tracking-widest text-slate-400">Bus License Number</label>
+                                <label className="text-[11px] font-semibold text-slate-400">Bus License Number</label>
                                 <input className="w-full bg-slate-50 border border-slate-100 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-primary/20 text-[13px] font-semibold text-secondary" placeholder="DL-XXX-XXX" />
-                            </div>
+                             </div>
                         )}
 
                         <div className="space-y-1.5">
-                            <label className="text-[11px] font-black uppercase tracking-widest text-slate-400">
-                                {activeTab === "staff" ? "Designation" : activeTab === "students" ? "Grade" : activeTab === "parents" ? "Secondary Contact" : "Assigned Bus Route"}
+                            <label className="text-[11px] font-semibold text-slate-400">
+                                {activeTab === "staff" ? "Designation" : activeTab === "students" ? "Grade" : "Assigned Bus Route"}
                             </label>
                             <input className="w-full bg-slate-50 border border-slate-100 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-primary/20 text-[13px] font-semibold text-secondary" placeholder="..." />
                         </div>
 
                         <div className="space-y-1.5">
-                            <label className="text-[11px] font-black uppercase tracking-widest text-slate-400">Contact Email</label>
+                            <label className="text-[11px] font-semibold text-slate-400">Contact Email</label>
                             <input className="w-full bg-slate-50 border border-slate-100 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-primary/20 text-[13px] font-semibold text-secondary" placeholder="email@institution.com" />
                         </div>
                         <div className="space-y-1.5">
-                            <label className="text-[11px] font-black uppercase tracking-widest text-slate-400">Mobile Number</label>
+                            <label className="text-[11px] font-semibold text-slate-400">Mobile Number</label>
                             <input className="w-full bg-slate-50 border border-slate-100 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-primary/20 text-[13px] font-semibold text-secondary" placeholder="+91 XXXX" />
                         </div>
                     </div>
 
                     <div className="bg-slate-50 rounded-2xl p-6 space-y-4 border border-slate-100">
-                        <h4 className="text-[11px] font-black uppercase tracking-widest text-secondary">Institutional Access</h4>
+                        <h4 className="text-[11px] font-semibold text-secondary">Access Permissions</h4>
                         <div className="flex gap-6">
                              <div className="flex items-center gap-3">
                                 <div className="size-5 rounded bg-primary flex items-center justify-center text-secondary">
-                                    <span className="material-symbols-outlined text-sm font-black">check</span>
+                                    <span className="material-symbols-outlined text-sm font-bold">check</span>
                                 </div>
                                 <span className="text-[12px] font-bold text-slate-600">Mobile App Access</span>
                             </div>
@@ -351,7 +345,6 @@ export const DirectoryPage = () => {
             {[
               { id: "staff", label: "Staff", icon: "badge" },
               { id: "students", label: "Students", icon: "group" },
-              { id: "parents", label: "Parents", icon: "family_restroom" },
               { id: "drivers", label: "Drivers", icon: "local_shipping" },
               { id: "attendance", label: "Attendance", icon: "event_available" },
             ].map((tab) => (
@@ -393,36 +386,8 @@ export const DirectoryPage = () => {
             <StudentsPage
               isHubChild
               externalStudents={students}
-              onAddStudent={() => setShowAddModal(true)}
+              onAddStudent={handleCreateAction}
             />
-          </div>
-        )}
-        {activeTab === "parents" && (
-          <div className="flex-1 overflow-y-auto no-scrollbar p-8">
-             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {parents.map((p) => (
-                    <div key={p.uid} className="bg-white border border-slate-100 rounded-3xl p-6 hover:shadow-xl hover:shadow-slate-100/50 transition-all group">
-                         <div className="flex items-center justify-between mb-6">
-                            <img src={p.img} alt={p.name} className="size-14 rounded-2xl object-cover" />
-                            <div className="px-3 py-1 bg-primary/10 text-primary rounded-full text-[10px] font-black uppercase tracking-widest">
-                                {p.status}
-                            </div>
-                        </div>
-                        <h4 className="text-secondary font-black text-lg">{p.name}</h4>
-                        <p className="text-[12px] text-slate-400 font-medium mb-4">{p.id}</p>
-                        
-                        <div className="space-y-3 pt-4 border-t border-slate-50">
-                            <div className="flex justify-between items-center">
-                                <span className="text-[11px] font-bold text-slate-400 uppercase tracking-widest">Children</span>
-                                <div className="flex gap-1">
-                                    {p.children.map(c => <span key={c} className="text-[11px] font-bold text-secondary bg-slate-50 px-2 py-0.5 rounded-lg">{c}</span>)}
-                                </div>
-                            </div>
-                             <button className="w-full py-3 rounded-xl border border-slate-100 text-[12px] font-bold text-secondary hover:bg-slate-50 transition-all">View Profiles</button>
-                        </div>
-                    </div>
-                ))}
-            </div>
           </div>
         )}
         {activeTab === "drivers" && (
@@ -432,21 +397,21 @@ export const DirectoryPage = () => {
                     <div key={d.uid} className="bg-white border border-slate-100 rounded-3xl p-6 hover:shadow-xl hover:shadow-slate-100/50 transition-all group">
                          <div className="flex items-center justify-between mb-6">
                             <img src={d.img} alt={d.name} className="size-14 rounded-2xl object-cover" />
-                            <div className="px-3 py-1 bg-green-50 text-green-600 rounded-full text-[10px] font-black uppercase tracking-widest">
+                            <div className="px-3 py-1 bg-green-50 text-green-600 rounded-full text-[10px] font-bold">
                                 {d.status}
                             </div>
                         </div>
-                        <h4 className="text-secondary font-black text-lg">{d.name}</h4>
+                        <h4 className="text-secondary font-bold text-lg">{d.name}</h4>
                         <p className="text-[12px] text-slate-400 font-medium mb-4">{d.id}</p>
                         
                         <div className="space-y-3 pt-4 border-t border-slate-50">
                             <div className="flex justify-between items-center text-[12px]">
                                 <span className="font-bold text-slate-400">License</span>
-                                <span className="font-black text-secondary">{d.licenseNo}</span>
+                                <span className="font-bold text-secondary">{d.licenseNo}</span>
                             </div>
                             <div className="flex justify-between items-center text-[12px]">
                                 <span className="font-bold text-slate-400">Performance</span>
-                                <span className="font-black text-primary">{d.performance}%</span>
+                                <span className="font-bold text-primary">{d.performance}%</span>
                             </div>
                              <button className="w-full py-3 rounded-xl bg-secondary text-white text-[12px] font-bold hover:shadow-lg hover:shadow-secondary/20 transition-all">Live Tracking</button>
                         </div>

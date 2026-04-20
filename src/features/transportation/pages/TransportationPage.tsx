@@ -36,8 +36,8 @@ export const TransportationPage = ({ isHubChild }: { isHubChild?: boolean }) => 
     <div className="flex-1 flex flex-col h-screen overflow-hidden bg-white">
       {!isHubChild && (
         <TopBar 
-          title="Fleet Management" 
-          subtitle="Live tracking and safety monitoring for institutional transportation."
+          title="Bus Map" 
+          subtitle="Real-time bus locations and tracking"
         />
       )}
 
@@ -55,7 +55,7 @@ export const TransportationPage = ({ isHubChild }: { isHubChild?: boolean }) => 
             </div>
 
             <div className="flex-1 overflow-y-auto no-scrollbar p-6 space-y-4">
-                <h3 className="text-[11px] font-black uppercase tracking-widest text-slate-400">Active Fleet</h3>
+                <h3 className="text-[11px] font-bold text-slate-400">Active Fleet</h3>
                 {buses.map(bus => (
                     <div 
                         key={bus.id} 
@@ -74,16 +74,16 @@ export const TransportationPage = ({ isHubChild }: { isHubChild?: boolean }) => 
                                     <span className="material-symbols-outlined text-[20px]">directions_bus</span>
                                 </div>
                                 <div>
-                                    <h4 className={cn("text-[14px] font-black transition-colors", activeRoute === bus.route ? "text-white" : "text-secondary")}>
+                                    <h4 className={cn("text-[14px] font-bold transition-colors", activeRoute === bus.route ? "text-white" : "text-secondary")}>
                                         {bus.id}
                                     </h4>
-                                    <p className={cn("text-[10px] font-bold uppercase tracking-widest", activeRoute === bus.route ? "text-white/40" : "text-slate-400")}>
+                                    <p className={cn("text-[10px] font-bold", activeRoute === bus.route ? "text-white/40" : "text-slate-400")}>
                                         {bus.route} • {bus.driver}
                                     </p>
                                 </div>
                             </div>
                             <div className={cn(
-                                "px-2 py-0.5 rounded-full text-[9px] font-black uppercase tracking-widest",
+                                "px-2 py-0.5 rounded-full text-[9px] font-bold",
                                 bus.status === "On Route" ? "bg-green-500 text-white" : "bg-slate-100 text-slate-400"
                             )}>
                                 {bus.status}
@@ -92,21 +92,21 @@ export const TransportationPage = ({ isHubChild }: { isHubChild?: boolean }) => 
 
                         <div className="grid grid-cols-2 gap-4">
                             <div>
-                                <p className={cn("text-[9px] font-black uppercase tracking-widest mb-1", activeRoute === bus.route ? "text-white/40" : "text-slate-400")}>SPEED</p>
-                                <p className={cn("text-[13px] font-black", activeRoute === bus.route ? "text-white" : "text-secondary")}>{bus.speed}</p>
+                                <p className={cn("text-[9px] font-bold mb-1", activeRoute === bus.route ? "text-white/40" : "text-slate-400")}>Speed</p>
+                                <p className={cn("text-[13px] font-bold", activeRoute === bus.route ? "text-white" : "text-secondary")}>{bus.speed}</p>
                             </div>
                             <div>
-                                <p className={cn("text-[9px] font-black uppercase tracking-widest mb-1", activeRoute === bus.route ? "text-white/40" : "text-slate-400")}>STUDENTS</p>
-                                <p className={cn("text-[13px] font-black", activeRoute === bus.route ? "text-white" : "text-secondary")}>{bus.students}</p>
+                                <p className={cn("text-[9px] font-bold mb-1", activeRoute === bus.route ? "text-white/40" : "text-slate-400")}>Students</p>
+                                <p className={cn("text-[13px] font-bold", activeRoute === bus.route ? "text-white" : "text-secondary")}>{bus.students}</p>
                             </div>
                         </div>
 
                         {activeRoute === bus.route && (
                             <div className="mt-4 pt-4 border-t border-white/10">
-                                <p className="text-[11px] font-bold text-white/60 mb-1">NEXT STOP</p>
+                                <p className="text-[11px] font-bold text-white/60 mb-1">Next Stop</p>
                                 <div className="flex items-center justify-between">
-                                    <p className="text-[12px] font-black text-white">{bus.nextStop}</p>
-                                    <span className="text-[11px] font-black text-primary">ETA {bus.eta}</span>
+                                    <p className="text-[12px] font-bold text-white">{bus.nextStop}</p>
+                                    <span className="text-[11px] font-bold text-primary">ETA {bus.eta}</span>
                                 </div>
                             </div>
                         )}
@@ -134,18 +134,18 @@ export const TransportationPage = ({ isHubChild }: { isHubChild?: boolean }) => 
                                 <span className="material-symbols-outlined text-[18px]">bus_alert</span>
                              </div>
                              <div>
-                                 <p className="text-[12px] font-black text-secondary">BT-201 Tracking</p>
+                                 <p className="text-[12px] font-bold text-secondary">BT-201 Tracking</p>
                                  <p className="text-[10px] text-slate-400 font-bold">On Time</p>
                              </div>
                          </div>
                          <div className="space-y-1">
                              <div className="flex justify-between text-[11px]">
                                  <span className="text-slate-400 font-medium">Location</span>
-                                 <span className="text-secondary font-black">Outer Ring Rd.</span>
+                                 <span className="text-secondary font-bold">Outer Ring Rd.</span>
                              </div>
                              <div className="flex justify-between text-[11px]">
                                  <span className="text-slate-400 font-medium">Speed</span>
-                                 <span className="text-secondary font-black">42 km/h</span>
+                                 <span className="text-secondary font-bold">42 km/h</span>
                              </div>
                          </div>
                     </div>
@@ -176,10 +176,10 @@ export const TransportationPage = ({ isHubChild }: { isHubChild?: boolean }) => 
                     <div key={stat.label} className="bg-white/80 backdrop-blur-md border border-white/50 rounded-3xl p-5 shadow-xl min-w-[200px] flex-1">
                          <div className="flex items-center gap-3 mb-2">
                              <span className={cn("material-symbols-outlined text-[20px]", stat.color)}>{stat.icon}</span>
-                             <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">{stat.label}</span>
+                             <span className="text-[10px] font-bold text-slate-400"> {stat.label}</span>
                          </div>
                          <div className="flex items-baseline gap-1">
-                             <span className="text-2xl font-black text-secondary">{stat.valueHeader}</span>
+                             <span className="text-2xl font-bold text-secondary">{stat.valueHeader}</span>
                              <span className="text-[12px] font-bold text-slate-400">{stat.sub}</span>
                          </div>
                     </div>

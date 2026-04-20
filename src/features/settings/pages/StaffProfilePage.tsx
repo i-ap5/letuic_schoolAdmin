@@ -15,7 +15,7 @@ export const StaffProfilePage = () => {
       auraScore: 98.4,
       status: "Active",
       img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
-      email: "a.iyer@leutic.edu",
+      email: "a.iyer@letuic.edu",
       joinDate: "July 2018",
     },
     {
@@ -27,7 +27,7 @@ export const StaffProfilePage = () => {
       auraScore: 91.2,
       status: "Remote",
       img: "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?w=400&h=400&fit=crop",
-      email: "r.deshmukh@leutic.edu",
+      email: "r.deshmukh@letuic.edu",
       joinDate: "Aug 2020",
     },
     {
@@ -39,7 +39,7 @@ export const StaffProfilePage = () => {
       auraScore: 94.5,
       status: "Active",
       img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop",
-      email: "p.trivedi@leutic.edu",
+      email: "p.trivedi@letuic.edu",
       joinDate: "June 2019",
     },
     {
@@ -51,7 +51,7 @@ export const StaffProfilePage = () => {
       auraScore: 82.2,
       status: "On Leave",
       img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop",
-      email: "a.swamy@leutic.edu",
+      email: "a.swamy@letuic.edu",
       joinDate: "Jan 2017",
     },
   ];

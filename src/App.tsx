@@ -11,6 +11,10 @@ import { ExamDetailsPage } from "./features/examinations/pages/ExamDetailsPage";
 
 import { AcademicHubPage } from "./features/academics/pages/AcademicHubPage";
 import { DirectoryPage } from "./features/directory/pages/DirectoryPage";
+import { EnrollStudentPage } from "./features/students/pages/EnrollStudentPage";
+import { AddStaffPage } from "./features/directory/pages/AddStaffPage";
+import { AddDriverPage } from "./features/directory/pages/AddDriverPage";
+import { AddVehiclePage } from "./features/directory/pages/AddVehiclePage";
 import { CommunicationsHubPage } from "./features/communications/pages/CommunicationsHubPage";
 import { TransportationHubPage } from "./features/transportation/pages/TransportationHubPage";
 import { StaffProfilePage } from "./features/settings/pages/StaffProfilePage";
@@ -29,6 +33,10 @@ function App() {
           <Route path="/students/:id" element={<StudentProfilePage />} />
           <Route path="/academics" element={<AcademicHubPage />} />
           <Route path="/directory" element={<DirectoryPage />} />
+          <Route path="/directory/enroll-student" element={<EnrollStudentPage />} />
+          <Route path="/directory/add-staff" element={<AddStaffPage />} />
+          <Route path="/directory/add-driver" element={<AddDriverPage />} />
+          <Route path="/transportation/add-vehicle" element={<AddVehiclePage />} />
           <Route path="/communications" element={<CommunicationsHubPage />} />
           <Route path="/transportation" element={<TransportationHubPage />} />
           <Route path="/finance" element={<FeesPage />} />

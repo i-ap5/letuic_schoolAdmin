@@ -14,8 +14,8 @@ export const AcademicHubPage = () => {
     <div className="flex-1 flex flex-col h-screen overflow-hidden bg-white">
       <div className="shrink-0">
         <TopBar
-          title="Academic Hub"
-          subtitle="Unified control for examinations, assessments, curriculum mapping, and enrichment programs."
+          title="Academics"
+          subtitle="Management of curriculum, programs and school examinations"
           actions={
             <div className="flex gap-3">
               <button className="bg-primary text-secondary px-4 py-2 rounded-xl text-[13px] font-semibold flex items-center gap-2 hover:opacity-90 transition-all shadow-sm shadow-slate-100/30">
@@ -31,15 +31,15 @@ export const AcademicHubPage = () => {
         <div className="px-8 border-b border-slate-100 bg-white">
           <div className="flex gap-8">
             {[
-              { id: "exams", label: "Examinations", icon: "description" },
+              { id: "exams", label: "Exams", icon: "description" },
               {
                 id: "curriculum",
-                label: "Curriculum Mapping",
+                label: "Curriculum",
                 icon: "account_tree",
               },
               {
                 id: "programs",
-                label: "Programs & Initiatives",
+                label: "Programs",
                 icon: "rocket_launch",
               },
             ].map((tab) => (

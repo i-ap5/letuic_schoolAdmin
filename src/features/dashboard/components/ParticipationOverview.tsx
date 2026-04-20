@@ -12,9 +12,9 @@ export const ParticipationOverview = () => {
                     <h3 className="text-secondary text-[15px] font-semibold">Today's Attendance</h3>
                     <p className="text-slate-400 text-[11px] font-medium mt-0.5">1,240 total students</p>
                 </div>
-                <span className="text-xs font-medium text-emerald-700 bg-emerald-500/10 border border-emerald-500 px-3 py-1 rounded-full capitalize">
-                    86% Present
-                </span>
+                <button className="text-[11px] font-light hover:underline underline-offset-2">
+                    Full Report
+                </button>
             </div>
 
             {/* Donut visual */}

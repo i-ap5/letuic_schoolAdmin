@@ -266,8 +266,8 @@ export const StudentsPage = ({
     >
       {!isHubChild && (
         <TopBar
-          title="Student CRM List"
-          subtitle="Manage student profiles, academic performance, and institutional engagement."
+          title="Student Directory"
+          subtitle="Manage student profiles and academic performance"
           actions={
             <>
               <button className="bg-white border border-slate-100 text-secondary px-4 py-2 rounded-xl text-[13px] font-semibold flex items-center gap-2 hover:bg-slate-50 shadow-sm shadow-slate-100/30 transition-all">
@@ -363,25 +363,25 @@ export const StudentsPage = ({
             <table className="w-full text-left border-collapse">
               <thead className="bg-white border-b border-slate-100">
                 <tr>
-                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500">
                     Student Name
                   </th>
-                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500">
                     ID
                   </th>
-                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500">
                     Grade
                   </th>
-                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500">
                     Participation
                   </th>
-                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500">
                     Aura Score
                   </th>
-                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500">
                     Status
                   </th>
-                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider text-right">
+                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500 text-right">
                     Actions
                   </th>
                 </tr>

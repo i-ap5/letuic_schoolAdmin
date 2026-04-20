@@ -13,8 +13,8 @@ export const CommunicationsHubPage = () => {
     <div className="flex-1 flex flex-col h-screen overflow-hidden bg-white">
       <div className="shrink-0">
         <TopBar
-          title="Communication Hub"
-          subtitle="Manage secure internal messaging and institution-wide announcements."
+          title="Messages"
+          subtitle="Internal staff chat and school notices"
           actions={
             <div className="flex gap-3">
               <button className="bg-primary text-secondary px-4 py-2 rounded-xl text-[13px] font-semibold flex items-center gap-2 hover:opacity-90 transition-all shadow-sm shadow-slate-100/30">
@@ -30,10 +30,10 @@ export const CommunicationsHubPage = () => {
         <div className="px-8 border-b border-slate-100 bg-white">
           <div className="flex gap-8">
             {[
-              { id: "messages", label: "Direct Messages", icon: "chat_bubble" },
+              { id: "messages", label: "Inbox", icon: "chat_bubble" },
               {
                 id: "announcements",
-                label: "Official Announcements",
+                label: "Notices",
                 icon: "campaign",
               },
             ].map((tab) => (

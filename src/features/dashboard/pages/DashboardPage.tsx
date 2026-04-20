@@ -6,19 +6,29 @@ import { ProgramsTable } from "../components/ProgramsTable";
 import { AlertsSection } from "../components/Alerts";
 import { TopBar } from "../../../components/Header";
 import { cn } from "../../../lib/utils";
+import {
+    Users,
+    UserPlus,
+    Megaphone,
+    WalletCards,
+    GraduationCap,
+    Bus,
+    Contact,
+    LayoutGrid
+} from "lucide-react";
 
 export const DashboardPage = () => {
     const navigate = useNavigate();
     return (
         <div className="flex-1 flex flex-col h-screen overflow-hidden">
             <TopBar
-                title="School Dashboard"
-                subtitle="Northridge Academy — Central Campus"
+                title="Home Overview"
+                subtitle="Daily insight and performance overview"
             />
 
             <div className="flex-1 overflow-y-auto no-scrollbar">
                 <div className="max-w-[1400px] mx-auto px-6 lg:px-10 py-6 space-y-6">
-                    
+
                     {/* Stat Cards Row */}
                     <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
                         <StatCard
@@ -55,30 +65,30 @@ export const DashboardPage = () => {
                         {/* Main Left Activity Column — 8 cols */}
                         <div className="lg:col-span-8 space-y-4">
                             {/* Quick Access Horizon Rail — Now Naked */}
-                            <div className="px-2 py-2">
-                                <div className="flex items-center justify-between mb-3 px-1">
-                                    <h3 className="text-[12px] font-semibold text-slate-400/80">Quick Access</h3>
+                            <div className="py-2 px-6">
+                                <div className="flex items-center justify-between mb-4">
+                                    <h3 className="text-secondary text-[15px] font-semibold">Quick Access</h3>
                                 </div>
-                                <div className="flex items-center gap-7 overflow-x-auto no-scrollbar pb-2">
+
+
+                                <div className="flex items-center gap-8 overflow-x-auto no-scrollbar pb-2">
                                     {[
-                                        { label: "Attendance", icon: "how_to_reg", color: "bg-emerald-500/10 text-emerald-600", border: "border-emerald-100" },
-                                        { label: "Enroll", icon: "person_add", color: "bg-blue-500/10 text-blue-600", border: "border-blue-100" },
-                                        { label: "Announcement", icon: "campaign", color: "bg-amber-500/10 text-amber-600", border: "border-amber-100" },
-                                        { label: "Collect Fee", icon: "payments", color: "bg-violet-500/10 text-violet-600", border: "border-violet-100" },
-                                        { label: "Exam Marks", icon: "clinical_notes", color: "bg-rose-500/10 text-rose-600", border: "border-rose-100" },
-                                        { label: "Bus Tracker", icon: "directions_bus", color: "bg-cyan-500/10 text-cyan-600", border: "border-cyan-100" },
-                                        { label: "Staff Directory", icon: "badge", color: "bg-slate-500/10 text-slate-600", border: "border-slate-100" },
+                                        { label: "Attendance", icon: Users, color: "text-emerald-500" },
+                                        { label: "Enroll", icon: UserPlus, color: "text-blue-500" },
+                                        { label: "Announcement", icon: Megaphone, color: "text-amber-500" },
+                                        { label: "Collect Fee", icon: WalletCards, color: "text-violet-500" },
+                                        { label: "Exam Marks", icon: GraduationCap, color: "text-rose-500" },
+                                        { label: "Bus Tracker", icon: Bus, color: "text-cyan-500" },
+                                        { label: "Staff Directory", icon: Contact, color: "text-slate-500" },
                                     ].map((action, i) => (
-                                        <div key={i} className="flex flex-col items-center gap-2.5 group cursor-pointer min-w-[72px]">
+                                        <div key={i} className="flex flex-col items-center gap-2 group cursor-pointer min-w-fit">
                                             <div className={cn(
-                                                "size-14 rounded-full flex items-center justify-center border-2 transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl group-hover:shadow-slate-200/50 bg-white",
-                                                action.color, action.border
+                                                "size-12 rounded-full flex items-center justify-center bg-white border border-slate-100 transition-all duration-300 group-hover:scale-110",
+                                                action.color
                                             )}>
-                                                <span className="material-symbols-outlined text-[24px]" style={{ fontVariationSettings: '"FILL" 1' }}>
-                                                    {action.icon}
-                                                </span>
+                                                <action.icon size={22} strokeWidth={2} />
                                             </div>
-                                            <span className="text-[11px] font-medium text-slate-500 group-hover:text-secondary transition-colors text-center whitespace-nowrap">
+                                            <span className="text-[11px] font-medium text-slate-500 group-hover:text-secondary transition-colors">
                                                 {action.label}
                                             </span>
                                         </div>
@@ -105,42 +115,80 @@ export const DashboardPage = () => {
                         </div>
 
                         {/* Notifications Right Column — 4 cols */}
-                        <div className="lg:col-span-4 self-stretch">
-                            <AlertsSection />
+                        <div className="lg:col-span-4 relative h-[600px] lg:h-auto">
+                            <div className="lg:absolute lg:inset-0">
+                                <AlertsSection />
+                            </div>
                         </div>
                     </div>
 
-                    {/* Classes Needing Attention — Below the balanced row */}
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-                        <div className="lg:col-span-8">
-                            <div className="bg-white rounded-2xl border border-slate-100 p-6">
-                                <div className="flex items-center justify-between mb-4">
-                                    <div>
-                                        <h3 className="text-secondary text-[15px] font-semibold">Classes Needing Attention</h3>
-                                        <p className="text-slate-400 text-xs font-medium mt-0.5">Low attendance or declining performance</p>
-                                    </div>
-                                    <button
-                                        onClick={() => navigate("/classes")}
-                                        className="text-[11px] font-medium hover:underline underline-offset-2"
-                                    >
-                                        All Classes →
-                                    </button>
-                                </div>
-                                <div className="space-y-2">
-                                    <ClassCard
-                                        grade="Grade 11" section="C" room="Room 205" status="At Risk" statusType="risk" teacher="Mr. Swamy" students={25} participation={62}
-                                        onClick={() => navigate("/classes/11-C")}
-                                    />
-                                    <ClassCard
-                                        grade="Grade 9" section="D" room="Lab 1" status="Attention" statusType="attention" teacher="Ms. Reddy" students={31} participation={76}
-                                        onClick={() => navigate("/classes/9-D")}
-                                    />
-                                    <ClassCard
-                                        grade="Grade 8" section="A" room="Room 102" status="On Track" statusType="normal" teacher="Mr. Nair" students={38} participation={91}
-                                        onClick={() => navigate("/classes/8-A")}
-                                    />
+                    {/* Class Health Monitor — Premium Glassy Redesign */}
+                    <div className="w-full relative">
+                        <div className="flex items-center justify-between mb-6 relative z-10">
+                            <div>
+                                <h3 className="text-secondary text-[15px] font-semibold">Class Monitor Focus</h3>
+                                <div className="flex items-center gap-2 mt-1">
+                                    <span className="size-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                                    <p className="text-slate-400 text-[11px] font-medium">AI-Driven Risk Detection Active</p>
                                 </div>
                             </div>
+                            <button
+                                onClick={() => navigate("/classes")}
+                                className="text-[11px] font-light hover:underline underline-offset-2"
+                            >
+                                Full Report
+                            </button>
+                        </div>
+
+                        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 relative z-10">
+                            {[
+                                { grade: "11-C", teacher: "Mr. Swamy", issue: "Attendance Drop", detail: "-22% Morning", score: 62, status: "critical" },
+                                { grade: "9-D", teacher: "Ms. Reddy", issue: "Grade Decline", detail: "Average Drop", score: 76, status: "warning" },
+                                { grade: "10-A", teacher: "Dr. Kapoor", issue: "Absenteeism", detail: "Unusual spikes", score: 68, status: "warning" },
+                            ].map((item, i) => (
+                                <div key={i} className="group relative">
+                                    <div className="flex items-center gap-4 p-5 rounded-[18px] bg-white border border-slate-100 hover:border-primary/20 transition-all duration-500 cursor-pointer h-full">
+                                        {/* Circular Gauge */}
+                                        <div className="relative size-12 shrink-0">
+                                            <svg className="size-full -rotate-90">
+                                                <circle cx="24" cy="24" r="20" fill="none" strokeWidth="3.5" className="stroke-slate-100" />
+                                                <circle cx="24" cy="24" r="20" fill="none" strokeWidth="3.5"
+                                                    strokeDasharray={2 * Math.PI * 20}
+                                                    strokeDashoffset={2 * Math.PI * 20 * (1 - item.score / 100)}
+                                                    className={cn(
+                                                        "transition-all duration-1000",
+                                                        item.status === "critical" ? "stroke-rose-500" : "stroke-amber-500"
+                                                    )}
+                                                    strokeLinecap="round"
+                                                />
+                                            </svg>
+                                            <div className="absolute inset-0 flex items-center justify-center">
+                                                <span className="text-[10px] font-black text-secondary">{item.score}%</span>
+                                            </div>
+                                        </div>
+
+                                        {/* Content */}
+                                        <div className="flex-1 min-w-0">
+                                            <div className="flex items-center gap-2 mb-0.5">
+                                                <span className="text-[12.5px] font-black text-black tracking-tight">{item.grade}</span>
+                                                <div className={cn(
+                                                    "px-2 py-0.5 rounded-full text-[7px] font-black border capitalize",
+                                                    item.status === "critical" ? "bg-rose-50 text-rose-600 border-rose-100" : "bg-amber-50 text-amber-600 border-amber-100"
+                                                )}>
+                                                    {item.status}
+                                                </div>
+                                            </div>
+                                            <h5 className="text-[12.5px] font-bold text-secondary truncate">{item.issue}</h5>
+                                            <p className="text-[10px] text-slate-400 font-medium opacity-80 leading-tight truncate">{item.detail}</p>
+                                        </div>
+
+                                        {/* Action Button - Subtle */}
+                                        <div className="size-7 shrink-0 rounded-lg bg-white border border-slate-100 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all translate-x-2 group-hover:translate-x-0 shadow-sm">
+                                            <span className="material-symbols-outlined text-[14px] text-primary">chevron_right</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
                         </div>
                     </div>
                 </div>

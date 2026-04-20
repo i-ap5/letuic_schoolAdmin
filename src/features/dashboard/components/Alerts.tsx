@@ -66,6 +66,12 @@ export const AlertsSection = ({ className }: { className?: string }) => {
           message="Upcoming substitute classes lack registered supervisors."
           time="1d"
         />
+        <AlertItem
+          type="info"
+          title="Campus Security Update"
+          message="Enhanced monitoring protocols implemented in the north wing starting Monday."
+          time="2d"
+        />
       </div>
     </div>
   );

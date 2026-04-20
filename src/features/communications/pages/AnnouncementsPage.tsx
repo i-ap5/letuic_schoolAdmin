@@ -51,8 +51,8 @@ export const AnnouncementsPage = ({ isHubChild }: { isHubChild?: boolean }) => {
     >
       {!isHubChild && (
         <TopBar
-          title="Announcements & Circulars"
-          subtitle="Manage official school broadcasts and track engagement across roles."
+          title="School Notices"
+          subtitle="Official school broadcasts and engagement tracking"
           actions={
             <button className="bg-primary text-secondary px-4 py-2 rounded-xl text-[13px] font-semibold flex items-center gap-2 hover:opacity-90 transition-all shadow-sm shadow-slate-100/30 active:scale-95">
               <span className="material-symbols-outlined text-sm">
@@ -103,13 +103,13 @@ export const AnnouncementsPage = ({ isHubChild }: { isHubChild?: boolean }) => {
                   key={filter}
                   onClick={() => setActiveFilter(filter)}
                   className={cn(
-                    "px-5 py-1.5 text-[12px] font-bold uppercase tracking-widest transition-all rounded-full",
+                    "px-5 py-1.5 text-[12px] font-bold transition-all rounded-full",
                     activeFilter === filter
                       ? "bg-white text-secondary shadow-sm shadow-slate-200/50 border border-slate-100/50"
                       : "text-slate-400 hover:text-secondary hover:bg-slate-100/50",
                   )}
                 >
-                  {filter}
+                  <span className="capitalize">{filter}</span>
                 </button>
               ))}
             </div>
@@ -118,19 +118,19 @@ export const AnnouncementsPage = ({ isHubChild }: { isHubChild?: boolean }) => {
             <table className="w-full text-left">
               <thead>
                 <tr className="bg-slate-50/50 border-b border-slate-100">
-                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500">
                     Title & Content
                   </th>
-                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500">
                     Visibility
                   </th>
-                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500">
                     Target
                   </th>
-                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
+                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500">
                     Engagement
                   </th>
-                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider text-right">
+                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500 text-right">
                     Actions
                   </th>
                 </tr>
@@ -157,7 +157,7 @@ export const AnnouncementsPage = ({ isHubChild }: { isHubChild?: boolean }) => {
                         {ann.visibility.split(", ").map((v, i) => (
                           <span
                             key={i}
-                            className="text-[10px] font-bold px-3 py-1.5 rounded-full bg-slate-50 text-slate-500 border border-slate-200 uppercase tracking-widest"
+                            className="text-[10px] font-bold px-3 py-1.5 rounded-full bg-slate-50 text-slate-500 border border-slate-200"
                           >
                             {v}
                           </span>

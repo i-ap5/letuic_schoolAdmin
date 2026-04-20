@@ -106,8 +106,8 @@ export const FeesPage = () => {
     return (
         <div className="flex-1 flex flex-col h-screen overflow-hidden bg-white">
             <TopBar
-                title="Financial Management"
-                subtitle="Track fee collections, manage outstanding balances, and automate reminders."
+                title="Tuition & Fees"
+                subtitle="Track and manage school fee collections"
                 actions={
                     <div className="flex gap-3">
                         <button className="bg-white border border-slate-100 text-secondary px-4 py-2 rounded-xl text-[13px] font-semibold flex items-center gap-2 hover:bg-slate-50 transition-all">
@@ -169,13 +169,13 @@ export const FeesPage = () => {
                             <table className="w-full text-left">
                                 <thead>
                                     <tr className="bg-slate-50/50 border-b border-slate-100">
-                                        <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-widest">Student & Grade</th>
-                                        <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-widest">Fee Category</th>
-                                        <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-widest">Amount</th>
-                                        <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-widest">Due Date</th>
-                                        <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-widest">Status</th>
-                                        <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-widest">Payment Method</th>
-                                        <th className="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-widest text-right">Action</th>
+                                        <th className="px-6 py-4 text-[11px] font-bold text-slate-500">Student & Grade</th>
+                                        <th className="px-6 py-4 text-[11px] font-bold text-slate-500">Fee Category</th>
+                                        <th className="px-6 py-4 text-[11px] font-bold text-slate-500">Amount</th>
+                                        <th className="px-6 py-4 text-[11px] font-bold text-slate-500">Due Date</th>
+                                        <th className="px-6 py-4 text-[11px] font-bold text-slate-500">Status</th>
+                                        <th className="px-6 py-4 text-[11px] font-bold text-slate-500">Payment Method</th>
+                                        <th className="px-6 py-4 text-[11px] font-bold text-slate-500 text-right">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody className="divide-y divide-slate-50">
@@ -198,7 +198,7 @@ export const FeesPage = () => {
                                             </td>
                                             <td className="px-6 py-4">
                                                 <span className={cn(
-                                                    "px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider border",
+                                                    "px-2.5 py-1 rounded-full text-[10px] font-bold border",
                                                     getStatusStyles(record.status)
                                                 )}>
                                                     {record.status}
@@ -257,7 +257,7 @@ export const FeesPage = () => {
 
                         <div className="bg-white border border-slate-100 p-8 rounded-2xl shadow-sm shadow-slate-100/30 flex flex-col justify-between">
                             <div>
-                                <h3 className="text-secondary text-[15px] font-black mb-1">Collection by Category</h3>
+                                <h3 className="text-secondary text-[15px] font-bold mb-1">Collection by Category</h3>
                                 <p className="text-slate-400 text-[11px] font-medium italic">Breakdown of total revenue</p>
                             </div>
                             <div className="space-y-4 my-6">

@@ -1,10 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import { TopBar } from "../../../components/Header";
 import { ClassCard } from "../../dashboard/components/ClassCard";
+import { CreateClassModal } from "../components/CreateClassModal";
+import { useState } from "react";
 
 export const ClassesPage = () => {
   const navigate = useNavigate();
-  const classes = [
+  const [showCreateModal, setShowCreateModal] = useState(false);
+  const [classes, setClasses] = useState([
     {
       grade: "Grade 10",
       section: "B",
@@ -71,22 +74,25 @@ export const ClassesPage = () => {
       participation: 85,
       id: "11-B",
     },
-  ];
+  ]);
 
   return (
     <div className="flex-1 flex flex-col h-screen overflow-hidden">
       <TopBar
-        title="Classes Directory"
-        subtitle="Full directory of all active grade levels and sections for the 2023-2024 cycle."
+        title="Classes"
+        subtitle="Overview of all active grade levels and sections."
         actions={
           <>
             <button className="px-4 py-2 bg-white border border-slate-100 rounded-xl flex items-center gap-2 text-[13px] font-semibold text-slate-500 hover:bg-slate-50 transition-colors">
               <span className="material-symbols-outlined text-lg">
                 file_download
               </span>
-              Export Directory
+              Export List
             </button>
-            <button className="bg-primary text-secondary px-4 py-2 rounded-xl text-[13px] font-semibold flex items-center gap-2 hover:opacity-90 transition-all shadow-sm shadow-slate-100/30">
+            <button 
+              onClick={() => setShowCreateModal(true)}
+              className="bg-primary text-secondary px-4 py-2 rounded-xl text-[13px] font-semibold flex items-center gap-2 hover:opacity-90 transition-all shadow-sm shadow-slate-100/30 active:scale-95"
+            >
               <span className="material-symbols-outlined text-sm">
                 add_circle
               </span>
@@ -96,83 +102,91 @@ export const ClassesPage = () => {
         }
       />
 
-      <div className="flex-1 overflow-y-auto mx-auto px-6 lg:px-10 py-6 space-y-6">
-        {/* Search and Filters */}
-        <div className="bg-white p-4 rounded-2xl border border-slate-100 shadow-sm shadow-slate-100/30 flex flex-wrap gap-4 items-center">
-          <div className="flex-1 min-w-[300px]">
-            <div className="relative group">
-              <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-300 group-focus-within:text-secondary transition-colors">
-                search
-              </span>
-              <input
-                className="w-full bg-slate-50/50 border-none rounded-xl pl-10 pr-4 py-2.5 text-sm focus:ring-2 focus:ring-primary text-secondary placeholder-slate-300"
-                placeholder="Search by class name or teacher..."
-                type="text"
-              />
+      <div className="flex-1 overflow-y-auto no-scrollbar">
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-10 py-6 space-y-6">
+          {/* Search and Filters */}
+          <div className="bg-white p-4 rounded-2xl border border-slate-100 shadow-sm shadow-slate-100/30 flex flex-wrap gap-4 items-center">
+            <div className="flex-1 min-w-[300px]">
+              <div className="relative group">
+                <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-300 group-focus-within:text-secondary transition-colors">
+                  search
+                </span>
+                <input
+                  className="w-full bg-slate-50/50 border-none rounded-xl pl-10 pr-4 py-2.5 text-sm focus:ring-2 focus:ring-primary text-secondary placeholder-slate-300"
+                  placeholder="Search by class name or teacher..."
+                  type="text"
+                />
+              </div>
+            </div>
+            <div className="flex items-center gap-3">
+              <select className="bg-white border border-slate-100 rounded-xl text-sm px-3 py-2 text-secondary focus:ring-primary outline-none">
+                <option>Grade</option>
+                <option>9th Grade</option>
+                <option>10th Grade</option>
+                <option>11th Grade</option>
+                <option>12th Grade</option>
+              </select>
+              <select className="bg-white border border-slate-100 rounded-xl text-sm px-3 py-2 text-secondary focus:ring-primary outline-none">
+                <option>Section</option>
+                <option>A</option>
+                <option>B</option>
+                <option>C</option>
+                <option>D</option>
+              </select>
+              <button className="p-2 border border-slate-100 rounded-xl hover:bg-slate-50 transition-colors">
+                <span className="material-symbols-outlined text-slate-400 text-lg">
+                  filter_list
+                </span>
+              </button>
             </div>
           </div>
-          <div className="flex items-center gap-3">
-            <select className="bg-white border border-slate-100 rounded-xl text-sm px-3 py-2 text-secondary focus:ring-primary outline-none">
-              <option>Grade</option>
-              <option>9th Grade</option>
-              <option>10th Grade</option>
-              <option>11th Grade</option>
-              <option>12th Grade</option>
-            </select>
-            <select className="bg-white border border-slate-100 rounded-xl text-sm px-3 py-2 text-secondary focus:ring-primary outline-none">
-              <option>Section</option>
-              <option>A</option>
-              <option>B</option>
-              <option>C</option>
-              <option>D</option>
-            </select>
-            <button className="p-2 border border-slate-100 rounded-xl hover:bg-slate-50 transition-colors">
-              <span className="material-symbols-outlined text-slate-400 text-lg">
-                filter_list
-              </span>
-            </button>
+
+          {/* Classes Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {classes.map((cls, j) => (
+              <ClassCard
+                key={cls.id}
+                {...cls}
+                onClick={() => navigate(`/classes/${cls.id}`)}
+              />
+            ))}
           </div>
-        </div>
 
-        {/* Classes Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {classes.map((cls, i) => (
-            <ClassCard
-              key={i}
-              {...cls}
-              onClick={() => navigate(`/classes/${cls.id}`)}
-            />
-          ))}
-        </div>
+          <CreateClassModal 
+            isOpen={showCreateModal} 
+            onClose={() => setShowCreateModal(false)}
+            onCreated={(newCls) => setClasses([newCls, ...classes])}
+          />
 
-        {/* Pagination Placeholder */}
-        <div className="flex items-center justify-between pt-8 border-t border-slate-50">
-          <p className="text-xs text-slate-400 font-medium">
-            Showing {classes.length} of 42 classes
-          </p>
-          <div className="flex items-center gap-2">
-            <button
-              className="size-8 flex items-center justify-center rounded border border-slate-100 bg-white text-slate-400 disabled:opacity-50"
-              disabled
-            >
-              <span className="material-symbols-outlined text-sm">
-                chevron_left
-              </span>
-            </button>
-            <button className="size-8 flex items-center justify-center rounded border border-primary bg-primary text-secondary text-xs font-medium shadow-sm shadow-slate-100/30">
-              1
-            </button>
-            <button className="size-8 flex items-center justify-center rounded border border-slate-100 bg-white text-xs font-medium hover:bg-slate-50 transition-colors">
-              2
-            </button>
-            <button className="size-8 flex items-center justify-center rounded border border-slate-100 bg-white text-xs font-medium hover:bg-slate-50 transition-colors">
-              3
-            </button>
-            <button className="size-8 flex items-center justify-center rounded border border-slate-100 bg-white text-slate-400 hover:bg-slate-50 transition-colors">
-              <span className="material-symbols-outlined text-sm">
-                chevron_right
-              </span>
-            </button>
+          {/* Pagination Placeholder */}
+          <div className="flex items-center justify-between pt-8 border-t border-slate-50">
+            <p className="text-xs text-slate-400 font-medium">
+              Showing {classes.length} of 42 classes
+            </p>
+            <div className="flex items-center gap-2">
+              <button
+                className="size-8 flex items-center justify-center rounded border border-slate-100 bg-white text-slate-400 disabled:opacity-50"
+                disabled
+              >
+                <span className="material-symbols-outlined text-sm">
+                  chevron_left
+                </span>
+              </button>
+              <button className="size-8 flex items-center justify-center rounded border border-primary bg-primary text-secondary text-xs font-medium shadow-sm shadow-slate-100/30">
+                1
+              </button>
+              <button className="size-8 flex items-center justify-center rounded border border-slate-100 bg-white text-xs font-medium hover:bg-slate-50 transition-colors">
+                2
+              </button>
+              <button className="size-8 flex items-center justify-center rounded border border-slate-100 bg-white text-xs font-medium hover:bg-slate-50 transition-colors">
+                3
+              </button>
+              <button className="size-8 flex items-center justify-center rounded border border-slate-100 bg-white text-slate-400 hover:bg-slate-50 transition-colors">
+                <span className="material-symbols-outlined text-sm">
+                  chevron_right
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>

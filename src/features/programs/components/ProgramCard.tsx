@@ -37,7 +37,7 @@ export const ProgramCard = ({
     >
       <div className="flex justify-between items-start mb-4">
         <div className="flex flex-col gap-1">
-          <span className="text-[10px] capitalize font-black text-slate-400">
+          <span className="text-[10px] capitalize font-bold text-slate-400">
             {category}
           </span>
           <h3 className="text-[16px] font-semibold text-secondary group-hover:text-black transition-colors">
@@ -102,7 +102,7 @@ export const ProgramCard = ({
             <span className="text-xs font-medium capitalize text-slate-400">
               Program Progress
             </span>
-            <span className="text-xs font-black text-secondary">
+            <span className="text-xs font-bold text-secondary">
               {progress}%
             </span>
           </div>

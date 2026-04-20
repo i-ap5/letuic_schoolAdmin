@@ -1,10 +1,12 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { TopBar } from "../../../components/Header";
 import { cn } from "../../../lib/utils";
 import { TransportationPage } from "./TransportationPage";
 import { DriversPage } from "./DriversPage";
 
 export const TransportationHubPage = () => {
+  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState<"tracking" | "drivers">(
     "tracking",
   );
@@ -13,15 +15,18 @@ export const TransportationHubPage = () => {
     <div className="flex-1 flex flex-col h-screen overflow-hidden bg-white">
       <div className="shrink-0">
         <TopBar
-          title="Transportation Hub"
-          subtitle="Real-time bus tracking and comprehensive driver management."
+          title="Bus Tracking"
+          subtitle="Real-time bus locations and driver management"
           actions={
             <div className="flex gap-3">
-              <button className="bg-primary text-secondary px-4 py-2 rounded-xl text-[13px] font-semibold flex items-center gap-2 hover:opacity-90 transition-all shadow-sm shadow-slate-100/30">
+              <button 
+                onClick={() => navigate("/transportation/add-vehicle")}
+                className="bg-primary text-secondary px-4 py-2 rounded-xl text-[13px] font-semibold flex items-center gap-2 hover:opacity-90 transition-all shadow-sm shadow-slate-100/30"
+              >
                 <span className="material-symbols-outlined text-sm">
                   directions_bus
                 </span>
-                Manage Fleet
+                Add New Vehicle
               </button>
             </div>
           }
@@ -30,10 +35,10 @@ export const TransportationHubPage = () => {
         <div className="px-8 border-b border-slate-100 bg-white">
           <div className="flex gap-8">
             {[
-              { id: "tracking", label: "Fleet Tracking", icon: "location_on" },
+              { id: "tracking", label: "Bus Map", icon: "location_on" },
               {
                 id: "drivers",
-                label: "Driver Registry",
+                label: "Drivers",
                 icon: "person_pin_circle",
               },
             ].map((tab) => (
