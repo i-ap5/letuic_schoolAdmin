@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { StatCard } from "../../../components/StatCard";
 import { ParticipationOverview } from "../components/ParticipationOverview";
-import { ClassCard } from "../components/ClassCard";
 import { ProgramsTable } from "../components/ProgramsTable";
 import { AlertsSection } from "../components/Alerts";
 import { TopBar } from "../../../components/Header";
@@ -14,7 +13,6 @@ import {
     GraduationCap,
     Bus,
     Contact,
-    LayoutGrid
 } from "lucide-react";
 
 export const DashboardPage = () => {

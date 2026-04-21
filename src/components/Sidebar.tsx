@@ -37,29 +37,7 @@ const NavItem = ({ icon, label, path, active }: NavItemProps) => (
     </Link>
 );
 
-const FlipDigit = ({ digit }: { digit: string }) => {
-    const isNumber = !isNaN(parseInt(digit));
-    if (!isNumber) {
-        return <span className="inline-flex justify-center opacity-40 px-0.5">{digit}</span>;
-    }
-    return (
-        <div className="relative h-[18px] w-[9.5px] overflow-hidden inline-flex">
-            <div
-                className="transition-transform duration-700 cubic-bezier(0.4, 0, 0.2, 1) flex flex-col absolute top-0"
-                style={{ transform: `translateY(-${parseInt(digit) * 18}px)` }}
-            >
-                {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((n) => (
-                    <span
-                        key={n}
-                        className="h-[18px] w-[9.5px] flex items-center justify-center font-bold text-secondary text-[14px]"
-                    >
-                        {n}
-                    </span>
-                ))}
-            </div>
-        </div>
-    );
-};
+
 
 export const Sidebar = () => {
     const location = useLocation();
@@ -89,12 +67,7 @@ export const Sidebar = () => {
     const timeStr = timeParts[0];
     const amPm = timeParts[1];
 
-    const dateStr = now.toLocaleDateString("en-IN", {
-        weekday: "long",
-        day: "numeric",
-        month: "long",
-        year: "numeric",
-    });
+
 
     return (
         <aside className="w-64 bg-white border-r border-slate-100 sticky top-0 h-screen flex flex-col shrink-0 z-50">

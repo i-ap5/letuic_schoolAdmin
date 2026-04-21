@@ -15,12 +15,6 @@ export const TopBar = ({
     const now = new Date();
     const greeting =
         now.getHours() < 12 ? "Good Morning" : now.getHours() < 17 ? "Good Afternoon" : "Good Evening";
-    const dateStr = now.toLocaleDateString("en-IN", {
-        weekday: "long",
-        day: "numeric",
-        month: "long",
-        year: "numeric",
-    });
 
     const quickActions = [
         { label: "Enroll Student", icon: "person_add", color: "text-blue-500", bg: "bg-blue-50" },
