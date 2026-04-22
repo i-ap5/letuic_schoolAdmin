@@ -99,32 +99,35 @@ export const Sidebar = () => {
 
             {/* Bottom Section - Fixed */}
             <div className="p-6 pt-2 border-t border-slate-50 space-y-4">
-                {/* Premium Date & Time Widget */}
-                <div className="px-1">
-                    <div className="flex items-center gap-4 rounded-[20px] group/time">
-                        <div className="flex flex-col items-center justify-center bg-white size-12 rounded-[14px] shadow-sm shadow-slate-200/50 border border-slate-100 shrink-0 transition-transform group-hover/time:scale-105">
-                            <span className="text-[9px] font-black text-secondary/40 uppercase leading-none tracking-tighter">
+                {/* Premium Date & Time Widget - Condensed */}
+                <div className="bg-slate-50/50 rounded-2xl py-3 px-4 border border-slate-100 group/time transition-all hover:bg-slate-50">
+                    <div className="flex items-center gap-4">
+                        {/* Calendar Icon-like Date Box */}
+                        <div className="flex flex-col items-center justify-center bg-white size-11 rounded-xl shadow-sm border border-slate-200/60 shrink-0 transition-all group-hover/time:shadow-md group-hover/time:-translate-y-0.5">
+                            <span className="text-[8px] font-bold text-primary uppercase leading-none tracking-wider mb-1">
                                 {now.toLocaleDateString("en-IN", { month: "short" })}
                             </span>
-                            <span className="text-[18px] font-black text-secondary leading-none mt-1">
+                            <span className="text-[17px] font-bold text-secondary leading-none">
                                 {now.toLocaleDateString("en-IN", { day: "2-digit" })}
                             </span>
                         </div>
-                        <div className="flex flex-col justify-center">
+                        
+                        {/* Elegant Time & Day */}
+                        <div className="flex flex-col justify-center min-w-0">
                             <div className="flex items-baseline gap-0.5">
-                                <span className="text-[16px] font-black text-secondary tracking-tight">
+                                <span className="text-[16px] font-bold text-secondary tracking-tight">
                                     {timeStr.split(":")[0]}
                                 </span>
-                                <span className="text-[16px] font-black text-secondary animate-blink">:</span>
-                                <span className="text-[16px] font-black text-secondary tracking-tight">
+                                <span className="text-[16px] font-bold text-primary animate-blink mx-0.5">:</span>
+                                <span className="text-[16px] font-bold text-secondary tracking-tight">
                                     {timeStr.split(":")[1]}
                                 </span>
-                                <span className="text-[12px] font-black text-secondary/40 uppercase ml-1">
+                                <span className="text-[9px] font-bold text-slate-400 uppercase ml-1.5 tracking-wider">
                                     {amPm}
                                 </span>
                             </div>
-                            <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest leading-none mt-1">
-                                {now.toLocaleDateString("en-IN", { weekday: "long" })}
+                            <p className="text-[10px] font-medium text-slate-400 capitalize -mt-0.5">
+                                {now.toLocaleDateString("en-IN", { weekday: "long" })}, {now.getFullYear()}
                             </p>
                         </div>
                     </div>
