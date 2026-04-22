@@ -2,7 +2,7 @@ import { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { TopBar } from "../../../components/Header";
 import { cn } from "../../../lib/utils";
-import { Search, Filter, Users, ShieldCheck, ChevronRight, GraduationCap } from "lucide-react";
+import { Search, Users, ShieldCheck, ChevronRight, GraduationCap } from "lucide-react";
 
 export const KnowYourStudentPage = () => {
     const navigate = useNavigate();

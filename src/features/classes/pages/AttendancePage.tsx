@@ -1,10 +1,8 @@
 import { useState, useMemo } from "react";
-import { useNavigate } from "react-router-dom";
 import { TopBar } from "../../../components/Header";
 import { cn } from "../../../lib/utils";
 
 export const AttendancePage = ({ isHubChild }: { isHubChild?: boolean }) => {
-  const navigate = useNavigate();
   const [selectedClass, setSelectedClass] = useState("Grade 10-B");
   const [searchTerm, setSearchTerm] = useState("");
   const [attendanceDate, setAttendanceDate] = useState(

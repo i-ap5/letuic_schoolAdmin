@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { TopBar } from "../../../components/Header";
 import { cn } from "../../../lib/utils";
 import { StatCard } from "../../../components/StatCard";
-import { Send, X, Users, Globe, Eye, ShieldCheck, Mail } from "lucide-react";
+import { Send, X, Globe, Eye, ShieldCheck, Mail } from "lucide-react";
 
 export const AnnouncementsPage = ({ isHubChild, forceCompose }: { isHubChild?: boolean, forceCompose?: number }) => {
   const [activeFilter, setActiveFilter] = useState("all");

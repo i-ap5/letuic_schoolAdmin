@@ -4,7 +4,6 @@ import { cn } from "../../../lib/utils";
 import { TopBar } from "../../../components/Header";
 import { 
   GraduationCap, 
-  FileText, 
   Users, 
   Phone, 
   Calendar, 
@@ -12,7 +11,6 @@ import {
   AlertCircle,
   Lock,
   ChevronRight,
-  Plus,
   ArrowUpRight,
   Activity,
   History

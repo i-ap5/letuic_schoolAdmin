@@ -8,7 +8,6 @@ import { cn } from "../../../lib/utils";
 import {
     Users,
     UserPlus,
-    User,
     UserCheck,
     Megaphone,
     WalletCards,
