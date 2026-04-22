@@ -8,6 +8,8 @@ import { ClassDetailsPage } from "./features/classes/pages/ClassDetailsPage";
 import { ReportsPage } from "./features/reports/pages/ReportsPage";
 import { CalendarPage } from "./features/calendar/pages/CalendarPage";
 import { ExamDetailsPage } from "./features/examinations/pages/ExamDetailsPage";
+import { KnowYourStudentPage } from "./features/students/pages/KnowYourStudentPage";
+import { AttendancePage } from "./features/classes/pages/AttendancePage";
 
 import { AcademicHubPage } from "./features/academics/pages/AcademicHubPage";
 import { DirectoryPage } from "./features/directory/pages/DirectoryPage";
@@ -30,6 +32,7 @@ function App() {
           <Route path="/" element={<DashboardPage />} />
           <Route path="/classes" element={<ClassesPage />} />
           <Route path="/classes/:id" element={<ClassDetailsPage />} />
+          <Route path="/attendance" element={<AttendancePage />} />
           <Route path="/students/:id" element={<StudentProfilePage />} />
           <Route path="/academics" element={<AcademicHubPage />} />
           <Route path="/directory" element={<DirectoryPage />} />
@@ -45,6 +48,7 @@ function App() {
           <Route path="/calendar" element={<CalendarPage />} />
           <Route path="/community" element={<CommunityPage />} />
           <Route path="/reports" element={<ReportsPage />} />
+          <Route path="/know-your-student" element={<KnowYourStudentPage />} />
           <Route path="/examinations/:id" element={<ExamDetailsPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>

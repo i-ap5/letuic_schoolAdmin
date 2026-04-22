@@ -14,7 +14,7 @@ export const DirectoryPage = () => {
 
   const [staffMembers, setStaffMembers] = useState([
     {
-      name: "Dr. Ananya Iyer",
+      name: "Dr. Lakshmi K.",
       id: "#ST-1024-001",
       role: "Lead Teacher",
       department: "Mathematics",
@@ -22,10 +22,10 @@ export const DirectoryPage = () => {
       auraScore: 98.4,
       status: "Active",
       img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
-      uid: "ananya-iyer",
+      uid: "ananya-i",
     },
     {
-      name: "Rishi Deshmukh",
+      name: "Rishi K.",
       id: "#ST-1024-042",
       role: "Senior Counselor",
       department: "Student Affairs",
@@ -33,10 +33,10 @@ export const DirectoryPage = () => {
       auraScore: 91.2,
       status: "Remote",
       img: "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?w=400&h=400&fit=crop",
-      uid: "rishi-deshmukh",
+      uid: "rishi-d",
     },
     {
-      name: "Pooja Trivedi",
+      name: "Dhanya S.",
       id: "#ST-1024-118",
       role: "Science Head",
       department: "Natural Sciences",
@@ -44,10 +44,10 @@ export const DirectoryPage = () => {
       auraScore: 94.5,
       status: "Active",
       img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop",
-      uid: "pooja-trivedi",
+      uid: "pooja-t",
     },
     {
-      name: "Arvind Swamy",
+      name: "Arvind S.",
       id: "#ST-1024-085",
       role: "Department Lead",
       department: "History",
@@ -55,13 +55,13 @@ export const DirectoryPage = () => {
       auraScore: 82.2,
       status: "On Leave",
       img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop",
-      uid: "arvind-swamy",
+      uid: "arvind-s",
     },
   ]);
 
   const [students, setStudents] = useState([
     {
-      name: "Aavya Sharma",
+      name: "Aavya S.",
       id: "OA-2024-001",
       grade: "12th Grade",
       participation: 92,
@@ -71,10 +71,10 @@ export const DirectoryPage = () => {
       enrollmentDate: "Aug 2021",
       status: "Active",
       img: "https://images.unsplash.com/photo-1531123897727-8f129e16fd3c?w=400&h=400&fit=crop",
-      uid: "aavya-sharma",
+      uid: "aavya-s",
     },
     {
-      name: "Ishaan Iyer",
+      name: "Ishaan K.",
       id: "OA-2024-042",
       grade: "10th Grade",
       participation: 45,
@@ -84,10 +84,10 @@ export const DirectoryPage = () => {
       enrollmentDate: "Aug 2022",
       status: "At Risk",
       img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
-      uid: "ishaan-iyer",
+      uid: "ishaan-i",
     },
     {
-      name: "Mira Patel",
+      name: "Meera V.",
       id: "OA-2024-118",
       grade: "11th Grade",
       participation: 88,
@@ -100,7 +100,7 @@ export const DirectoryPage = () => {
       uid: "mira-patel",
     },
     {
-      name: "Vedant Kulkarni",
+      name: "Vedant K.",
       id: "OA-2024-085",
       grade: "9th Grade",
       participation: 76,
@@ -113,7 +113,7 @@ export const DirectoryPage = () => {
       uid: "vedant-kulkarni",
     },
     {
-      name: "Sanya Gupta",
+      name: "Sanya G.",
       id: "OA-2024-201",
       grade: "12th Grade",
       participation: 95,
@@ -123,10 +123,10 @@ export const DirectoryPage = () => {
       enrollmentDate: "Aug 2021",
       status: "Active",
       img: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop",
-      uid: "sanya-gupta",
+      uid: "sanya-g",
     },
     {
-      name: "Arjun Rao",
+      name: "Arjun T.",
       id: "OA-2024-156",
       grade: "11th Grade",
       participation: 82,
@@ -139,7 +139,7 @@ export const DirectoryPage = () => {
       uid: "arjun-rao",
     },
     {
-      name: "Diya Malhotra",
+      name: "Diya M.",
       id: "OA-2024-092",
       grade: "10th Grade",
       participation: 68,
@@ -149,10 +149,10 @@ export const DirectoryPage = () => {
       enrollmentDate: "Jan 2023",
       status: "Active",
       img: "https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?w=400&h=400&fit=crop",
-      uid: "diya-malhotra",
+      uid: "diya-m",
     },
     {
-      name: "Rohan Das",
+      name: "Rohan P.",
       id: "OA-2024-305",
       grade: "9th Grade",
       participation: 54,

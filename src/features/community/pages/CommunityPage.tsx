@@ -9,19 +9,19 @@ export const CommunityPage = ({ isHubChild }: { isHubChild?: boolean }) => {
   const posts = [
     {
       id: 1,
-      author: "Dr. Ananya Iyer",
-      role: "Lead Faculty",
-      avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100",
-      content: "Thrilled to share that our Science Olympiad team secured the regional trophy! 🏆 Outstanding dedication from Grade 12 students. #ProudMoment #AcademicExcellence",
-      image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200",
-      time: "2h ago",
-      reactions: 42,
-      comments: 12,
+      author: "Dr. Rahana",
+      role: "Principal",
+      avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop",
+      content: "It is a moment of immense pride for Adarsha Vidya Bhavan as we announce a 100% result for our Class 10 batch of 2026! 🎓 Our students have displayed exceptional dedication, and I congratulate them, their families, and our hardworking faculty for this stellar achievement. Let us celebrate our top scorers who have set a new benchmark for excellence. #Class10Results #100PercentSuccess #AcademicExcellence #ProudMoment",
+      image: "/banner.jpg",
+      time: "Just now",
+      reactions: 342,
+      comments: 56,
       isAcknowledged: true,
     },
     {
       id: 2,
-      author: "Rohan Das",
+      author: "Rohan P.",
       role: "Grade 10 Student",
       avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100",
       content: "Does anyone have the reference materials for the upcoming Calculus midterm? Specifically looking for the derivatives worksheet. Thanks!",
@@ -82,8 +82,8 @@ export const CommunityPage = ({ isHubChild }: { isHubChild?: boolean }) => {
                         <p className="text-[11px] text-white/60 font-medium mb-4">Top contributors this week</p>
                         <div className="space-y-4">
                              {[
-                                { name: "Mira Patel", points: 2450, img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100" },
-                                { name: "Arjun Rao", points: 2120, img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100" },
+                                { name: "Meera V.", points: 2450, img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100" },
+                                { name: "Arjun T.", points: 2120, img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100" },
                              ].map((u, i) => (
                                 <div key={u.name} className="flex items-center gap-3">
                                     <div className="relative">

@@ -7,17 +7,17 @@ export const CurriculumPage = ({ isHubChild }: { isHubChild?: boolean }) => {
   const [showAssignModal, setShowAssignModal] = useState(false);
 
   const subjects = [
-    { id: "SUB-001", name: "Mathematics", head: "Dr. Ananya Iyer", teachers: 4, classes: 8, intensity: "High" },
-    { id: "SUB-002", name: "Modern Physics", head: "Pooja Trivedi", teachers: 3, classes: 6, intensity: "Medium" },
-    { id: "SUB-003", name: "World History", head: "Arvind Swamy", teachers: 2, classes: 5, intensity: "Medium" },
-    { id: "SUB-004", name: "English Literature", head: "Deepika Padukone", teachers: 5, classes: 10, intensity: "High" },
+    { id: "SUB-001", name: "Mathematics", head: "Dr. Lakshmi K.", teachers: 4, classes: 8, intensity: "High" },
+    { id: "SUB-002", name: "Modern Physics", head: "Dhanya S.", teachers: 3, classes: 6, intensity: "Medium" },
+    { id: "SUB-003", name: "World History", head: "Arvind S.", teachers: 2, classes: 5, intensity: "Medium" },
+    { id: "SUB-004", name: "English Literature", head: "Ms. Deepika S.", teachers: 5, classes: 10, intensity: "High" },
   ];
 
   const mappings = [
-    { class: "Grade 10-A", subject: "Mathematics", teacher: "Dr. Ananya Iyer", students: 32, schedule: "Mon, Wed, Fri", status: "Active" },
-    { class: "Grade 10-B", subject: "Mathematics", teacher: "Ms. Sharma", students: 28, schedule: "Tue, Thu, Sat", status: "Active" },
-    { class: "Grade 11-A", subject: "Modern Physics", teacher: "Pooja Trivedi", students: 30, schedule: "Mon, Thu", status: "Incomplete" },
-    { class: "Grade 12-C", subject: "World History", teacher: "Arvind Swamy", students: 25, schedule: "Wed, Fri", status: "Active" },
+    { class: "Grade 10-A", subject: "Mathematics", teacher: "Dr. Lakshmi K.", students: 32, schedule: "Mon, Wed, Fri", status: "Active" },
+    { class: "Grade 10-B", subject: "Mathematics", teacher: "Ms. Saritha", students: 28, schedule: "Tue, Thu, Sat", status: "Active" },
+    { class: "Grade 11-A", subject: "Modern Physics", teacher: "Dhanya S.", students: 30, schedule: "Mon, Thu", status: "Incomplete" },
+    { class: "Grade 12-C", subject: "World History", teacher: "Arvind S.", students: 25, schedule: "Wed, Fri", status: "Active" },
   ];
 
   return (
@@ -324,8 +324,8 @@ export const CurriculumPage = ({ isHubChild }: { isHubChild?: boolean }) => {
                         <label className="text-[11px] font-bold text-slate-400">Assigned Teacher</label>
                         <select className="w-full bg-slate-50 border border-slate-100 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-primary/20 text-[13px] font-semibold text-secondary">
                             <option>Search Staff</option>
-                            <option>Mr. Swamy (Grade Lead)</option>
-                            <option>Ms. Reddy</option>
+                            <option>Mr. Menon (Grade Lead)</option>
+                            <option>Ms. Nair</option>
                         </select>
                     </div>
 
@@ -336,11 +336,11 @@ export const CurriculumPage = ({ isHubChild }: { isHubChild?: boolean }) => {
                         </div>
                         <div className="bg-slate-50 border border-slate-100 rounded-2xl p-4 max-h-40 overflow-y-auto space-y-3">
                             {[
-                                { name: "Rahul Verma", id: "STU-001" },
-                                { name: "Sneha Nair", id: "STU-002" },
-                                { name: "Aryan Singh", id: "STU-003" },
-                                { name: "Priya Das", id: "STU-004" },
-                                { name: "Zaid Khan", id: "STU-005" },
+                                { name: "Rahul K.", id: "STU-001" },
+                                { name: "Sneha R.", id: "STU-002" },
+                                { name: "Aryan Sreekumar", id: "STU-003" },
+                                { name: "Priya D.", id: "STU-004" },
+                                { name: "Zaid Muhammad", id: "STU-005" },
                             ].map((stu) => (
                                 <div key={stu.id} className="flex items-center gap-3">
                                     <div className="size-4 rounded border border-slate-300 bg-white flex items-center justify-center cursor-pointer">

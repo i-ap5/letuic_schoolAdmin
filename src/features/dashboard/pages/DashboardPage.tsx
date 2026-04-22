@@ -13,6 +13,7 @@ import {
     GraduationCap,
     Bus,
     Contact,
+    Search,
 } from "lucide-react";
 
 export const DashboardPage = () => {
@@ -61,7 +62,8 @@ export const DashboardPage = () => {
 
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
                         {/* Main Left Activity Column — 8 cols */}
-                        <div className="lg:col-span-8 space-y-4">
+                        <div className="lg:col-span-8 space-y-6">
+
                             {/* Quick Access Horizon Rail — Now Naked */}
                             <div className="py-2 px-6">
                                 <div className="flex items-center justify-between mb-4">
@@ -69,28 +71,106 @@ export const DashboardPage = () => {
                                 </div>
 
 
-                                <div className="flex items-center gap-8 overflow-x-auto no-scrollbar pb-2">
-                                    {[
-                                        { label: "Attendance", icon: Users, color: "text-emerald-500" },
-                                        { label: "Enroll", icon: UserPlus, color: "text-blue-500" },
-                                        { label: "Announcement", icon: Megaphone, color: "text-amber-500" },
-                                        { label: "Collect Fee", icon: WalletCards, color: "text-violet-500" },
-                                        { label: "Exam Marks", icon: GraduationCap, color: "text-rose-500" },
-                                        { label: "Bus Tracker", icon: Bus, color: "text-cyan-500" },
-                                        { label: "Staff Directory", icon: Contact, color: "text-slate-500" },
-                                    ].map((action, i) => (
-                                        <div key={i} className="flex flex-col items-center gap-2 group cursor-pointer min-w-fit">
-                                            <div className={cn(
-                                                "size-12 rounded-full flex items-center justify-center bg-white border border-slate-100 transition-all duration-300 group-hover:scale-110",
-                                                action.color
-                                            )}>
-                                                <action.icon size={22} strokeWidth={2} />
-                                            </div>
-                                            <span className="text-[11px] font-medium text-slate-500 group-hover:text-secondary transition-colors">
-                                                {action.label}
-                                            </span>
+                                <div className="space-y-6">
+                                    {/* Row 1: Know Your Student - Search Bar Integration */}
+                                    <div className="flex items-center gap-3 bg-white border border-slate-100 rounded-[18px] p-2 focus-within:ring-1 focus-within:ring-primary transition-all shadow-sm shadow-slate-100/50 group/search">
+                                        <div className="pl-4 text-slate-300 group-focus-within/search:text-primary transition-colors">
+                                            <Search size={20} strokeWidth={2.5} />
                                         </div>
-                                    ))}
+                                        <input
+                                            type="text"
+                                            placeholder="Know Your Student — Enter Name, Enrollment ID or Roll Number..."
+                                            className="flex-1 bg-transparent border-none outline-none text-[14px] font-normal text-secondary placeholder-slate-300 py-3 px-1"
+                                            onKeyDown={(e) => e.key === 'Enter' && navigate("/know-your-student")}
+                                        />
+                                        <button
+                                            onClick={() => navigate("/know-your-student")}
+                                            className="bg-primary text-secondary px-6 py-3 rounded-[12px] text-[12px]  font-bold hover:bg-secondary hover:text-white transition-all active:scale-95 shadow-lg shadow-primary/10 hover:shadow-secondary/20 whitespace-nowrap"
+                                        >
+                                            Get Details
+                                        </button>
+                                    </div>
+
+                                    {/* Row 2: Original Action Icons */}
+                                    <div className="flex items-center gap-8 pb-1 px-2">
+                                        {[
+                                            { label: "Attendance", icon: Users, color: "text-emerald-500", path: "/attendance" },
+                                            { 
+                                                label: "Onboard", 
+                                                icon: UserPlus, 
+                                                color: "text-blue-500", 
+                                                isMenu: true,
+                                                options: [
+                                                    { label: "Student", path: "/directory/enroll-student", icon: "person" },
+                                                    { label: "Teacher", path: "/directory/add-staff", icon: "badge" },
+                                                    { label: "Driver", path: "/directory/add-driver", icon: "local_shipping" },
+                                                    { label: "Bus", path: "/transportation/add-vehicle", icon: "directions_bus" },
+                                                ]
+                                            },
+                                            { label: "Announcement", icon: Megaphone, color: "text-amber-500", path: "/communications?compose=true" },
+                                            { label: "Collect Fee", icon: WalletCards, color: "text-violet-500", path: "/finance" },
+                                            { label: "Exam Marks", icon: GraduationCap, color: "text-rose-500", path: "/academics" },
+                                            { label: "Bus Tracker", icon: Bus, color: "text-cyan-500", path: "/transportation" },
+                                            { label: "Staff Directory", icon: Contact, color: "text-slate-500", path: "/directory" },
+                                        ].map((action, i) => {
+                                            if (action.isMenu) {
+                                                return (
+                                                    <div key={i} className="group/morph relative min-w-fit">
+                                                        <div className="flex flex-col items-center group cursor-pointer transition-all duration-500">
+                                                            {/* Morphing Box Tool */}
+                                                            <div className="h-12 w-12 rounded-full flex items-center justify-center bg-white border border-slate-100 transition-all duration-500 group-hover/morph:w-[320px] group-hover/morph:rounded-[22px] group-hover/morph:bg-white shadow-sm relative group-hover/morph:border-primary/30 mb-2.5 overflow-visible">
+                                                                {/* Primary Toggle Icon */}
+                                                                <div className="absolute inset-0 flex items-center justify-center transition-all duration-300 group-hover/morph:opacity-0 group-hover/morph:scale-50">
+                                                                    <action.icon size={22} strokeWidth={2} className={action.color} />
+                                                                </div>
+
+                                                                {/* Onboarding Categories */}
+                                                                <div className="absolute inset-0 opacity-0 group-hover/morph:opacity-100 transition-all duration-500 flex items-center justify-around px-2 pointer-events-none group-hover/morph:pointer-events-auto">
+                                                                    {action.options?.map((opt) => (
+                                                                        <div 
+                                                                            key={opt.label}
+                                                                            onClick={(e) => { e.stopPropagation(); navigate(opt.path); }}
+                                                                            className="flex flex-col items-center group/item hover:scale-110 transition-all relative pt-0.5"
+                                                                        >
+                                                                            <div className="size-10 rounded-full flex items-center justify-center text-slate-400 group-hover/item:bg-primary/20 group-hover/item:text-secondary transition-all">
+                                                                                <span className="material-symbols-outlined text-[20px]">{opt.icon}</span>
+                                                                            </div>
+                                                                            {/* Label positioned OUTSIDE the box below it */}
+                                                                            <span className="absolute top-[120%] text-[10px] font-bold text-secondary opacity-0 group-hover/morph:opacity-100 transition-all delay-100 whitespace-nowrap">
+                                                                                {opt.label}
+                                                                            </span>
+                                                                        </div>
+                                                                    ))}
+                                                                </div>
+                                                            </div>
+
+                                                            {/* Default Row Label */}
+                                                            <span className="text-[11px] font-bold text-slate-400 group-hover/morph:opacity-0 transition-all tracking-tight h-4">
+                                                                {action.label}
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                );
+                                            }
+                                            return (
+                                                <div 
+                                                    key={i}
+                                                    onClick={() => action.path && navigate(action.path)}
+                                                    className="flex flex-col items-center gap-2.5 group cursor-pointer min-w-fit"
+                                                >
+                                                    <div className={cn(
+                                                        "size-12 rounded-full flex items-center justify-center bg-white border border-slate-100 transition-all duration-300 group-hover:scale-110 shadow-sm",
+                                                        action.color
+                                                    )}>
+                                                        <action.icon size={22} strokeWidth={2} />
+                                                    </div>
+                                                    <span className="text-[11px] font-bold text-slate-400 group-hover:text-secondary transition-colors tracking-tight">
+                                                        {action.label}
+                                                    </span>
+                                                </div>
+                                            );
+                                        })}
+                                    </div>
                                 </div>
                             </div>
 
@@ -140,9 +220,9 @@ export const DashboardPage = () => {
 
                         <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 relative z-10">
                             {[
-                                { grade: "11-C", teacher: "Mr. Swamy", issue: "Attendance Drop", detail: "-22% Morning", score: 62, status: "critical" },
-                                { grade: "9-D", teacher: "Ms. Reddy", issue: "Grade Decline", detail: "Average Drop", score: 76, status: "warning" },
-                                { grade: "10-A", teacher: "Dr. Kapoor", issue: "Absenteeism", detail: "Unusual spikes", score: 68, status: "warning" },
+                                { grade: "11-C", teacher: "Mr. Manoj P.", issue: "Attendance Drop", detail: "-22% Morning", score: 62, status: "critical" },
+                                { grade: "9-D", teacher: "Ms. Dhanya S.", issue: "Grade Decline", detail: "Average Drop", score: 76, status: "warning" },
+                                { grade: "10-A", teacher: "Dr. Lakshmi K.", issue: "Absenteeism", detail: "Unusual spikes", score: 68, status: "warning" },
                             ].map((item, i) => (
                                 <div key={i} className="group relative">
                                     <div className="flex items-center gap-4 p-5 rounded-[18px] bg-white border border-slate-100 hover:border-primary/20 transition-all duration-500 cursor-pointer h-full">

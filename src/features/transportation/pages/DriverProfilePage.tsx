@@ -7,7 +7,7 @@ export const DriverProfilePage = () => {
 
   const drivers = [
     {
-      name: "Rajesh Kumar",
+      name: "Rajesh G.",
       id: "DRV-102",
       bus: "BUS-001",
       license: "LIC-882190",
@@ -17,7 +17,7 @@ export const DriverProfilePage = () => {
       experience: "8 Years",
     },
     {
-      name: "Sanjay Verma",
+      name: "Sajeev K.",
       id: "DRV-105",
       bus: "BUS-002",
       license: "LIC-443211",
@@ -27,7 +27,7 @@ export const DriverProfilePage = () => {
       experience: "5 Years",
     },
     {
-      name: "Vikram Malhotra",
+      name: "Vikram C.",
       id: "DRV-110",
       bus: "BUS-003",
       license: "LIC-110944",
@@ -37,7 +37,7 @@ export const DriverProfilePage = () => {
       experience: "12 Years",
     },
     {
-      name: "Dilip Singh",
+      name: "Dileep K.",
       id: "DRV-115",
       bus: "BUS-004",
       license: "LIC-994022",

@@ -7,7 +7,7 @@ type CalendarView = "teacher" | "class" | "parent";
 export const CalendarPage = () => {
   const [activeView, setActiveView] = useState<CalendarView>("teacher");
   const [selectedClass, setSelectedClass] = useState("10B");
-  const [selectedTeacher, setSelectedTeacher] = useState("Dr. C.V. Raman");
+  const [selectedTeacher, setSelectedTeacher] = useState("Dr. Sunitha V.");
 
   const teacherSchedule = [
     {
@@ -146,10 +146,12 @@ export const CalendarPage = () => {
                       ))
                     ) : (
                       [
-                        "Dr. C.V. Raman",
-                        "Dr. Priya Sharma",
-                        "Mr. S. K. Bose",
-                        "Ms. Anita Desai",
+                        "Ms. Preetha",
+                        "Ms. Saritha N S",
+                        "Ms. Latha Viswanathan",
+                        "Dr. Stefna Dias",
+                        "Ms. Maneesha O M",
+                        "Ms. Rajini Murali",
                       ].map((t) => (
                         <option key={t} value={t}>
                           {t}

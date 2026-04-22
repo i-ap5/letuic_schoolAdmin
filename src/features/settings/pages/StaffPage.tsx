@@ -110,7 +110,7 @@ export const StaffPage = ({
 
   const [internalStaff, setInternalStaff] = useState([
     {
-      name: "Dr. Ananya Iyer",
+      name: "Dr. Lakshmi K.",
       id: "#ST-1024-001",
       role: "Lead Teacher",
       department: "Mathematics",
@@ -118,10 +118,10 @@ export const StaffPage = ({
       auraScore: 98.4,
       status: "Active",
       img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
-      uid: "ananya-iyer",
+      uid: "ananya-i",
     },
     {
-      name: "Rishi Deshmukh",
+      name: "Rishi K.",
       id: "#ST-1024-042",
       role: "Senior Counselor",
       department: "Student Affairs",
@@ -129,10 +129,10 @@ export const StaffPage = ({
       auraScore: 91.2,
       status: "Remote",
       img: "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?w=400&h=400&fit=crop",
-      uid: "rishi-deshmukh",
+      uid: "rishi-d",
     },
     {
-      name: "Pooja Trivedi",
+      name: "Dhanya S.",
       id: "#ST-1024-118",
       role: "Science Head",
       department: "Natural Sciences",
@@ -140,10 +140,10 @@ export const StaffPage = ({
       auraScore: 94.5,
       status: "Active",
       img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop",
-      uid: "pooja-trivedi",
+      uid: "pooja-t",
     },
     {
-      name: "Arvind Swamy",
+      name: "Arvind S.",
       id: "#ST-1024-085",
       role: "Department Lead",
       department: "History",
@@ -151,7 +151,7 @@ export const StaffPage = ({
       auraScore: 82.2,
       status: "On Leave",
       img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop",
-      uid: "arvind-swamy",
+      uid: "arvind-s",
     },
   ]);
 

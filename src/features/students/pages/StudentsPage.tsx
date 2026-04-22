@@ -104,7 +104,7 @@ export const StudentsPage = ({
 
   const [internalStudents, setInternalStudents] = useState([
     {
-      name: "Aavya Sharma",
+      name: "Aavya S.",
       id: "OA-2024-001",
       grade: "12th Grade",
       participation: 92,
@@ -114,10 +114,10 @@ export const StudentsPage = ({
       enrollmentDate: "Aug 2021",
       status: "Active",
       img: "https://images.unsplash.com/photo-1531123897727-8f129e16fd3c?w=400&h=400&fit=crop",
-      uid: "aavya-sharma",
+      uid: "aavya-s",
     },
     {
-      name: "Ishaan Iyer",
+      name: "Ishaan K.",
       id: "OA-2024-042",
       grade: "10th Grade",
       participation: 45,
@@ -127,10 +127,10 @@ export const StudentsPage = ({
       enrollmentDate: "Aug 2022",
       status: "At Risk",
       img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
-      uid: "ishaan-iyer",
+      uid: "ishaan-i",
     },
     {
-      name: "Mira Patel",
+      name: "Meera V.",
       id: "OA-2024-118",
       grade: "11th Grade",
       participation: 88,
@@ -143,7 +143,7 @@ export const StudentsPage = ({
       uid: "mira-patel",
     },
     {
-      name: "Vedant Kulkarni",
+      name: "Vedant K.",
       id: "OA-2024-085",
       grade: "9th Grade",
       participation: 76,
@@ -156,7 +156,7 @@ export const StudentsPage = ({
       uid: "vedant-kulkarni",
     },
     {
-      name: "Sanya Gupta",
+      name: "Sanya G.",
       id: "OA-2024-201",
       grade: "12th Grade",
       participation: 95,
@@ -166,10 +166,10 @@ export const StudentsPage = ({
       enrollmentDate: "Aug 2021",
       status: "Active",
       img: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop",
-      uid: "sanya-gupta",
+      uid: "sanya-g",
     },
     {
-      name: "Arjun Rao",
+      name: "Arjun T.",
       id: "OA-2024-156",
       grade: "11th Grade",
       participation: 82,
@@ -182,7 +182,7 @@ export const StudentsPage = ({
       uid: "arjun-rao",
     },
     {
-      name: "Diya Malhotra",
+      name: "Diya M.",
       id: "OA-2024-092",
       grade: "10th Grade",
       participation: 68,
@@ -192,10 +192,10 @@ export const StudentsPage = ({
       enrollmentDate: "Jan 2023",
       status: "Active",
       img: "https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?w=400&h=400&fit=crop",
-      uid: "diya-malhotra",
+      uid: "diya-m",
     },
     {
-      name: "Rohan Das",
+      name: "Rohan P.",
       id: "OA-2024-305",
       grade: "9th Grade",
       participation: 54,

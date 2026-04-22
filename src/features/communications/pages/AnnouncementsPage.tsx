@@ -1,10 +1,24 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { TopBar } from "../../../components/Header";
 import { cn } from "../../../lib/utils";
 import { StatCard } from "../../../components/StatCard";
+import { Send, X, Users, Globe, Eye, ShieldCheck, Mail } from "lucide-react";
 
-export const AnnouncementsPage = ({ isHubChild }: { isHubChild?: boolean }) => {
+export const AnnouncementsPage = ({ isHubChild, forceCompose }: { isHubChild?: boolean, forceCompose?: number }) => {
   const [activeFilter, setActiveFilter] = useState("all");
+  const [isComposing, setIsComposing] = useState(false);
+
+  useEffect(() => {
+    if (forceCompose && forceCompose > 0) {
+      setIsComposing(true);
+    }
+  }, [forceCompose]);
+  const [newNotice, setNewNotice] = useState({
+    title: "",
+    content: "",
+    visibility: "Parents",
+    target: "All Grades"
+  });
 
   const announcements = [
     {
@@ -42,161 +56,260 @@ export const AnnouncementsPage = ({ isHubChild }: { isHubChild?: boolean }) => {
     },
   ];
 
+  const handlePost = () => {
+    // Demonstrate success
+    setIsComposing(false);
+    setNewNotice({ title: "", content: "", visibility: "Parents", target: "All Grades" });
+  };
+
   return (
     <div
       className={cn(
-        "flex-1 flex flex-col overflow-hidden bg-white",
+        "flex-1 flex flex-col overflow-hidden bg-[#F9FAFB]",
         !isHubChild && "h-screen",
       )}
     >
       {!isHubChild && (
         <TopBar
-          title="School Notices"
-          subtitle="Official school broadcasts and engagement tracking"
+          title={isComposing ? "Draft Institutional Notice" : "School Notices"}
+          subtitle={isComposing ? "Compose a new school-wide broadcast" : "Official school broadcasts and engagement tracking"}
           actions={
-            <button className="bg-primary text-secondary px-4 py-2 rounded-xl text-[13px] font-semibold flex items-center gap-2 hover:opacity-90 transition-all shadow-sm shadow-slate-100/30 active:scale-95">
-              <span className="material-symbols-outlined text-sm">
-                campaign
-              </span>
-              Post Announcement
-            </button>
+            !isComposing && (
+              <button 
+                onClick={() => setIsComposing(true)}
+                className="bg-primary text-secondary px-6 py-2.5 rounded-xl text-[13px] font-bold flex items-center gap-2 hover:bg-secondary hover:text-white transition-all shadow-lg shadow-primary/10 active:scale-95"
+              >
+                <PlusIcon className="size-4" />
+                Post Announcement
+              </button>
+            )
           }
         />
       )}
 
-      <div className="flex-1 overflow-y-auto mx-auto px-6 lg:px-10 py-6 max-w-[1400px] space-y-8">
-        {/* Engagement Analytics Row */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-          {[
-            {
-              label: "Total Reach",
-              value: "4,280",
-              icon: "groups",
-            },
-            {
-              label: "Avg. Engagement",
-              value: "72%",
-              icon: "visibility",
-            },
-            {
-              label: "Delivery Success",
-              value: "99.9%",
-              icon: "check_circle",
-              iconBg: "bg-emerald-50 text-emerald-500",
-            },
-            {
-              label: "Drafts",
-              value: "04",
-              icon: "edit_note",
-            },
-          ].map((stat, i) => (
-            <StatCard key={i} {...stat} />
-          ))}
-        </div>
+      <div className="flex-1 overflow-y-auto no-scrollbar mx-auto px-6 lg:px-10 py-10 max-w-[1400px] space-y-10">
+        
+        {!isComposing ? (
+          <>
+            {/* Engagement Analytics Row */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <StatCard 
+                label="Avg. Engagement"
+                value="72%"
+                icon="visibility"
+                tooltip="Average percentage of users who clicked or interaction with the notification content."
+              />
+              <StatCard 
+                label="Delivery Success"
+                value="99.9%"
+                icon="check_circle"
+                iconBg="bg-emerald-50 text-emerald-500"
+                tooltip="Percentage of notifications successfully pushed via App Notification and SMS bridge."
+              />
+              <StatCard 
+                label="Active Drafts"
+                value="04"
+                icon="edit_note"
+                tooltip="Notices currently being composed or pending approval before institutional release."
+              />
+            </div>
 
-        {/* Announcements List */}
-        <div className="bg-white rounded-2xl border border-slate-100 shadow-sm shadow-slate-100/30 overflow-hidden">
-          <div className="p-5 border-b border-slate-100 flex justify-between items-center">
-            <div className="flex bg-slate-50 p-1.5 rounded-full border border-slate-100">
-              {["all", "published", "drafts", "scheduled"].map((filter) => (
-                <button
-                  key={filter}
-                  onClick={() => setActiveFilter(filter)}
-                  className={cn(
-                    "px-5 py-1.5 text-[12px] font-bold transition-all rounded-full",
-                    activeFilter === filter
-                      ? "bg-white text-secondary shadow-sm shadow-slate-200/50 border border-slate-100/50"
-                      : "text-slate-400 hover:text-secondary hover:bg-slate-100/50",
-                  )}
+            {/* Announcements List Container */}
+            <div className="bg-white rounded-2xl border border-slate-100 shadow-sm shadow-slate-100/30 overflow-hidden">
+              <div className="p-6 border-b border-slate-100 flex justify-between items-center bg-white/50 backdrop-blur-sm">
+                <div className="flex bg-slate-50 p-1 rounded-xl border border-slate-100">
+                  {["all", "published", "drafts", "scheduled"].map((filter) => (
+                    <button
+                      key={filter}
+                      onClick={() => setActiveFilter(filter)}
+                      className={cn(
+                        "px-6 py-2 text-[12px] font-bold transition-all rounded-lg capitalize",
+                        activeFilter === filter
+                          ? "bg-white text-secondary shadow-sm border border-slate-100"
+                          : "text-slate-400 hover:text-secondary",
+                      )}
+                    >
+                      {filter}
+                    </button>
+                  ))}
+                </div>
+              </div>
+              <div className="overflow-x-auto px-2 pb-2">
+                <table className="w-full text-left">
+                  <thead>
+                    <tr className="bg-white border-b border-slate-50">
+                      <th className="px-6 py-5 text-[11px] font-black text-slate-400 uppercase tracking-widest">Notice Subject</th>
+                      <th className="px-6 py-5 text-[11px] font-black text-slate-400 uppercase tracking-widest">Audience</th>
+                      <th className="px-6 py-5 text-[11px] font-black text-slate-400 uppercase tracking-widest">Scope</th>
+                      <th className="px-6 py-5 text-[11px] font-black text-slate-400 uppercase tracking-widest">Engagement</th>
+                      <th className="px-6 py-5 text-[11px] font-black text-slate-400 uppercase tracking-widest text-right">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-50">
+                    {announcements.map((ann) => (
+                      <tr key={ann.id} className="hover:bg-slate-50/50 transition-colors group">
+                        <td className="px-6 py-6 max-w-sm">
+                          <p className="text-[14px] font-bold text-secondary mb-1.5">{ann.title}</p>
+                          <p className="text-xs text-slate-500 line-clamp-1 leading-relaxed">{ann.content}</p>
+                          <div className="flex items-center gap-2 mt-3 text-[10px] font-bold text-slate-300 italic tracking-tight">
+                            <span className="material-symbols-outlined text-[12px]">schedule</span>
+                            {ann.date} • {ann.id}
+                          </div>
+                        </td>
+                        <td className="px-6 py-6">
+                          <div className="flex flex-wrap gap-2">
+                            {ann.visibility.split(", ").map((v, i) => (
+                              <span key={i} className="text-[10px] font-bold px-3 py-1 rounded-lg bg-secondary/5 text-secondary/60 border border-secondary/10 uppercase tracking-tighter">
+                                {v}
+                              </span>
+                            ))}
+                          </div>
+                        </td>
+                        <td className="px-6 py-6 text-xs font-bold text-slate-500 italic uppercase tracking-tighter">
+                          {ann.target}
+                        </td>
+                        <td className="px-6 py-6">
+                          <div className="flex items-center gap-3">
+                            <div className="w-16 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                              <div className="h-full bg-primary shadow-sm" style={{ width: ann.engagement === "-" ? "0%" : ann.engagement }} />
+                            </div>
+                            <span className="text-[11px] font-black text-secondary">{ann.engagement}</span>
+                          </div>
+                        </td>
+                        <td className="px-6 py-6 text-right">
+                          <button className="size-9 rounded-xl border border-slate-100 bg-white flex items-center justify-center text-slate-300 hover:text-primary hover:border-primary/20 transition-all shadow-sm">
+                            <ArrowRightIcon className="size-4" />
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </>
+        ) : (
+          /* Compose Mode: New Notice Form */
+          <div className="max-w-2xl mx-auto animate-in slide-in-from-bottom-5 fade-in duration-500">
+            <div className="bg-white rounded-3xl border border-slate-100 shadow-xl shadow-slate-200/50 overflow-hidden">
+              <div className="p-8 border-b border-slate-100 flex items-center justify-between bg-[#F9FAFB]/50">
+                 <div className="flex items-center gap-3">
+                    <div className="size-10 rounded-2xl bg-primary/10 flex items-center justify-center text-primary">
+                        <Globe size={20} />
+                    </div>
+                    <div>
+                        <h3 className="text-secondary font-bold text-base">New Announcement</h3>
+                        <p className="text-[11px] font-medium text-slate-400">Drafting institutional broadcast</p>
+                    </div>
+                 </div>
+                 <button 
+                  onClick={() => setIsComposing(false)}
+                  className="size-10 rounded-2xl bg-slate-50 hover:bg-slate-100 flex items-center justify-center text-slate-400 transition-colors"
+                 >
+                    <X size={18} />
+                 </button>
+              </div>
+
+              <div className="p-8 space-y-8">
+                <div className="space-y-2">
+                    <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Notice Title / Subject</label>
+                    <input 
+                        type="text"
+                        placeholder="e.g. Science Lab Maintenance Updates..."
+                        className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-6 py-4 text-sm font-semibold text-secondary placeholder:text-slate-300 focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
+                        value={newNotice.title}
+                        onChange={(e) => setNewNotice({...newNotice, title: e.target.value})}
+                    />
+                </div>
+
+                <div className="grid grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                        <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Primary Audience</label>
+                        <select 
+                            className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-6 py-4 text-sm font-semibold text-secondary appearance-none cursor-pointer focus:ring-2 focus:ring-primary/20"
+                            value={newNotice.visibility}
+                            onChange={(e) => setNewNotice({...newNotice, visibility: e.target.value})}
+                        >
+                            <option>Parents</option>
+                            <option>Students</option>
+                            <option>Staff & Faculty</option>
+                            <option>All Institutional</option>
+                        </select>
+                    </div>
+                    <div className="space-y-2">
+                        <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Scope / Grade</label>
+                        <select 
+                            className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-6 py-4 text-sm font-semibold text-secondary appearance-none cursor-pointer focus:ring-2 focus:ring-primary/20"
+                            value={newNotice.target}
+                            onChange={(e) => setNewNotice({...newNotice, target: e.target.value})}
+                        >
+                            <option>All Grades</option>
+                            <option>High School Only</option>
+                            <option>Grade 10 & 11</option>
+                            <option>Specific Dept Only</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div className="space-y-2">
+                    <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Content / Message Body</label>
+                    <textarea 
+                        rows={6}
+                        placeholder="Detail the announcement here. Parents will receive this via the mobile app portal..."
+                        className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-6 py-4 text-sm font-medium text-slate-600 placeholder:text-slate-300 focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all resize-none leading-relaxed"
+                        value={newNotice.content}
+                        onChange={(e) => setNewNotice({...newNotice, content: e.target.value})}
+                    ></textarea>
+                </div>
+
+                <div className="bg-amber-50/50 p-5 rounded-2xl border border-amber-100 flex items-start gap-4">
+                    <ShieldCheck size={20} className="text-amber-500 shrink-0 mt-0.5" />
+                    <div className="space-y-1">
+                        <p className="text-[11px] font-bold text-amber-600 uppercase tracking-widest">Post Verification Notice</p>
+                        <p className="text-[12px] text-amber-600/70 font-medium leading-relaxed italic">This notice will be logged under your digital signature (Principal) and distributed instantly to {newNotice.visibility}.</p>
+                    </div>
+                </div>
+              </div>
+
+              <div className="p-8 bg-slate-50 border-t border-slate-100 flex items-center justify-between">
+                <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-2 text-slate-400">
+                        <Mail size={16} />
+                        <span className="text-[11px] font-bold">Email Copy</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-primary">
+                        <Eye size={16} />
+                        <span className="text-[11px] font-bold">Visibility Check Active</span>
+                    </div>
+                </div>
+                <button 
+                  onClick={handlePost}
+                  className="bg-secondary text-white px-8 py-4 rounded-2xl text-[14px] font-bold flex items-center gap-3 hover:bg-primary hover:text-secondary transition-all shadow-xl shadow-secondary/10 active:scale-[0.98]"
                 >
-                  <span className="capitalize">{filter}</span>
+                    <Send size={18} fill="currentColor" strokeWidth={0} />
+                    Finalize & Post
                 </button>
-              ))}
+              </div>
             </div>
           </div>
-          <div className="overflow-x-auto">
-            <table className="w-full text-left">
-              <thead>
-                <tr className="bg-slate-50/50 border-b border-slate-100">
-                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500">
-                    Title & Content
-                  </th>
-                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500">
-                    Visibility
-                  </th>
-                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500">
-                    Target
-                  </th>
-                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500">
-                    Engagement
-                  </th>
-                  <th className="px-6 py-4 text-[11px] font-bold text-slate-500 text-right">
-                    Actions
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-50">
-                {announcements.map((ann) => (
-                  <tr
-                    key={ann.id}
-                    className="hover:bg-slate-50/50 transition-colors group"
-                  >
-                    <td className="px-6 py-4 max-w-md">
-                      <p className="text-[13px] font-semibold text-secondary mb-1">
-                        {ann.title}
-                      </p>
-                      <p className="text-xs text-slate-500 line-clamp-1">
-                        {ann.content}
-                      </p>
-                      <p className="text-[10px] font-medium text-slate-300 mt-2 italic">
-                        {ann.date} • ID: {ann.id}
-                      </p>
-                    </td>
-                    <td className="px-6 py-4">
-                      <div className="flex flex-wrap gap-1.5">
-                        {ann.visibility.split(", ").map((v, i) => (
-                          <span
-                            key={i}
-                            className="text-[10px] font-bold px-3 py-1.5 rounded-full bg-slate-50 text-slate-500 border border-slate-200"
-                          >
-                            {v}
-                          </span>
-                        ))}
-                      </div>
-                    </td>
-                    <td className="px-6 py-4 text-xs font-medium text-slate-500">
-                      {ann.target}
-                    </td>
-                    <td className="px-6 py-4">
-                      <div className="flex items-center gap-2">
-                        <div className="w-16 h-1.5 bg-slate-50 rounded-full overflow-hidden">
-                          <div
-                            className="h-full bg-primary"
-                            style={{
-                              width:
-                                ann.engagement === "-" ? "0%" : ann.engagement,
-                            }}
-                          ></div>
-                        </div>
-                        <span className="text-xs font-medium text-slate-600">
-                          {ann.engagement}
-                        </span>
-                      </div>
-                    </td>
-                    <td className="px-6 py-4 text-right">
-                      <button className="text-slate-400 hover:text-secondary transition-colors">
-                        <span className="material-symbols-outlined text-xl">
-                          analytics
-                        </span>
-                      </button>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
+        )}
+
       </div>
     </div>
   );
 };
+
+// Internal Icons for clean UI
+const PlusIcon = (props: any) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" {...props}>
+    <line x1="12" y1="5" x2="12" y2="19"></line>
+    <line x1="5" y1="12" x2="19" y2="12"></line>
+  </svg>
+);
+
+const ArrowRightIcon = (props: any) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" {...props}>
+    <path d="M5 12h14"></path>
+    <path d="m12 5 7 7-7 7"></path>
+  </svg>
+);

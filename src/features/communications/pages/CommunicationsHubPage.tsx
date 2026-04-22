@@ -1,39 +1,55 @@
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
 import { TopBar } from "../../../components/Header";
 import { cn } from "../../../lib/utils";
 import { CommunicationsPage } from "./CommunicationsPage";
 import { AnnouncementsPage } from "./AnnouncementsPage";
 
 export const CommunicationsHubPage = () => {
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const shouldCompose = searchParams.get("compose") === "true";
+
   const [activeTab, setActiveTab] = useState<"messages" | "announcements">(
-    "messages",
+    shouldCompose ? "announcements" : "messages"
   );
+  
+  // State to trigger composition in child components
+  const [triggerCompose, setTriggerCompose] = useState(shouldCompose ? 1 : 0);
+
+  const handleComposeClick = () => {
+    setTriggerCompose(prev => prev + 1);
+  };
 
   return (
-    <div className="flex-1 flex flex-col h-screen overflow-hidden bg-white">
-      <div className="shrink-0">
+    <div className="flex-1 flex flex-col h-screen overflow-hidden bg-white font-sans">
+      <div className="shrink-0 bg-white">
         <TopBar
-          title="Messages"
-          subtitle="Internal staff chat and school notices"
+          title={activeTab === "messages" ? "Institutional Messages" : "School Notices"}
+          subtitle="Internal school coordination and official broadcasts"
           actions={
             <div className="flex gap-3">
-              <button className="bg-primary text-secondary px-4 py-2 rounded-xl text-[13px] font-semibold flex items-center gap-2 hover:opacity-90 transition-all shadow-sm shadow-slate-100/30">
+              <button 
+                onClick={handleComposeClick}
+                className="bg-primary text-secondary px-6 py-2.5 rounded-xl text-[13px] font-bold flex items-center gap-2 hover:bg-secondary hover:text-white transition-all shadow-sm active:scale-95"
+              >
                 <span className="material-symbols-outlined text-sm">
-                  edit_square
+                  {activeTab === "messages" ? "edit_square" : "campaign"}
                 </span>
-                Compose
+                {activeTab === "messages" ? "Start Coordination" : "Post Notice"}
               </button>
             </div>
           }
         />
 
-        <div className="px-8 border-b border-slate-100 bg-white">
-          <div className="flex gap-8">
+        {/* Global Hub Design Pattern for Tabbar (Matching Directory/Academics) */}
+        <div className="px-6 lg:px-10 border-b border-slate-100 bg-white">
+          <div className="flex gap-8 overflow-x-auto no-scrollbar">
             {[
-              { id: "messages", label: "Inbox", icon: "chat_bubble" },
+              { id: "messages", label: "Messages", icon: "forum" },
               {
                 id: "announcements",
-                label: "Notices",
+                label: "Institutional Notices",
                 icon: "campaign",
               },
             ].map((tab) => (
@@ -41,7 +57,7 @@ export const CommunicationsHubPage = () => {
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id as any)}
                 className={cn(
-                  "flex items-center gap-2 pb-4 text-[13px] font-semibold tracking-tight transition-all relative mt-4",
+                  "flex items-center gap-2 pb-4 text-[13px] font-semibold tracking-tight transition-all relative mt-4 shrink-0",
                   activeTab === tab.id
                     ? "text-secondary"
                     : "text-slate-400 hover:text-secondary",
@@ -52,7 +68,7 @@ export const CommunicationsHubPage = () => {
                 </span>
                 {tab.label}
                 {activeTab === tab.id && (
-                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-primary rounded-t-full" />
+                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-primary rounded-t-full animate-in zoom-in-x duration-300" />
                 )}
               </button>
             ))}
@@ -60,14 +76,14 @@ export const CommunicationsHubPage = () => {
         </div>
       </div>
 
-      <div className="flex-1 overflow-hidden flex flex-col">
+      <div className="flex-1 overflow-hidden flex flex-col bg-[#F9FAFB]/30">
         {activeTab === "messages" ? (
           <div className="flex-1 overflow-hidden">
             <CommunicationsPage isHubChild />
           </div>
         ) : (
           <div className="flex-1 overflow-y-auto no-scrollbar">
-            <AnnouncementsPage isHubChild />
+            <AnnouncementsPage isHubChild forceCompose={triggerCompose} />
           </div>
         )}
       </div>

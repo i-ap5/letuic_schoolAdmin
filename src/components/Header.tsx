@@ -1,4 +1,5 @@
 import { useState, type ReactNode } from "react";
+import { useNavigate } from "react-router-dom";
 import { cn } from "../lib/utils";
 
 export const TopBar = ({
@@ -11,17 +12,19 @@ export const TopBar = ({
     actions?: ReactNode;
     onBack?: () => void;
 }) => {
+    const navigate = useNavigate();
     const [showQuickMenu, setShowQuickMenu] = useState(false);
     const now = new Date();
     const greeting =
         now.getHours() < 12 ? "Good Morning" : now.getHours() < 17 ? "Good Afternoon" : "Good Evening";
 
     const quickActions = [
-        { label: "Enroll Student", icon: "person_add", color: "text-blue-500", bg: "bg-blue-50" },
-        { label: "Register Faculty", icon: "badge", color: "text-purple-500", bg: "bg-purple-50" },
-        { label: "Post Notice", icon: "campaign", color: "text-orange-500", bg: "bg-orange-50" },
-        { label: "Record Finance", icon: "payments", color: "text-green-500", bg: "bg-green-50" },
-        { label: "Add Schedule", icon: "calendar_add_on", color: "text-rose-500", bg: "bg-rose-50" },
+        { label: "Enroll Student", icon: "person_add", color: "text-blue-500", bg: "bg-blue-50", path: "/directory/enroll-student" },
+        { label: "Register Faculty", icon: "badge", color: "text-purple-500", bg: "bg-purple-50", path: "/directory/add-staff" },
+        { label: "Mark Attendance", icon: "event_available", color: "text-emerald-500", bg: "bg-emerald-50", path: "/attendance" },
+        { label: "Post Notice", icon: "campaign", color: "text-orange-500", bg: "bg-orange-50", path: "/communications?compose=true" },
+        { label: "Record Finance", icon: "payments", color: "text-green-500", bg: "bg-green-50", path: "/finance" },
+        { label: "Add Schedule", icon: "calendar_add_on", color: "text-rose-500", bg: "bg-rose-50", path: "/calendar" },
     ];
 
     return (
@@ -39,7 +42,7 @@ export const TopBar = ({
                         </button>
                     )}
                     <div className="flex flex-col gap-0.5">
-                        <p className="text-slate-400 text-[13px] font-medium">{greeting}, Dr. Priya</p>
+                        <p className="text-slate-400 text-[13px] font-medium">{greeting}, Dr. Rahana</p>
                         <h2 className="text-xl font-semibold tracking-tight text-secondary leading-tight">
                             {title}
                         </h2>
@@ -73,6 +76,10 @@ export const TopBar = ({
                                         {quickActions.map((action) => (
                                             <button 
                                                 key={action.label}
+                                                onClick={() => {
+                                                    navigate(action.path);
+                                                    setShowQuickMenu(false);
+                                                }}
                                                 className="w-full flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 transition-all group/item"
                                             >
                                                 <div className={cn("size-8 rounded-lg flex items-center justify-center transition-colors", action.bg, action.color)}>

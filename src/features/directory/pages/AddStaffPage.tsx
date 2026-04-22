@@ -80,7 +80,7 @@ export const AddStaffPage = () => {
                                 </div>
 
                                 <div className="grid grid-cols-2 gap-x-8 gap-y-6">
-                                    <FormGroup label="Full Name" placeholder="e.g. Dr. Ananya Iyer" />
+                                    <FormGroup label="Full Name" placeholder="e.g. Dr. Lakshmi K." />
                                     <FormGroup label="Date of Birth" placeholder="DD / MM / YYYY" icon="calendar_today" />
                                     <FormGroup label="Gender" type="select" options={["Select Gender", "Male", "Female", "Other"]} />
                                     <FormGroup label="Blood Group" type="select" options={["Select Group", "A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-"]} optional />

@@ -109,71 +109,21 @@ export const CommunicationsPage = ({
       )}
 
       <div className="flex-1 flex overflow-hidden">
-        {/* Inbox Sidebar */}
-        <aside className="w-80 border-r border-slate-100 flex flex-col bg-slate-50/50">
-          <div className="p-4 border-b border-slate-100 bg-white">
-            <div className="relative group">
-              <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-300 text-sm">
-                search
-              </span>
-              <input
-                className="w-full bg-slate-50/50 border-none rounded-xl pl-9 pr-4 py-2 text-xs focus:ring-2 focus:ring-primary text-secondary placeholder-slate-300"
-                placeholder="Search messages..."
-                type="text"
-              />
-            </div>
-          </div>
-          <div className="flex-1 overflow-y-auto p-4 space-y-3">
-            <MessageItem
-              sender="Sunita Reddy (Registrar)"
-              subject="Urgent: Missing Immunization Records"
-              preview="Hello Dr. Iyer, we have 42 students in Grade 10-D who..."
-              time="10:42 AM"
-              priority="urgent"
-              unread
-              img="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop"
-            />
-            <MessageItem
-              sender="District Superintendent"
-              subject="Budget Approval FY2025"
-              preview="The preliminary budget for the next academic year has been..."
-              time="09:15 AM"
-              priority="important"
-              unread
-              img="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop"
-            />
-            <MessageItem
-              sender="Aditya Verma (Grade 10-B)"
-              subject="Class Trip Proposal: Science Museum"
-              preview="I've attached the itinerary and budget for our upcoming..."
-              time="Yesterday"
-              img="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop"
-            />
-            <MessageItem
-              sender="Interschool Network"
-              subject="System Maintenance: Oct 28"
-              preview="Please be advised that the portal will be offline for..."
-              time="Oct 20"
-              priority="low"
-              img="https://images.unsplash.com/photo-1463453091185-61582044d556?w=400&h=400&fit=crop"
-            />
-          </div>
-        </aside>
-
-        {/* Message Content Area */}
+        {/* Inbox Sidebar Hidden as requested */}
+        
+        {/* Message Content Area - Now expanded */}
         <main className="flex-1 flex flex-col bg-white">
           <div className="flex-1 flex flex-col items-center justify-center p-12 text-center">
             <div className="bg-slate-50/50 size-24 rounded-full flex items-center justify-center mb-6">
               <span className="material-symbols-outlined text-4xl text-secondary/20">
-                forward_to_inbox
+                chat_bubble
               </span>
             </div>
             <h3 className="text-[16px] font-semibold text-secondary mb-2">
-              Select a message to read
+              Messages & Coordination Hub
             </h3>
             <p className="text-sm text-slate-400 max-w-xs leading-relaxed">
-              Manage school-wide broadcasts, internal staff memos, and
-              parent-teacher communications from one central hub.
+              Internal staff chats and institutional coordination are active. Select a thread or start a new coordination session.
             </p>
           </div>
         </main>

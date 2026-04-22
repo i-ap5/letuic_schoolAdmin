@@ -40,7 +40,7 @@ export const FeesPage = () => {
     const feeRecords = [
         {
             id: "F-2024-001",
-            student: "Rahul Verma",
+            student: "Rahul K.",
             grade: "Grade 10-A",
             category: "Tuition Fee",
             amount: 45000,
@@ -50,7 +50,7 @@ export const FeesPage = () => {
         },
         {
             id: "F-2024-002",
-            student: "Sneha Nair",
+            student: "Sneha R.",
             grade: "Grade 8-C",
             category: "Transport Fee",
             amount: 12000,
@@ -60,7 +60,7 @@ export const FeesPage = () => {
         },
         {
             id: "F-2024-003",
-            student: "Aryan Singh",
+            student: "Aryan Sreekumar",
             grade: "Grade 12-B",
             category: "Tuition Fee",
             amount: 52000,
@@ -70,7 +70,7 @@ export const FeesPage = () => {
         },
         {
             id: "F-2024-004",
-            student: "Priya Das",
+            student: "Priya D.",
             grade: "Grade 9-A",
             category: "Tuition Fee",
             amount: 45000,
@@ -80,7 +80,7 @@ export const FeesPage = () => {
         },
         {
             id: "F-2024-005",
-            student: "Zaid Khan",
+            student: "Zaid Muhammad",
             grade: "Grade 11-D",
             category: "Exam Fee",
             amount: 2500,

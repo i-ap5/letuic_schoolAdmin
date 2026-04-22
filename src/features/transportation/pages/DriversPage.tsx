@@ -57,7 +57,7 @@ export const DriversPage = ({ isHubChild }: { isHubChild?: boolean }) => {
   const navigate = useNavigate();
   const drivers = [
     {
-      name: "Rajesh Kumar",
+      name: "Rajesh G.",
       id: "DRV-102",
       bus: "BUS-001",
       license: "LIC-882190",
@@ -65,7 +65,7 @@ export const DriversPage = ({ isHubChild }: { isHubChild?: boolean }) => {
       img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
     },
     {
-      name: "Sanjay Verma",
+      name: "Sajeev K.",
       id: "DRV-105",
       bus: "BUS-002",
       license: "LIC-443211",
@@ -73,7 +73,7 @@ export const DriversPage = ({ isHubChild }: { isHubChild?: boolean }) => {
       img: "https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=400&h=400&fit=crop",
     },
     {
-      name: "Vikram Malhotra",
+      name: "Vikram C.",
       id: "DRV-110",
       bus: "BUS-003",
       license: "LIC-110944",
@@ -81,7 +81,7 @@ export const DriversPage = ({ isHubChild }: { isHubChild?: boolean }) => {
       img: "https://images.unsplash.com/photo-1463453091185-61582044d556?w=400&h=400&fit=crop",
     },
     {
-      name: "Dilip Singh",
+      name: "Dileep K.",
       id: "DRV-115",
       bus: "BUS-004",
       license: "LIC-994022",

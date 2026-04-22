@@ -2798,7 +2798,7 @@ export const ClassesPage = () => {
       room: "Room 304 | Morning Shift",
       status: "Normal",
       statusType: "normal" as const,
-      teacher: "Mr. Jonathan Roberts",
+      teacher: "Ms. Preetha",
       students: 28,
       participation: 94,
       id: "10-B",
@@ -3470,7 +3470,7 @@ export const ProgramsTable = () => {
     {
       name: "Regional Science Fair",
       phase: "Competition Phase",
-      teacher: "Dr. C.V. Raman",
+      teacher: "Dr. Sunitha",
       status: "Active",
       progress: 75,
     },
@@ -4914,7 +4914,7 @@ export const ProgramsPage = ({ isHubChild }: { isHubChild?: boolean }) => {
       participants: 45,
       status: "Active" as const,
       progress: 75,
-      leadTeacher: "Dr. C.V. Raman",
+      leadTeacher: "Dr. Sunitha",
       startDate: "Oct 15",
       endDate: "Dec 10",
     },
@@ -5978,7 +5978,7 @@ export const CommunityPage = () => {
       type: "Interschool",
       title: "Registration Open: Regional STEM Olympiad 2024",
       author: {
-        name: "Sunita Reddy",
+        name: "Sunitha",
         img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop",
         role: "Program Coordinator",
       },
@@ -6322,7 +6322,7 @@ export const CommunicationsPage = ({
           </div>
           <div className="flex-1 overflow-y-auto p-4 space-y-3">
             <MessageItem
-              sender="Sunita Reddy (Registrar)"
+              sender="Sunitha (Registrar)"
               subject="Urgent: Missing Immunization Records"
               preview="Hello Dr. Iyer, we have 42 students in Grade 10-D who..."
               time="10:42 AM"

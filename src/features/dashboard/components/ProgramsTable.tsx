@@ -1,9 +1,9 @@
 export const ProgramsTable = () => {
     const events = [
-        { name: "Regional Science Fair", date: "Mar 05", type: "Competition", teacher: "Dr. C.V. Raman", daysLeft: 4 },
+        { name: "Regional Science Fair", date: "Mar 05", type: "Competition", teacher: "Dr. Sunitha V.", daysLeft: 4 },
         { name: "PTA General Meeting", date: "Mar 08", type: "Meeting", teacher: "Admin Office", daysLeft: 7 },
         { name: "Term 2 Examinations", date: "Mar 15", type: "Exam", teacher: "All Teachers", daysLeft: 14 },
-        { name: "Inter-High Arts Expo", date: "Mar 22", type: "Event", teacher: "Ms. Amrita", daysLeft: 21 },
+        { name: "Inter-High Arts Expo", date: "Mar 22", type: "Event", teacher: "Ms. Amrita S.", daysLeft: 21 },
     ];
 
     const typeColors: Record<string, string> = {

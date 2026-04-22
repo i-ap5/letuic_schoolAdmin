@@ -7,7 +7,7 @@ export const StaffProfilePage = () => {
 
   const staffMembers = [
     {
-      name: "Dr. Ananya Iyer",
+      name: "Dr. Lakshmi K.",
       id: "ST-1024-001",
       role: "Lead Teacher",
       department: "Mathematics",
@@ -15,11 +15,11 @@ export const StaffProfilePage = () => {
       auraScore: 98.4,
       status: "Active",
       img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
-      email: "a.iyer@letuic.edu",
+      email: "l.k@letuic.edu",
       joinDate: "July 2018",
     },
     {
-      name: "Rishi Deshmukh",
+      name: "Rishi K.",
       id: "ST-1024-042",
       role: "Senior Counselor",
       department: "Student Affairs",
@@ -27,11 +27,11 @@ export const StaffProfilePage = () => {
       auraScore: 91.2,
       status: "Remote",
       img: "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?w=400&h=400&fit=crop",
-      email: "r.deshmukh@letuic.edu",
+      email: "r.k@letuic.edu",
       joinDate: "Aug 2020",
     },
     {
-      name: "Pooja Trivedi",
+      name: "Dhanya S.",
       id: "ST-1024-118",
       role: "Science Head",
       department: "Natural Sciences",
@@ -39,11 +39,11 @@ export const StaffProfilePage = () => {
       auraScore: 94.5,
       status: "Active",
       img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop",
-      email: "p.trivedi@letuic.edu",
+      email: "d.s@letuic.edu",
       joinDate: "June 2019",
     },
     {
-      name: "Arvind Swamy",
+      name: "Arvind S.",
       id: "ST-1024-085",
       role: "Department Lead",
       department: "History",
@@ -51,7 +51,7 @@ export const StaffProfilePage = () => {
       auraScore: 82.2,
       status: "On Leave",
       img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop",
-      email: "a.swamy@letuic.edu",
+      email: "a.s@letuic.edu",
       joinDate: "Jan 2017",
     },
   ];
@@ -143,7 +143,7 @@ export const StaffProfilePage = () => {
           <div className="bg-slate-50 border border-slate-100 rounded-2xl p-6 shadow-sm shadow-slate-100/30">
             <div className="flex justify-between items-start mb-4">
               <p className="text-slate-500 text-xs font-medium capitalize">
-                Student Aura Impact
+                Aura Score
               </p>
               <span className="material-symbols-outlined text-slate-300">
                 auto_awesome

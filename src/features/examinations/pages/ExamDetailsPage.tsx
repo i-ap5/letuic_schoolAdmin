@@ -13,28 +13,28 @@ export const ExamDetailsPage = () => {
     subjects: [
       {
         name: "Mathematics",
-        teacher: "Dr. Ananya Iyer",
+        teacher: "Dr. Lakshmi K.",
         avgScore: 76.5,
         submissions: "100%",
         status: "Published",
       },
       {
         name: "Science",
-        teacher: "Pooja Trivedi",
+        teacher: "Dhanya S.",
         avgScore: 82.1,
         submissions: "100%",
         status: "Published",
       },
       {
         name: "History",
-        teacher: "Arvind Swamy",
+        teacher: "Arvind S.",
         avgScore: 74.8,
         submissions: "98%",
         status: "Reviewing",
       },
       {
         name: "English Literature",
-        teacher: "Deepika Padukone",
+        teacher: "Ms. Deepika S.",
         avgScore: 79.2,
         submissions: "100%",
         status: "Published",
@@ -42,7 +42,7 @@ export const ExamDetailsPage = () => {
     ],
     studentPerformance: [
       {
-        name: "Aditya Verma",
+        name: "Adarsh V.",
         grade: "10B",
         math: 85,
         science: 90,
@@ -52,7 +52,7 @@ export const ExamDetailsPage = () => {
         img: "https://images.unsplash.com/photo-1542343633-ce3256525ee3?w=400&h=400&fit=crop",
       },
       {
-        name: "Isha Kapoor",
+        name: "Isha K.",
         grade: "10B",
         math: 65,
         science: 72,
@@ -62,7 +62,7 @@ export const ExamDetailsPage = () => {
         img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop",
       },
       {
-        name: "Kabir Mehra",
+        name: "Kabir M.",
         grade: "10B",
         math: 92,
         science: 88,
@@ -72,7 +72,7 @@ export const ExamDetailsPage = () => {
         img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
       },
       {
-        name: "Sneha Nair",
+        name: "Sneha R.",
         grade: "10B",
         math: 42,
         science: 55,

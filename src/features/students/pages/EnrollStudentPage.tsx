@@ -119,7 +119,7 @@ export const EnrollStudentPage = () => {
                                             <h5 className="text-[14px] font-bold text-secondary tracking-tight">Mother's Information</h5>
                                         </div>
                                         <div className="space-y-4">
-                                            <FormGroup label="Mother's Full Name" placeholder="e.g. Priya Sharma" />
+                                            <FormGroup label="Mother's Full Name" placeholder="e.g. Dr. Rahana" />
                                             <FormGroup label="Email Address" placeholder="priya.s@example.com" icon="mail" />
                                             <FormGroup label="Mobile Number" placeholder="+91 XXXXX XXXXX" icon="call" />
                                             <FormGroup label="Occupation" placeholder="e.g. Content Lead" />

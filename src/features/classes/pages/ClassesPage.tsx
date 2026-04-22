@@ -14,7 +14,7 @@ export const ClassesPage = () => {
       room: "Room 304 | Morning Shift",
       status: "Normal",
       statusType: "normal" as const,
-      teacher: "Mr. Jonathan Roberts",
+      teacher: "Ms. Preetha",
       students: 28,
       participation: 94,
       id: "10-B",
@@ -25,7 +25,7 @@ export const ClassesPage = () => {
       room: "Room 102 | Morning Shift",
       status: "Normal",
       statusType: "normal" as const,
-      teacher: "Dr. Helen Chen",
+      teacher: "Ms. Saritha N S",
       students: 22,
       participation: 88,
       id: "12-A",
@@ -36,7 +36,7 @@ export const ClassesPage = () => {
       room: "Lab 1 | Afternoon Shift",
       status: "Attention",
       statusType: "attention" as const,
-      teacher: "Ms. Linda Garcia",
+      teacher: "Ms. Latha Viswanathan",
       students: 31,
       participation: 76,
       id: "9-D",
@@ -47,7 +47,7 @@ export const ClassesPage = () => {
       room: "Room 205 | Morning Shift",
       status: "At Risk",
       statusType: "risk" as const,
-      teacher: "Mr. James Smith",
+      teacher: "Dr. Stefna Dias",
       students: 25,
       participation: 62,
       id: "11-C",
@@ -58,7 +58,7 @@ export const ClassesPage = () => {
       room: "Room 301 | Morning Shift",
       status: "Normal",
       statusType: "normal" as const,
-      teacher: "Mrs. Alice Wong",
+      teacher: "Ms. Maneesha O M",
       students: 30,
       participation: 91,
       id: "10-A",
@@ -69,7 +69,7 @@ export const ClassesPage = () => {
       room: "Room 202 | Afternoon Shift",
       status: "Normal",
       statusType: "normal" as const,
-      teacher: "Mr. David Miller",
+      teacher: "Ms. Rajini Murali",
       students: 26,
       participation: 85,
       id: "11-B",
@@ -89,7 +89,7 @@ export const ClassesPage = () => {
               </span>
               Export List
             </button>
-            <button 
+            <button
               onClick={() => setShowCreateModal(true)}
               className="bg-primary text-secondary px-4 py-2 rounded-xl text-[13px] font-semibold flex items-center gap-2 hover:opacity-90 transition-all shadow-sm shadow-slate-100/30 active:scale-95"
             >
@@ -152,8 +152,8 @@ export const ClassesPage = () => {
             ))}
           </div>
 
-          <CreateClassModal 
-            isOpen={showCreateModal} 
+          <CreateClassModal
+            isOpen={showCreateModal}
             onClose={() => setShowCreateModal(false)}
             onCreated={(newCls) => setClasses([newCls, ...classes])}
           />

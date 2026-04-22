@@ -85,6 +85,7 @@ export const Sidebar = () => {
                 <nav className="flex flex-col gap-1">
                     <NavItem icon="space_dashboard" label="Home" path="/" active={isActive("/")} />
                     <NavItem icon="grid_view" label="Classes" path="/classes" active={isActive("/classes")} />
+                    <NavItem icon="event_available" label="Attendance" path="/attendance" active={isActive("/attendance")} />
                     <NavItem icon="school" label="Academics" path="/academics" active={isActive("/academics")} />
                     <NavItem icon="badge" label="Student & Staff" path="/directory" active={isActive("/directory")} />
                     <NavItem icon="payments" label="Finance" path="/finance" active={isActive("/finance")} />
@@ -102,7 +103,7 @@ export const Sidebar = () => {
                 <div className="px-1">
                     <div className="flex items-center gap-4 rounded-[20px] group/time">
                         <div className="flex flex-col items-center justify-center bg-white size-12 rounded-[14px] shadow-sm shadow-slate-200/50 border border-slate-100 shrink-0 transition-transform group-hover/time:scale-105">
-                            <span className="text-[9px] font-black text-secondary uppercase leading-none tracking-tighter">
+                            <span className="text-[9px] font-black text-secondary/40 uppercase leading-none tracking-tighter">
                                 {now.toLocaleDateString("en-IN", { month: "short" })}
                             </span>
                             <span className="text-[18px] font-black text-secondary leading-none mt-1">
@@ -118,7 +119,7 @@ export const Sidebar = () => {
                                 <span className="text-[16px] font-black text-secondary tracking-tight">
                                     {timeStr.split(":")[1]}
                                 </span>
-                                <span className="text-[10px] font-black text-slate-300 uppercase ml-1">
+                                <span className="text-[12px] font-black text-secondary/40 uppercase ml-1">
                                     {amPm}
                                 </span>
                             </div>
@@ -139,7 +140,7 @@ export const Sidebar = () => {
                     ></div>
                     <div className="flex flex-col overflow-hidden">
                         <p className="text-[13px] font-bold text-secondary truncate">
-                            Dr. Priya Sharma
+                            Dr. Rahana
                         </p>
                         <p className="text-[11px] text-slate-400 mt-0.5 font-medium">
                             Principal Account
