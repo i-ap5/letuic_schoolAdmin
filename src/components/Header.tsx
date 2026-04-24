@@ -42,7 +42,7 @@ export const TopBar = ({
                         </button>
                     )}
                     <div className="flex flex-col gap-0.5">
-                        <p className="text-slate-400 text-[13px] font-medium">{greeting}, Dr. Rahana</p>
+                        <p className="text-slate-400 text-[13px] font-medium">{greeting}, Principal</p>
                         <h2 className="text-xl font-semibold tracking-tight text-secondary leading-tight">
                             {title}
                         </h2>

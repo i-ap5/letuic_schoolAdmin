@@ -9,11 +9,11 @@ export const CommunityPage = ({ isHubChild }: { isHubChild?: boolean }) => {
   const posts = [
     {
       id: 1,
-      author: "Dr. Rahana",
-      role: "Principal",
+      author: "School Administration",
+      role: "Official",
       avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop",
-      content: "It is a moment of immense pride for Adarsha Vidya Bhavan as we announce a 100% result for our Class 10 batch of 2026! 🎓 Our students have displayed exceptional dedication, and I congratulate them, their families, and our hardworking faculty for this stellar achievement. Let us celebrate our top scorers who have set a new benchmark for excellence. #Class10Results #100PercentSuccess #AcademicExcellence #ProudMoment",
-      image: "/banner.jpg",
+      content: "A proud moment for our little achievers!\n\nJoin us for the joyful UKG Graduation Ceremony at Holy India Foundation School, where our young stars celebrate their first big milestone with smiles, confidence, and success.✨ A day filled with happiness, proud moments, and memories as we shape character today for a better tomorrow.\n🕤 09:30 AM | 📅 30th March\n📍 Holy India Foundation School\n\nCome and celebrate this special day with us! 👏🎓\n\n🌐holiindiaschool.com\n📧 holyindiasrsecschool@gmail.com\n📞+91 9961489829, 9605520555\n📍Ayyappa Temple Kaitharam N.Paravoor\nAffiliated to CBSE; Affli. No. 93007",
+      image: "/banner2.jpg",
       time: "Just now",
       reactions: 342,
       comments: 56,
@@ -21,14 +21,15 @@ export const CommunityPage = ({ isHubChild }: { isHubChild?: boolean }) => {
     },
     {
       id: 2,
-      author: "Rohan P.",
-      role: "Grade 10 Student",
+      author: "Admissions Office",
+      role: "Official",
       avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100",
-      content: "Does anyone have the reference materials for the upcoming Calculus midterm? Specifically looking for the derivatives worksheet. Thanks!",
-      time: "5h ago",
-      reactions: 8,
+      content: "Fuel your child's imagination at Holy India Foundation School. We provide a nurturing environment where creativity meets academic excellence. Apply now for the upcoming academic session before seats fill up!\n\n🌐holiindiaschool.com\n📧 holyindiasrsecschool@gmail.com\n📞+91 9961489829, 9605520555\n📍Ayyappa Temple Kaitharam N.Paravoor\nAffiliated to CBSE; Affli. No. 93007",
+      image: "/banner3.jpg",
+      time: "2h ago",
+      reactions: 156,
       comments: 24,
-      isAcknowledged: false,
+      isAcknowledged: true,
     }
   ];
 
@@ -141,7 +142,7 @@ export const CommunityPage = ({ isHubChild }: { isHubChild?: boolean }) => {
                                 </button>
                             </div>
                             
-                            <p className="text-[14px] text-slate-600 font-medium leading-relaxed mb-6">
+                            <p className="text-[14px] text-slate-600 font-medium leading-relaxed mb-6 whitespace-pre-wrap">
                                 {post.content}
                             </p>
 

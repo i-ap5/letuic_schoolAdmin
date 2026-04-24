@@ -336,7 +336,7 @@ export const StudentProfilePage = () => {
                         <div className="space-y-6 relative border-l border-white/10 pl-6">
                             <div className="relative pb-2">
                                 <div className="absolute -left-[27px] top-1.5 size-1.5 rounded-full bg-primary" />
-                                <p className="text-[9px] font-bold text-primary mb-2 uppercase tracking-widest leading-none">Oct 12 • Dr. Rahana</p>
+                                <p className="text-[9px] font-bold text-primary mb-2 uppercase tracking-widest leading-none">Oct 12 • Principal</p>
                                 <p className="text-[12px] text-white/50 leading-relaxed italic group-hover:text-white/80 transition-colors">"Confirmed Engineering track during PTM."</p>
                             </div>
                         </div>

@@ -143,7 +143,7 @@ export const Sidebar = () => {
                     ></div>
                     <div className="flex flex-col overflow-hidden">
                         <p className="text-[13px] font-bold text-secondary truncate">
-                            Dr. Rahana
+                            Principal
                         </p>
                         <p className="text-[11px] text-slate-400 mt-0.5 font-medium">
                             Principal Account
